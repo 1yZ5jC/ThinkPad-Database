@@ -7,12 +7,11 @@
       "model_generation":"xx60",
       "update_date": "November 2016",
       "processor_options": ["6300HQ","6440HQ","6700HQ","6820HQ"],
-      "graphics": {
-        "integrated": "Intel HD Graphics 530 ",
-        "discrete": "NVIDIA GeForce 940MX, 2GB",
+      "graphics_options": ["HD520","GeForce_940MX"],
+      "Display": {
         "max_resolution": {
           "mini_dp": "3840x2160@60Hz ",
-          "hdmi": "4096x2160@24Hz "
+          "hdmi": "1920x1080@60Hz "
         },
         "multi_display": "Supports 3 independent displays "
       },

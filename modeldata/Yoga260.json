@@ -7,9 +7,8 @@
       "model_generation":"xx60",
       "update_date": "July 2016",
       "processor_options": ["6100U","6200U","6300U","6500U","6600U"],
-      "graphics": {
-        "integrated": "Intel HD Graphics 520 ",
-        "discrete": null,
+      "graphics_options": ["HD520"],
+      "Display": {
         "max_resolution": {
           "mini_dp": "3840x2160@60Hz ",
           "hdmi": "1920x1080@60Hz "

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThinkPad Specs</title>
+    <title>ThinkPad Specs · 完整版</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -61,70 +61,19 @@
 </div>
 
 <script>
-    // 全局菜单计时器
-    window.menuTimers = {};
-
-    window.menuEnter = function(menuId) {
-        if (window.menuTimers[menuId]) {
-            clearTimeout(window.menuTimers[menuId]);
-            delete window.menuTimers[menuId];
-        }
-        const menu = document.getElementById(menuId);
-        if (menu) menu.classList.remove('hidden');
-    };
-
-    window.menuLeave = function(menuId) {
-        window.menuTimers[menuId] = setTimeout(() => {
-            const menu = document.getElementById(menuId);
-            if (menu) menu.classList.add('hidden');
-            delete window.menuTimers[menuId];
-        }, 100);
-    };
-
-    // 新增：卡片菜单切换 (点击 ⋮ 显示/隐藏)
-    window.toggleCardMenu = function(menuId) {
-        const menu = document.getElementById(menuId);
-        if (menu) menu.classList.toggle('hidden');
-    };
-
-    // 隐藏指定卡片菜单 (用于点击菜单项后关闭)
-    window.hideCardMenu = function(menuId) {
-        const menu = document.getElementById(menuId);
-        if (menu) menu.classList.add('hidden');
-    };
-
-    // FRU 模态框控制
-    window.closeFruModal = function() {
-        document.getElementById('fruModal').classList.remove('show');
-    };
-
-    // 存储所有原始型号数据
+    // ---------- 全局变量 ----------
     let masterModelList = [];
-    
-    // 零件数据缓存
-    const partsCache = {
-        cpu: {},
-        ethernet: {},
-        wlan: {},
-        wwan: {},
-        display: {}
-    };
-
-    // 当前筛选状态
+    const partsCache = { cpu: {}, ethernet: {}, wlan: {}, wwan: {}, display: {}, graphics: {} };
     let currentFilterType = 'family';
     let currentFamilyValue = '';
     let currentGenValue = '';
-
-    // 当前选中的设备 (用于FRU弹窗)
-    let currentDevice = null;
-    // 当前设备部件数据 (供FRU菜单使用)
-    let currentDeviceParts = null;
+    let menuCounter = 0;                     // 用于生成唯一菜单ID
+    let currentDeviceParts = null;            // 当前设备所有部件数据
 
     // DOM 元素
     const menuEl = document.getElementById('modelMenu');
     const specDisplayEl = document.getElementById('specDisplay');
     const modelCountSpan = document.getElementById('modelCount');
-    
     const filterFamilyBtn = document.getElementById('filterFamilyBtn');
     const filterGenBtn = document.getElementById('filterGenBtn');
     const familyContainer = document.getElementById('familyFilterContainer');
@@ -133,181 +82,213 @@
     const generationSelect = document.getElementById('generationSelect');
     const resetBtn = document.getElementById('resetFilterBtn');
 
-    // ---------- 辅助函数：格式化零件完整信息 ----------
-function formatPartFullInfo(partData, partType) {
-    if (!partData) return '<div class="no-info">无信息</div>';
-    
-    const data = partData.thinkpad_database?.[0] || partData;
-    const lines = [];
+    // ---------- 菜单悬停控制 ----------
+    window.menuTimers = {};
+    window.menuEnter = function(menuId) {
+        if (window.menuTimers[menuId]) {
+            clearTimeout(window.menuTimers[menuId]);
+            delete window.menuTimers[menuId];
+        }
+        const menu = document.getElementById(menuId);
+        if (menu) menu.classList.remove('hidden');
+    };
+    window.menuLeave = function(menuId) {
+        window.menuTimers[menuId] = setTimeout(() => {
+            const menu = document.getElementById(menuId);
+            if (menu) menu.classList.add('hidden');
+            delete window.menuTimers[menuId];
+        }, 100);
+    };
 
-    if (partType === 'ethernet') {
-        // 以太网卡：优先显示 type 和 model-type
-        let mainLine = '';
-        if (data.type) mainLine += data.type;
-        if (data['model-type']) mainLine += `，${data['model-type']}`;
-        if (mainLine) lines.push(`<div class="part-title">${mainLine}</div>`);
-        
-        // 其他字段
-        for (const [key, value] of Object.entries(data)) {
-            if (key === 'type' || key === 'model-type') continue;
-            if (value == null || value === '') continue;
-            if (typeof value === 'object') continue;
-            const fieldName = key.replace(/_/g, ' ');
-            lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
-        }
+    // ---------- FRU 模态框 ----------
+    window.closeFruModal = function() {
+        document.getElementById('fruModal').classList.remove('show');
+    };
+    function showFruModal(partData) {
+        const modal = document.getElementById('fruModal');
+        const body = document.getElementById('fruModalBody');
+        body.innerHTML = formatFruContent(partData);
+        modal.classList.add('show');
     }
-else if (partType === 'cpu') {
-    // CPU：重点字段优先
-    if (data.model) lines.push(`<div class="part-title">${data.model}</div>`);
-    if (data.cores_threads) lines.push(`<div><span class="field-name">核心/线程:</span> <span class="field-value">${data.cores_threads}</span></div>`);
-    if (data.base_freq) lines.push(`<div><span class="field-name">基础频率:</span> <span class="field-value">${data.base_freq}</span></div>`);
-    if (data.turbo_freq && data.turbo_freq !== 'null') lines.push(`<div><span class="field-name">睿频:</span> <span class="field-value">${data.turbo_freq}</span></div>`);
-    if (data.cache) lines.push(`<div><span class="field-name">缓存:</span> <span class="field-value">${data.cache}</span></div>`);
-    if (data.graphics) lines.push(`<div><span class="field-name">集成显卡:</span> <span class="field-value">${data.graphics}</span></div>`);
-    
-    // 排除字段：iconfamily, ark 以及已处理字段
-    const excludeFields = ['model','cores_threads','base_freq','turbo_freq','cache','graphics','iconfamily','ark'];
-    for (const [key, value] of Object.entries(data)) {
-        if (excludeFields.includes(key)) continue;
-        if (value && typeof value !== 'object') {
-            const fieldName = key.replace(/_/g, ' ');
-            lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
+    window.showFruModalByPartId = function(menuItem, partId, menuId) {
+        if (event) event.stopPropagation();
+        if (!currentDeviceParts) return;
+        const [type, index] = partId.split('_');
+        const part = currentDeviceParts[type]?.[parseInt(index)];
+        if (part) showFruModal(part.data);
+        // 关闭当前菜单
+        const menu = document.getElementById(menuId);
+        if (menu) menu.classList.add('hidden');
+        if (window.menuTimers[menuId]) clearTimeout(window.menuTimers[menuId]);
+    };
+
+    // ---------- 格式化 FRU 内容 ----------
+    function formatFruContent(partData) {
+        if (!partData) return '<div class="no-fru">无 FRU 信息</div>';
+        const frus = partData.FRUs || partData.frus || partData.Frus;
+        if (!frus) return '<div class="no-fru">该部件无 FRU 数据</div>';
+        let items = [];
+        if (Array.isArray(frus)) {
+            frus.forEach(item => {
+                if (typeof item === 'string') items.push(item);
+                else if (typeof item === 'object') {
+                    Object.entries(item).forEach(([k, v]) => items.push(`${k}: ${v}`));
+                }
+            });
+        } else if (typeof frus === 'object') {
+            Object.entries(frus).forEach(([k, v]) => items.push(`${k}: ${v}`));
+        } else {
+            items.push(String(frus));
         }
+        if (items.length === 0) return '<div class="no-fru">无 FRU 信息</div>';
+        return items.map(text => `<div class="fru-item">${text}</div>`).join('');
     }
-}
-    else if (partType === 'display') {
-        // 显示屏：分辨率作为标题
-        if (data.type) lines.push(`<div class="part-title">${data.type}</div>`);
-        if (data.tech) lines.push(`<div><span class="field-name">技术:</span> <span class="field-value">${data.tech}</span></div>`);
-        if (data.brightness) lines.push(`<div><span class="field-name">亮度:</span> <span class="field-value">${data.brightness}</span></div>`);
-        if (data.contrast) lines.push(`<div><span class="field-name">对比度:</span> <span class="field-value">${data.contrast}</span></div>`);
-        if (data.viewing_angle) lines.push(`<div><span class="field-name">视角:</span> <span class="field-value">${data.viewing_angle}</span></div>`);
-        if (data.touch) lines.push(`<div><span class="field-name">触摸:</span> <span class="field-value">${data.touch}</span></div>`);
-        if (data.refresh_rate) lines.push(`<div><span class="field-name">刷新率:</span> <span class="field-value">${data.refresh_rate}</span></div>`);
-        if (data.color_gamut) lines.push(`<div><span class="field-name">色域:</span> <span class="field-value">${data.color_gamut}</span></div>`);
-        
-        // 其他字段
-        for (const [key, value] of Object.entries(data)) {
-            if (['type','tech','brightness','contrast','viewing_angle','touch','refresh_rate','color_gamut'].includes(key)) continue;
-            if (value && typeof value !== 'object') {
+
+    // ---------- 格式化部件详细信息（返回 HTML）----------
+    function formatPartFullInfo(partData, partType) {
+        if (!partData) return '<div class="no-info">无信息</div>';
+        const data = partData.thinkpad_database?.[0] || partData;
+        const lines = [];
+
+        if (partType === 'ethernet') {
+            let mainLine = '';
+            if (data.type) mainLine += data.type;
+            if (data['model-type']) mainLine += `，${data['model-type']}`;
+            if (mainLine) lines.push(`<div class="part-title">${mainLine}</div>`);
+            for (const [key, value] of Object.entries(data)) {
+                if (key === 'type' || key === 'model-type') continue;
+                if (value == null || value === '') continue;
+                if (typeof value === 'object') continue;
                 const fieldName = key.replace(/_/g, ' ');
                 lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
             }
         }
-    }
-    else {
-        // 无线网卡 / WWAN：型号作为大标题，不显示前缀
-        // 定义关键字段组（优先处理）
-        const keyFieldGroups = [
-            { keys: ['type', 'model', 'chipset'], isTitle: true },  // 型号组作为标题
-            { keys: ['form'], label: '形态' },
-            { keys: ['feature'], label: '功能' },
-        ];
-        
-        const usedKeys = new Set();
-
-        // 处理标题组（型号）
-        for (const group of keyFieldGroups) {
-            if (group.isTitle) {
-                for (const key of group.keys) {
-                    if (data[key] != null && data[key] !== '') {
-                        const value = data[key];
-                        const valStr = typeof value === 'object' ? JSON.stringify(value) : String(value);
-                        lines.push(`<div class="part-title">${valStr}</div>`);
-                        usedKeys.add(key);
-                        break; // 只取第一个匹配的键作为标题
-                    }
+        else if (partType === 'cpu') {
+            if (data.model) lines.push(`<div class="part-title">${data.model}</div>`);
+            if (data.cores_threads) lines.push(`<div><span class="field-name">核心/线程:</span> <span class="field-value">${data.cores_threads}</span></div>`);
+            if (data.base_freq) lines.push(`<div><span class="field-name">基础频率:</span> <span class="field-value">${data.base_freq}</span></div>`);
+            if (data.turbo_freq && data.turbo_freq !== 'null') lines.push(`<div><span class="field-name">睿频:</span> <span class="field-value">${data.turbo_freq}</span></div>`);
+            if (data.cache) lines.push(`<div><span class="field-name">缓存:</span> <span class="field-value">${data.cache}</span></div>`);
+            if (data.graphics) lines.push(`<div><span class="field-name">集成显卡:</span> <span class="field-value">${data.graphics}</span></div>`);
+            const excludeFields = ['model','cores_threads','base_freq','turbo_freq','cache','graphics','iconfamily','ark'];
+            for (const [key, value] of Object.entries(data)) {
+                if (excludeFields.includes(key)) continue;
+                if (value && typeof value !== 'object') {
+                    const fieldName = key.replace(/_/g, ' ');
+                    lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
                 }
             }
         }
-
-        // 处理其他关键字段（带标签）
-        for (const group of keyFieldGroups) {
-            if (!group.isTitle) {
-                for (const key of group.keys) {
-                    if (data[key] != null && data[key] !== '' && !usedKeys.has(key)) {
-                        const value = data[key];
-                        const valStr = typeof value === 'object' ? JSON.stringify(value) : String(value);
-                        lines.push(`<div><span class="field-name">${group.label}:</span> <span class="field-value">${valStr}</span></div>`);
-                        usedKeys.add(key);
-                        break;
-                    }
+        else if (partType === 'display') {
+            if (data.type) lines.push(`<div class="part-title">${data.type}</div>`);
+            if (data.tech) lines.push(`<div><span class="field-name">技术:</span> <span class="field-value">${data.tech}</span></div>`);
+            if (data.brightness) lines.push(`<div><span class="field-name">亮度:</span> <span class="field-value">${data.brightness}</span></div>`);
+            if (data.contrast) lines.push(`<div><span class="field-name">对比度:</span> <span class="field-value">${data.contrast}</span></div>`);
+            if (data.viewing_angle) lines.push(`<div><span class="field-name">视角:</span> <span class="field-value">${data.viewing_angle}</span></div>`);
+            if (data.touch) lines.push(`<div><span class="field-name">触摸:</span> <span class="field-value">${data.touch}</span></div>`);
+            if (data.refresh_rate) lines.push(`<div><span class="field-name">刷新率:</span> <span class="field-value">${data.refresh_rate}</span></div>`);
+            if (data.color_gamut) lines.push(`<div><span class="field-name">色域:</span> <span class="field-value">${data.color_gamut}</span></div>`);
+            for (const [key, value] of Object.entries(data)) {
+                if (['type','tech','brightness','contrast','viewing_angle','touch','refresh_rate','color_gamut'].includes(key)) continue;
+                if (value && typeof value !== 'object') {
+                    const fieldName = key.replace(/_/g, ' ');
+                    lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
                 }
             }
         }
-
-        // 剩余字段
-        for (const [key, value] of Object.entries(data)) {
-            if (usedKeys.has(key)) continue;
-            if (value == null || value === '') continue;
-            if (typeof value === 'object') continue;
-            const fieldName = key.replace(/_/g, ' ');
-            lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
+        else if (partType === 'graphics') {
+            if (data.model) lines.push(`<div class="part-title">${data.model}</div>`);
+            const keyFields = [
+                { key: 'Shading Units', label: '着色单元' },
+                { key: 'base_freq', label: '基础频率' },
+                { key: 'turbo_freq', label: '睿频' },
+                { key: 'VRAM', label: '显存' },
+                { key: 'Generation', label: '架构' },
+                { key: 'Feature', label: '特性' }
+            ];
+            const excludeFields = ['model', 'iconfamily'];
+            for (const field of keyFields) {
+                if (data[field.key] != null && data[field.key] !== '') {
+                    lines.push(`<div><span class="field-name">${field.label}:</span> <span class="field-value">${data[field.key]}</span></div>`);
+                    excludeFields.push(field.key);
+                }
+            }
+            for (const [key, value] of Object.entries(data)) {
+                if (excludeFields.includes(key)) continue;
+                if (value == null || value === '') continue;
+                if (typeof value === 'object') continue;
+                const fieldName = key.replace(/_/g, ' ');
+                lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
+            }
         }
-    }
-
-    return lines.join('') || '<div class="no-info">无详细信息</div>';
-}
-    // 解析可能包含逗号的字符串为数组
-    function parseCommaSeparatedString(str) {
-        if (!str) return [];
-        if (Array.isArray(str)) return str;
-        if (typeof str === 'string') {
-            return str.split(',').map(item => item.trim()).filter(Boolean);
+        else {
+            // 无线网卡 / WWAN
+            const keyFieldGroups = [
+                { keys: ['type', 'model', 'chipset'], isTitle: true },
+                { keys: ['form'], label: '形态' },
+                { keys: ['feature'], label: '功能' }
+            ];
+            const usedKeys = new Set();
+            for (const group of keyFieldGroups) {
+                if (group.isTitle) {
+                    for (const key of group.keys) {
+                        if (data[key] != null && data[key] !== '') {
+                            const valStr = typeof data[key] === 'object' ? JSON.stringify(data[key]) : String(data[key]);
+                            lines.push(`<div class="part-title">${valStr}</div>`);
+                            usedKeys.add(key);
+                            break;
+                        }
+                    }
+                }
+            }
+            for (const group of keyFieldGroups) {
+                if (!group.isTitle) {
+                    for (const key of group.keys) {
+                        if (data[key] != null && data[key] !== '' && !usedKeys.has(key)) {
+                            const valStr = typeof data[key] === 'object' ? JSON.stringify(data[key]) : String(data[key]);
+                            lines.push(`<div><span class="field-name">${group.label}:</span> <span class="field-value">${valStr}</span></div>`);
+                            usedKeys.add(key);
+                            break;
+                        }
+                    }
+                }
+            }
+            for (const [key, value] of Object.entries(data)) {
+                if (usedKeys.has(key)) continue;
+                if (value == null || value === '') continue;
+                if (typeof value === 'object') continue;
+                const fieldName = key.replace(/_/g, ' ');
+                lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
+            }
         }
-        return [str];
+        return lines.join('') || '<div class="no-info">无详细信息</div>';
     }
 
     // ---------- 加载零件数据 ----------
     async function loadPartData(type, filename) {
         if (!filename) return null;
-        
-        // 确保文件名有 .json 后缀
-        let fullFilename = filename;
-        if (!fullFilename.endsWith('.json')) {
-            fullFilename = fullFilename + '.json';
-        }
-        
-        // 检查缓存
-        if (partsCache[type] && partsCache[type][fullFilename]) {
-            return partsCache[type][fullFilename];
-        }
-        
-        // 根据类型确定文件夹名称
-        let folderName = type;
-        if (type === 'cpu') folderName = 'CPU';
-        else if (type === 'ethernet') folderName = 'Ethernet';
-        else if (type === 'wlan') folderName = 'WLAN';
-        else if (type === 'wwan') folderName = 'WWAN';
-        else if (type === 'display') folderName = 'Display';
-        
-        // 构建完整的文件路径
-        const filePath = `modeldata/${folderName}/${fullFilename}`;
-        
+        let fullFilename = filename.endsWith('.json') ? filename : filename + '.json';
+        if (partsCache[type]?.[fullFilename]) return partsCache[type][fullFilename];
+
+        const folderMap = { cpu:'CPU', ethernet:'Ethernet', wlan:'WLAN', wwan:'WWAN', display:'Display', graphics:'Graphics' };
+        const folder = folderMap[type] || type;
+        const filePath = `modeldata/${folder}/${fullFilename}`;
         try {
-            const response = await fetch(filePath);
-            
-            if (!response.ok) {
-                // 尝试不带 .json 后缀
+            const resp = await fetch(filePath);
+            if (!resp.ok) {
                 if (fullFilename.endsWith('.json')) {
-                    const altPath = `modeldata/${folderName}/${filename}`;
-                    const altResponse = await fetch(altPath);
-                    if (altResponse.ok) {
-                        const data = await altResponse.json();
+                    const altPath = `modeldata/${folder}/${filename}`;
+                    const altResp = await fetch(altPath);
+                    if (altResp.ok) {
+                        const data = await altResp.json();
                         partsCache[type][fullFilename] = data;
                         return data;
                     }
                 }
                 return null;
             }
-            
-            const data = await response.json();
-            
-            // 存入缓存
-            if (partsCache[type]) {
-                partsCache[type][fullFilename] = data;
-            }
-            
+            const data = await resp.json();
+            partsCache[type][fullFilename] = data;
             return data;
         } catch (err) {
             console.error(`加载 ${filePath} 失败:`, err);
@@ -315,153 +296,65 @@ else if (partType === 'cpu') {
         }
     }
 
-    // 加载设备的所有零件数据
     async function loadDeviceParts(device) {
-        console.log('加载设备零件数据:', device.model_name);
-        
-        const parts = {
-            cpu: [],
-            ethernet: [],
-            wlan: [],
-            wwan: [],
-            display: []
-        };
-        
-        // 加载 CPU - processor_options 数组
-        if (device.processor_options && Array.isArray(device.processor_options)) {
-            console.log('发现processor_options:', device.processor_options);
-            
+        const parts = { cpu: [], ethernet: [], wlan: [], wwan: [], display: [], graphics: [] };
+        // CPU
+        if (device.processor_options?.length) {
             for (const cpuItem of device.processor_options) {
-                console.log(`加载CPU文件: ${cpuItem}.json`);
-                
-                let cpuFileName = cpuItem;
-                if (!cpuFileName.endsWith('.json')) {
-                    cpuFileName = cpuFileName + '.json';
-                }
-                
-                const cpuData = await loadPartData('cpu', cpuFileName);
-                if (cpuData) {
-                    parts.cpu.push({
-                        data: cpuData,
-                        name: cpuItem,
-                        type: 'cpu'
-                    });
-                } else {
-                    parts.cpu.push({
-                        data: { 
-                            model: cpuItem,
-                            note: '等待补充详细规格'
-                        },
-                        name: cpuItem,
-                        type: 'cpu'
-                    });
-                }
+                const cpuData = await loadPartData('cpu', cpuItem);
+                parts.cpu.push({ data: cpuData || { model: cpuItem, note: '等待补充' }, name: cpuItem, type: 'cpu' });
             }
         }
-        
-        // 加载 Display - display_options 数组
-        if (device.display_options && Array.isArray(device.display_options)) {
-            console.log('发现display_options:', device.display_options);
-            
-            for (const displayItem of device.display_options) {
-                console.log(`加载屏幕文件: ${displayItem}.json`);
-                
-                let displayFileName = displayItem;
-                if (!displayFileName.endsWith('.json')) {
-                    displayFileName = displayFileName + '.json';
-                }
-                
-                const displayData = await loadPartData('display', displayFileName);
-                if (displayData) {
-                    parts.display.push({
-                        data: displayData,
-                        name: displayItem,
-                        type: 'display'
-                    });
-                } else {
-                    parts.display.push({
-                        data: { 
-                            type: displayItem,
-                            note: '等待补充详细规格'
-                        },
-                        name: displayItem,
-                        type: 'display'
-                    });
-                }
+        // Display
+        if (device.display_options?.length) {
+            for (const dispItem of device.display_options) {
+                const dispData = await loadPartData('display', dispItem);
+                parts.display.push({ data: dispData || { type: dispItem, note: '等待补充' }, name: dispItem, type: 'display' });
             }
         }
-        
-        // 加载 Ethernet
+        // Graphics
+        if (device.graphics_options?.length) {
+            for (const gpuItem of device.graphics_options) {
+                const gpuData = await loadPartData('graphics', gpuItem);
+                parts.graphics.push({ data: gpuData || { model: gpuItem, note: '等待补充' }, name: gpuItem, type: 'graphics' });
+            }
+        }
+        // Ethernet
         if (device.Ethernet) {
             const ethItems = parseCommaSeparatedString(device.Ethernet);
             for (const ethItem of ethItems) {
                 const ethData = await loadPartData('ethernet', ethItem);
-                if (ethData) {
-                    parts.ethernet.push({
-                        data: ethData,
-                        name: ethItem,
-                        type: 'ethernet'
-                    });
-                } else {
-                    parts.ethernet.push({
-                        data: { type: ethItem },
-                        name: ethItem,
-                        type: 'ethernet'
-                    });
-                }
+                parts.ethernet.push({ data: ethData || { type: ethItem }, name: ethItem, type: 'ethernet' });
             }
         }
-        
-        // 加载 WLAN
+        // WLAN
         if (device.WLAN) {
             const wlanItems = Array.isArray(device.WLAN) ? device.WLAN : [device.WLAN];
             for (const wlanItem of wlanItems) {
                 const wlanData = await loadPartData('wlan', wlanItem);
-                if (wlanData) {
-                    parts.wlan.push({
-                        data: wlanData,
-                        name: wlanItem,
-                        type: 'wlan'
-                    });
-                } else {
-                    parts.wlan.push({
-                        data: { type: wlanItem },
-                        name: wlanItem,
-                        type: 'wlan'
-                    });
-                }
+                parts.wlan.push({ data: wlanData || { type: wlanItem }, name: wlanItem, type: 'wlan' });
             }
         }
-        
-        // 加载 WWAN
+        // WWAN
         if (device.WWAN) {
             const wwanItems = Array.isArray(device.WWAN) ? device.WWAN : [device.WWAN];
             for (const wwanItem of wwanItems) {
                 const wwanData = await loadPartData('wwan', wwanItem);
-                if (wwanData) {
-                    parts.wwan.push({
-                        data: wwanData,
-                        name: wwanItem,
-                        type: 'wwan'
-                    });
-                } else {
-                    parts.wwan.push({
-                        data: { type: wwanItem },
-                        name: wwanItem,
-                        type: 'wwan'
-                    });
-                }
+                parts.wwan.push({ data: wwanData || { type: wwanItem }, name: wwanItem, type: 'wwan' });
             }
         }
-        
-        console.log('加载完成的零件数据:', parts);
         return parts;
     }
 
-    // ---------- 加载设备数据 ----------
+    function parseCommaSeparatedString(str) {
+        if (!str) return [];
+        if (Array.isArray(str)) return str;
+        return str.split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    // ---------- 加载设备数据（使用 index.json）----------
     async function loadModelFiles() {
         specDisplayEl.innerHTML = '<div class="loading">加载数据中...</div>';
-        
         try {
             let fileList = [];
             try {
@@ -469,90 +362,43 @@ else if (partType === 'cpu') {
                 if (indexResp.ok) {
                     const indexData = await indexResp.json();
                     fileList = indexData.files || indexData;
-                } else {
-                    throw new Error('index.json 不存在');
-                }
+                } else throw new Error('index.json 不存在');
             } catch (e) {
                 console.warn('未找到 modeldata/index.json，使用默认文件列表');
                 fileList = ['T460.json'];
             }
-
             const allModels = [];
-            
             for (const fileName of fileList) {
                 try {
                     const resp = await fetch(`modeldata/${fileName}`);
                     if (!resp.ok) continue;
-                    
                     const jsonData = await resp.json();
-                    
                     let items = [];
-                    if (jsonData.thinkpad_database && Array.isArray(jsonData.thinkpad_database)) {
-                        items = jsonData.thinkpad_database;
-                    } else if (Array.isArray(jsonData)) {
-                        items = jsonData;
-                    } else {
-                        items = [jsonData];
-                    }
-
+                    if (jsonData.thinkpad_database && Array.isArray(jsonData.thinkpad_database)) items = jsonData.thinkpad_database;
+                    else if (Array.isArray(jsonData)) items = jsonData;
+                    else items = [jsonData];
                     items.forEach(laptop => {
                         if (laptop.model_name) {
-                            allModels.push({
-                                filename: fileName,
-                                model_family: laptop.model_family || '未指定系列',
-                                model_generation: laptop.model_generation || '未指定代数',
-                                ...laptop
-                            });
+                            allModels.push({ filename: fileName, model_family: laptop.model_family || '未指定系列', model_generation: laptop.model_generation || '未指定代数', ...laptop });
                         }
                     });
-                } catch (err) {
-                    console.error(`加载 ${fileName} 出错:`, err);
-                }
+                } catch (err) { console.error(`加载 ${fileName} 出错:`, err); }
             }
-
-            if (allModels.length === 0) {
-                specDisplayEl.innerHTML = '<div class="empty-message">没有找到设备数据</div>';
-                return;
-            }
-
+            if (allModels.length === 0) { specDisplayEl.innerHTML = '<div class="empty-message">没有找到设备数据</div>'; return; }
             masterModelList = allModels;
             populateFilterOptions();
             applyFilterAndRender();
-            
-        } catch (err) {
-            console.error('致命错误:', err);
-            specDisplayEl.innerHTML = '<div class="empty-message">加载数据失败</div>';
-        }
+        } catch (err) { console.error('致命错误:', err); specDisplayEl.innerHTML = '<div class="empty-message">加载数据失败</div>'; }
     }
 
-    // 从数据提取并填充下拉框
     function populateFilterOptions() {
         const families = [...new Set(masterModelList.map(m => m.model_family).filter(Boolean))].sort();
         familySelect.innerHTML = '<option value="">全部系列</option>';
-        families.forEach(f => {
-            const opt = document.createElement('option');
-            opt.value = f;
-            opt.textContent = f;
-            familySelect.appendChild(opt);
-        });
-
-        const gens = [...new Set(masterModelList.map(m => m.model_generation).filter(Boolean))].sort((a,b) => {
-            const numA = parseInt(a.toString().replace(/\D/g,'')) || 0;
-            const numB = parseInt(b.toString().replace(/\D/g,'')) || 0;
-            return numB - numA;
-        });
+        families.forEach(f => { let opt = document.createElement('option'); opt.value = f; opt.textContent = f; familySelect.appendChild(opt); });
+        const gens = [...new Set(masterModelList.map(m => m.model_generation).filter(Boolean))].sort((a,b) => (parseInt(b)||0) - (parseInt(a)||0));
         generationSelect.innerHTML = '<option value="">全部代数</option>';
-        gens.forEach(g => {
-            const opt = document.createElement('option');
-            opt.value = g;
-            opt.textContent = g;
-            generationSelect.appendChild(opt);
-        });
-
-        familySelect.value = '';
-        generationSelect.value = '';
-        currentFamilyValue = '';
-        currentGenValue = '';
+        gens.forEach(g => { let opt = document.createElement('option'); opt.value = g; opt.textContent = g; generationSelect.appendChild(opt); });
+        familySelect.value = ''; generationSelect.value = ''; currentFamilyValue = ''; currentGenValue = '';
     }
 
     function setFilterType(type) {
@@ -565,13 +411,8 @@ else if (partType === 'cpu') {
     }
 
     function getFilteredModels() {
-        if (currentFilterType === 'family') {
-            if (!currentFamilyValue) return masterModelList;
-            return masterModelList.filter(m => m.model_family === currentFamilyValue);
-        } else {
-            if (!currentGenValue) return masterModelList;
-            return masterModelList.filter(m => m.model_generation === currentGenValue);
-        }
+        if (currentFilterType === 'family') return currentFamilyValue ? masterModelList.filter(m => m.model_family === currentFamilyValue) : masterModelList;
+        else return currentGenValue ? masterModelList.filter(m => m.model_generation === currentGenValue) : masterModelList;
     }
 
     function renderMenu(models) {
@@ -580,10 +421,7 @@ else if (partType === 'cpu') {
             const item = document.createElement('div');
             item.className = 'nav-item';
             item.dataset.modelId = model.model_name;
-            
-            // 只显示型号名称，不再显示系列和代数
-            item.innerHTML = `${model.model_name}`;
-            
+            item.innerHTML = model.model_name;
             item.onclick = () => {
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 item.classList.add('active');
@@ -591,140 +429,42 @@ else if (partType === 'cpu') {
             };
             menuEl.appendChild(item);
         });
-        
         modelCountSpan.textContent = models.length;
     }
 
     function applyFilterAndRender() {
         const filtered = getFilteredModels();
         renderMenu(filtered);
-        
-        if (filtered.length === 0) {
-            specDisplayEl.innerHTML = '<div class="empty-message">没有符合筛选条件的型号</div>';
-            return;
-        }
-        
+        if (filtered.length === 0) { specDisplayEl.innerHTML = '<div class="empty-message">没有符合筛选条件的型号</div>'; return; }
         const activeItem = document.querySelector('.nav-item.active');
-        let activeId = activeItem ? activeItem.dataset.modelId : null;
-        let targetModel = null;
-        
-        if (activeId) {
-            targetModel = filtered.find(m => m.model_name === activeId);
-        }
-        if (!targetModel) {
-            targetModel = filtered[0];
-        }
-        
+        let targetModel = activeItem ? filtered.find(m => m.model_name === activeItem.dataset.modelId) : filtered[0];
+        if (!targetModel) targetModel = filtered[0];
         renderSpecs(targetModel);
-        
-        document.querySelectorAll('.nav-item').forEach(n => {
-            n.classList.toggle('active', n.dataset.modelId === targetModel.model_name);
-        });
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.modelId === targetModel.model_name));
     }
 
-    // 全局计数器，用于生成唯一菜单ID
-    let menuCounter = 0;
-
-    // 根据部件数据提取 FRU 列表，返回 HTML 字符串
-    function formatFruContent(partData) {
-        if (!partData) return '<div class="no-fru">无 FRU 信息</div>';
-        // 尝试多种字段名
-        const frus = partData.FRUs || partData.frus || partData.Frus;
-        if (!frus) return '<div class="no-fru">该部件无 FRU 数据</div>';
-
-        // 将各种格式统一转换为字符串数组
-        let items = [];
-        if (Array.isArray(frus)) {
-            frus.forEach(item => {
-                if (typeof item === 'string') {
-                    items.push(item);
-                } else if (typeof item === 'object') {
-                    // 对象格式：{ "FRU编号": "描述" }
-                    Object.entries(item).forEach(([k, v]) => {
-                        items.push(`${k}: ${v}`);
-                    });
-                }
-            });
-        } else if (typeof frus === 'object') {
-            Object.entries(frus).forEach(([k, v]) => {
-                items.push(`${k}: ${v}`);
-            });
-        } else {
-            items.push(String(frus));
-        }
-
-        if (items.length === 0) return '<div class="no-fru">无 FRU 信息</div>';
-        return items.map(text => `<div class="fru-item">${text}</div>`).join('');
-    }
-
-    // 显示 FRU 模态框 (接收部件数据)
-    function showFruModal(partData) {
-        const modal = document.getElementById('fruModal');
-        const body = document.getElementById('fruModalBody');
-        body.innerHTML = formatFruContent(partData);
-        modal.classList.add('show');
-    }
-
-    // 通过部件标识符显示 FRU (供卡片菜单调用)
-    window.showFruModalByPartId = function(menuItem, partId) {
-        // 阻止事件冒泡，避免触发文档点击关闭菜单
-        if (event) event.stopPropagation();
-
-        // 从 currentDeviceParts 中查找部件数据
-        if (!currentDeviceParts) return;
-        const [type, index] = partId.split('_');
-        const part = currentDeviceParts[type]?.[parseInt(index)];
-        if (part) {
-            showFruModal(part.data);
-        }
-
-        // 关闭当前卡片菜单
-        const menu = menuItem.closest('.card-menu-dropdown');
-        if (menu) menu.classList.add('hidden');
-    };
-
-    // 渲染部件卡片（显示完整信息）- 新版，带菜单
+    // ---------- 部件卡片渲染（带悬停菜单）----------
     function renderPartCard(parts, title, type) {
         if (!parts || parts.length === 0) {
-            return `
-                <div class="part-card">
-                    <div class="part-card-header">${title}</div>
-                    <div class="part-card-body">
-                        <div class="part-item">无</div>
-                    </div>
-                </div>
-            `;
+            return `<div class="part-card"><div class="part-card-header">${title}</div><div class="part-card-body"><div class="part-item">无</div></div></div>`;
         }
-        
         let itemsHtml = '';
         parts.forEach((part, idx) => {
             const infoHtml = formatPartFullInfo(part.data, part.type);
             const menuId = `card-menu-${menuCounter++}`;
-            const partId = `${type}_${idx}`; // 唯一标识
-
-            // 判断是否有 FRU 数据，决定是否显示菜单项
+            const partId = `${type}_${idx}`;
             const hasFru = part.data && (part.data.FRUs || part.data.frus || part.data.Frus);
-const fruMenuItem = hasFru ? `
-    <div class="card-menu-item" 
-         onclick="showFruModalByPartId(this, '${partId}'); 
-                  (function(id){
-                      var m=document.getElementById(id);
-                      if(m) { m.classList.add('hidden'); }
-                      if(window.menuTimers[id]) clearTimeout(window.menuTimers[id]);
-                  })('${menuId}')">
-        可能使用的 FRU
-    </div>
-` : '';
-            // CPU 专用：ARK 链接
+            let fruMenuItem = '';
+            if (hasFru) {
+                fruMenuItem = `<div class="card-menu-item" onclick="showFruModalByPartId(this, '${partId}', '${menuId}')">可能使用的 FRU</div>`;
+            }
             let arkMenuItem = '';
             if (part.type === 'cpu') {
                 const cpuData = part.data.thinkpad_database?.[0] || part.data;
                 if (cpuData.ark) {
-                    arkMenuItem = `<div class="card-menu-item" onclick="window.open('${encodeURI(cpuData.ark)}', '_blank'); event.stopPropagation();">查看 ARK</div>`;
+                    arkMenuItem = `<div class="card-menu-item" onclick="window.open('${encodeURI(cpuData.ark)}', '_blank'); document.getElementById('${menuId}').classList.add('hidden'); event.stopPropagation();">查看 ARK</div>`;
                 }
             }
-
-            // CPU 图标（如有）
             let iconHtml = '';
             if (part.type === 'cpu') {
                 const cpuData = part.data.thinkpad_database?.[0] || part.data;
@@ -733,24 +473,15 @@ const fruMenuItem = hasFru ? `
                     iconHtml = `<img src="${iconUrl}" class="cpu-icon-bg" alt="" onerror="this.style.display='none'">`;
                 }
             }
-
-            // 组合菜单项（如果没有任何菜单项，则不显示 ⋮ 按钮）
             const menuItems = (fruMenuItem + arkMenuItem).trim();
-// 生成菜单 HTML（每个部件项内）
-const menuHtml = menuItems ? `
-    <div class="card-menu-container">
-        <button class="card-menu-btn" 
-            onmouseenter="menuEnter('${menuId}')" 
-            onmouseleave="menuLeave('${menuId}')">⋮</button>
-        <div id="${menuId}" class="card-menu-dropdown hidden" 
-            onmouseenter="menuEnter('${menuId}')" 
-            onmouseleave="menuLeave('${menuId}')">
-            ${fruMenuItem}
-            ${arkMenuItem}
-        </div>
-    </div>
-` : '';
-
+            const menuHtml = menuItems ? `
+                <div class="card-menu-container">
+                    <button class="card-menu-btn" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">⋮</button>
+                    <div id="${menuId}" class="card-menu-dropdown hidden" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">
+                        ${fruMenuItem} ${arkMenuItem}
+                    </div>
+                </div>
+            ` : '';
             itemsHtml += `
                 <div class="part-item ${part.type}-item" data-part-id="${partId}">
                     <div class="part-info">${infoHtml}</div>
@@ -759,255 +490,280 @@ const menuHtml = menuItems ? `
                 </div>
             `;
         });
-        
-        return `
-            <div class="part-card">
-                <div class="part-card-header">${title}</div>
-                <div class="part-card-body">
-                    ${itemsHtml}
-                </div>
-            </div>
-        `;
+        return `<div class="part-card"><div class="part-card-header">${title}</div><div class="part-card-body">${itemsHtml}</div></div>`;
     }
 
-    // 渲染详情
-async function renderSpecs(data) {
-    if (!data) return;
-    
-    specDisplayEl.innerHTML = '<div class="loading">加载规格数据中...</div>';
-    
-    try {
-        const parts = await loadDeviceParts(data);
-        currentDeviceParts = parts;
+    // ---------- 渲染详情 ----------
+    async function renderSpecs(data) {
+        if (!data) return;
         
-        const physicalMaterial = data.physical?.case_material || data.case_material || '未知';
+        specDisplayEl.innerHTML = '<div class="loading">加载规格数据中...</div>';
         
-        // 显卡卡片
-        let graphicsCard = '';
-        if (data.graphics) {
-            const graphicsFields = [];
-            if (data.graphics.integrated) graphicsFields.push(`集成显卡: ${data.graphics.integrated}`);
-            if (data.graphics.discrete) graphicsFields.push(`独立显卡: ${data.graphics.discrete}`);
-            if (data.graphics.multi_display) graphicsFields.push(`多屏显示: ${data.graphics.multi_display}`);
+        try {
+            const parts = await loadDeviceParts(data);
+            currentDeviceParts = parts;
             
-            graphicsCard = `
+            const physicalMaterial = data.physical?.case_material || data.case_material || '未知';
+
+            // 内存卡片
+            const memoryCard = `
                 <div class="part-card">
-                    <div class="part-card-header">显卡</div>
+                    <div class="part-card-header">内存</div>
                     <div class="part-card-body">
                         <div class="part-item">
-                            <div class="part-info">${graphicsFields.join('<br>') || '无详细显卡信息'}</div>
+                            <div class="part-info">
+                                ${data.memory?.max_capacity ? `容量: ${data.memory.max_capacity}<br>` : ''}
+                                ${data.memory?.type ? `类型: ${data.memory.type}<br>` : ''}
+                                ${data.memory?.slots ? `插槽: ${data.memory.slots}<br>` : ''}
+                                ${data.memory?.features ? `特性: ${data.memory.features}` : ''}
+                                ${!data.memory ? '无内存信息' : ''}
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
-        }
 
-        // 内存卡片
-        const memoryCard = `
+            // 存储卡片（按分类独立项）
+            const storageCard = (() => {
+                if (!data.storage) {
+                    return `
+                        <div class="part-card">
+                            <div class="part-card-header">存储</div>
+                            <div class="part-card-body">
+                                <div class="part-item">无存储信息</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                const fieldLabels = {
+                    ssd_sata: 'SATA SSD',
+                    ssd_pcie: 'PCIe SSD',
+                    hdd: '2.5" HDD',
+                    sshd: 'SSHD',
+                    optical: '光驱'
+                };
+                const items = [];
+                for (const [key, value] of Object.entries(data.storage)) {
+                    if (value && typeof value === 'string' && value.trim() !== '') {
+                        const title = fieldLabels[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        const content = value.replace(/"/g, '&quot;');
+                        items.push(`
+                            <div class="part-item">
+                                <div class="part-info">
+                                    <div class="part-title">${title}</div>
+                                    <div>${content}</div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                }
+                if (items.length === 0) {
+                    return `
+                        <div class="part-card">
+                            <div class="part-card-header">存储</div>
+                            <div class="part-card-body">
+                                <div class="part-item">无详细存储信息</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="part-card storage-card">
+                        <div class="part-card-header">存储</div>
+                        <div class="part-card-body">
+                            ${items.join('')}
+                        </div>
+                    </div>
+                `;
+            })();
+
+            // 电池卡片
+            const batteryCard = `
+                <div class="part-card">
+                    <div class="part-card-header">电池与续航</div>
+                    <div class="part-card-body">
+                        ${(() => {
+                            const batteries = data.Battary || data.battery || [];
+                            if (batteries.length === 0) {
+                                return '<div class="part-item"><div class="part-info">无电池信息</div></div>';
+                            }
+                            return batteries.map(b => {
+                                const type = b.type || '电池';
+                                const capacity = b.capacity || b.cap || '';
+                                const tech = b.tech || b.technology || '';
+                                const form = b.form || '';
+                                let info = `${type}: ${capacity}`;
+                                if (tech) info += ` (${tech})`;
+                                if (form) info += ` - ${form}`;
+                                return `<div class="part-item"><div class="part-info">${info}</div></div>`;
+                            }).join('');
+                        })()}
+                    </div>
+                </div>
+            `;
+
+            // 触摸与笔卡片
+            let touchPenHtml = '';
+            if (data.touch || data.pen) {
+                const items = [];
+                if (data.touch) {
+                    const touchText = Array.isArray(data.touch) ? data.touch.join('、') : data.touch;
+                    items.push(`<div class="part-item"><div class="part-info">触摸: ${touchText}</div></div>`);
+                }
+                if (data.pen) {
+                    const penText = Array.isArray(data.pen) ? data.pen.join('、') : data.pen;
+                    items.push(`<div class="part-item"><div class="part-info">笔: ${penText}</div></div>`);
+                }
+                touchPenHtml = `
+                    <div class="part-card">
+                        <div class="part-card-header">触摸与笔</div>
+                        <div class="part-card-body">
+                            ${items.join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // ----- 显卡卡片（仅独立显卡项）-----
+            let graphicsCardHtml = '';
+            if (parts.graphics?.length > 0) {
+                const graphicsItems = [];
+                parts.graphics.forEach((gpu, idx) => {
+                    const infoHtml = formatPartFullInfo(gpu.data, gpu.type);
+                    const menuId = `card-menu-${menuCounter++}`;
+                    const partId = `graphics_${idx}`;
+                    const hasFru = gpu.data && (gpu.data.FRUs || gpu.data.frus || gpu.data.Frus);
+                    let fruMenuItem = '';
+                    if (hasFru) {
+                        fruMenuItem = `<div class="card-menu-item" onclick="showFruModalByPartId(this, '${partId}', '${menuId}')">可能使用的 FRU</div>`;
+                    }
+                    const menuItems = fruMenuItem.trim();
+                    const menuHtml = menuItems ? `
+                        <div class="card-menu-container">
+                            <button class="card-menu-btn" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">⋮</button>
+                            <div id="${menuId}" class="card-menu-dropdown hidden" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">
+                                ${fruMenuItem}
+                            </div>
+                        </div>
+                    ` : '';
+
+                    graphicsItems.push(`
+                        <div class="part-item graphics-item" data-part-id="${partId}">
+                            <div class="part-info">${infoHtml}</div>
+                            ${menuHtml}
+                        </div>
+                    `);
+                });
+
+                graphicsCardHtml = `
+                    <div class="part-card">
+                        <div class="part-card-header">显卡</div>
+                        <div class="part-card-body">
+                            ${graphicsItems.join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+// ----- 显示输出卡片（独立，仅含接口信息，取自 data.Display）-----
+let outputInterfaceCardHtml = '';
+if (data.Display && (data.Display.max_resolution || data.Display.multi_display)) {
+    const interfaceLines = [];
+    if (data.Display.max_resolution && typeof data.Display.max_resolution === 'object') {
+        for (const [port, res] of Object.entries(data.Display.max_resolution)) {
+            if (res && typeof res === 'string') {
+                const portName = port.replace(/_/g, ' ');
+                interfaceLines.push(`<div><span class="field-name">${portName}:</span> <span class="field-value">${res}</span></div>`);
+            }
+        }
+    }
+    if (data.Display.multi_display) {
+        interfaceLines.push(`<div><span class="field-name">多屏支持:</span> <span class="field-value">${data.Display.multi_display}</span></div>`);
+    }
+    if (interfaceLines.length > 0) {
+        outputInterfaceCardHtml = `
             <div class="part-card">
-                <div class="part-card-header">内存</div>
+                <div class="part-card-header">显示输出</div>
                 <div class="part-card-body">
                     <div class="part-item">
                         <div class="part-info">
-                            ${data.memory?.max_capacity ? `容量: ${data.memory.max_capacity}<br>` : ''}
-                            ${data.memory?.type ? `类型: ${data.memory.type}<br>` : ''}
-                            ${data.memory?.slots ? `插槽: ${data.memory.slots}<br>` : ''}
-                            ${data.memory?.features ? `特性: ${data.memory.features}` : ''}
-                            ${!data.memory ? '无内存信息' : ''}
+                            ${interfaceLines.join('')}
                         </div>
                     </div>
                 </div>
             </div>
         `;
-
-// 存储卡片（按分类独立项，每个项以标题+内容形式显示，类似WWAN）
-const storageCard = (() => {
-    if (!data.storage) {
-        return `
-            <div class="part-card">
-                <div class="part-card-header">存储</div>
-                <div class="part-card-body">
-                    <div class="part-item"><div class="part-info">无存储信息</div></div>
-                </div>
-            </div>
-        `;
-    }
-
-    // 字段显示名称映射（用作标题）
-    const fieldLabels = {
-        ssd_sata: 'SATA SSD',
-        ssd_pcie: 'PCIe SSD',
-        hdd: '2.5" HDD',
-        sshd: 'SSHD',
-        optical: '光驱'
-    };
-
-    const items = [];
-    for (const [key, value] of Object.entries(data.storage)) {
-        if (value && typeof value === 'string' && value.trim() !== '') {
-            const title = fieldLabels[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-            const content = value.replace(/"/g, '&quot;'); // 转义双引号
-            items.push(`
-                <div class="part-item">
-                    <div class="part-info">
-                        <div class="part-title">${title}</div>
-                        <div>${content}</div>
-                    </div>
-                </div>
-            `);
-        }
-    }
-
-    if (items.length === 0) {
-        return `
-            <div class="part-card">
-                <div class="part-card-header">存储</div>
-                <div class="part-card-body">
-                    <div class="part-item"><div class="part-info">无详细存储信息</div></div>
-                </div>
-            </div>
-        `;
-    }
-
-    return `
-        <div class="part-card">
-            <div class="part-card-header">存储</div>
-            <div class="part-card-body">
-                ${items.join('')}
-            </div>
-        </div>
-    `;
-})();
-
-        // 电池卡片
-        const batteryCard = `
-            <div class="part-card">
-                <div class="part-card-header">电池与续航</div>
-                <div class="part-card-body">
-                    ${(() => {
-                        const batteries = data.Battary || data.battery || [];
-                        if (batteries.length === 0) {
-                            return '<div class="part-item"><div class="part-info">无电池信息</div></div>';
-                        }
-                        return batteries.map(b => {
-                            const type = b.type || '电池';
-                            const capacity = b.capacity || b.cap || '';
-                            const tech = b.tech || b.technology || '';
-                            const form = b.form || '';
-                            let info = `${type}: ${capacity}`;
-                            if (tech) info += ` (${tech})`;
-                            if (form) info += ` - ${form}`;
-                            return `<div class="part-item"><div class="part-info">${info}</div></div>`;
-                        }).join('');
-                    })()}
-                </div>
-            </div>
-        `;
-
-        // ----- 触摸与笔卡片（独立） -----
-        let touchPenHtml = '';
-        if (data.touch || data.pen) {
-            const items = [];
-            if (data.touch) {
-                const touchText = Array.isArray(data.touch) ? data.touch.join('、') : data.touch;
-                items.push(`<div class="part-item"><div class="part-info">触摸: ${touchText}</div></div>`);
-            }
-            if (data.pen) {
-                const penText = Array.isArray(data.pen) ? data.pen.join('、') : data.pen;
-                items.push(`<div class="part-item"><div class="part-info">笔: ${penText}</div></div>`);
-            }
-            touchPenHtml = `
-                <div class="part-card">
-                    <div class="part-card-header">触摸与笔</div>
-                    <div class="part-card-body">
-                        ${items.join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // ----- 物理接口与多媒体表格行（含校色仪）-----
-        const portsRows = `
-            <tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr>
-            <tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr>
-            <tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr>
-            <tr><th>键盘</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>
-            ${data['color calibration'] ? `
-            <tr><th>校色仪</th><td>${Array.isArray(data['color calibration']) ? data['color calibration'].join('、') : data['color calibration']}</td></tr>
-            ` : ''}
-        `;
-
-        // ----- 其他卡片表格行（含电源适配器）-----
-        const otherRows = `
-            <tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr>
-            <tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr>
-            <tr><th>材质</th><td>${physicalMaterial}</td></tr>
-            <tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr>
-            <tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>
-            ${data.ACadapter ? `
-            <tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>
-            ` : ''}
-        `;
-
-        // 最终 HTML 拼接
-        specDisplayEl.innerHTML = `
-            <div class="header">
-                <h1>${data.model_name || '未知型号'}</h1>
-                <p>更新日期: ${data.update_date || 'N/A'}</p>
-            </div>
-
-            ${renderPartCard(parts.cpu, '处理器 (CPU)', 'cpu')}
-            ${graphicsCard}
-            ${memoryCard}
-            ${renderPartCard(parts.display, '显示屏', 'display')}
-            ${touchPenHtml}
-            ${storageCard}
-            ${batteryCard}
-            ${renderPartCard(parts.ethernet, '有线网卡', 'ethernet')}
-            ${renderPartCard(parts.wlan, '无线网卡', 'wlan')}
-            ${renderPartCard(parts.wwan, 'WWAN', 'wwan')}
-
-            <div class="section-card">
-                <div class="section-title">物理接口与多媒体</div>
-                <table>
-                    ${portsRows}
-                </table>
-            </div>
-
-            <div class="section-card">
-                <div class="section-title">其他</div>
-                <table>
-                    ${otherRows}
-                </table>
-            </div>
-        `;
-    } catch (error) {
-        console.error('渲染规格时出错:', error);
-        specDisplayEl.innerHTML = '<div class="empty-message">加载规格数据失败</div>';
     }
 }
 
-    // 事件绑定
+            // 物理接口与多媒体表格行（含校色仪）
+            const portsRows = `
+                <tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr>
+                <tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr>
+                <tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr>
+                <tr><th>键盘</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>
+                ${data['color calibration'] ? `
+                <tr><th>校色仪</th><td>${Array.isArray(data['color calibration']) ? data['color calibration'].join('、') : data['color calibration']}</td></tr>
+                ` : ''}
+            `;
+
+            // 其他卡片表格行（含电源适配器）
+            const otherRows = `
+                <tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr>
+                <tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr>
+                <tr><th>材质</th><td>${physicalMaterial}</td></tr>
+                <tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr>
+                <tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>
+                ${data.ACadapter ? `
+                <tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>
+                ` : ''}
+            `;
+
+            // 最终 HTML 拼接
+            specDisplayEl.innerHTML = `
+                <div class="header">
+                    <h1>${data.model_name || '未知型号'}</h1>
+                    <p>更新日期: ${data.update_date || 'N/A'}</p>
+                </div>
+
+                ${renderPartCard(parts.cpu, '处理器 (CPU)', 'cpu')}
+                ${graphicsCardHtml}
+                ${outputInterfaceCardHtml}
+                ${memoryCard}
+                ${renderPartCard(parts.display, '显示屏', 'display')}
+                ${touchPenHtml}
+                ${storageCard}
+                ${batteryCard}
+                ${renderPartCard(parts.ethernet, '有线网卡', 'ethernet')}
+                ${renderPartCard(parts.wlan, '无线网卡', 'wlan')}
+                ${renderPartCard(parts.wwan, 'WWAN', 'wwan')}
+
+                <div class="section-card">
+                    <div class="section-title">物理接口与多媒体</div>
+                    <table>
+                        ${portsRows}
+                    </table>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">其他</div>
+                    <table>
+                        ${otherRows}
+                    </table>
+                </div>
+            `;
+        } catch (error) {
+            console.error('渲染规格时出错:', error);
+            specDisplayEl.innerHTML = '<div class="empty-message">加载规格数据失败</div>';
+        }
+    }
+
+    // ---------- 事件绑定 ----------
     filterFamilyBtn.addEventListener('click', () => setFilterType('family'));
     filterGenBtn.addEventListener('click', () => setFilterType('generation'));
-
-    familySelect.addEventListener('change', (e) => {
-        currentFamilyValue = e.target.value;
-        applyFilterAndRender();
-    });
-
-    generationSelect.addEventListener('change', (e) => {
-        currentGenValue = e.target.value;
-        applyFilterAndRender();
-    });
-
-    resetBtn.addEventListener('click', () => {
-        familySelect.value = '';
-        generationSelect.value = '';
-        currentFamilyValue = '';
-        currentGenValue = '';
-        applyFilterAndRender();
-    });
+    familySelect.addEventListener('change', (e) => { currentFamilyValue = e.target.value; applyFilterAndRender(); });
+    generationSelect.addEventListener('change', (e) => { currentGenValue = e.target.value; applyFilterAndRender(); });
+    resetBtn.addEventListener('click', () => { familySelect.value = ''; generationSelect.value = ''; currentFamilyValue = ''; currentGenValue = ''; applyFilterAndRender(); });
 
     // 启动
     loadModelFiles();

@@ -7,11 +7,11 @@
       "model_generation":"xx60",
       "update_date": "November 2016",
       "processor_options": ["6200U","6300U","6500U","6600U"],
-      "graphics": {
-        "integrated": "Intel HD Graphics 520 ",
+      "graphics_options": ["HD520"],
+      "Display": {
         "max_resolution": {
           "mini_dp": "3840x2160@60Hz ",
-          "hdmi": "4096x2160@24Hz "
+          "hdmi": "1920x1080@60Hz "
         },
         "multi_display": "Supports 3 independent displays "
       },
