@@ -7,12 +7,11 @@
       "model_generation": "xx40",
       "update_date": "April 2014",
       "processor_options": [
-        "AMD E1-2500",
-        "AMD A4-5000"
+        "E1-2500",
+        "A4-5000"
       ],
-      "graphics": {
-        "integrated": "AMD Radeon HD 8240 (E1-2500) / AMD Radeon HD 8330 (A4-5000)",
-        "discrete": null,
+      "graphics_options": ["HD8240","HD8330"],
+      "Display": {
         "max_resolution": {
           "vga": "1920x1080",
           "hdmi": "1920x1080"
@@ -20,7 +19,7 @@
         "multi_display": "Supports dual independent displays"
       },
       "memory": {
-        "max_capacity": "8GB max",
+        "max_capacity": "8GB max officially, but can be upgraded to 16GB",
         "type": "DDR3L-1600",
         "slots": "Two 204-pin SO-DIMM sockets",
         "features": "dual-channel capable, non-parity, system clocks down for 1333MHz processors"
@@ -32,10 +31,10 @@
         "hdd": "SATA 6.0Gb/s, 2.5\" wide, 7mm or 9.5mm, upgradable, Active Protection System",
         "sshd": null
       },
-      "Ethernet": ["Realtek RTL8111F"],
+      "Ethernet": ["RTL8111F"],
       "WLAN": [
-        "ThinkPad 11b/g/n (1x1)",
-        "ThinkPad 11a/b/g/n (2x2)"
+        "11b/g/n",
+        "11a/b/g/n"
       ],
       "Bluetooth": [
         {

@@ -7,13 +7,12 @@
       "model_generation": "xx30",
       "update_date": "June 2013",
       "processor_options": [
-        "i5-3337U",
-        "i5-3437U",
-        "i7-3687U"
+        "3337U",
+        "3437U",
+        "3687U"
       ],
-      "graphics": {
-        "integrated": "Intel HD Graphics 4000",
-        "discrete": null,
+      "graphics_options": ["HD4000"],
+      "Display": {
         "max_resolution": {
           "vga": "2048x1536@75Hz",
           "mini_dp": "2560x1600@60Hz"
@@ -33,18 +32,22 @@
         "hdd": "SATA 3.0Gb/s, 2.5\" wide, 7mm or 9.5mm high, Active Protection System",
         "sshd": null
       },
-      "Ethernet": ["Intel 82579LM"],
-      "WLAN": ["Intel Centrino Advanced-N 6235"],
+      "Ethernet": ["82579LM"],
+      "WLAN": ["6235"],
       "Bluetooth": [
         {
-          "type": "Integrated",
-          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "type": "BDC",
+          "form": "Broadcom BCM20702 Bluetooth Controller",
           "feature": "Bluetooth 4.0 wireless"
         }
       ],
       "WWAN": ["WWAN_Upgradeable"],
-      "SIM_Card": [],
-      "Battery": [
+      "SIM_Card": [
+        {
+          "type": "Micro SIM card slot"
+        }
+      ],
+      "Battary": [
         {
           "type": "Integrated",
           "capacity": "47Wh",

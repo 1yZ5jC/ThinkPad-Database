@@ -7,15 +7,14 @@
       "model_generation": "xx30",
       "update_date": "August 2014",
       "processor_options": [
-        "i5-3317U",
-        "i5-3337U",
-        "i5-3427U",
-        "i7-3517U",
-        "i7-3537U"
+        "3317U",
+        "3337U",
+        "3427U",
+        "3517U",
+        "3537U"
       ],
-      "graphics": {
-        "integrated": "Intel HD Graphics 4000",
-        "discrete": "NVIDIA GeForce GT 620M (1GB, Optimus) on selected models",
+      "graphics_options": ["HD4000","GT620M"],
+      "Display": {
         "max_resolution": {
           "hdmi": "2560x1600@60Hz",
           "mini_dp": "2560x1600@60Hz"
@@ -23,7 +22,7 @@
         "multi_display": "Supports up to 3 independent displays"
       },
       "memory": {
-        "max_capacity": "16GB max (select models)",
+        "max_capacity": "16GB max",
         "type": "PC3-12800 1600MHz DDR3",
         "slots": "Two 204-pin SO-DIMM sockets",
         "features": "dual-channel capable, non-parity"
@@ -35,18 +34,18 @@
         "hdd": "SATA 3.0Gb/s, 2.5\" wide, 7mm or 9.5mm high, Active Protection System",
         "sshd": null
       },
-      "Ethernet": ["Realtek RTL8111F"],
-      "WLAN": ["ThinkPad 11a/b/g/n", "Intel Centrino Wireless-N 2230"],
+      "Ethernet": ["RTL8111F"],
+      "WLAN": ["11a/b/g/n", "2230"],
       "Bluetooth": [
         {
-          "type": "Integrated",
-          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "type": "BDC",
+          "form": "Broadcom BCM20702 Bluetooth Controller",
           "feature": "Bluetooth 4.0 wireless"
         }
       ],
-      "WWAN": [],
+      "WWAN": ["NO_WWAN"],
       "SIM_Card": [],
-      "Battery": [
+      "Battary": [
         {
           "type": "Integrated",
           "capacity": "47Wh",

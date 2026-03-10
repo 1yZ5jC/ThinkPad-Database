@@ -17,9 +17,8 @@
         "2348M",
         "3110M"
       ],
-      "graphics": {
-        "integrated": "Intel HD Graphics 3000 or 4000",
-        "discrete": null,
+      "graphics_options": ["HD3000","HD4000"],
+      "Display": {
         "max_resolution": {
           "vga": "2048x1536@75Hz",
           "mini_dp": "2560x1600@60Hz"
@@ -27,7 +26,7 @@
         "multi_display": "Supports dual independent displays"
       },
       "memory": {
-        "max_capacity": "8GB max",
+        "max_capacity": "8GB max Officially, but can be upgraded to 16GB",
         "type": "PC3-12800 1600MHz DDR3",
         "slots": "Two 204-pin SO-DIMM sockets",
         "features": "dual-channel capable, non-parity, automatically clocks down for 1333MHz processors"
@@ -39,18 +38,22 @@
         "hdd": "SATA 3.0Gb/s, 2.5\" wide, 7mm or 9.5mm high, Active Protection System",
         "sshd": null
       },
-      "Ethernet": ["Realtek RTL8111F"],
-      "WLAN": ["Intel Centrino Wireless-N 2200", "Intel Centrino Advanced-N 6205"],
+      "Ethernet": ["RTL8111F"],
+      "WLAN": ["2200", "6205"],
       "Bluetooth": [
         {
-          "type": "Integrated",
-          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "type": "BDC",
+          "form": "Broadcom BCM20702 Bluetooth Controller",
           "feature": "Bluetooth 4.0 wireless"
         }
       ],
-      "WWAN": ["WWAN_Upgradeable", "Qualcomm Gobi 3000"],
-      "SIM_Card": [],
-      "Battery": [
+      "WWAN": ["WWAN_Upgradeable", "Gobi3000"],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
         {
           "type": "6-cell",
           "capacity": "57Wh",
@@ -71,7 +74,7 @@
         "Mini DisplayPort",
         "Ethernet (RJ-45)",
         "4-in-1 reader (MMC, SD, SDHC, SDXC)",
-        "ExpressCard/34 slot",
+        "ExpressCard/54 slot (optional)",
         "Smart card reader (Optional)",
         "Headphone/microphone combo jack"
       ],
