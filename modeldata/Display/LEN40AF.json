@@ -1,9 +1,9 @@
         {
           "type": "WQHD (2560x1440)",
-          "tech": "IPS, glare, LED backlight",
+          "tech": "IPS, glare, LED backlight, Dolby Vision",
           "brightness": "500 nits",
-          "contrast": "700:1",
-          "viewing_angle": "160°",
+          "contrast": "1500:1",
+          "viewing_angle": "170°",
           "color_gamut":"100% Adobe RGB",
           "refresh_rate":"60 Hz",
           "FRUs":[
