@@ -3,10 +3,8 @@
     {
       "id": "thinkpad-13-windows",
       "model_name": "ThinkPad 13 (1st Gen, Windows)",
-      "Nickname": "ThinkPad S2",
-      "model_family": "L",
-      "model_family_nickname": "S",
-      "Base_For": "ThinkPad 13 Chromebook",
+      "addons": "Also as ThinkPad S2",
+      "model_family": "13",
       "model_generation": "xx60",
       "update_date": "January 2016",
       "processor_options": [

@@ -3,9 +3,9 @@
     {
       "id": "thinkpad-20th-china",
       "model_name": "ThinkPad 20th Anniversary Edition (China)",
-      "Base_Model": "ThinkPad X1 Carbon 1st Gen (Touchscreen)",
-      "model_family": "X1",
-      "model_generation": "Anniversary Edition",
+      "addons": "Based on ThinkPad X1 Carbon 1st Gen (Touchscreen)",
+      "model_family": "Anniversary Edition",
+      "model_generation": "xx30",
       "update_date": "April 2013",
       "processor_options": [
         "3317U"

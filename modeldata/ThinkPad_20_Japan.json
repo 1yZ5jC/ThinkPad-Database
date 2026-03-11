@@ -3,9 +3,9 @@
     {
       "id": "thinkpad-20th-japan",
       "model_name": "ThinkPad 20th Anniversary Edition (Japan)",
-      "Base_Model": "ThinkPad X1 Carbon 1st Gen",
-      "model_family": "X1",
-      "model_generation": "Anniversary Edition",
+      "addons": "Based on ThinkPad X1 Carbon 1st Gen",
+      "model_family": "Anniversary Edition",
+      "model_generation": "xx30",
       "update_date": "November 2012",
       "processor_options": [
         "3667U"

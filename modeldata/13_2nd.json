@@ -3,8 +3,8 @@
     {
       "id": "thinkpad-13-2nd-gen",
       "model_name": "ThinkPad 13 (2nd Gen)",
-      "Nickname":"ThinkPad S2 Gen2",
-      "model_family": "L",
+      "addons":"Also as ThinkPad S2 Gen2",
+      "model_family": "13",
       "model_family_nickname": "S",
       "model_generation": "xx70",
       "update_date": "April 2017",

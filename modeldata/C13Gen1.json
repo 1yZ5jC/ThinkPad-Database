@@ -4,7 +4,7 @@
       "id": "thinkpad-c13",
       "model_name": "ThinkPad C13 Yoga Gen 1 Chromebook",
       "model_family": "C",
-      "model_generation": "Gen1",
+      "model_generation": "Gen 1",
       "update_date": "Not specified",
       "processor_options": ["3150C", "3250C", "3500C", "3700C"],
       "graphics": {

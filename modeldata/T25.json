@@ -3,9 +3,9 @@
     {
       "id": "thinkpad-25-anniversary-edition",
       "model_name": "ThinkPad 25 Anniversary Edition",
-      "Base_Model": "ThinkPad T470",
-      "model_family": "T",
-      "model_generation": "Anniversary Edition",
+      "addons": "Based on ThinkPad T470",
+      "model_family": "Anniversary Edition",
+      "model_generation": "xx60",
       "update_date": "October 2017",
       "processor_options": [
         "i7-7500U"

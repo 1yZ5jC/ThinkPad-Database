@@ -3,9 +3,9 @@
     {
       "id": "thinkpad-30th",
       "model_name": "ThinkPad 30th Anniversary Edition",
-      "Base_Model": "ThinkPad X1 Carbon Gen 10",
-      "model_family": "X1",
-      "model_generation": "Anniversary Edition",
+      "addons": "Based on ThinkPad X1 Carbon Gen 10",
+      "model_family": "Anniversary Edition",
+      "model_generation": "Gen 2",
       "update_date": "December 2022",
       "processor_options": [
         "1260P",

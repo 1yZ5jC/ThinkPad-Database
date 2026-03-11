@@ -994,3 +994,10 @@ td br {
     border-radius: inherit;
     outline: none;
 }
+
+.addons-note {
+    font-size: 0.9rem;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 4px;
+}

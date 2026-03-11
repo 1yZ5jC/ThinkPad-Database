@@ -3,9 +3,9 @@
     {
       "id": "thinkpad-13-1st-gen-chromebook",
       "model_name": "ThinkPad 13 Chromebook (1st Gen)",
-      "model_family": "C",
+      "model_family": "13",
       "model_generation": "xx60",
-      "Base_Model": "ThinkPad 13",
+      "addons": "Based on ThinkPad 13",
       "update_date": "January 2016",
       "processor_options": [
         "3855U",
