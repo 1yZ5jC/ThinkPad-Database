@@ -32,6 +32,11 @@
         
         <button class="reset-filter-btn" id="resetFilterBtn">重置筛选</button>
     </div>
+
+    <!-- 搜索框 -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索型号..." autocomplete="off">
+    </div>
     
     <div class="model-list-header">
         <span>型号列表</span>
@@ -39,6 +44,13 @@
     </div>
     
     <div id="modelMenu" class="nav-list"></div>
+
+    <!-- 对比栏 -->
+    <div class="compare-bar">
+        <span id="compareCount">0</span> 个型号已选择
+        <button id="compareBtn" class="compare-btn" disabled>对比</button>
+        <button id="clearCompareBtn" class="clear-compare-btn">清空</button>
+    </div>
 </aside>
 
 <main id="content">
@@ -60,6 +72,24 @@
     </div>
 </div>
 
+<!-- 对比模态框 -->
+<div id="compareModal" class="modal-overlay">
+    <div class="modal-content compare-modal-content">
+        <div class="modal-header">
+            <h3>型号对比</h3>
+            <button class="modal-close" onclick="closeCompareModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="compareModalBody">
+            <!-- 动态表格 -->
+        </div>
+    </div>
+</div>
+
+<!-- 浮动主题切换按钮（右下角） -->
+<div class="theme-float">
+    <button id="themeToggleFloat" class="theme-toggle-float" title="切换深色/浅色模式">🌙</button>
+</div>
+
 <script>
     // ---------- 全局变量 ----------
     let masterModelList = [];
@@ -67,8 +97,10 @@
     let currentFilterType = 'family';
     let currentFamilyValue = '';
     let currentGenValue = '';
-    let menuCounter = 0;                     // 用于生成唯一菜单ID
-    let currentDeviceParts = null;            // 当前设备所有部件数据
+    let currentSearchTerm = '';               // 搜索关键词
+    let selectedModels = [];                   // 对比选中的型号对象
+    let menuCounter = 0;                        // 用于生成唯一菜单ID
+    let currentDeviceParts = null;               // 当前设备所有部件数据
 
     // DOM 元素
     const menuEl = document.getElementById('modelMenu');
@@ -81,6 +113,9 @@
     const familySelect = document.getElementById('familySelect');
     const generationSelect = document.getElementById('generationSelect');
     const resetBtn = document.getElementById('resetFilterBtn');
+    const searchInput = document.getElementById('searchInput');
+    const compareBtn = document.getElementById('compareBtn');
+    const clearCompareBtn = document.getElementById('clearCompareBtn');
 
     // ---------- 菜单悬停控制 ----------
     window.menuTimers = {};
@@ -135,6 +170,267 @@
         if (menu) menu.classList.add('hidden');
         if (window.menuTimers[menuId]) clearTimeout(window.menuTimers[menuId]);
     };
+
+    // ---------- 对比模态框 ----------
+    window.closeCompareModal = function() {
+        document.getElementById('compareModal').classList.remove('show');
+    };
+
+    // 对比模态框 - 按指定顺序显示所有规格，样式与详情页一致
+    async function showCompareModal() {
+        if (selectedModels.length === 0) return;
+        const modal = document.getElementById('compareModal');
+        const body = document.getElementById('compareModalBody');
+        
+        body.innerHTML = '<div class="loading">加载对比数据中...</div>';
+        modal.classList.add('show');
+
+        try {
+            // 并行加载所有选中设备的部件数据
+            const devicesWithParts = await Promise.all(selectedModels.map(async (model) => {
+                const parts = await loadDeviceParts(model);
+                return { model, parts };
+            }));
+
+            // ---------- 辅助格式化函数（模仿详情页样式）----------
+
+            // 格式化内存
+            function formatMemory(model) {
+                if (!model.memory) return 'N/A';
+                let html = '<div class="part-info">';
+                if (model.memory.max_capacity) html += `<div><span class="field-name">容量:</span> <span class="field-value">${model.memory.max_capacity}</span></div>`;
+                if (model.memory.type) html += `<div><span class="field-name">类型:</span> <span class="field-value">${model.memory.type}</span></div>`;
+                if (model.memory.slots) html += `<div><span class="field-name">插槽:</span> <span class="field-value">${model.memory.slots}</span></div>`;
+                if (model.memory.features) html += `<div><span class="field-name">特性:</span> <span class="field-value">${model.memory.features}</span></div>`;
+                html += '</div>';
+                return html;
+            }
+
+            // 格式化存储（按分类显示）
+            function formatStorage(model) {
+                if (!model.storage) return 'N/A';
+                const fieldLabels = {
+                    ssd_sata: 'SATA SSD',
+                    ssd_pcie: 'PCIe SSD',
+                    hdd: '2.5" HDD',
+                    sshd: 'SSHD',
+                    optical: '光驱'
+                };
+                let items = [];
+                for (const [key, value] of Object.entries(model.storage)) {
+                    if (value && typeof value === 'string' && value.trim() !== '') {
+                        const title = fieldLabels[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        const content = value.replace(/"/g, '&quot;');
+                        items.push(`
+                            <div class="part-item" style="margin-bottom: 4px; padding: 8px;">
+                                <div class="part-info">
+                                    <div class="part-title" style="font-size:1rem;">${title}</div>
+                                    <div>${content}</div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                }
+                if (items.length === 0) return 'N/A';
+                return items.join('');
+            }
+
+            // 格式化电池
+            function formatBattery(model) {
+                const batteries = model.Battary || model.battery;
+                if (!batteries || batteries.length === 0) return 'N/A';
+                let html = '';
+                batteries.forEach(b => {
+                    const type = b.type || '电池';
+                    const capacity = b.capacity || b.cap || '';
+                    const tech = b.tech || b.technology || '';
+                    const form = b.form || '';
+                    let info = `${type}: ${capacity}`;
+                    if (tech) info += ` (${tech})`;
+                    if (form) info += ` - ${form}`;
+                    html += `<div class="compare-part-item">${info}</div>`;
+                });
+                return html;
+            }
+
+            // 格式化显示输出
+            function formatDisplayOutput(model) {
+                if (!model.Display) return 'N/A';
+                let html = '<div class="part-info">';
+                if (model.Display.max_resolution && typeof model.Display.max_resolution === 'object') {
+                    for (const [port, res] of Object.entries(model.Display.max_resolution)) {
+                        if (res && typeof res === 'string') {
+                            const portName = port.replace(/_/g, ' ');
+                            html += `<div><span class="field-name">${portName}:</span> <span class="field-value">${res}</span></div>`;
+                        }
+                    }
+                } else if (model.Display.max_resolution) {
+                    html += `<div><span class="field-name">最大分辨率:</span> <span class="field-value">${model.Display.max_resolution}</span></div>`;
+                }
+                if (model.Display.multi_display) {
+                    html += `<div><span class="field-name">多屏支持:</span> <span class="field-value">${model.Display.multi_display}</span></div>`;
+                }
+                html += '</div>';
+                return html;
+            }
+
+            // 格式化物理接口
+            function formatPhysicalPorts(model) {
+                if (!model.ports) return 'N/A';
+                if (Array.isArray(model.ports)) {
+                    return `<div class="part-info">${model.ports.map(p => `<div>${p}</div>`).join('')}</div>`;
+                } else {
+                    return `<div class="part-info"><div>${model.ports}</div></div>`;
+                }
+            }
+
+            // 格式化“其他”项（合并尺寸、重量、材质、安全特性、系统、电源适配器、校色仪）
+            function formatOther(model) {
+                const items = [];
+                if (model.physical?.dimensions) items.push(`<div><span class="field-name">尺寸:</span> <span class="field-value">${model.physical.dimensions}</span></div>`);
+                if (model.physical?.weight) items.push(`<div><span class="field-name">重量:</span> <span class="field-value">${model.physical.weight}</span></div>`);
+                const material = model.physical?.case_material || model.case_material;
+                if (material) items.push(`<div><span class="field-name">材质:</span> <span class="field-value">${material}</span></div>`);
+                if (model.security) {
+                    const sec = Array.isArray(model.security) ? model.security.join('、') : model.security;
+                    items.push(`<div><span class="field-name">安全特性:</span> <span class="field-value">${sec}</span></div>`);
+                }
+                if (model.system) {
+                    const sys = Array.isArray(model.system) ? model.system.join('<br>') : model.system;
+                    items.push(`<div><span class="field-name">预装系统:</span> <span class="field-value">${sys}</span></div>`);
+                }
+                if (model.ACadapter) {
+                    const ac = Array.isArray(model.ACadapter) ? model.ACadapter.join('、') : model.ACadapter;
+                    items.push(`<div><span class="field-name">电源适配器:</span> <span class="field-value">${ac}</span></div>`);
+                }
+                if (model['color calibration']) {
+                    const cc = Array.isArray(model['color calibration']) ? model['color calibration'].join('、') : model['color calibration'];
+                    items.push(`<div><span class="field-name">校色仪:</span> <span class="field-value">${cc}</span></div>`);
+                }
+                if (items.length === 0) return 'N/A';
+                return `<div class="part-info">${items.join('')}</div>`;
+            }
+
+            // 定义对比行的顺序及取值函数
+            const compareRows = [
+                // 1. CPU
+                {
+                    label: '处理器 (CPU)',
+                    getValue: (model, parts) => {
+                        if (!parts.cpu || parts.cpu.length === 0) return '无';
+                        return parts.cpu.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'cpu')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 2. 显卡
+                {
+                    label: '显卡',
+                    getValue: (model, parts) => {
+                        if (!parts.graphics || parts.graphics.length === 0) return '无';
+                        return parts.graphics.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'graphics')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 3. 显示输出
+                {
+                    label: '显示输出',
+                    getValue: (model, parts) => formatDisplayOutput(model)
+                },
+                // 4. 内存
+                {
+                    label: '内存',
+                    getValue: (model, parts) => formatMemory(model)
+                },
+                // 5. 显示屏
+                {
+                    label: '显示屏',
+                    getValue: (model, parts) => {
+                        if (!parts.display || parts.display.length === 0) return '无';
+                        return parts.display.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'display')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 6. 储存
+                {
+                    label: '储存',
+                    getValue: (model, parts) => formatStorage(model)
+                },
+                // 7. 电池
+                {
+                    label: '电池',
+                    getValue: (model, parts) => formatBattery(model)
+                },
+                // 8. 有线网卡
+                {
+                    label: '有线网卡',
+                    getValue: (model, parts) => {
+                        if (!parts.ethernet || parts.ethernet.length === 0) return '无';
+                        return parts.ethernet.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'ethernet')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 9. 无线网卡
+                {
+                    label: '无线网卡',
+                    getValue: (model, parts) => {
+                        if (!parts.wlan || parts.wlan.length === 0) return '无';
+                        return parts.wlan.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'wlan')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 10. WWAN
+                {
+                    label: 'WWAN',
+                    getValue: (model, parts) => {
+                        if (!parts.wwan || parts.wwan.length === 0) return '无';
+                        return parts.wwan.map(part => `<div class="compare-part-item">${formatPartFullInfo(part.data, 'wwan')}</div>`).join('<hr class="compare-part-sep">');
+                    }
+                },
+                // 11. 物理接口
+                {
+                    label: '物理接口',
+                    getValue: (model, parts) => formatPhysicalPorts(model)
+                },
+                // 12. 其他
+                {
+                    label: '其他',
+                    getValue: (model, parts) => formatOther(model)
+                }
+            ];
+
+            // 构建表格
+            let html = '<table class="compare-table"><thead><tr><th>规格</th>';
+            devicesWithParts.forEach(item => {
+                html += `<th>${item.model.model_name}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+
+            // 遍历每一行
+            for (const row of compareRows) {
+                html += '<tr>';
+                html += `<td>${row.label}</td>`;
+                devicesWithParts.forEach(item => {
+                    const value = row.getValue(item.model, item.parts);
+                    html += `<td>${value}</td>`;
+                });
+                html += '</tr>';
+            }
+
+            html += '</tbody></table>';
+            body.innerHTML = html;
+        } catch (error) {
+            console.error('加载对比数据失败:', error);
+            body.innerHTML = '<div class="empty-message">加载对比数据失败</div>';
+        }
+    }
+
+    function updateCompareCount() {
+        const countSpan = document.getElementById('compareCount');
+        compareBtn.disabled = selectedModels.length === 0;
+        countSpan.textContent = selectedModels.length;
+    }
+
+    function clearCompare() {
+        selectedModels = [];
+        updateCompareCount();
+        // 重新渲染菜单以更新复选框状态
+        applyFilterAndRender();
+    }
 
     // ---------- 格式化 FRU 内容 ----------
     function formatFruContent(partData) {
@@ -497,8 +793,16 @@
     }
 
     function getFilteredModels() {
-        if (currentFilterType === 'family') return currentFamilyValue ? masterModelList.filter(m => m.model_family === currentFamilyValue) : masterModelList;
-        else return currentGenValue ? masterModelList.filter(m => m.model_generation === currentGenValue) : masterModelList;
+        let filtered = masterModelList;
+        if (currentFilterType === 'family' && currentFamilyValue) {
+            filtered = filtered.filter(m => m.model_family === currentFamilyValue);
+        } else if (currentFilterType === 'generation' && currentGenValue) {
+            filtered = filtered.filter(m => m.model_generation === currentGenValue);
+        }
+        if (currentSearchTerm) {
+            filtered = filtered.filter(m => m.model_name.toLowerCase().includes(currentSearchTerm));
+        }
+        return filtered;
     }
 
     function renderMenu(models) {
@@ -507,12 +811,35 @@
             const item = document.createElement('div');
             item.className = 'nav-item';
             item.dataset.modelId = model.model_name;
-            item.innerHTML = model.model_name;
-            item.onclick = () => {
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'model-checkbox';
+            checkbox.value = model.model_name;
+            checkbox.checked = selectedModels.some(m => m.model_name === model.model_name);
+            checkbox.addEventListener('click', (e) => e.stopPropagation());
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    if (!selectedModels.some(m => m.model_name === model.model_name)) {
+                        selectedModels.push(model);
+                    }
+                } else {
+                    selectedModels = selectedModels.filter(m => m.model_name !== model.model_name);
+                }
+                updateCompareCount();
+            });
+
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'model-name';
+            nameSpan.textContent = model.model_name;
+            nameSpan.onclick = () => {
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 item.classList.add('active');
                 renderSpecs(model);
             };
+
+            item.appendChild(checkbox);
+            item.appendChild(nameSpan);
             menuEl.appendChild(item);
         });
         modelCountSpan.textContent = models.length;
@@ -558,6 +885,7 @@
             if (part.type === 'cpu') {
                 const cpuData = part.data.thinkpad_database?.[0] || part.data;
                 if (cpuData.ark) {
+                    // 弹窗打开 ARK
                     arkMenuItem = `<div class="card-menu-item" onclick="window.open('${encodeURI(cpuData.ark)}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); document.getElementById('${menuId}').classList.add('hidden'); event.stopPropagation();">查看 ARK</div>`;
                 }
             }
@@ -570,10 +898,8 @@
                     if (part.type === 'cpu') iconFolder = 'CPU/cpu_icon';
                     else if (part.type === 'graphics') iconFolder = 'Graphics/Graphics_icons';
                     const iconBase = `modeldata/${iconFolder}/${encodeURIComponent(partData.iconfamily)}`;
-                    // 调试输出
-                    console.log(`[图标调试] 尝试加载: ${iconBase}.jpg / .png (类型: ${part.type})`);
                     iconHtml = `<img src="${iconBase}.jpg" class="cpu-icon-bg" alt="" 
-                        onerror="console.error('[图标调试] 加载失败: ' + this.src); this.onerror=null; this.src='${iconBase}.png'; this.onerror=function(){ console.error('[图标调试] 再次失败: ' + this.src); this.style.display='none'; };">`;
+                        onerror="this.onerror=null; this.src='${iconBase}.png'; this.onerror=function(){ this.style.display='none'; };">`;
                 } else {
                     console.warn(`[图标调试] ${part.type} 项缺少 iconfamily 字段:`, part.data);
                 }
@@ -915,14 +1241,14 @@
             // 附加信息（标题下方的小字）
             const addonsHtml = data.addons ? `<p class="addons-note">${data.addons}</p>` : '';
 
-            // 底部按钮
-const buttonsHtml = `
-    <div class="footer-buttons">
-        ${psrefUrl ? `<a href="${psrefUrl}" class="footer-btn" onclick="window.open('${psrefUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">PSREF网站</a>` : ''}
-        ${userGuideUrl ? `<a href="${userGuideUrl}" class="footer-btn" onclick="window.open('${userGuideUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">用户手册</a>` : ''}
-        ${hmmUrl ? `<a href="${hmmUrl}" class="footer-btn" onclick="window.open('${hmmUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">硬件维护指南</a>` : ''}
-    </div>
-`;
+            // 底部按钮（使用弹窗打开）
+            const buttonsHtml = `
+                <div class="footer-buttons">
+                    ${psrefUrl ? `<a href="${psrefUrl}" class="footer-btn" onclick="window.open('${psrefUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">PSREF网站</a>` : ''}
+                    ${userGuideUrl ? `<a href="${userGuideUrl}" class="footer-btn" onclick="window.open('${userGuideUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">用户手册</a>` : ''}
+                    ${hmmUrl ? `<a href="${hmmUrl}" class="footer-btn" onclick="window.open('${hmmUrl}', '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes'); return false;">硬件维护指南</a>` : ''}
+                </div>
+            `;
 
             // ---------- 最终渲染 ----------
             specDisplayEl.innerHTML = `
@@ -948,29 +1274,29 @@ const buttonsHtml = `
                 ${renderPartCard(parts.wwan, 'WWAN', 'wwan')}
                 ${renderPartCard(parts.dock, '扩展坞支持', 'dock')}
 
-<div class="part-card foldable-card">
-    <div class="part-card-header" onclick="toggleCard(this)">
-        <span class="card-title-text">物理接口与多媒体</span>
-        <span class="fold-icon">▼</span>
-    </div>
-    <div class="part-card-body">
-        <table>
-            ${portsRows}
-        </table>
-    </div>
-</div>
+                <div class="part-card foldable-card">
+                    <div class="part-card-header" onclick="toggleCard(this)">
+                        <span class="card-title-text">物理接口与多媒体</span>
+                        <span class="fold-icon">▼</span>
+                    </div>
+                    <div class="part-card-body">
+                        <table>
+                            ${portsRows}
+                        </table>
+                    </div>
+                </div>
 
-<div class="part-card foldable-card">
-    <div class="part-card-header" onclick="toggleCard(this)">
-        <span class="card-title-text">其他</span>
-        <span class="fold-icon">▼</span>
-    </div>
-    <div class="part-card-body">
-        <table>
-            ${otherRows}
-        </table>
-    </div>
-</div>
+                <div class="part-card foldable-card">
+                    <div class="part-card-header" onclick="toggleCard(this)">
+                        <span class="card-title-text">其他</span>
+                        <span class="fold-icon">▼</span>
+                    </div>
+                    <div class="part-card-body">
+                        <table>
+                            ${otherRows}
+                        </table>
+                    </div>
+                </div>
 
                 ${buttonsHtml}
             `;
@@ -985,7 +1311,48 @@ const buttonsHtml = `
     filterGenBtn.addEventListener('click', () => setFilterType('generation'));
     familySelect.addEventListener('change', (e) => { currentFamilyValue = e.target.value; applyFilterAndRender(); });
     generationSelect.addEventListener('change', (e) => { currentGenValue = e.target.value; applyFilterAndRender(); });
-    resetBtn.addEventListener('click', () => { familySelect.value = ''; generationSelect.value = ''; currentFamilyValue = ''; currentGenValue = ''; applyFilterAndRender(); });
+    searchInput.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value.trim().toLowerCase();
+        applyFilterAndRender();
+    });
+    resetBtn.addEventListener('click', () => {
+        familySelect.value = '';
+        generationSelect.value = '';
+        currentFamilyValue = '';
+        currentGenValue = '';
+        searchInput.value = '';
+        currentSearchTerm = '';
+        clearCompare();      // 清空对比
+        applyFilterAndRender();
+    });
+    compareBtn.addEventListener('click', showCompareModal);
+    clearCompareBtn.addEventListener('click', clearCompare);
+
+    // 点击对比模态框遮罩关闭
+    document.getElementById('compareModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeCompareModal();
+        }
+    });
+
+    // ---------- 主题切换（右下角浮动按钮）----------
+    const themeToggle = document.getElementById('themeToggleFloat');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // 应用保存的主题
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggle.textContent = '☀️';
+    } else {
+        themeToggle.textContent = '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        themeToggle.textContent = isLight ? '☀️' : '🌙';
+    });
 
     // 启动
     loadModelFiles();
