@@ -447,8 +447,8 @@ main::-webkit-scrollbar-thumb:hover {
     color: #aaa;
     font-weight: var(--font-medium);
     display: inline-block;
-    min-width: 60px;          /* 缩小宽度 */
-    margin-right: 4px;         /* 减小右侧间距 */
+    min-width: 60px;
+    margin-right: 4px;
 }
 
 .field-value {
@@ -1000,6 +1000,26 @@ td br {
     color: #aaa;
     font-style: italic;
     margin-top: 4px;
+}
+
+/* ===== 新增折叠卡片样式 ===== */
+.foldable-card .part-card-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.fold-icon {
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    color: #aaa;
+}
+
+.foldable-card.folded .part-card-body {
+    display: none;
+}
+
+.card-title-text {
+    flex: 1;
 }
 
 /* 内部型号徽章 */
