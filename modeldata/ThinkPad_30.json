@@ -1,0 +1,105 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-30th",
+      "model_name": "ThinkPad 30th Anniversary Edition",
+      "Base_Model": "ThinkPad X1 Carbon Gen 10",
+      "model_family": "X1",
+      "model_generation": "Anniversary Edition",
+      "update_date": "December 2022",
+      "processor_options": [
+        "1260P"
+      ],
+      "graphics": {
+        "integrated": "Intel Iris Xe Graphics",
+        "discrete": null,
+        "max_resolution": {
+          "hdmi": "4096x2304@60Hz",
+          "thunderbolt": "7680x4320@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "32GB",
+        "type": "LPDDR5-5200",
+        "slots": "None (soldered)",
+        "features": "dual-channel capable"
+      },
+      "display_options": [],
+      "storage": {
+        "ssd_pcie": "1TB PCIe 4.0 NVMe SSD",
+        "ssd_sata": null,
+        "hdd": null,
+        "sshd": null
+      },
+      "Ethernet": [],
+      "WLAN": [
+        "Intel Wi-Fi 6E AX211"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.2 wireless"
+        }
+      ],
+      "WWAN": [
+        "5G sub-6 (optional)"
+      ],
+      "SIM_Card": [
+        {
+          "type": "Nano-SIM card slot (on WWAN models)"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Integrated",
+          "capacity": "57Wh",
+          "form": "4-cell",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ports": [
+        "2 x Thunderbolt 4 / USB 4 (Type-C)",
+        "2 x USB 3.2 Gen 1 (Type-A)",
+        "HDMI 2.0b",
+        "Headphone/microphone combo jack (3.5mm)",
+        "Kensington Security Slot"
+      ],
+      "camera": [
+        "FHD 1080p RGB + IR hybrid camera with Computer Vision",
+        "ThinkShutter privacy shutter"
+      ],
+      "audio": [
+        "Dolby Atmos speaker system, quad speakers (2 x 2W tweeters, 2 x 2W woofers), dual far-field microphones, Dolby Voice"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, LED backlight",
+        "TrackPoint pointing device with 3-color RGB caps, glass surface multi-touch touchpad",
+        "Retro-inspired 3-color logo on palm rest"
+      ],
+      "physical": {
+        "dimensions": "315.6mm x 222.5mm x 15.36mm",
+        "weight": "1.12kg",
+        "case_material": "Carbon Fiber (top), Magnesium Alloy (bottom)"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "dTPM 2.0",
+        "Touch style fingerprint reader on power button",
+        "Windows Hello facial recognition (IR camera)",
+        "Kensington Security Slot"
+      ],
+      "system": [
+        "Windows 11 Professional 64"
+      ],
+      "Extra":[
+        "On side B, there is the text '30th anniversery edition' instead of 'Dolby Atmos'.",
+        "The hinge have a limited edition number engraved on it.",
+        "The vintage RGB ThinkPad logo is used on sides A and C."
+      ]
+    }
+  ]
+}

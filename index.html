@@ -717,6 +717,9 @@ if (data.Display && (data.Display.max_resolution || data.Display.multi_display))
                 ${data.ACadapter ? `
                 <tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>
                 ` : ''}
+                ${data.Extra ? `
+                 <tr><th>补充信息</th><td>${Array.isArray(data.Extra) ? data.Extra.join('<br>' ) : data.Extra}</td></tr>
+                ` : ''}
             `;
 
             // 最终 HTML 拼接

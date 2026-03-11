@@ -1,0 +1,110 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-25-anniversary-edition",
+      "model_name": "ThinkPad 25 Anniversary Edition",
+      "Base_Model": "ThinkPad T470",
+      "model_family": "T",
+      "model_generation": "Anniversary Edition",
+      "update_date": "October 2017",
+      "processor_options": [
+        "i7-7500U"
+      ],
+      "graphics": {
+        "integrated": "Intel HD Graphics 620",
+        "discrete": "NVIDIA GeForce 940MX (2GB GDDR5)",
+        "max_resolution": {
+          "hdmi": "1920x1080@60Hz",
+          "thunderbolt": "3840x2160@60Hz"
+        },
+        "multi_display": "Supports up to 3 independent displays"
+      },
+      "memory": {
+        "max_capacity": "16GB",
+        "type": "DDR4-2400",
+        "slots": "Two DDR4 SO-DIMM sockets",
+        "features": "Dual-channel capable, single-channel config from factory"
+      },
+      "display_options": [],
+      "storage": {
+        "ssd_pcie": "512GB PCIe NVMe SSD (M.2 2280)",
+        "ssd_sata": null,
+        "hdd": null,
+        "sshd": null
+      },
+      "Ethernet": [
+        "I219-V"
+      ],
+      "WLAN": [
+        "Intel Dual Band Wireless-AC 8265"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 4.2 wireless"
+        }
+      ],
+      "WWAN": [
+        "Qualcomm Sierra EM7455 (4G LTE, GPS)"
+      ],
+      "SIM_Card": [
+        {
+          "type": "Micro-SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "24Wh",
+          "form": "3-cell",
+          "tech": "Li-Polymer"
+        },
+        {
+          "type": "External battery",
+          "capacity": "24Wh",
+          "form": "3-cell",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ports": [
+        "3 x USB 3.0 (Type-A, one Always On)",
+        "1 x USB 3.1 Gen 2 Type-C / Thunderbolt 3",
+        "HDMI 1.4b",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC)",
+        "Dock connector",
+        "Headphone/microphone combo jack (3.5mm)",
+        "Kensington Security Slot"
+      ],
+      "camera": [
+        "HD 720p with Windows Hello support (infrared camera)",
+        "Fixed focus"
+      ],
+      "audio": [
+        "HD Audio, stereo speakers 2W x2, dual array microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "7-row classic layout, spill-resistant, LED backlight, blue Enter key",
+        "TrackPoint pointing device with 3 replacement nubs, glass surface multi-touch touchpad"
+      ],
+      "physical": {
+        "dimensions": "336.6mm x 232.5mm x 19.95mm",
+        "weight": "Starting at 1.73 kg",
+        "case_material": "Glass-Fiber Reinforced Plastic (rubberized coating)"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "dTPM 2.0",
+        "Touch style fingerprint reader on palm rest",
+        "Windows Hello facial recognition",
+        "Kensington Security Slot"
+      ],
+      "system": [
+        "Windows 10 Pro 64"
+      ]
+    }
+  ]
+}
