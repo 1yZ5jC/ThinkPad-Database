@@ -4,11 +4,13 @@
       "id": "thinkpad-11e-3rd-gen",
       "model_name": "ThinkPad 11e (3rd Gen)",
       "model_family": "11e",
+      "model_code":["20GB"],
       "model_generation": "3rd Gen",
       "update_date": "2016",
       "processor_options": [
         "N3150",
         "N3160",
+        "4405U",
         "6100U"
       ],
       "graphics_options": ["Intel HD Graphics","HD520"],

@@ -4,6 +4,7 @@
       "id": "thinkpad-e14-ice-lake",
       "model_name": "ThinkPad E14 ICL",
       "model_family": "E",
+      "model_code":["20WF/20WG"],
       "model_generation": "Gen1",
       "update_date": "November 2020",
       "processor_options": [
@@ -89,6 +90,9 @@
       "system": [
         "Windows 10 Home 64",
         "Windows 10 Pro 64"
+      ],
+      "add_on_tips":[
+        "Product for China Mainland Only. The listed configurations may contain errors."
       ]
     }
   ]

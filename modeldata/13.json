@@ -5,6 +5,8 @@
       "model_name": "ThinkPad 13 (1st Gen, Windows)",
       "addons": "Also as ThinkPad S2",
       "model_family": "13",
+      "model_code":["20GJ/20GK"],
+      "addon_model_code":["20GU"],
       "model_generation": "xx60",
       "update_date": "January 2016",
       "processor_options": [

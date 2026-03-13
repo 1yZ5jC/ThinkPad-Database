@@ -4,6 +4,7 @@
       "id": "thinkpad-11e-5th-gen",
       "model_name": "ThinkPad 11e (5th Gen)",
       "model_family": "11e",
+      "model_code":["20LQ/20LR"],
       "model_generation": "5th Gen",
       "update_date": "2020",
       "processor_options": [

@@ -4,6 +4,7 @@
       "id": "thinkpad-11e-2nd-gen-intel",
       "model_name": "ThinkPad 11e (2nd Gen, Intel)",
       "model_family": "11e",
+      "model_code":["20E6/20E8"],
       "model_generation": "2nd Gen",
       "update_date": "2015",
       "processor_options": [

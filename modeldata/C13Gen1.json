@@ -4,11 +4,16 @@
       "id": "thinkpad-c13",
       "model_name": "ThinkPad C13 Yoga Gen 1 Chromebook",
       "model_family": "C",
+      "model_code":["20UX/20UY"],
       "model_generation": "Gen 1",
       "update_date": "Not specified",
       "processor_options": ["3150C", "3250C", "3500C", "3700C"],
-      "graphics": {
-        "integrated": "AMD Radeon Graphics",
+      "graphics_options": [
+        "Vega3_RR",
+        "Vega8_RR",
+        "Vega11_RR"
+      ],
+      "Display": {
         "max_resolution": {
           "hdmi": "3840x2160@60Hz",
           "usb_c": "3840x2160@60Hz"
@@ -22,6 +27,8 @@
         "features": "Dual-channel capable on 8GB/16GB models; single-channel on 4GB model"
       },
       "display_options": ["LEN4094","LEN4143"],
+      "touch": ["Capacitive-type multi-touch, supports 10-finger gesture"],
+      "pen": ["Lenovo® USI Pen, on-board garaged and rechargeable, supports up to 2048 levels of pressure sensitivity"],
       "storage": {
         "ssd_pcie": "M.2 2280 PCIe NVMe (PCIe 3.0 x4), up to 256GB",
         "emmc": "32GB or 64GB eMMC 5.1 on systemboard",

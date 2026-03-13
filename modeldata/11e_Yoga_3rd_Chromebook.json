@@ -4,6 +4,7 @@
       "id": "thinkpad-yoga-11e-3rd-gen-chromebook",
       "model_name": "ThinkPad Yoga 11e (3rd Gen) Chromebook",
       "model_family": "Yoga",
+      "model_code":["20GC/20GE"],
       "model_generation": "3rd Gen",
       "update_date": "2016",
       "processor_options": [

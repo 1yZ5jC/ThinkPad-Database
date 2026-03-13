@@ -5,6 +5,8 @@
       "model_name": "ThinkPad C14 Gen 1 Chromebook",
       "model_family": "C",
       "model_generation": "Gen 3",
+      "model_code":["21C9/21CA"],
+      "addons": "Based on ThinkPad L14 Gen3",
       "update_date": "2022",
       "processor_options": [
         "1215U",

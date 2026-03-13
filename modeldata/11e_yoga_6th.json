@@ -4,6 +4,7 @@
       "id": "thinkpad-11e-yoga-gen-6",
       "model_name": "ThinkPad 11e Yoga Gen 6",
       "model_family": "11e",
+      "model_code":["20SE/20SF"],
       "model_generation": "Gen 6",
       "update_date": "October 2022",
       "processor_options": [

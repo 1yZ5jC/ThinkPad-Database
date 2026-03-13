@@ -6,6 +6,8 @@
       "addons":"Also as ThinkPad S2 Gen2",
       "model_family": "13",
       "model_family_nickname": "S",
+      "model_code":["20J1/20J2"],
+      "addon_model_code":["20J3"],
       "model_generation": "xx70",
       "update_date": "April 2017",
       "processor_options": [
@@ -31,6 +33,8 @@
         "features": "Dual-channel capable"
       },
       "display_options": [],
+      "touch": ["Optional models have On-cell touch, supports 10-finger gesture (FHD only)"],
+      "pen": null,
       "storage": {
         "ssd_sata": "M.2 SATA SSD, up to 512GB",
         "ssd_pcie": "M.2 PCIe NVMe SSD, up to 1TB",

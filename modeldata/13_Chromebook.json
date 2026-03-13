@@ -26,6 +26,7 @@
         "features": "Dual-channel capable, non-upgradable"
       },
       "display_options": [],
+      "touch": ["Optional models have Capacitive-type multi-touch, supports 10-finger gesture"],
       "storage": {
         "ssd_sata": null,
         "ssd_pcie": null,

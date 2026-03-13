@@ -4,6 +4,7 @@
       "id": "thinkpad-11e-1st-gen-windows",
       "model_name": "ThinkPad 11e (1st Gen)",
       "model_family": "11e",
+      "model_code":["20D9/20DA"],
       "model_generation": "1st Gen",
       "update_date": "2014",
       "processor_options": [
