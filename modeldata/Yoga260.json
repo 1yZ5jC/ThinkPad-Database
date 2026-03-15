@@ -3,8 +3,10 @@
     {
       "id": "thinkpad-yoga-260",
       "model_name": "ThinkPad Yoga 260",
+      "nickname": "ThinkPad S1 2016",
       "addons":"Also as ThinkPad New S1 or ThinkPad S1 2016",
       "model_family": "Yoga",
+      "nickfamily": "S",
       "model_generation":"xx60",
       "update_date": "July 2016",
       "model_code":["20FD/20FE/20GS"],
@@ -99,3 +101,4 @@
     }
   ]
 }
+

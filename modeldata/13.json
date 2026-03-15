@@ -3,8 +3,10 @@
     {
       "id": "thinkpad-13-windows",
       "model_name": "ThinkPad 13 (1st Gen, Windows)",
+      "nickname": "ThinkPad S2",
       "addons": "Also as ThinkPad S2",
-      "model_family": "13",
+      "model_family": "13",  
+      "nickfamily": "S",
       "model_code":["20GJ/20GK"],
       "addon_model_code":["20GU"],
       "model_generation": "xx60",

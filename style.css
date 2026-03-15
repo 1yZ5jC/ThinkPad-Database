@@ -180,15 +180,20 @@ aside {
     font-family: var(--font-primary);
     margin-bottom: var(--spacing-sm);
     transition: all 0.2s;
+
+    /* 隐藏所有浏览器原生箭头 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 20px;
+
+    /* 移除自定义箭头背景图 */
+    background-image: none;
 }
 
+/* 浅色模式无需额外背景图，直接继承即可 */
 .light-mode .filter-options select {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    /* 如果之前有背景图，这里也置空 */
+    background-image: none;
 }
 
 .filter-options select:hover {
@@ -1466,4 +1471,23 @@ body.sidebar-hidden aside {
 /* 隐藏原有的主题浮动按钮容器（已由.float-buttons替代） */
 .theme-float {
     display: none;
+}
+
+.switch-model-btn {
+    background: var(--tp-bg-tertiary);
+    border: 1px solid var(--tp-border-light);
+    color: var(--tp-text-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: var(--font-medium);
+    line-height: 1.4;
+    white-space: nowrap;
+}
+.switch-model-btn:hover {
+    background: var(--tp-red);
+    border-color: var(--tp-red);
+    color: white;
 }
