@@ -3,11 +3,14 @@
     {
       "id": "thinkpad-e490s",
       "model_name": "ThinkPad E490s",
+      "nickname": "ThinkPad S3-490",
       "addons":"Also as ThinkPad S3-490 Or ThinkPad NEW S3锋芒",
       "model_family": "E",
+      "nickfamily": "S",
       "model_generation": "xx90",
       "update_date": "",
-      "model_code": ["20NG","20QC"],
+      "model_code": ["20NG"],
+      "nickmodel":["20QC"],
       "processor_options": ["8265U", "8565U"],
       "graphics_options": ["UHD620", "RX540X"],
       "Display": {
