@@ -152,6 +152,8 @@
         let selectedModels = [];                   // 对比选中的型号对象
         let menuCounter = 0;                        // 用于生成唯一菜单ID
         let currentDeviceParts = null;               // 当前设备所有部件数据
+        let secretTipsEnabled = false;      // 是否显示秘密提示
+        let lastEnterTime = 0;              // 上次回车时间（用于检测两次回车）
 
         // 对比选择模态框中的筛选状态
         let selectFilterType = 'family';
@@ -1378,18 +1380,19 @@
                 const addOnTipsHtml = formatAddOnTips(data.add_on_tips);
                 const addOnTipsRow = addOnTipsHtml ? `<tr><th>附加信息</th><td>${addOnTipsHtml}</td></tr>` : '';
 
-                // 其他卡片表格行
-                const otherRows = `
-                    <tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr>
-                    <tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr>
-                    <tr><th>材质</th><td>${physicalMaterial}</td></tr>
-                    <tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr>
-                    <tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>
-                    ${data.ACadapter ? `
-                    <tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>
-                    ` : ''}
-                    ${addOnTipsRow}
-                `;
+// 其他卡片表格行
+const otherRows = `
+    <tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr>
+    <tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr>
+    <tr><th>材质</th><td>${physicalMaterial}</td></tr>
+    <tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr>
+    <tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>
+    ${data.ACadapter ? `
+    <tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>
+    ` : ''}
+    ${addOnTipsRow}
+    ${secretTipsEnabled && data.secret_tips ? `<tr><th>神秘文字</th><td>${data.secret_tips}</td></tr>` : ''}
+`;
 
                 // 物理接口与多媒体卡片（动态折叠）
                 const portsCard = `
@@ -1491,6 +1494,41 @@
         // 搜索按钮
         searchFloatBtn.addEventListener('click', openSearchModal);
         searchModalInput.addEventListener('input', (e) => renderSearchResults(e.target.value.trim()));
+        // 搜索框双击回车检测（触发秘密提示）
+searchModalInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        const currentTime = Date.now();
+        const inputValue = searchModalInput.value.trim();
+        
+        // 检查输入内容是否为指定字符串
+        if (inputValue === 'SDEZ1.65-A') {
+            // 如果两次回车间隔小于 500ms，视为有效触发
+            if (currentTime - lastEnterTime < 500) {
+                secretTipsEnabled = true;   // 启用秘密提示
+                
+                // 重新渲染当前显示的型号（如果有）
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const modelName = activeItem.dataset.modelId;
+                    const model = masterModelList.find(m => m.model_name === modelName);
+                    if (model) renderSpecs(model);
+                }
+                
+                // 可选：关闭搜索模态框
+                closeSearchModal();
+                
+                // 重置计数器
+                lastEnterTime = 0;
+            } else {
+                // 第一次回车，记录时间
+                lastEnterTime = currentTime;
+            }
+        } else {
+            // 输入内容不匹配，重置计数器
+            lastEnterTime = 0;
+        }
+    }
+});
         searchModal.addEventListener('click', function(e) { if (e.target === this) closeSearchModal(); });
 
         // 对比选择按钮
