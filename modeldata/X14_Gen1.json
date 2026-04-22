@@ -6,7 +6,7 @@
       "model_family": "X",
       "model_generation": "Gen7",
       "update_date": "April 2026",
-      "model_code": ["22XM", "22A5"],
+      "model_code": ["21XM", "22A5"],
       "processor_options": ["336H", "338H", "358H", "388H"],
       "graphics_options": ["UHD_PTL", "Arc_B370","Arc_B390"],
       "Display": {
