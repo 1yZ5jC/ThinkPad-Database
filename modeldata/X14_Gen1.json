@@ -51,6 +51,7 @@
       "ACadapter": ["100W USB-C AC adapter"],
       "ports": [
         "2 x USB 3.1 Gen 1 (One Always On)",
+        "1 x MagicBay (USB 3.1 Gen 1 )",
         "2 x USB 3.1 Type-C Gen 2 / Thunderbolt 4",
         "HDMI 2.0 TMDS",
         "Combo audio/microphone jack"
