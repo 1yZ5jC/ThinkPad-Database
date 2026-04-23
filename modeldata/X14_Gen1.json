@@ -11,8 +11,8 @@
       "graphics_options": ["UHD_PTL", "Arc_B370","Arc_B390"],
       "Display": {
         "max_resolution": {
-          "usb_c_tbt": "4096x2160@60Hz",
-          "hdmi_tbt": "7680x4320@60Hz"
+          "hdmi": "4096x2160@60Hz",
+          "usb_c_tbt": "7680x4320@60Hz"
         },
         "multi_display": "Supports 4 independent displays"
       },
