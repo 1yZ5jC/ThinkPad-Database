@@ -1,0 +1,100 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-l13-gen-5-intel",
+      "model_name": "ThinkPad L13 Gen 5 (Intel)",
+
+      "model_family": "L",
+
+      "model_generation": "Gen 5",
+        "update_date": "June 2024",
+        "model_code": [],
+        "addon_model_code": [],
+      "processor_options": ["125U", "135U", "155U", "165U"],
+      "graphics_options": ["Intel Graphics"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "4K@60Hz",
+          "usb_c": "5K@120Hz",
+          "thunderbolt": "8K@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "32GB max",
+        "type": "LPDDR5-6400 (runs at 7500 limited)",
+        "slots": "Memory soldered to systemboard, no slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": ["13.3\" WUXGA (1920x1200) IPS 300nits Non-touch or Multi-touch", "13.3\" WUXGA (1920x1200) IPS 400nits Non-touch Low power/Eyesafe"],
+      "touch": ["On-cell multi-touch, supports 10-point touch", "Non-touch"],
+      "pen": ["No pen support"],
+      "storage": {
+        "ssd_pcie": "M.2 2280 SSD / PCIe NVMe, PCIe 4.0 x4, up to 1TB",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": ["No onboard Ethernet"],
+      "WLAN": ["AX211"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.3"
+        }
+      ],
+      "WWAN": ["EM061K-GL", "No WWAN"],
+      "SIM_Card": [
+        {
+          "type": "KDDI eSIM Program (Japan) or no physical SIM card"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Internal battery",
+          "capacity": "46Wh",
+          "form": "Rechargeable Li-ion",
+          "tech": "Li-Ion",
+          "rapid_charge": "Up to 80% in 1hr with 65W AC adapter"
+        }
+      ],
+      "ACadapter": ["45W USB-C", "65W USB-C", "No power adapter"],
+      "ports": [
+        "1 x USB-A (USB 5Gbps)",
+        "1 x USB-A (USB 5Gbps) Always On",
+        "1 x USB-C (USB 20Gbps)",
+        "1 x Thunderbolt 4",
+        "1 x HDMI 2.1",
+        "1 x Headphone/mic combo jack",
+        "1 x Nano-SIM (optional)",
+        "1 x Smart card reader (optional)"
+      ],
+      "camera": [
+        "FHD 1080p + IR hybrid with privacy shutter",
+        "HD 720p with privacy shutter"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3287 codec / stereo speakers, 2W x2, Dolby Audio / dual array microphone"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, 1.5mm/1.35mm travel, LED backlight optional",
+        "TrackPoint pointing device and Mylar surface multi-touch 3-button Trackpad"
+      ],
+      "physical": {
+        "dimensions": "305 x 218 x 17.23 mm (12.0 x 8.58 x 0.68 inches)",
+        "weight": "Starting at 1.23 kg (2.71 lbs)",
+        "case_material": "Aluminium (top), GFRP (bottom)"
+      },
+      "security": [
+        "Discrete TPM 2.0",
+        "Kensington Nano Security Slot",
+        "Touch fingerprint reader (optional)",
+        "IR camera for Windows Hello (optional)",
+        "ThinkShield",
+        "Certificate-based BIOS authentication"
+      ],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Windows 10 Pro 64 (special bid)", "Ubuntu Linux", "No preload OS"]
+    }
+  ]
+}

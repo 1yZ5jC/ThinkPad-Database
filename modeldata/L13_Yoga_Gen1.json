@@ -1,0 +1,134 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-l13-yoga",
+      "model_name": "ThinkPad L13 Yoga",
+      "nickname": "ThinkPad S2 Yoga Gen5",
+      "addons":"Also as ThinkPad S2 Yoga Gen5",
+      "model_family": "L",
+      "nickfamily": "S",
+      "model_generation": "Gen1",
+      "update_date": "February 2022",
+      "model_code": [],
+      "addon_model_code": [],
+      "processor_options": [
+        "10110U",
+        "10210U",
+        "10310U",
+        "10510U",
+        "10610U"
+      ],
+      "graphics_options": [
+        "UHD630"
+      ],
+      "Display": {
+        "max_resolution": {
+          "usb_c_tbt": "4096x2304@60Hz",
+          "hdmi": "4096x2160@30Hz"
+        },
+        "multi_display": "Supports up to 3 independent displays (native display and 2 external monitors via HDMI and USB-C)"
+      },
+      "memory": {
+        "max_capacity": "16GB max",
+        "type": "DDR4-2666",
+        "slots": "Memory soldered to systemboard, no slots (4GB) or dual-channel (8GB/16GB)",
+        "features": "8GB and 16GB models support dual-channel"
+      },
+      "display_options": [
+        "13.3\" FHD (1920x1080) IPS multi-touch 300nits anti-reflection anti-smudge 72% NTSC"
+      ],
+      "touch":["Supports 10-finger gesture"],
+      "pen":["ThinkPad Pen Pro, active pen for multi-touch display"],
+      "storage": {
+        "ssd_pcie": "One drive, up to 512GB M.2 2242 SSD or 1TB M.2 2280 SSD, optional Intel Optane Memory, PCIe 3.0"
+      },
+      "WLAN": [
+        "9560AC",
+        "AX201"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.1 (Bluetooth 5.2 hardware ready)"
+        }
+      ],
+      "WWAN": [
+        "No support"
+      ],
+      "SIM_Card": [
+        {
+          "type": "No SIM card inbox"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "46Wh",
+          "form": "Li-Polymer",
+          "tech": "Integrated Li-Polymer, supports Rapid Charge (80% in 1hr) with 65W AC adapter"
+        }
+      ],
+      "ACadapter": [
+        "45W USB-C AC adapter",
+        "65W USB-C AC adapter",
+        "65W USB-C slim AC adapter"
+      ],
+      "ports": [
+        "1x USB 3.1 Gen 1",
+        "1x USB 3.1 Gen 1 (Always On)",
+        "2x USB-C 3.1 Gen 1 (PD, DisplayPort 1.2)",
+        "1x HDMI 1.4b",
+        "1x microSD card reader",
+        "1x Ethernet extension connector",
+        "1x Headphone/microphone combo jack (3.5mm)",
+        "1x Side docking connector",
+        "1x Smart card reader (optional)"
+      ],
+      "camera": [
+        "Front 720p with ThinkShutter, fixed focus",
+        "Front 720p with ThinkShutter, fixed focus; rear 5.0MP autofocus",
+        "Front IR & 720p hybrid with ThinkShutter, fixed focus",
+        "Front IR & 720p hybrid with ThinkShutter, fixed focus; rear 5.0MP autofocus"
+      ],
+      "audio": [
+        "HD Audio, Synaptic CX11880 codec / stereo speakers, 2W x2, Dolby Audio Premium / dual array microphone"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, LED backlight",
+        "TrackPoint pointing device and Mylar surface multi-touch touchpad"
+      ],
+      "physical": {
+        "dimensions": "311.5 x 219 x 17.6 mm (12.26 x 8.62 x 0.69 inches)",
+        "weight": "1.43 kg (3.15 lbs)",
+        "case_material": "Magnesium-aluminium (top), GFRP (bottom)"
+      },
+      "security": [
+        "Firmware TPM 2.0 or Discrete TPM 2.0",
+        "Touch style fingerprint reader on palm rest",
+        "Kensington Security Slot",
+        "ThinkShutter camera cover",
+        "Optional IR camera for Windows Hello",
+        "BIOS security: Power-on password, Supervisor password, Hard disk password, Self-healing BIOS"
+      ],
+      "system": [
+        "Windows 10 Pro 64",
+        "Windows 10 Pro in S mode",
+        "Windows 10 Home 64",
+        "Ubuntu Linux",
+        "No operating system"
+      ],
+      "user_guide_link": [],
+      "HMM_link": [],
+      "add_on_tips": [
+        "Intel vPro option available",
+        "MIL-STD-810G certified",
+        "EPEAT Gold, ENERGY STAR 8.0, TCO Certified"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+
+    }
+]
+}

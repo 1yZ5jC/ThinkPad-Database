@@ -1,0 +1,97 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-l13-yoga-gen-4-amd",
+      "model_name": "ThinkPad L13 Yoga Gen 4 (AMD)",
+      "nickname": "ThinkPad S2 Yoga Gen8 AMD",
+      "model_family": "L",
+      "nickfamily": "S",
+      "model_generation": "Gen 4",
+      "update_date": "February 2022",
+      "model_code": ["21FR","21FS"],
+      "addon_model_code": ["21FU"],
+      "processor_options": ["7330U", "7530U", "7730U"],
+      "graphics_options": ["AMD Radeon Graphics"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "3840x2160@60Hz",
+          "usb_c_tbt": "5120x2880@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "32GB max",
+        "type": "DDR4-3200",
+        "slots": "Memory soldered to systemboard, no slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": ["13.3\" WUXGA (1920x1200) IPS 300nits Multi-touch", "13.3\" WUXGA (1920x1200) IPS 400nits Multi-touch"],
+      "touch": ["OGS multi-touch, supports 10-point touch"],
+      "pen": ["Lenovo Integrated Pen, 4096 levels, built-in rechargeable", "No pen"],
+      "storage": {
+        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 3.0 x4 (SSD is PCIe 4.0 but downgraded), up to 1TB",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": ["No onboard Ethernet"],
+      "WLAN": ["RZ616"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.3"
+        }
+      ],
+      "WWAN": ["EM05-G", "L860-GL-16", "No WWAN"],
+      "SIM_Card": [
+        {
+          "type": "KDDI eSIM Program (Japan) or no physical SIM card"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Internal battery",
+          "capacity": "46Wh",
+          "form": "Rechargeable Li-ion",
+          "tech": "Li-Ion",
+          "rapid_charge": "Up to 80% in 1hr with 65W AC adapter"
+        }
+      ],
+      "ACadapter": ["45W USB-C", "65W USB-C", "65W USB-C slim"],
+      "ports": [
+        "2 x USB 3.2 Gen 1 (one Always On)",
+        "2 x USB-C 3.2 Gen 2",
+        "1 x HDMI 2.1",
+        "1 x Headphone/mic combo jack",
+        "1 x Nano-SIM card slot (optional)",
+        "1 x Smart card reader (optional)"
+      ],
+      "camera": [
+        "Front FHD 1080p + IR hybrid with privacy shutter",
+        "Front HD 720p with privacy shutter",
+        "Optional rear World Facing 5MP"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3287 codec / stereo speakers, 2W x2, Dolby Audio Premium / dual array microphone"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, LED backlight optional",
+        "TrackPoint pointing device and Mylar surface multi-touch trackpad"
+      ],
+      "physical": {
+        "dimensions": "305 x 218 x 17.06 mm (12.0 x 8.58 x 0.67 inches)",
+        "weight": "Starting at 1.31 kg (2.89 lbs)",
+        "case_material": "Aluminium (top), GFRP (bottom)"
+      },
+      "security": [
+        "Discrete TPM 2.0",
+        "Kensington Nano Security Slot",
+        "Touch fingerprint reader (optional)",
+        "IR camera for Windows Hello (optional)",
+        "ThinkShield"
+      ],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS"]
+    }
+  ]
+}

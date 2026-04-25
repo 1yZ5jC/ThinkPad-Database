@@ -1,0 +1,100 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-l13-2in1-gen-6-intel",
+      "model_name": "ThinkPad L13 2-in-1 Gen 6 (Intel)",
+        "nickname": "ThinkPad S2 2-in-1 Gen10 Intel",
+        "addons": "Also as ThinkPad S2 2-in-1 Gen10 Intel",
+      "model_family": "L",
+        "nickfamily": "S",
+      "model_generation": "Gen 6",
+        "update_date": "June 2024",
+        "model_code": [],
+        "addon_model_code": [],
+      "processor_options": ["225U", "235U", "255U", "265U"],
+      "graphics_options": ["Intel Graphics"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "3840x2160@60Hz",
+          "thunderbolt": "7680x4320@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays (8K reduces simultaneous count)"
+      },
+      "memory": {
+        "max_capacity": "32GB max",
+        "type": "LPDDR5X-7467 (runs at 8533 limited)",
+        "slots": "Memory soldered to systemboard, no slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": ["13.3\" WUXGA (1920x1200) IPS 400nits GMF-touch", "13.3\" WUXGA (1920x1200) IPS 400nits OGM-touch"],
+      "touch": ["GMF multi-touch, supports 10-point touch", "OGM multi-touch, supports 10-point touch"],
+      "pen": ["Lenovo Integrated Pen, 4096 levels", "No pen bundled (garage ready)"],
+      "storage": {
+        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 4.0 x4, up to 1TB",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": ["No onboard Ethernet"],
+      "WLAN": ["AX211", "BE201"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.3 or 5.4"
+        }
+      ],
+      "WWAN": ["EM061K-GL", "No WWAN"],
+      "SIM_Card": [
+        {
+          "type": "KDDI eSIM Program (Japan) (various plans) or no physical SIM card"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Internal battery",
+          "capacity": "41Wh or 54.7Wh",
+          "form": "Rechargeable Li-ion",
+          "tech": "Li-Ion",
+          "rapid_charge": "Up to 80% in 1hr"
+        }
+      ],
+      "ACadapter": ["65W USB-C", "65W USB-C slim GaN", "No power adapter"],
+      "ports": [
+        "1 x USB-A (USB 5Gbps)",
+        "1 x USB-A (USB 5Gbps) Always On",
+        "2 x Thunderbolt 4 (with USB PD 3.1 and DP 2.1)",
+        "1 x HDMI 2.1",
+        "1 x Headphone/mic combo jack",
+        "1 x Nano-SIM (optional)",
+        "1 x Smart card reader (optional)"
+      ],
+      "camera": [
+        "Front 5.0MP + IR discrete with privacy shutter",
+        "Front HD 720p with privacy shutter",
+        "Optional rear World Facing 5MP"
+      ],
+      "audio": [
+        "HD Audio, Senary SN6147 codec / stereo speakers, 2W x2, Dolby Atmos / dual array microphone, Elevoc Voice"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, 1.5mm/1.35mm travel, Copilot key, LED backlight optional",
+        "TrackPoint pointing device, double-tap Quick Menu, Mylar or glass-like Mylar trackpad depending on NFC"
+      ],
+      "physical": {
+        "dimensions": "299.0 x 215.0 x 12.0/15.7 (front/rear) mm, 18.35 mm maximum",
+        "weight": "Starting at 1.30 kg (2.87 lbs)",
+        "case_material": "Aluminium (top), PC + 40% GF (bottom)"
+      },
+      "security": [
+        "Discrete TPM 2.0, FIPS 140-3 certified",
+        "Kensington Nano Security Slot",
+        "Touch fingerprint reader (optional)",
+        "IR camera for Windows Hello (optional)",
+        "ThinkShield",
+        "Privacy Guard software"
+      ],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS", "Windows 11 IoT Enterprise LTSC"]
+    }
+  ]
+}
