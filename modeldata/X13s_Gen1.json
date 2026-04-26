@@ -3,6 +3,7 @@
     {
       "id": "thinkpad-x13s-gen-1",
       "model_name": "ThinkPad X13s Gen 1",
+      "model_code": ["21BX","21BY"],
       "model_family": "X",
       "model_generation": "Gen 1",
       "processor_options": ["SC8280XP"],
@@ -89,7 +90,12 @@
         "Computer Vision-based User Presence Sensing (optional)",
         "Self-healing BIOS"
       ],
-      "system": ["Windows 11 Pro on ARM", "Windows 11 Home on ARM"]
+      "system": ["Windows 11 Pro on ARM", "Windows 11 Home on ARM"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13s_Gen_1/ThinkPad_X13s_Gen_1_Spec.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/x13s_gen1_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/x13s_gen1_hmm_en.pdf"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
     }
   ]
 }

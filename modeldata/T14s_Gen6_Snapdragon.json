@@ -5,6 +5,7 @@
       "model_name": "ThinkPad T14s Gen 6 (Snapdragon)",
       "model_family": "T",
       "model_generation": "Gen 6",
+      "model_code": ["21N1","21N2"],
       "processor_options": ["X1E78100", "X1P42100"],
       "graphics_options": ["Adreno_X1-85","Adreno_X1-45"],
       "Display": {
@@ -91,9 +92,9 @@
         "Certificate-based BIOS authentication"
       ],
       "system": ["Windows 11 Pro on ARM", "Windows 11 Home on ARM"],
-      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_4_Intel/ThinkPad_L13_Yoga_Gen_4_Intel_Spec.pdf"],
-      "user_guide_link": ["https://download.lenovo.com/km/dita/prod/202506/l13_gen4/c505870afcf0a135e3627bc1f80a773b_l13_gen4/en/l13_gen4_l13_yoga_gen4_s2_gen8_s2_yoga_gen8_ug_en.pdf"],
-      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/l13_gen4_l13_yoga_gen4_hmm_en.pdf"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_6_Snapdragon/ThinkPad_T14s_Gen_6_Snapdragon_Spec.pdf"],
+      "user_guide_link": ["https://support.lenovo.com/us/en/documentation/SG10242"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/t14s_gen6_hmm_en.pdf"],
       "add_on_tips": [""],
       "secret_tips": [""]
     }
