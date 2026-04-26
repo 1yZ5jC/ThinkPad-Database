@@ -9,8 +9,8 @@
       "nickfamily": "S",
       "model_generation": "Gen2",
       "update_date": "July 2023",
-      "model_code": [],
-      "addon_model_code": [],
+      "model_code": ["20VH","20VJ"],
+      "addon_model_code": ["20VM"],
       "processor_options": [
         "6305",
         "1115G4",
@@ -122,8 +122,9 @@
         "Windows 11 Pro",
         "No operating system"
       ],
-      "user_guide_link": [],
-      "HMM_link": [],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_2_Intel/ThinkPad_L13_Gen_2_Intel_Spec.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/l13_gen2_l13yoga_gen2_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/l13_gen2_l13yoga_gen2_hmm_en.pdf"],
       "add_on_tips": [
         "Intel vPro option available",
         "MIL-STD-810H certified",

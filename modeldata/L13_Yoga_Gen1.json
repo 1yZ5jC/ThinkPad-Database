@@ -9,8 +9,8 @@
       "nickfamily": "S",
       "model_generation": "Gen1",
       "update_date": "February 2022",
-      "model_code": [],
-      "addon_model_code": [],
+      "model_code": ["20R5","20R6"],
+      "addon_model_code": ["20R8"],
       "processor_options": [
         "10110U",
         "10210U",
@@ -118,8 +118,9 @@
         "Ubuntu Linux",
         "No operating system"
       ],
-      "user_guide_link": [],
-      "HMM_link": [],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga/ThinkPad_L13_Yoga_Spec.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/tp_l13-l13yoga_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/tp_l13-l13yoga_hmm_en.pdf"],
       "add_on_tips": [
         "Intel vPro option available",
         "MIL-STD-810G certified",

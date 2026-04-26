@@ -3,13 +3,10 @@
    {
       "id": "thinkpad-l13-gen-6-amd",
       "model_name": "ThinkPad L13 Gen 6 (AMD)",
-
       "model_family": "L",
-
       "model_generation": "Gen 6",
         "update_date": "June 2024",
-        "model_code": [],
-        "addon_model_code": [],
+        "model_code": ["21RB","21RC"],
       "processor_options": ["210", "215", "250"],
       "graphics_options": ["740M", "780M"],
       "Display": {
@@ -92,7 +89,12 @@
         "ThinkShield",
         "Privacy Guard software"
       ],
-      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS"]
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_6_AMD/ThinkPad_L13_Gen_6_AMD_Spec.pdf"],
+      "user_guide_link": ["https://support.lenovo.com/us/en/documentation/SG10153"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/l13_gen6_hmm_en.pdf"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
     }
   ]
 }

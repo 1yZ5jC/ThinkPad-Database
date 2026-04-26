@@ -91,7 +91,12 @@
         "IR camera for Windows Hello (optional)",
         "ThinkShield"
       ],
-      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS"]
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux", "No preload OS"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_4_AMD/ThinkPad_L13_Yoga_Gen_4_AMD_Spec.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/km/dita/prod/202506/l13_gen4/c505870afcf0a135e3627bc1f80a773b_l13_gen4/en/l13_gen4_l13_yoga_gen4_s2_gen8_s2_yoga_gen8_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/l13_gen4_l13_yoga_gen4_hmm_en.pdf"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
     }
   ]
 }

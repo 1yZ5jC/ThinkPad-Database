@@ -8,18 +8,18 @@
       "nickfamily": "S",
       "model_generation": "Gen1",
       "update_date": "February 2022",
-      "model_code": [],
-      "addon_model_code": [],
+      "model_code": ["20R3","20R4"],
+      "addon_model_code": ["20R7"],
       "processor_options": [
-        "Celeron 5205U",
-        "Core i3-10110U",
-        "Core i5-10210U",
-        "Core i5-10310U",
-        "Core i7-10510U",
-        "Core i7-10610U"
+        "5205U",
+        "10110U",
+        "10210U",
+        "10310U",
+        "10510U",
+        "10610U"
       ],
       "graphics_options": [
-        "Intel UHD Graphics"
+        "UHD620"
       ],
       "Display": {
         "max_resolution": {
@@ -115,8 +115,9 @@
         "Ubuntu Linux",
         "No operating system"
       ],
-      "user_guide_link": [],
-      "HMM_link": [],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13/ThinkPad_L13_Spec.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/tp_l13-l13yoga_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/tp_l13-l13yoga_hmm_en.pdf"],
       "add_on_tips": [
         "Intel vPro option available",
         "MIL-STD-810G certified",

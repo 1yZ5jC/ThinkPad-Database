@@ -6,5 +6,5 @@
           "VRAM":"-",
           "Generation": "Xe3-LPG",
           "Feature":"DX 12.0 (12_2), OpenGL 4.6, OpenCL 2.1, Vulkan 1.4",
-          "iconfamily":"Intel_Graphics_New"
+          "iconfamily":"Intel_Graphics_new"
         }
