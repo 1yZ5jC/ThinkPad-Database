@@ -28,7 +28,7 @@
       "storage": {
         "ssd_sata": null,
         "ssd_pcie": null,
-        "hdd": "SCSI-2 Fast / SCSI-2 50 pin connector",
+        "hdd": "SCSI-2 Fast",
         "sshd": null
       },
       "Ethernet": [],
@@ -51,6 +51,7 @@
         "VGA",
         "composite In/out",
         "3.5mm Input jack & output jack"
+        "SCSI-2 50 pin connector"
       ],
       "camera": [],
       "audio": [
