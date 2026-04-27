@@ -3,7 +3,7 @@
     {
       "id": "thinkpad-l13-yoga-gen-4-intel",
       "model_name": "ThinkPad L13 Yoga Gen 4 (Intel)",
-        "nickname": "ThinkPad S2 Yoga Gen8 Intel",
+      "nickname": "ThinkPad S2 Yoga Gen8 Intel",
       "model_family": "L",
       "nickfamily": "S",
       "model_generation": "Gen 4",
