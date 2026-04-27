@@ -156,6 +156,7 @@
         <button id="searchFloatBtn" class="float-btn" title="搜索型号">🔍</button>
         <button id="themeToggleFloat" class="float-btn" title="切换深色/浅色模式">🌙</button>
         <a id="generatorFloatBtn" class="float-btn" title="JSON生成器（但是我没写完）" href="generator.html" target="_blank">🛠️</a>
+        <a id="generatorFloatBtn" class="float-btn" title="访问新版" href="index.html" target="_blank">😋</a>
     </div>
 
     <script>
@@ -181,9 +182,6 @@
         let selectFamilyValue = '';
         let selectGenValue = '';
         let selectSearchTerm = '';
-
-        // 按需加载：已加载完整数据的文件集合
-        const loadedFiles = new Set();
 
         // DOM 元素
         const menuEl = document.getElementById('modelMenu');
@@ -326,13 +324,6 @@
             modal.classList.add('show');
 
             try {
-                // 确保所有选中的型号都已加载完整数据
-                for (const model of selectedModels) {
-                    if (model._isLight) {
-                        await loadModelFile(model.filename);
-                    }
-                }
-
                 const devicesWithParts = await Promise.all(selectedModels.map(async (model) => {
                     const parts = await loadDeviceParts(model);
                     return { model, parts };
@@ -547,13 +538,9 @@
             searchModalResults.innerHTML = html;
         }
 
-        window.selectModelFromSearch = async function(modelName) {
-            let model = masterModelList.find(m => m.model_name === modelName);
+        window.selectModelFromSearch = function(modelName) {
+            const model = masterModelList.find(m => m.model_name === modelName);
             if (model) {
-                if (model._isLight) {
-                    await loadModelFile(model.filename);
-                    model = masterModelList.find(m => m.model_name === modelName);
-                }
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 const targetItem = Array.from(document.querySelectorAll('.nav-item')).find(item => item.dataset.modelId === modelName);
                 if (targetItem) targetItem.classList.add('active');
@@ -661,15 +648,10 @@
             renderCompareSelectList();
         }
 
-        async function confirmCompare() {
+        function confirmCompare() {
             if (selectedModels.length === 0) {
                 alert('请至少选择一个型号');
                 return;
-            }
-            for (const model of selectedModels) {
-                if (model._isLight) {
-                    await loadModelFile(model.filename);
-                }
             }
             closeCompareSelectModal();
             showCompareModal();
@@ -943,94 +925,79 @@
             return str.split(',').map(s => s.trim()).filter(Boolean);
         }
 
-        // ---------- 按需加载完整型号文件（替换轻量对象）----------
-        async function loadModelFile(filename) {
-            if (loadedFiles.has(filename)) {
-                return;
-            }
-            try {
-                const resp = await fetch(`modeldata/${filename}`);
-                if (!resp.ok) throw new Error(`无法加载文件: ${filename}`);
-                const jsonData = await resp.json();
-                let items = [];
-                if (jsonData.thinkpad_database && Array.isArray(jsonData.thinkpad_database)) items = jsonData.thinkpad_database;
-                else if (Array.isArray(jsonData)) items = jsonData;
-                else items = [jsonData];
-
-                items.forEach(laptop => {
-                    if (!laptop.model_name) return;
-
-                    const fullModel = {
-                        filename: filename,
-                        model_family: laptop.model_family || '未指定系列',
-                        model_generation: laptop.model_generation || '未指定代数',
-                        _isLight: false,
-                        ...laptop
-                    };
-
-                    // 更新 masterModelList 中的轻量对象为完整对象
-                    const idx = masterModelList.findIndex(m => m.model_name === fullModel.model_name);
-                    if (idx !== -1) {
-                        masterModelList[idx] = fullModel;
-                    } else {
-                        masterModelList.push(fullModel);
-                    }
-
-                    // 处理别名
-                    if (laptop.nickname && typeof laptop.nickname === 'string' && laptop.nickname.trim() !== '') {
-                        const nickModel = {
-                            ...fullModel,
-                            model_name: laptop.nickname.trim(),
-                            _isNickname: true,
-                            _originalName: laptop.model_name
-                        };
-                        if (laptop.nickfamily && typeof laptop.nickfamily === 'string' && laptop.nickfamily.trim() !== '') {
-                            nickModel.model_family = laptop.nickfamily.trim();
-                        }
-                        delete nickModel.addons;
-
-                        const nickIdx = masterModelList.findIndex(m => m.model_name === nickModel.model_name);
-                        if (nickIdx !== -1) {
-                            masterModelList[nickIdx] = nickModel;
-                        } else {
-                            masterModelList.push(nickModel);
-                        }
-                    }
-                });
-
-                loadedFiles.add(filename);
-                populateFilterOptions();
-
-            } catch (err) {
-                console.error(`加载型号文件 ${filename} 失败:`, err);
-            }
-        }
-
-        // ---------- 初始加载：从新的 index.json 读取元数据 ----------
+        // ---------- 加载设备数据 ----------
         async function loadModelFiles() {
             specDisplayEl.innerHTML = '<div class="loading">加载数据中...</div>';
             try {
-                const indexResp = await fetch('modeldata/index.json');
-                if (!indexResp.ok) {
-                    throw new Error('无法加载 index.json');
+                let fileList = [];
+                try {
+                    const indexResp = await fetch('modeldata/index_old.json');
+                    if (indexResp.ok) {
+                        const indexData = await indexResp.json();
+                        fileList = indexData.files || indexData;
+                    } else throw new Error('index_old.json 不存在');
+                } catch (e) {
+                    console.warn('未找到 modeldata/index_old.json，使用默认文件列表');
+                    fileList = ['T460.json'];
                 }
-                const indexData = await indexResp.json();
-                // indexData 是对象数组，每个对象有 file, name, family, generation
-                if (!Array.isArray(indexData)) {
-                    throw new Error('index.json 格式错误');
+                const allModels = [];
+                for (const fileName of fileList) {
+                    try {
+                        const resp = await fetch(`modeldata/${fileName}`);
+                        if (!resp.ok) continue;
+                        const jsonData = await resp.json();
+                        let items = [];
+                        if (jsonData.thinkpad_database && Array.isArray(jsonData.thinkpad_database)) items = jsonData.thinkpad_database;
+                        else if (Array.isArray(jsonData)) items = jsonData;
+                        else items = [jsonData];
+                        items.forEach(laptop => {
+                            if (!laptop.model_name) return;
+
+                            // 构建基础模型对象，包含文件名、系列、代数以及所有原始字段
+                            const baseModel = {
+                                filename: fileName,
+                                model_family: laptop.model_family || '未指定系列',
+                                model_generation: laptop.model_generation || '未指定代数',
+                                ...laptop
+                            };
+
+                            // 添加原始型号
+                            allModels.push(baseModel);
+
+                            // 如果有有效的 nickname，则添加一个以 nickname 为名称的副本
+                            if (laptop.nickname && typeof laptop.nickname === 'string' && laptop.nickname.trim() !== '') {
+                                // 创建副本，基于 baseModel
+                                const nicknameModel = {
+                                    ...baseModel,
+                                    model_name: laptop.nickname.trim(),
+                                    // 标记为别名，并记录原始名称
+                                    _isNickname: true,
+                                    _originalName: laptop.model_name
+                                };
+
+                                // 如果存在 nickfamily，则覆盖 model_family
+                                if (laptop.nickfamily && typeof laptop.nickfamily === 'string' && laptop.nickfamily.trim() !== '') {
+                                    nicknameModel.model_family = laptop.nickfamily.trim();
+                                }
+
+                                // 移除 addons 字段（新机型不显示 addons）
+                                delete nicknameModel.addons;
+
+                                allModels.push(nicknameModel);
+                            }
+                        });
+                    } catch (err) {
+                        console.error(`加载 ${fileName} 出错:`, err);
+                    }
                 }
-
-                masterModelList = indexData.map(item => ({
-                    model_name: item.name,
-                    model_family: item.family || '未指定系列',
-                    model_generation: item.generation || '未指定代数',
-                    filename: item.file,
-                    _isLight: true
-                }));
-
+                if (allModels.length === 0) {
+                    specDisplayEl.innerHTML = '<div class="empty-message">没有找到设备数据</div>';
+                    return;
+                }
+                masterModelList = allModels;
                 populateFilterOptions();
                 applyFilterAndRender();
-                renderFavoritesList();
+                renderFavoritesList(); // 初始化收藏列表（模态框内）
             } catch (err) {
                 console.error('致命错误:', err);
                 specDisplayEl.innerHTML = '<div class="empty-message">加载数据失败</div>';
@@ -1047,6 +1014,7 @@
                 familySelect.appendChild(opt); 
             });
 
+            // 代数排序：先三位，再四位，再 Gen 开头，其余最后
             const gens = [...new Set(masterModelList.map(m => m.model_generation).filter(Boolean))].sort((a, b) => {
                 const getPriority = (s) => {
                     if (s.length === 3) return 1;
@@ -1068,8 +1036,10 @@
                 generationSelect.appendChild(opt); 
             });
 
-            familySelect.value = currentFamilyValue;
-            generationSelect.value = currentGenValue;
+            familySelect.value = ''; 
+            generationSelect.value = ''; 
+            currentFamilyValue = ''; 
+            currentGenValue = '';
         }
 
         function setFilterType(type) {
@@ -1170,6 +1140,7 @@
                         const iconBase = `modeldata/${iconFolder}/${encodeURIComponent(partData.iconfamily)}`;
                         iconHtml = `<img src="${iconBase}.webp" class="cpu-icon-bg" alt="" 
                             onerror="this.onerror=null; this.src='${iconBase}.jpg'; this.onerror=function(){ this.src='${iconBase}.png'; this.onerror=function(){ this.style.display='none'; }; };">`;
+                            
                     }
                 }
                 const menuItems = (fruMenuItem + arkMenuItem).trim();
@@ -1248,13 +1219,9 @@
             favoritesModalList.innerHTML = html;
         }
 
-        window.selectFavoriteModel = async function(modelName) {
-            let model = masterModelList.find(m => m.model_name === modelName);
+        window.selectFavoriteModel = function(modelName) {
+            const model = masterModelList.find(m => m.model_name === modelName);
             if (model) {
-                if (model._isLight) {
-                    await loadModelFile(model.filename);
-                    model = masterModelList.find(m => m.model_name === modelName);
-                }
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 const targetItem = Array.from(document.querySelectorAll('.nav-item')).find(item => item.dataset.modelId === modelName);
                 if (targetItem) targetItem.classList.add('active');
@@ -1281,13 +1248,9 @@
         }
 
         // ---------- 切换型号的全局函数 ----------
-        window.switchToModel = async function(modelName) {
-            let targetModel = masterModelList.find(m => m.model_name === modelName);
+        window.switchToModel = function(modelName) {
+            const targetModel = masterModelList.find(m => m.model_name === modelName);
             if (targetModel) {
-                if (targetModel._isLight) {
-                    await loadModelFile(targetModel.filename);
-                    targetModel = masterModelList.find(m => m.model_name === modelName);
-                }
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 const targetItem = Array.from(document.querySelectorAll('.nav-item')).find(item => item.dataset.modelId === modelName);
                 if (targetItem) targetItem.classList.add('active');
@@ -1298,16 +1261,6 @@
         // ---------- 渲染详情 ----------
         async function renderSpecs(data) {
             if (!data) return;
-
-            // 如果是轻量对象，先加载完整数据
-            if (data._isLight) {
-                specDisplayEl.innerHTML = '<div class="loading">加载型号数据中...</div>';
-                await loadModelFile(data.filename);
-                const updatedModel = masterModelList.find(m => m.model_name === data.model_name);
-                if (updatedModel) {
-                    data = updatedModel;
-                }
-            }
 
             specDisplayEl.innerHTML = '<div class="loading">加载规格数据中...</div>';
 
@@ -1417,21 +1370,25 @@
                         ssd_pcie: 'PCIe SSD',
                         hdd: '2.5" HDD',
                         sshd: 'SSHD',
-                        optical: '光驱'
+                        optical: '光驱',
+                        emmc: 'EMMC'
                     };
                     const items = [];
                     for (const [key, value] of Object.entries(data.storage)) {
-                        if (value && typeof value === 'string' && value.trim() !== '') {
-                            const title = fieldLabels[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                            const content = value.replace(/"/g, '&quot;');
-                            items.push(`
-                                <div class="part-item">
-                                    <div class="part-info">
-                                        <div class="part-title">${title}</div>
-                                        <div>${content}</div>
+                        if (value && typeof value === 'string') {
+                            const trimmed = value.trim();
+                            if (trimmed !== '' && !/^(Not supported)$/i.test(trimmed)) {
+                                const title = fieldLabels[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                                const content = trimmed.replace(/"/g, '&quot;');
+                                items.push(`
+                                    <div class="part-item">
+                                        <div class="part-info">
+                                            <div class="part-title">${title}</div>
+                                            <div>${content}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            `);
+                                `);
+                            }
                         }
                     }
                     if (items.length === 0) {
@@ -1571,7 +1528,7 @@
                     <tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr>
                     <tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr>
                     <tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr>
-                    <tr><th>键盘</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>
+                    <tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>
                     ${data['color calibration'] ? `
                     <tr><th>校色仪</th><td>${Array.isArray(data['color calibration']) ? data['color calibration'].join('、') : data['color calibration']}</td></tr>
                     ` : ''}
