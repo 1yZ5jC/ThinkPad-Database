@@ -5,7 +5,7 @@
       "model_name": "ThinkPad Power Series 820",
       "model_family": "ThinkPad Power Series",  
       "model_code":["6040"],
-      "model_generation": "unknown",
+      "model_generation": "legacy",
       "update_date": "Augest 1995",
       "processor_options": [
         "603e_100"

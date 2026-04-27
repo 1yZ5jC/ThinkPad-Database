@@ -1,123 +1,728 @@
 [
-    "T460.json",
-    "A275.json",
-    "A475.json",
-    "13.json",
-    "13_Chromebook.json",
-    "13_2nd.json",  
-    "L380.json",
-    "L380_Yoga.json",
-    "L390.json",
-    "L390_Yoga.json",
-    "L13_Gen1.json",
-    "L13_Gen2_AMD.json",
-    "L13_Gen2_Intel.json",
-    "L13_Gen3_AMD.json",
-    "L13_Gen3_Intel.json",
-    "L13_Gen4_AMD.json",
-    "L13_Gen4_Intel.json",
-    "L13_Gen5.json",
-    "L13_Gen6_AMD.json",
-    "L13_Gen6_Intel.json",
-    "L13_Yoga_Gen1.json",
-    "L13_Yoga_Gen2_AMD.json",
-    "L13_Yoga_Gen2_Intel.json",
-    "L13_Yoga_Gen3_AMD.json",
-    "L13_Yoga_Gen3_Intel.json",
-    "L13_Yoga_Gen4_AMD.json",
-    "L13_Yoga_Gen4_Intel.json",
-    "L13_2-in-1_Gen5.json",
-    "L13_2-in-1_Gen6_AMD.json",
-    "L13_2-in-1_Gen6_Intel.json",
-    "L430.json",
-    "L530.json",
-    "C13Gen1.json",
-    "C14.json",
-    "P50.json",
-    "P50s.json",
-    "P70.json",
-    "P51.json",
-    "P51s.json",
-    "P71.json",
-    "T430.json",
-    "T430s.json",
-    "T431s.json",
-    "T430u.json",
-    "T530.json",
-    "T460s.json",
-    "T460p.json",
-    "T470.json",
-    "T470s.json",
-    "T470p.json",
-    "T570.json",
-    "T480.json",
-    "T480s.json",
-    "T580.json",
-    "T14s_Gen6_Snapdragon.json",
-    "W530.json",
-    "W540.json",
-    "X1C1.json",
-    "X1C4.json",
-    "X1C5.json",
-    "X1C6.json",
-    "X1Y2.json",
-    "X131e.json",
-    "X140e.json",
-    "X230.json",
-    "X230t.json",
-    "X260.json",
-    "X270.json",
-    "X280.json",
-    "X13s_Gen1.json",
-    "X14_Gen1.json",
-    "Yoga260.json",
-    "Yoga370.json",
-    "11e_1st_Chromebook.json",
-    "11e_1st.json",
-    "11e_2nd_AMD.json",
-    "11e_2nd_Intel.json",
-    "11e_Yoga_3rd_Chromebook.json",
-    "11e_3rd.json",
-    "11e_4th_Chromebook.json",
-    "11e_4th.json",
-    "11e_5th.json",
-    "11e_Yoga_5th.json",
-    "11e_Yoga_6th.json",
-    "reserve_edition.json",
-    "ThinkPad_15.json",
-    "ThinkPad_20_Japan.json",
-    "ThinkPad_20_China.json",
-    "T25.json",
-    "ThinkPad_30.json",
-    "Edge15_Intel.json",
-    "Edge15_AMD.json",
-    "Edge14_Intel.json",
-    "Edge14_AMD.json",
-    "Edge13_Intel.json",
-    "Edge13_AMD.json",
-    "E220s.json",
-    "E420s.json",
-    "E430.json",
-    "E430c.json",
-    "E420.json",
-    "E520.json",
-    "E525.json",
-    "E530.json",
-    "E535.json",
-    "E320.json",
-    "E325.json",
-    "E490s.json",
-    "E14_Gen7_Intel.json",
-    "E14_Gen1_ICL.json",
-    "S230u.json",
-    "SL300.json",
-    "SL400.json",
-    "SL500.json",
-    "SL510.json",
-    "SL410.json",
-    "Debug.json",
-    "850.json",
-    "820.json",
-    "701C.json",
-    "701CS.json"
+    {
+        "file": "T460.json",
+        "name": "ThinkPad T460",
+        "family": "T",
+        "generation": "xx60"
+    },
+    {
+        "file": "A275.json",
+        "name": "ThinkPad A275",
+        "family": "A",
+        "generation": "xx70"
+    },
+    {
+        "file": "A475.json",
+        "name": "ThinkPad A475",
+        "family": "A",
+        "generation": "xx70"
+    },
+    {
+        "file": "13.json",
+        "name": "ThinkPad 13 (1st Gen, Windows)",
+        "family": "13",
+        "generation": "xx60"
+    },
+    {
+        "file": "13_Chromebook.json",
+        "name": "ThinkPad 13 Chromebook (1st Gen)",
+        "family": "13",
+        "generation": "xx60"
+    },
+    {
+        "file": "13_2nd.json",
+        "name": "ThinkPad 13 (2nd Gen)",
+        "family": "13",
+        "generation": "xx70"
+    },
+    {
+        "file": "L380.json",
+        "name": "ThinkPad L380",
+        "family": "L",
+        "generation": "xx80"
+    },
+    {
+        "file": "L380_Yoga.json",
+        "name": "ThinkPad L380 Yoga",
+        "family": "L",
+        "generation": "xx80"
+    },
+    {
+        "file": "L390.json",
+        "name": "ThinkPad L390",
+        "family": "L",
+        "generation": "xx90"
+    },
+    {
+        "file": "L390_Yoga.json",
+        "name": "ThinkPad L390 Yoga",
+        "family": "L",
+        "generation": "xx90"
+    },
+    {
+        "file": "L13_Gen1.json",
+        "name": "ThinkPad L13 Gen1",
+        "family": "L",
+        "generation": "Gen1"
+    },
+    {
+        "file": "L13_Gen2_AMD.json",
+        "name": "ThinkPad L13 Gen2 AMD",
+        "family": "L",
+        "generation": "Gen2"
+    },
+    {
+        "file": "L13_Gen2_Intel.json",
+        "name": "ThinkPad L13 Gen2 Intel",
+        "family": "L",
+        "generation": "Gen2"
+    },
+    {
+        "file": "L13_Gen3_AMD.json",
+        "name": "ThinkPad L13 Gen3 AMD",
+        "family": "L",
+        "generation": "Gen3"
+    },
+    {
+        "file": "L13_Gen3_Intel.json",
+        "name": "ThinkPad L13 Gen3 Intel",
+        "family": "L",
+        "generation": "Gen3"
+    },
+    {
+        "file": "L13_Gen4_AMD.json",
+        "name": "ThinkPad L13 Gen4 AMD",
+        "family": "L",
+        "generation": "Gen4"
+    },
+    {
+        "file": "L13_Gen4_Intel.json",
+        "name": "ThinkPad L13 Gen4 Intel",
+        "family": "L",
+        "generation": "Gen4"
+    },
+    {
+        "file": "L13_Gen5.json",
+        "name": "ThinkPad L13 Gen5",
+        "family": "L",
+        "generation": "Gen5"
+    },
+    {
+        "file": "L13_Gen6_AMD.json",
+        "name": "ThinkPad L13 Gen6 AMD",
+        "family": "L",
+        "generation": "Gen6"
+    },
+    {
+        "file": "L13_Gen6_Intel.json",
+        "name": "ThinkPad L13 Gen6 Intel",
+        "family": "L",
+        "generation": "Gen6"
+    },
+    {
+        "file": "L13_Yoga_Gen1.json",
+        "name": "ThinkPad L13 Yoga Gen1",
+        "family": "L",
+        "generation": "Gen1"
+    },
+    {
+        "file": "L13_Yoga_Gen2_AMD.json",
+        "name": "ThinkPad L13 Yoga Gen2 AMD",
+        "family": "L",
+        "generation": "Gen2"
+    },
+    {
+        "file": "L13_Yoga_Gen2_Intel.json",
+        "name": "ThinkPad L13 Yoga Gen2 Intel",
+        "family": "L",
+        "generation": "Gen2"
+    },
+    {
+        "file": "L13_Yoga_Gen3_AMD.json",
+        "name": "ThinkPad L13 Yoga Gen3 AMD",
+        "family": "L",
+        "generation": "Gen3"
+    },
+    {
+        "file": "L13_Yoga_Gen3_Intel.json",
+        "name": "ThinkPad L13 Yoga Gen3 Intel",
+        "family": "L",
+        "generation": "Gen3"
+    },
+    {
+        "file": "L13_Yoga_Gen4_AMD.json",
+        "name": "ThinkPad L13 Yoga Gen4 AMD",
+        "family": "L",
+        "generation": "Gen4"
+    },
+    {
+        "file": "L13_Yoga_Gen4_Intel.json",
+        "name": "ThinkPad L13 Yoga Gen4 Intel",
+        "family": "L",
+        "generation": "Gen4"
+    },
+    {
+        "file": "L13_2-in-1_Gen5.json",
+        "name": "ThinkPad L13 2-in-1 Gen5",
+        "family": "L",
+        "generation": "Gen5"
+    },
+    {
+        "file": "L13_2-in-1_Gen6_AMD.json",
+        "name": "ThinkPad L13 2-in-1 Gen6 AMD",
+        "family": "L",
+        "generation": "Gen6"
+    },
+    {
+        "file": "L13_2-in-1_Gen6_Intel.json",
+        "name": "ThinkPad L13 2-in-1 Gen6 Intel",
+        "family": "L",
+        "generation": "Gen6"
+    },
+    {
+        "file": "L430.json",
+        "name": "ThinkPad L430",
+        "family": "L",
+        "generation": "xx30"
+    },
+    {
+        "file": "L530.json",
+        "name": "ThinkPad L530",
+        "family": "L",
+        "generation": "xx30"
+    },
+    {
+        "file": "C13Gen1.json",
+        "name": "ThinkPad C13 Yoga Gen 1 Chromebook",
+        "family": "C",
+        "generation": "Gen1"
+    },
+    {
+        "file": "C14.json",
+        "name": "ThinkPad C14 Gen 1 Chromebook",
+        "family": "C",
+        "generation": "Gen3"
+    },
+    {
+        "file": "P50.json",
+        "name": "ThinkPad P50",
+        "family": "P",
+        "generation": "xx60"
+    },
+    {
+        "file": "P50s.json",
+        "name": "ThinkPad P50s",
+        "family": "P",
+        "generation": "xx60"
+    },
+    {
+        "file": "P70.json",
+        "name": "ThinkPad P70",
+        "family": "P",
+        "generation": "xx60"
+    },
+    {
+        "file": "P51.json",
+        "name": "ThinkPad P51",
+        "family": "P",
+        "generation": "xx70"
+    },
+    {
+        "file": "P51s.json",
+        "name": "ThinkPad P51s",
+        "family": "P",
+        "generation": "xx70"
+    },
+    {
+        "file": "P71.json",
+        "name": "ThinkPad P71",
+        "family": "P",
+        "generation": "xx70"
+    },
+    {
+        "file": "T430.json",
+        "name": "ThinkPad T430",
+        "family": "T",
+        "generation": "xx30"
+    },
+    {
+        "file": "T430s.json",
+        "name": "ThinkPad T430s",
+        "family": "T",
+        "generation": "xx30"
+    },
+    {
+        "file": "T431s.json",
+        "name": "ThinkPad T431s",
+        "family": "T",
+        "generation": "xx30"
+    },
+    {
+        "file": "T430u.json",
+        "name": "ThinkPad T430u",
+        "family": "T",
+        "generation": "xx30"
+    },
+    {
+        "file": "T530.json",
+        "name": "ThinkPad T530",
+        "family": "T",
+        "generation": "xx30"
+    },
+    {
+        "file": "T460s.json",
+        "name": "ThinkPad T460s",
+        "family": "T",
+        "generation": "xx60"
+    },
+    {
+        "file": "T460p.json",
+        "name": "ThinkPad T460p",
+        "family": "T",
+        "generation": "xx60"
+    },
+    {
+        "file": "T470.json",
+        "name": "ThinkPad T470",
+        "family": "T",
+        "generation": "xx70"
+    },
+    {
+        "file": "T470s.json",
+        "name": "ThinkPad T470s",
+        "family": "T",
+        "generation": "xx70"
+    },
+    {
+        "file": "T470p.json",
+        "name": "ThinkPad T470p",
+        "family": "T",
+        "generation": "xx70"
+    },
+    {
+        "file": "T570.json",
+        "name": "ThinkPad T570",
+        "family": "T",
+        "generation": "xx70"
+    },
+    {
+        "file": "T480.json",
+        "name": "ThinkPad T480",
+        "family": "T",
+        "generation": "xx80"
+    },
+    {
+        "file": "T480s.json",
+        "name": "ThinkPad T480s",
+        "family": "T",
+        "generation": "xx80"
+    },
+    {
+        "file": "T580.json",
+        "name": "ThinkPad T580",
+        "family": "T",
+        "generation": "xx80"
+    },
+    {
+        "file": "T14s_Gen6_Snapdragon.json",
+        "name": "ThinkPad T14s Gen6 Snapdragon",
+        "family": "T",
+        "generation": "Gen6"
+    },
+    {
+        "file": "W530.json",
+        "name": "ThinkPad W530",
+        "family": "W",
+        "generation": "xx30"
+    },
+    {
+        "file": "W540.json",
+        "name": "ThinkPad W540",
+        "family": "W",
+        "generation": "xx40"
+    },
+    {
+        "file": "X1C1.json",
+        "name": "ThinkPad X1 Carbon (1st Gen)",
+        "family": "X1",
+        "generation": "xx30"
+    },
+    {
+        "file": "X1C4.json",
+        "name": "ThinkPad X1 Carbon (4th Gen)",
+        "family": "X1",
+        "generation": "xx60"
+    },
+    {
+        "file": "X1C5.json",
+        "name": "ThinkPad X1 Carbon (5th Gen)",
+        "family": "X1",
+        "generation": "xx70"
+    },
+    {
+        "file": "X1C6.json",
+        "name": "ThinkPad X1 Carbon (6th Gen)",
+        "family": "X1",
+        "generation": "xx80"
+    },
+    {
+        "file": "X1Y2.json",
+        "name": "ThinkPad X1 Yoga (2nd Gen)",
+        "family": "X1",
+        "generation": "xx70"
+    },
+    {
+        "file": "X131e.json",
+        "name": "ThinkPad X131e",
+        "family": "X",
+        "generation": "xx30"
+    },
+    {
+        "file": "X140e.json",
+        "name": "ThinkPad X140e",
+        "family": "X",
+        "generation": "xx40"
+    },
+    {
+        "file": "X230.json",
+        "name": "ThinkPad X230",
+        "family": "X",
+        "generation": "xx30"
+    },
+    {
+        "file": "X230t.json",
+        "name": "ThinkPad X230 Tablet",
+        "family": "X",
+        "generation": "xx30"
+    },
+    {
+        "file": "X260.json",
+        "name": "ThinkPad X260",
+        "family": "X",
+        "generation": "xx60"
+    },
+    {
+        "file": "X270.json",
+        "name": "ThinkPad X270",
+        "family": "X",
+        "generation": "xx70"
+    },
+    {
+        "file": "X280.json",
+        "name": "ThinkPad X280",
+        "family": "X",
+        "generation": "xx80"
+    },
+    {
+        "file": "X13s_Gen1.json",
+        "name": "ThinkPad X13s Gen 1",
+        "family": "X",
+        "generation": "Gen1"
+    },
+    {
+        "file": "X14_Gen1.json",
+        "name": "ThinkPad X14 Gen1",
+        "family": "X",
+        "generation": "Gen1"
+    },
+    {
+        "file": "Yoga260.json",
+        "name": "ThinkPad Yoga260",
+        "family": "Yoga",
+        "generation": "xx60"
+    },
+    {
+        "file": "Yoga370.json",
+        "name": "ThinkPad Yoga370",
+        "family": "Yoga",
+        "generation": "xx70"
+    },
+    {
+        "file": "11e_1st_Chromebook.json",
+        "name": "ThinkPad 11e 1st Chromebook",
+        "family": "11e",
+        "generation": "xx40"
+    },
+    {
+        "file": "11e_1st.json",
+        "name": "ThinkPad 11e 1st",
+        "family": "11e",
+        "generation": "xx40"
+    },
+    {
+        "file": "11e_2nd_AMD.json",
+        "name": "ThinkPad 11e 2nd AMD",
+        "family": "11e",
+        "generation": "xx50"
+    },
+    {
+        "file": "11e_2nd_Intel.json",
+        "name": "ThinkPad 11e 2nd Intel",
+        "family": "11e",
+        "generation": "xx50"
+    },
+    {
+        "file": "11e_Yoga_3rd_Chromebook.json",
+        "name": "ThinkPad 11e Yoga 3rd Chromebook",
+        "family": "11e",
+        "generation": "xx60"
+    },
+    {
+        "file": "11e_3rd.json",
+        "name": "ThinkPad 11e 3rd",
+        "family": "11e",
+        "generation": "xx60"
+    },
+    {
+        "file": "11e_4th_Chromebook.json",
+        "name": "ThinkPad 11e 4th Chromebook",
+        "family": "11e",
+        "generation": "xx70"
+    },
+    {
+        "file": "11e_4th.json",
+        "name": "ThinkPad 11e 4th",
+        "family": "11e",
+        "generation": "xx70"
+    },
+    {
+        "file": "11e_5th.json",
+        "name": "ThinkPad 11e 5th",
+        "family": "11e",
+        "generation": "xx80"
+    },
+    {
+        "file": "11e_Yoga_5th.json",
+        "name": "ThinkPad 11e Yoga 5th",
+        "family": "11e",
+        "generation": "xx80"
+    },
+    {
+        "file": "11e_Yoga_6th.json",
+        "name": "ThinkPad 11e Yoga 6th",
+        "family": "11e",
+        "generation": "xx90"
+    },
+    {
+        "file": "reserve_edition.json",
+        "name": "ThinkPad Reserve Edition",
+        "family": "Anniversary Edition",
+        "generation": "x61"
+    },
+    {
+        "file": "ThinkPad_15.json",
+        "name": "ThinkPad 15th Anniversary Edition",
+        "family": "Anniversary Edition",
+        "generation": "x61"
+    },
+    {
+        "file": "ThinkPad_20_Japan.json",
+        "name": "ThinkPad 20th Anniversary Edition (Japan)",
+        "family": "Anniversary Edition",
+        "generation": "xx30"
+    },
+    {
+        "file": "ThinkPad_20_China.json",
+        "name": "ThinkPad 20th Anniversary Edition (China)",
+        "family": "Anniversary Edition",
+        "generation": "xx30"
+    },
+    {
+        "file": "T25.json",
+        "name": "ThinkPad 25 Anniversary Edition",
+        "family": "Anniversary Edition",
+        "generation": "xx70"
+    },
+    {
+        "file": "ThinkPad_30.json",
+        "name": "ThinkPad 30th Anniversary Edition",
+        "family": "Anniversary Edition",
+        "generation": "Gen2"
+    },
+    {
+        "file": "Edge15_Intel.json",
+        "name": "ThinkPad Edge15 Intel",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "Edge15_AMD.json",
+        "name": "ThinkPad Edge15 AMD",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "Edge14_Intel.json",
+        "name": "ThinkPad Edge14 Intel",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "Edge14_AMD.json",
+        "name": "ThinkPad Edge14 AMD",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "Edge13_Intel.json",
+        "name": "ThinkPad Edge13 Intel",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "Edge13_AMD.json",
+        "name": "ThinkPad Edge13 AMD",
+        "family": "Edge",
+        "generation": "xx10"
+    },
+    {
+        "file": "E220s.json",
+        "name": "ThinkPad E220s",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E420s.json",
+        "name": "ThinkPad E420s",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E430.json",
+        "name": "ThinkPad E430",
+        "family": "E",
+        "generation": "xx30"
+    },
+    {
+        "file": "E430c.json",
+        "name": "ThinkPad E430c",
+        "family": "E",
+        "generation": "xx30"
+    },
+    {
+        "file": "E420.json",
+        "name": "ThinkPad E420",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E520.json",
+        "name": "ThinkPad E520",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E525.json",
+        "name": "ThinkPad E525",
+        "family": "E",
+        "generation": "xx25"
+    },
+    {
+        "file": "E530.json",
+        "name": "ThinkPad E530",
+        "family": "E",
+        "generation": "xx30"
+    },
+    {
+        "file": "E535.json",
+        "name": "ThinkPad E535",
+        "family": "E",
+        "generation": "xx30"
+    },
+    {
+        "file": "E320.json",
+        "name": "ThinkPad E320",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E325.json",
+        "name": "ThinkPad E325",
+        "family": "E",
+        "generation": "xx20"
+    },
+    {
+        "file": "E490s.json",
+        "name": "ThinkPad E490s",
+        "family": "E",
+        "generation": "xx90"
+    },
+    {
+        "file": "E14_Gen7_Intel.json",
+        "name": "ThinkPad E14 Gen7 Intel",
+        "family": "E",
+        "generation": "Gen7"
+    },
+    {
+        "file": "E14_Gen1_ICL.json",
+        "name": "ThinkPad E14 Gen1 ICL",
+        "family": "E",
+        "generation": "Gen1"
+    },
+    {
+        "file": "S230u.json",
+        "name": "ThinkPad S230u",
+        "family": "S",
+        "generation": "xx30"
+    },
+    {
+        "file": "SL300.json",
+        "name": "ThinkPad SL300",
+        "family": "L",
+        "generation": "x61"
+    },
+    {
+        "file": "SL400.json",
+        "name": "ThinkPad SL400",
+        "family": "L",
+        "generation": "x61"
+    },
+    {
+        "file": "SL500.json",
+        "name": "ThinkPad SL500",
+        "family": "L",
+        "generation": "x61"
+    },
+    {
+        "file": "SL510.json",
+        "name": "ThinkPad SL510",
+        "family": "L",
+        "generation": "xx10"
+    },
+    {
+        "file": "SL410.json",
+        "name": "ThinkPad SL410",
+        "family": "L",
+        "generation": "xx10"
+    },
+    {
+        "file": "Debug.json",
+        "name": "Debug",
+        "family": "Debug",
+        "generation": "Debug"
+    },
+    {
+        "file": "850.json",
+        "name": "ThinkPad Power Series 850",
+        "family": "ThinkPad Power Series",
+        "generation": "legacy"
+    },
+    {
+        "file": "820.json",
+        "name": "ThinkPad Power Series 820",
+        "family": "ThinkPad Power Series",
+        "generation": "legacy"
+    },
+    {
+        "file": "701C.json",
+        "name": "ThinkPad 701C",
+        "family": "7",
+        "generation": "legacy"
+    },
+    {
+        "file": "701CS.json",
+        "name": "ThinkPad 701CS",
+        "family": "7",
+        "generation": "legacy"
+    }
 ]

@@ -4,7 +4,7 @@
       "id": "thinkpad-701c",
       "model_name": "ThinkPad 701C",
       "model_family": "7",
-      "model_generation": "Unknow",
+      "model_generation": "legacy",
       "update_date": "September 1995",
       "model_code": ["2630"],
       "processor_options": [ "486DX2_50", "486DX4_75"],
