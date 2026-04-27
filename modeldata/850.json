@@ -28,7 +28,7 @@
       "storage": {
         "ssd_sata": null,
         "ssd_pcie": null,
-        "hdd": "SCSI-2 Fast",
+        "hdd": "SCSI-2 Fast / SCSI-2 50 pin connector",
         "sshd": null
       },
       "Ethernet": [],
