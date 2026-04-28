@@ -428,6 +428,8 @@
     {
         "file": "Yoga260.json",
         "name": "ThinkPad Yoga260",
+        "nickname": "ThinkPad S1 Gen2",
+        "nickfamily": "S",
         "family": "Yoga",
         "generation": "xx60"
     },

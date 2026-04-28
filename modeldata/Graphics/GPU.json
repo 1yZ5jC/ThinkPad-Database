@@ -1,20 +1,128 @@
 [
-    "GeForce_930M.json",
-    "GeForce_940MX.json",
-    "GT620M.json",
-    "HD520.json",
-    "HD620.json",
-    "HD3000.json",
-    "HD4000.json",
-    "HD4400.json",
-    "HD4600.json",
-    "K1000M.json",
-    "K1100M.json",
-    "K2000M.json",
-    "K2100M.json",
-    "M500M.json",
-    "NVS5200M.json",
-    "NVS5400M.json",
-    "UHD620.json",
-    "WD90C24A.json"
+    {
+        "file": "GeForce_930M.json",
+        "name": "Geforce 930M",
+        "family": "NVIDIA GeForce",
+        "Architecture": "Maxwell",
+        "generation":"Geforce 900M"
+    },
+    {
+        "file": "GeForce_940MX.json",
+        "name": "Geforce 940MX",
+        "family": "NVIDIA GeForce",
+        "Architecture": "Maxwell",
+        "generation": "Geforce 900M"
+    },
+    {
+        "file": "GT620M.json",
+        "name": "Geforce GT 620M",
+        "family": "NVIDIA GeForce",
+        "Architecture": "Fermi",
+        "generation": "Geforce 600M"
+    },
+    {
+        "file": "HD520.json",
+        "name": "HD 520",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 9",
+        "generation": "Skylake"
+    },
+    {
+        "file": "HD620.json",
+        "name": "HD 620",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 9.5",
+        "generation": "Kabylake"
+    },
+    {
+        "file": "HD3000.json",
+        "name": "HD 3000",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 6.0",
+        "generation": "Sandy Bridge"
+    },
+    {
+        "file": "HD4000.json",
+        "name": "HD 4000",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 7.0",
+        "generation": "Ivy Bridge"
+    },
+    {
+        "file": "HD4400.json",
+        "name": "HD 4400",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 7.0",
+        "generation": "Haswell"
+    },
+    {
+        "file": "HD4600.json",
+        "name": "HD 4600",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 7.0",
+        "generation": "Haswell"
+    },
+    {
+        "file": "K1000M.json",
+        "name": "K1000M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Kepler",
+        "generation": "Quadro Kx000M"
+    },
+    {
+        "file": "K1100M.json",
+        "name": "K1100M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Kepler",
+        "generation": "Quadro Kx100M"
+    },
+    {
+        "file": "K2000M.json",
+        "name": "K2000M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Kepler",
+        "generation": "Quadro Kx000M"
+    },
+    {
+        "file": "K2100M.json",
+        "name": "K2100M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Kepler",
+        "generation": "Quadro Kx100M"
+    },
+    {
+        "file": "M500M.json",
+        "name": "M500M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Maxwell",
+        "generation": "Quadro Mx000M"
+    },
+    {
+        "file": "NVS5200M.json",
+        "name": "NVS 5200M",
+        "family": "NVIDIA NVS",
+        "Architecture": "Fermi",
+        "generation": "NVS"
+    },
+    {
+        "file": "NVS5400M.json",
+        "name": "NVS 5400M",
+        "family": "NVIDIA NVS",
+        "Architecture": "Fermi",
+        "generation": "NVS"
+    },
+    {
+        "file": "UHD620.json",
+        "name": "UHD 620",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 9.5",
+        "generation": "Kabylake, Whiskey Lake, Coffee Lake"
+    },
+    {
+        "file": "WD90C24A.json",
+        "name": "WD 90C24A",
+        "family": "Others",
+        "Architecture": "N/A",
+        "generation": "N/A"
+    }
 ]
