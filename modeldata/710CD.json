@@ -25,8 +25,8 @@
         "12.1\" TFT SVGA 800x600 / XGA 1024x768, 65,536 colors, Active Matrix, 100:1 contrast"
       ],
       "storage": {
-        "hdd": "1.2 GB / 12 ms or 2.1 GB / 12 ms, DMA Mode,
-        "optical": "5.25\" CD-ROM, 4x/6x/8x speed, multi-session, XA, bootable, EIDE (ATAPI), removable"
+        "hdd": "1.2 GB / 12 ms or 2.1 GB / 12 ms, DMA Mode",
+        "optical": "CD-ROM, 4x/6x/8x speed, multi-session, XA, bootable, EIDE (ATAPI), removable"
       },
       "Ethernet": ["None"],
       "WLAN": ["None"],
