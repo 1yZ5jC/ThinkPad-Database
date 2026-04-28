@@ -1,82 +1,373 @@
-﻿[
-    "10110U.json",
-    "10210U.json",
-    "10310U.json",
-    "10510U.json",
-    "10610U.json",
-    "1115G4.json",
-    "1135G7.json",
-    "1145G7.json",
-    "1165G7.json",
-    "1185G7.json",
-    "1215U.json",
-    "1235U.json",
-    "1240P.json",
-    "1245U.json",
-    "1250P.json",
-    "1255U.json",
-    "125U.json",
-    "1260P.json",
-    "1265U.json",
-    "1335U.json",
-    "1345U.json",
-    "1355U.json",
-    "135U.json",
-    "1365U.json",
-    "1505MV5.json",
-    "1535MV5.json",
-    "155U.json",
-    "1575MV5.json",
-    "165U.json",
-    "2370M.json",
-    "2520M.json",
-    "3150C.json",
-    "3210M.json",
-    "3230M.json",
-    "3250C.json",
-    "3317U.json",
-    "3320M.json",
-    "3337u.json",
-    "3360M.json",
-    "3427u.json",
-    "3437U.json",
-    "3500C.json",
-    "3517u.json",
-    "3520M.json",
-    "3537u.json",
-    "3630QM.json",
-    "3667u.json",
-    "3687u.json",
-    "3700C.json",
-    "3720QM.json",
-    "3740QM.json",
-    "3820QM.json",
-    "3840QM.json",
-    "4200M.json",
-    "4210M.json",
-    "4330M.json",
-    "4600M.json",
-    "4700MQ.json",
-    "4710MQ.json",
-    "4800MQ.json",
-    "4810MQ.json",
-    "4900MQ.json",
-    "4910MQ.json",
-    "4930MX.json",
-    "6006U.json",
-    "6100U.json",
-    "6200U.json",
-    "6300HQ.json",
-    "6300U.json",
-    "6405U.json",
-    "6440HQ.json",
-    "6500U.json",
-    "6600U.json",
-    "6700HQ.json",
-    "6820HQ.json",
-    "7300U.json",
-    "8250U.json",
-    "8350U.json",
-    "8550U.json",
-    "8650U.json"
+[
+    {
+        "file": "1505MV5.json",
+        "name": "Intel Xeon E3-1505M v5",
+        "family": "Intel Xeon E3",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "1535MV5.json",
+        "name": "Intel Xeon E3-1535M v5",
+        "family": "Intel Xeon E3",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "1575MV5.json",
+        "name": "Intel Xeon E3-1575M v5",
+        "family": "Intel Xeon E3",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "2370M.json",
+        "name": "Intel Core i3-2370M",
+        "family": "Intel Core i3",
+        "Architecture": "Sandy Bridge",
+        "generation": "Core 2nd"
+    },
+    {
+        "file": "2520M.json",
+        "name": "Intel Core i3-2520M",
+        "family": "Intel Core i3",
+        "Architecture": "Sandy Bridge",
+        "generation": "Core 2nd"
+    },
+    {
+        "file": "3210M.json",
+        "name": "Intel Core i3-3210M",
+        "family": "Intel Core i3",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3150C.json",
+        "name": "AMD Athlon Gold 3150C",
+        "family": "AMD Athlon Gold",
+        "Architecture": "Zen-Dali",
+        "generation": "Zen"
+    },
+    {
+        "file": "3210M.json",
+        "name": "Intel Core i3-3210M",
+        "family": "Intel Core i3",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3230M.json",
+        "name": "Intel Core i5-3230M",
+        "family": "Intel Core i5",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3250C.json",
+        "name": "Athlon Gold 3250C",
+        "family": "AMD Athlon Gold",
+        "Architecture": "Zen-Dali",
+        "generation": "Zen"
+    },
+    {
+        "file": "3317U.json",
+        "name": "Intel Core i5-3317U",
+        "family": "Intel Core i5",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3320M.json",
+        "name": "Intel Core i5-3320M",
+        "family": "Intel Core i5",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3337U.json",
+        "name": "Intel Core i5-3337U",
+        "family": "Intel Core i5",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3360M.json",
+        "name": "Intel Core i5-3360M",
+        "family": "Intel Core i5",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3427U.json",
+        "name": "Intel Core i7-3427U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3437U.json",
+        "name": "Intel Core i7-3437U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3500C.json",
+        "name": "AMD Ryzen 5 3500C",
+        "family": "AMD Ryzen 5",
+        "Architecture": "Zen+_Picasso",
+        "generation": "Zen+"
+    },
+    {
+        "file": "3517U.json",
+        "name": "Intel Core i7-3517U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3520M.json",
+        "name": "Intel Core i7-3520M",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3537U.json",
+        "name": "Intel Core i7-3537U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3630QM.json",
+        "name": "Intel Core i7-3630QM",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3667U.json",
+        "name": "Intel Core i7-3667U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3687U.json",
+        "name": "Intel Core i7-3687U",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3700C.json",
+        "name": "AMD Ryzen 7 3700C",
+        "family": "AMD Ryzen 7",
+        "Architecture": "Zen+_Picasso",
+        "generation": "Zen+"
+    },
+    {
+        "file": "3720QM.json",
+        "name": "Intel Core i7-3720QM",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3740QM.json",
+        "name": "Intel Core i7-3740QM",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3820QM.json",
+        "name": "Intel Core i7-3820QM",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "3840QM.json",
+        "name": "Intel Core i7-3840QM",
+        "family": "Intel Core i7",
+        "Architecture": "Ivy Bridge",
+        "generation": "Core 3rd"
+    },
+    {
+        "file": "4200M.json",
+        "name": "Intel Core i5-4200M",
+        "family": "Intel Core i5",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4210M.json",
+        "name": "Intel Core i5-4210M",
+        "family": "Intel Core i5",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4330M.json",
+        "name": "Intel Core i5-4330M",
+        "family": "Intel Core i5",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4600M.json",
+        "name": "Intel Core i5-4600M",
+        "family": "Intel Core i5",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4700MQ.json",
+        "name": "Intel Core i7-4700MQ",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4710MQ.json",
+        "name": "Intel Core i7-4710MQ",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4800MQ.json",
+        "name": "Intel Core i7-4800MQ",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4810MQ.json",
+        "name": "Intel Core i7-4810MQ",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4900MQ.json",
+        "name": "Intel Core i7-4900MQ",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "4930MX.json",
+        "name": "Intel Core i7-4930MX",
+        "family": "Intel Core i7",
+        "Architecture": "Haswell",
+        "generation": "Core 4th"
+    },
+    {
+        "file": "6006U.json",
+        "name": "Intel Core i3-6006U",
+        "family": "Intel Core i3",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6100U.json",
+        "name": "Intel Core i3-6100U",
+        "family": "Intel Core i3",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6200U.json",
+        "name": "Intel Core i5-6200U",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6300HQ.json",
+        "name": "Intel Core i5-6300HQ",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6300U.json",
+        "name": "Intel Core i5-6300U",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6440HQ.json",
+        "name": "Intel Core i5-6440HQ",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6500U.json",
+        "name": "Intel Core i5-6500U",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6600U.json",
+        "name": "Intel Core i5-6600U",
+        "family": "Intel Core i5",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6700HQ.json",
+        "name": "Intel Core i7-6700HQ",
+        "family": "Intel Core i7",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "6820HQ.json",
+        "name": "Intel Core i7-6820HQ",
+        "family": "Intel Core i7",
+        "Architecture": "Skylake",
+        "generation": "Core 6th"
+    },
+    {
+        "file": "7300U.json",
+        "name": "Intel Core i5-7300U",
+        "family": "Intel Core i5",
+        "Architecture": "Kabylake",
+        "generation": "Core 7th"
+    },
+    {
+        "file": "8250U.json",
+        "name": "Intel Core i5-8250U",
+        "family": "Intel Core i5",
+        "Architecture": "Kabylake-R",
+        "generation": "Core 8th"
+    },
+    {
+        "file": "8350U.json",
+        "name": "Intel Core i5-8350U",
+        "family": "Intel Core i5",
+        "Architecture": "Kabylake-R",
+        "generation": "Core 8th"
+    },
+    {
+        "file": "8550U.json",
+        "name": "Intel Core i7-8550U",
+        "family": "Intel Core i7",
+        "Architecture": "Kabylake-R",
+        "generation": "Core 8th"
+    },
+    {
+        "file": "8650U.json",
+        "name": "Intel Core i7-8650U",
+        "family": "Intel Core i7",
+        "Architecture": "Kabylake-R",
+        "generation": "Core 8th"
+    }
 ]
