@@ -156,7 +156,7 @@
         <button id="searchFloatBtn" class="float-btn" title="搜索型号">🔍</button>
         <button id="themeToggleFloat" class="float-btn" title="切换深色/浅色模式">🌙</button>
         <a id="generatorFloatBtn" class="float-btn" title="JSON生成器（但是我没写完）" href="generator.html" target="_blank">🛠️</a>
-        <a id="generatorFloatBtn" class="float-btn" title="访问旧版" href="index_old.html" target="_blank">🤔</a>
+        <a id="indexOldFloatBtn" class="float-btn" title="访问旧版" href="index_old.html" target="_blank">🤔</a>
     </div>
 
     <script>
@@ -977,7 +977,7 @@
                         masterModelList.push(fullModel);
                     }
 
-                    // 处理别名
+                    // 处理别名（JSON 内部的 nickname）
                     if (laptop.nickname && typeof laptop.nickname === 'string' && laptop.nickname.trim() !== '') {
                         const nickModel = {
                             ...fullModel,
@@ -1007,7 +1007,7 @@
             }
         }
 
-        // ---------- 初始加载：从新的 index.json 读取元数据 ----------
+        // ---------- 初始加载：从新的 index.json 读取元数据，并处理 index 中的 nickname ----------
         async function loadModelFiles() {
             specDisplayEl.innerHTML = '<div class="loading">加载数据中...</div>';
             try {
@@ -1016,18 +1016,44 @@
                     throw new Error('无法加载 index.json');
                 }
                 const indexData = await indexResp.json();
-                // indexData 是对象数组，每个对象有 file, name, family, generation
                 if (!Array.isArray(indexData)) {
                     throw new Error('index.json 格式错误');
                 }
 
-                masterModelList = indexData.map(item => ({
-                    model_name: item.name,
-                    model_family: item.family || '未指定系列',
-                    model_generation: item.generation || '未指定代数',
-                    filename: item.file,
-                    _isLight: true
-                }));
+                // 先创建一个映射，用于后续快速查找主型号的轻量对象（特别是为别名提供引用）
+                const modelMap = new Map();
+
+                const allLightModels = [];
+
+                indexData.forEach(item => {
+                    // 创建主型号轻量对象
+                    const mainModel = {
+                        model_name: item.name,
+                        model_family: item.family || '未指定系列',
+                        model_generation: item.generation || '未指定代数',
+                        filename: item.file,
+                        _isLight: true
+                    };
+                    allLightModels.push(mainModel);
+                    modelMap.set(item.name, mainModel);
+
+                    // 如果 index 中有 nickname 字段，则创建别名轻量对象
+                    if (item.nickname && typeof item.nickname === 'string' && item.nickname.trim() !== '') {
+                        const nickModel = {
+                            model_name: item.nickname.trim(),
+                            model_family: item.nickfamily || item.family || '未指定系列',
+                            model_generation: item.generation || '未指定代数',
+                            filename: item.file,
+                            _isLight: true,
+                            _isNickname: true,
+                            _originalName: item.name  // 指向主型号名称
+                        };
+                        allLightModels.push(nickModel);
+                        modelMap.set(item.nickname.trim(), nickModel);
+                    }
+                });
+
+                masterModelList = allLightModels;
 
                 populateFilterOptions();
                 applyFilterAndRender();
