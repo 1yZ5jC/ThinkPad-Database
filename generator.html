@@ -1638,22 +1638,34 @@
             gpuFilterState = adjustFilterState('gpu', { family:"all", architecture:"all", generationClass:"all", keyword:"" });
         } catch(e) { console.error("加载GPU索引失败",e); gpuFullList = []; }
     }
-    async function loadOtherOptions() {
-        const types = ['display','dock','ethernet','wlan','wwan'];
-        for (const t of types) {
-            try {
-                const cap = t.charAt(0).toUpperCase() + t.slice(1);
-                const resp = await fetch(`/ThinkPad-Database/modeldata/${cap}/${cap}.json`);
-                if (resp.ok) {
-                    const data = await resp.json();
-                    optionLists[t] = data.map(item => {
-                        const raw = typeof item === 'string' ? item : (item.model || item.name) || "";
-                        return { value: raw.replace(/\.json$/i,''), label: raw.replace(/\.json$/i,'') };
-                    });
-                } else optionLists[t] = [];
-            } catch(e) { optionLists[t] = []; }
+async function loadOtherOptions() {
+    const types = ['display', 'dock', 'ethernet', 'wlan', 'wwan'];
+    for (const t of types) {
+        try {
+            // 针对 wlan 和 wwan 使用全大写，其余首字母大写
+            let cap;
+            if (t === 'wlan') cap = 'WLAN';
+            else if (t === 'wwan') cap = 'WWAN';
+            else cap = t.charAt(0).toUpperCase() + t.slice(1); // Display, Dock, Ethernet
+
+            // 注意：如果部署在子目录（如 /ThinkPad-Database/），请使用相对路径（去掉开头的 /）
+            const resp = await fetch(`/ThinkPad-Database/modeldata/${cap}/${cap}.json`);
+            if (resp.ok) {
+                const data = await resp.json();
+                optionLists[t] = data.map(item => {
+                    const raw = typeof item === 'string' ? item : (item.model || item.name) || "";
+                    return { value: raw.replace(/\.json$/i, ''), label: raw.replace(/\.json$/i, '') };
+                });
+            } else {
+                optionLists[t] = [];
+                console.warn(`Failed to load ${cap}.json, status: ${resp.status}`);
+            }
+        } catch(e) {
+            optionLists[t] = [];
+            console.error(`Error loading ${t}:`, e);
         }
     }
+}
     
     // 重置与导出
     function resetAll() {
