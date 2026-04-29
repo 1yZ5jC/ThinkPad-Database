@@ -7,7 +7,7 @@
       "model_generation": "Legacy",
       "update_date": "June 2000",
       "model_code": ["2609"],
-      "processor_options": ["Celeron_450_P3", "PIII_500"],
+      "processor_options": ["Celeron_450_PIII", "PIII_500"],
       "graphics_options": ["SM712"],
       "Display": {
         "max_resolution": {

@@ -4,11 +4,11 @@
       "id": "thinkpad-600",
       "model_name": "ThinkPad 600",
       "model_family": "600",
-      "model_generation": "1st Gen",
+      "model_generation": "Legacy",
       "update_date": "1997",
       "model_code": ["2645"],
-      "processor_options": ["Intel Mobile Pentium MMX 233/66 MHz", "Intel Mobile Pentium II 233/66 MHz", "Intel Mobile Pentium II 266/66 MHz"],
-      "graphics_options": ["NeoMagic MagicGraph128XD (NM2160B) 2MB SGRAM"],
+      "processor_options": ["P55CSLM_233", "PII_233", "PII_266", "PII_300"],
+      "graphics_options": ["NM2160B"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 x 16.7M colors at 85Hz, 1280x1024 x 64K colors"
@@ -16,7 +16,7 @@
         "multi_display": "Simultaneous LCD and CRT, 180 degree tilt, multiple-monitor support for Windows 98"
       },
       "memory": {
-        "max_capacity": "288MB max",
+        "max_capacity": "256MB max (Pentium MMX Model) / 288MB max (Pentium II Model)",
         "type": "SDRAM, non-parity, 66MHz, 3.3V",
         "slots": "2 available sockets (32MB on planar)",
         "features": "32MB or 64MB standard"
@@ -51,6 +51,7 @@
       ],
       "ACadapter": ["Ultraslim 56W AC adapter"],
       "ports": [
+        "CS98 Slim docking Port",
         "1 x USB",
         "1 x Serial 16550A",
         "1 x Parallel EPP/ECP",
@@ -61,7 +62,7 @@
       ],
       "camera": [],
       "audio": [
-        "CS4239 ISA / CS4610 PCI audio controller",
+        "CS4237B PCI audio controller",
         "SRS 3D audio, FM synthesis, decoding AC3 into stereo",
         "Internal stereo speakers (front), internal microphone"
       ],
@@ -81,6 +82,7 @@
         "Security keyhole",
         "Phillips-head screw on base for memory, optional Allen wrench for disk"
       ],
+      "dock_support": ["12J2467","3547-001","3547-002","3547-003"],
       "system": ["Windows 95 OSR2", "Windows 98", "Windows NT 4.0"]
     }
   ]

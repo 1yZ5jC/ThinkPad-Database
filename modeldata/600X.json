@@ -4,11 +4,11 @@
       "id": "thinkpad-600x",
       "model_name": "ThinkPad 600X",
       "model_family": "600",
-      "model_generation": "X series",
+      "model_generation": "Legacy",
       "update_date": "December 1999",
       "model_code": ["2645-3EU", "2645-7EU", "2645-4EU", "2645-8EU", "2645-5EU", "2645-9EU"],
-      "processor_options": ["Intel Mobile Pentium III 450MHz", "Intel Mobile Pentium III 500MHz"],
-      "graphics_options": ["NeoMagic MagicGraph256ZX (NM2360) 4MB SGRAM, AGP 2X"],
+      "processor_options": ["PIII_450", "PIII_500"],
+      "graphics_options": ["NM2360"],
       "Display": {
         "max_resolution": {
           "external": "Up to 1280x1024 with 256 colors"
@@ -51,6 +51,7 @@
       ],
       "ACadapter": ["Ultraslim 56W AC adapter"],
       "ports": [
+        "CS98 Slim docking Port",
         "1 x USB",
         "1 x Serial 16550A",
         "1 x Parallel EPP/ECP",
@@ -81,6 +82,7 @@
         "Personalization",
         "Phillips-head screw on base for memory, optional Allen wrench for disk"
       ],
+      "dock_support": ["12J2467","3547-001","3547-002","3547-003"],
       "system": ["Windows 98 Second Edition", "Windows NT 4.0", "Windows 2000 Professional"]
     }
   ]

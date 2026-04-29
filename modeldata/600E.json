@@ -4,11 +4,11 @@
       "id": "thinkpad-600e",
       "model_name": "ThinkPad 600E",
       "model_family": "600",
-      "model_generation": "E series",
+      "model_generation": "Legacy",
       "update_date": "March 1999",
       "model_code": ["2645-3AU", "2645-4AU", "2645-5AU", "2645-8AU", "2645-AAU"],
-      "processor_options": ["Intel Mobile Pentium II 300PE MHz", "Intel Mobile Pentium II 366MHz"],
-      "graphics_options": ["NeoMagic MagicMedia256AV (NM2200) with 2.5MB SGRAM, AGP 1X"],
+      "processor_options": ["PII_300","PII_300PE", "PII_366","PII_400"],
+      "graphics_options": ["NM2200"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 x 16.7M colors at 85Hz, 1280x1024 x 256 colors"
@@ -51,6 +51,7 @@
       ],
       "ACadapter": ["Ultraslim 56 watt AC Adapter, barrel, 3-prong"],
       "ports": [
+        "CS98 Slim docking Port",
         "1 x USB",
         "1 x Serial 9-pin 16550A",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
@@ -83,6 +84,7 @@
         "Personalization",
         "Phillips-head screw on base for memory, optional Allen screw for disk"
       ],
+      "dock_support": ["12J2467","3547-001","3547-002","3547-003"],
       "system": [
         "Windows 98",
         "Windows NT 4.0 (with Service Pack 4a)",
