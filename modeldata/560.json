@@ -4,11 +4,11 @@
       "id": "thinkpad-560",
       "model_name": "ThinkPad 560",
       "model_family": "560",
-      "model_generation": "1st Gen",
+      "model_generation": "Legacy",
       "update_date": "May 1996",
-      "model_code": ["2640-50A", "2640-50C", "2640-E0A", "2640-E0C", "2640-F0E", "2640-F0D", "2640-F0G"],
-      "processor_options": ["Pentium 100/66 MHz", "Pentium 120/60 MHz", "Pentium 133/66 MHz"],
-      "graphics_options": ["Trident CYBER9382 64-bit SVGA accelerator with 1MB fast page DRAM"],
+      "model_code": ["2640"],
+      "processor_options": ["P54CSLM_100", "P54CSLM_120", "P54CSLM_133"],
+      "graphics_options": ["Cyber9382"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 256 colors"
@@ -52,6 +52,7 @@
       ],
       "ACadapter": ["35 watt Universal AC Adapter, 2 prong, barrel connector"],
       "ports": [
+        "CS96 standard docking port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x PCMCIA Type II (or 1 Type III)",
@@ -79,6 +80,7 @@
         "Locking device keyhole (Kensington cable lock)",
         "Personalization screen at startup"
       ],
+      "dock_support": ["46H4209"],
       "system": [
         "Windows 95",
         "OS/2 Warp Connect",

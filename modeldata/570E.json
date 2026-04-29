@@ -1,13 +1,13 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-570",
-      "model_name": "ThinkPad 570",
+      "id": "thinkpad-570e",
+      "model_name": "ThinkPad 570E",
       "model_family": "570",
       "model_generation": "1st Gen",
       "update_date": "April 1999",
-      "model_code": ["2644-1AU", "2644-1BU", "2644-2AU", "2644-3AU", "2644-3BU"],
-      "processor_options": ["PII_300PE", "PII_333", "PII_366"],
+      "model_code": ["2644"],
+      "processor_options": ["PIII_450", "PIII_500"],
       "graphics_options": ["NM2200"],
       "Display": {
         "max_resolution": {
@@ -22,7 +22,6 @@
         "features": "64MB std; socket accessed by removing screw on base"
       },
       "display_options": [
-        "12.1\" TFT SVGA 800x600, 100 to 1 contrast ratio, 150 degree tilt, 125 nits (AC) / 70 nits (batt)",
         "13.3\" TFT XGA 1024x768, 150 to 1 contrast ratio, 150 degree tilt, 125 nits (AC) / 70 nits (batt)"
       ],
       "storage": {

@@ -4,11 +4,11 @@
       "id": "thinkpad-390e",
       "model_name": "ThinkPad 390E",
       "model_family": "390",
-      "model_generation": "1st Gen",
+      "model_generation": "Legacy",
       "update_date": "March 1999",
-      "model_code": ["2626-90U", "2626-C0U", "2626-D0U", "2626-E0U", "2626-ENU", "2626-A0U", "2626-B0U"],
-      "processor_options": ["Intel Mobile Celeron 300MHz", "Intel Mobile Pentium II 300PE MHz", "Intel Mobile Pentium II 333MHz", "Intel Mobile Celeron 366MHz"],
-      "graphics_options": ["NeoMagic MagicMedia256AV (NM2200) 2.5MB SGRAM"],
+      "model_code": ["2626"],
+      "processor_options": ["PII_300PE", "PII_333", "Celeron_366_PII"],
+      "graphics_options": ["NM2200"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 16M colors at 75Hz or 1280x1024 256 colors"
@@ -23,12 +23,12 @@
       },
       "display_options": [
         "12.1\" TFT SVGA 800x600, 16.7M colors, 150 nits",
-        "13.3\" TFT XGA 1024x768, 16.7M colors, 120 nits",
         "14.1\" TFT XGA 1024x768, 16.7M colors, 120 nits"
       ],
       "storage": {
         "hdd": "3.2GB / 4.3GB / 6.4GB / 4.8GB (various models)",
-        "optical": "24X-10X CD-ROM (standard) or optional DVD-ROM integrated with diskette drive"
+        "optical": "24X-10X CD-ROM (UltraBay FX) or optional DVD-ROM integrated with diskette drive",
+        "floppy": "1.44MB 3.5\" diskette drive (UltraBay FX)"
       },
       "Ethernet": ["Not onboard"],
       "WLAN": ["Not supported"],
@@ -53,6 +53,7 @@
       ],
       "ACadapter": ["56 watt Ultraslim AC adapter, barrel, 3-prong"],
       "ports": [
+        "CS98 standard docking Port",
         "1 x USB",
         "1 x Serial 9-pin 16550A",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
@@ -85,6 +86,7 @@
         "Security keyhole",
         "Security screw for UltraBay FX"
       ],
+      "dock_support": ["05K4872"],
       "system": [
         "Windows 98",
         "Windows NT 4.0"

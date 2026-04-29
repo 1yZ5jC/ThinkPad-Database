@@ -1,13 +1,13 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-560x",
-      "model_name": "ThinkPad 560X",
+      "id": "thinkpad-560z",
+      "model_name": "ThinkPad 560Z",
       "model_family": "560",
       "model_generation": "Legacy",
       "update_date": "March 1998",
-      "model_code": ["2640-60U", "2640-70U"],
-      "processor_options": ["P55CSLM_200", "P55CSLM_233"],
+      "model_code": ["2640"],
+      "processor_options": ["PII_233", "PII_300"],
       "graphics_options": ["NM2160A"],
       "Display": {
         "max_resolution": {
@@ -16,13 +16,12 @@
         "multi_display": "Simultaneous LCD and CRT, 135 degree tilt"
       },
       "memory": {
-        "max_capacity": "96MB max",
+        "max_capacity": "192MB max",
         "type": "EDO 60ns, non-parity, 3.3 volt",
         "slots": "1 socket for one JEDEC 144 pin EDO SO-DIMM of 8, 16, 32, 64MB",
-        "features": "32MB standard; socket accessed from bottom via screw"
+        "features": "32/64MB standard; socket accessed from bottom via screw"
       },
       "display_options": [
-        "11.3\" Dual Scan SVGA color 800x600, 262,144 simultaneous colors, 30 to 1 contrast",
         "12.1\" TFT SVGA color 800x600, 262,144 simultaneous colors, 100 to 1 contrast"
       ],
       "storage": {
@@ -84,7 +83,8 @@
       ],
       "dock_support": ["46H4209","11J8997"],
       "system": [
-        "Windows 95 OSR2.1 with IE 4.01"
+        "Windows 98",
+        "Windows NT 4.0"
       ]
     }
   ]

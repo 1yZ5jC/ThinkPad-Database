@@ -4,11 +4,11 @@
       "id": "thinkpad-560e",
       "model_name": "ThinkPad 560E",
       "model_family": "560",
-      "model_generation": "E series",
+      "model_generation": "Legacy",
       "update_date": "June 1997",
       "model_code": ["2640-30U", "2640-40U"],
-      "processor_options": ["Pentium 150/60 MHz with MMX technology", "Pentium 166/66 MHz with MMX technology"],
-      "graphics_options": ["Trident CYBER9382 64-bit SVGA accelerator with 2MB fast page DRAM"],
+      "processor_options": ["P55CLM_150", "P55CLM_166"],
+      "graphics_options": ["Cyber9382"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 256 colors"
@@ -52,6 +52,7 @@
       ],
       "ACadapter": ["35 watt Universal AC Adapter, 2 prong, barrel connector"],
       "ports": [
+        "CS96 standard docking port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x PCMCIA Type II (or 1 Type III)",
@@ -80,6 +81,7 @@
         "Locking device keyhole (Kensington cable lock)",
         "Personalization screen at startup"
       ],
+      "dock_support": ["46H4209"],
       "system": [
         "Windows 95 OSR2"
       ]

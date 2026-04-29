@@ -1,14 +1,14 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-390x",
-      "model_name": "ThinkPad 390X",
+      "id": "thinkpad-390",
+      "model_name": "ThinkPad 390",
       "model_family": "390",
-      "model_generation": "X series",
-      "update_date": "September 1999",
+      "model_generation": "Legacy",
+      "update_date": "March 1999",
       "model_code": ["2626"],
-      "processor_options": ["Celeron_400_PII", "PII_400","PIII_450","PIII_500"],
-      "graphics_options": ["NeoMagic MagicMedia256AV (NM2200) 2.5MB SGRAM embedded"],
+      "processor_options": ["P55CSLM_233", "PII_233", "PII_266"],
+      "graphics_options": ["NM2200"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 16M colors at 75Hz or 1280x1024 256 colors"
@@ -16,22 +16,22 @@
         "multi_display": "Simultaneous LCD and CRT, 150 degree tilt, multiple-monitor support"
       },
       "memory": {
-        "max_capacity": "512MB max",
-        "type": "SDRAM 100MHz, PC100-compliant, non-parity, 3.3V",
+        "max_capacity": "256MB max",
+        "type": "SDRAM 66MHz, non-parity, 3.3V",
         "slots": "2 sockets for JEDEC 144-pin SO DIMMs (one used by standard memory)",
-        "features": "64MB standard; sockets accessed from bottom via screw"
+        "features": "32MB or 64MB standard; sockets accessed from bottom via screw"
       },
       "display_options": [
-        "12.1\" TFT SVGA 800x600, 20-30ms, 150 nits, 16.7M colors",
-        "14.1\" TFT XGA 1024x768, 20-30ms, 120 nits, 16.7M colors",
-        "15.0\" TFT XGA 1024x768, 10-30ms, 120 nits, 16.7M colors"
+        "12.1\" TFT SVGA 800x600, 16.7M colors, 150 nits",
+        "13.3\" TFT XGA 1024x768, 16.7M colors, 120 nits",
+        "14.1\" TFT XGA 1024x768, 16.7M colors, 120 nits"
       ],
       "storage": {
-        "hdd": "4.8GB / 13ms or 6.4GB / 12ms, EIDE, removable, S.M.A.R.T.",
-        "optical": "24X-10X CD-ROM (standard) or optional 4X-1X DVD-ROM integrated with diskette drive",
+        "hdd": "3.2GB / 4.3GB / 6.4GB / 4.8GB (various models)",
+        "optical": "24X-10X CD-ROM (UltraBay FX) or optional DVD-ROM integrated with diskette drive",
         "floppy": "1.44MB 3.5\" diskette drive (UltraBay FX)"
       },
-      "Ethernet": ["Not onboard (optional via Port Replicator or PC Card)"],
+      "Ethernet": ["Not onboard"],
       "WLAN": ["Not supported"],
       "Bluetooth": [
         {
@@ -47,7 +47,7 @@
       "Battery": [
         {
           "type": "NiMH or Li-Ion",
-          "capacity": "NiMH: 2.5 hrs (F0U); Li-Ion: 3.5-3.67 hrs",
+          "capacity": "NiMH: 3.0 hrs; Li-Ion: up to 4.0 hrs",
           "form": "Intelligent, removable from left side",
           "tech": "NiMH / Li-Ion"
         }
@@ -58,26 +58,26 @@
         "1 x USB",
         "1 x Serial 9-pin 16550A",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
-        "2 x PC Card slots (Type I/II/III, CardBus 32-bit, Zoomed Video)",
-        "1 x S-Video out connector",
+        "2 x PC Card slots (Type I/II/III, CardBus, Zoomed Video)",
+        "1 x S-Video out",
         "1 x Microphone jack (stereo)",
         "1 x Headphone jack (stereo)",
         "1 x Line-in jack",
-        "1 x Infrared port (IrDA 1.1, up to 4Mbps)"
+        "1 x Infrared port (IrDA 1.1, 4Mbps)"
       ],
       "camera": ["Not supported"],
       "audio": [
-        "16-bit SoundBlaster Pro support (ESS 1946), PCI, full duplex",
-        "Two Altec Lansing stereo speakers (1W each) on display (front for 15\" model)",
-        "Internal microphone, dial volume control"
+        "16-bit SoundBlaster Pro compatible (ESS 1946)",
+        "Two Altec Lansing stereo speakers (1W each) on display",
+        "Internal microphone, volume control"
       ],
       "keyboard": [
         "Full-size 85-key keyboard with 7 Fn key functions",
         "TrackPoint pointing device with Internet Scroll Bar"
       ],
       "physical": {
-        "dimensions": "12.4 x 10.1 x 1.8 inches (225 cu in) for 12.1\"/14.1\" models; 12.9 x 10.6 x 1.8\" (246 cu in) for 15\"",
-        "weight": "7.5 lbs (3.4 kg) for 12.1\" & 14.1\" models; 7.9 lbs (3.6 kg) for 15\" models",
+        "dimensions": "12.4 x 10.1 x 1.8 inches (225 cubic inches) for 12.1\" models; 12.4 x 10.2 x 1.8\" for 14.1\"",
+        "weight": "7.5 lbs (3.4 kg) Celeron models; 7.7 lbs (3.5 kg) Pentium models",
         "case_material": "PC/ABS plastic"
       },
       "security": [

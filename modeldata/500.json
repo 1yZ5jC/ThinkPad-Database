@@ -4,10 +4,10 @@
       "id": "thinkpad-500",
       "model_name": "ThinkPad 500",
       "model_family": "500",
-      "model_generation": "1st Gen",
+      "model_generation": "Legacy",
       "update_date": "1993",
       "model_code": ["2603"],
-      "processor_options": ["IBM 486SLC2 50/25MHz"],
+      "processor_options": ["IBM_486SLC2"],
       "graphics_options": ["WD90C24A"],
       "Display": {
         "max_resolution": {
@@ -17,7 +17,7 @@
       },
       "memory": {
         "max_capacity": "12MB max",
-        "type": "DRAM",
+        "type": "IC DRAM",
         "slots": "Proprietary slot",
         "features": "2MB or 4MB standard on motherboard"
       },
