@@ -7,8 +7,8 @@
       "model_generation": "ED series",
       "update_date": "May 1996",
       "model_code": ["9546-U3A"],
-      "processor_options": ["Pentium 133/66 MHz (P54CSLM)"],
-      "graphics_options": ["Trident CYBER9385 64-bit SVGA accelerator with 2 MB EDO DRAM"],
+      "processor_options": ["P54CSLM_133"],
+      "graphics_options": ["Cyber9385"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 w/ 256 colors or 1024x768 w/ 65,536 colors"
@@ -22,7 +22,8 @@
         "features": "16MB standard"
       },
       "display_options": [
-        "12.1\" TFT SVGA color 800x600, 262,144 simultaneous colors, Black Matrix TFT, 100 to 1 contrast ratio"
+        "12.1\" TFT SVGA color 800x600, 262,144 simultaneous colors, Black Matrix TFT, 100 to 1 contrast ratio",
+        "12.1\" TFT XGA color 1024x768, 65,536 simultaneous colors, Black Matrix TFT, 100 to 1 contrast ratio"
       ],
       "storage": {
         "hdd": "1.2 GB / 12 ms / DMA Mode 1 or PIO Mode 3 (removable), Enhanced IDE, busmaster, PCI 2.1, supports two internal disks",
@@ -43,6 +44,7 @@
       ],
       "ACadapter": ["35 watt Slim AC Adapter 2 prong"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x Type I/II or 1 x Type III PCMCIA (CardBus 32-bit PCI)",
@@ -79,6 +81,7 @@
         "Personalization",
         "Security Plate"
       ],
+      "dock_support": ["66G3510", "66G3520", "3545", "3546"],
       "system": [
         "Windows 95"
       ]

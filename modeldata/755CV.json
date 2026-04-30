@@ -7,8 +7,8 @@
       "model_generation": "CV series",
       "update_date": "September 1995",
       "model_code": ["9545-8BJ", "9545-EBK", "9545-EBL"],
-      "processor_options": ["IntelDX4 100/33 MHz (no L2 cache)", "Pentium 75/50 MHz with 256 KB L2 cache"],
-      "graphics_options": ["Western Digital WD90C24A2 with 1 MB DRAM"],
+      "processor_options": ["486DX4_100", "P54LM_75"],
+      "graphics_options": ["WD90C24A2"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 w/ 256 colors (up to 75 Hz)"
@@ -49,6 +49,7 @@
       ],
       "ACadapter": ["35 watt Universal AC adapter"],
       "ports": [
+        "CS93 standard docking Port",
         "2 x Type I/II or 1 x Type III PCMCIA",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
@@ -82,6 +83,7 @@
         "Kensington MicroSaver cable lock",
         "PCMCIA card lock"
       ],
+      "dock_support":["66G3510","66G3520","3545","3546"],
       "system": ["IBM DOS 7.0, Windows 3.11, OS/2 Warp Version 3 (dual boot)"]
     }
   ]

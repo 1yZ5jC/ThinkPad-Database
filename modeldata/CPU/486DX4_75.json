@@ -4,7 +4,7 @@
   "base_freq": "75 MHz",
   "turbo_freq": "-",
   "ext_freq": "25 MHz",
-  "cache": "8KB",
+  "cache": "16KB",
   "iconfamily": "i486",
   "ark": ""
 }

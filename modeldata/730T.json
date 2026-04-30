@@ -1,13 +1,13 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-730te",
-      "model_name": "ThinkPad 730TE",
+      "id": "thinkpad-730t",
+      "model_name": "ThinkPad 730T",
       "model_family": "730",
       "model_generation": "Legacy",
-      "update_date": "October 1995",
+      "update_date": "May 1994",
       "model_code": ["2524"],
-      "processor_options": ["486DX4_75"],
+      "processor_options": ["486SX_33"],
       "graphics_options": ["WD90C24A"],
       "Display": {
         "max_resolution": {
@@ -25,7 +25,7 @@
       "touch": ["Electromagnetic pen/digitizer/stylus, untethered, batteryless, realistic pen-to-paper feel"],
       "pen": ["Untethered batteryless stylus stored in compartment on bottom"],
       "storage": {
-        "hdd": "260 MB PCMCIA Type III, 12 ms, 4500 rpm, 16 MB/sec burst transfer rate (Model B0F preinstalled); Uses a specific Type III PCMCIA slot",
+        "hdd": "105 MB PCMCIA Type III, 12 ms, 4500 rpm, 16 MB/sec burst transfer rate (Model B0F preinstalled); Uses a specific Type III PCMCIA slot",
         "optical": "None",
         "diskette": "Optional 3.5\" 1.44 MB (same as ThinkPad 710T and 730T)"
       },

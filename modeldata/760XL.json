@@ -7,8 +7,8 @@
       "model_generation": "XL series",
       "update_date": "April 1997",
       "model_code": ["9547-UPG"],
-      "processor_options": ["Pentium MMX 166/66 MHz (P55CLM)"],
-      "graphics_options": ["Trident CYBER9385 64-bit SVGA accelerator with 1 MB EDO DRAM"],
+      "processor_options": ["P55CLM_166"],
+      "graphics_options": ["Cyber9385"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 with 256 colors"
@@ -26,7 +26,9 @@
       ],
       "storage": {
         "hdd": "2.1 GB / 13 ms / DMA Mode 2 or PIO Mode 4, EIDE, busmaster, PCI 2.1, supports two internal disks (max 10.2 GB)",
-        "optical": "None standard / can upgrade to 4x, 6x, 8x, or 8-20x CD-ROM via UltraBay"
+        "optical": "None standard / can upgrade to 4x, 6x, 8x, or 8-20x CD-ROM via UltraBay",
+        "floppy": "3.5\" 1.44 MB (removable)"
+
       },
       "Ethernet": ["None"],
       "WLAN": ["None"],
@@ -43,6 +45,7 @@
       ],
       "ACadapter": ["35 watt Slim AC Adapter 2 prong"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x Type I/II or 1 x Type III PCMCIA (CardBus 32-bit PCI)",
@@ -75,6 +78,7 @@
         "Personalization",
         "Security Plate"
       ],
+      "dock_support": ["66G3510", "66G3520", "3545", "3546"],
       "system": [
         "Windows 95 OSR2 (FAT16)",
         "Windows NT Workstation 4.0"

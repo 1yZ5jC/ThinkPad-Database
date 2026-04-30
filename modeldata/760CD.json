@@ -7,8 +7,8 @@
       "model_generation": "CD series",
       "update_date": "1996",
       "model_code": ["9546"],
-      "processor_options": ["Pentium 120/60 MHz", "Pentium 133/66 MHz", "Pentium MMX 166/66 MHz"],
-      "graphics_options": ["Trident CYBER9385 64-bit SVGA accelerator with 2 MB EDO DRAM"],
+      "processor_options": ["P54LM_120", "P54LM_90"],
+      "graphics_options": ["Cyber9320"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 w/ 256 colors or 1024x768 w/ 65,536 colors"
@@ -16,7 +16,7 @@
         "multi_display": "Simultaneous LCD and CRT, 180 degree tilt"
       },
       "memory": {
-        "max_capacity": "80MB max (104MB with ThinkPad Proven option)",
+        "max_capacity": "64MB max",
         "type": "EDO 70ns, non-parity, 3.3V",
         "slots": "2 sockets for two JEDEC 144 pin EDO SO DIMMs of 8, 16, 32 MB",
         "features": "16MB standard"
@@ -51,6 +51,7 @@
       ],
       "ACadapter": ["35W Slim AC Adapter, 2-prong (or 4-prong)"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x PCMCIA Type II (or 1 Type III), CardBus 32-bit PCI",
@@ -84,6 +85,7 @@
         "PC Card lock",
         "Personalization/Security Plate"
       ],
+      "dock_support":["66G3510","66G3520","3545","3546"],
       "system": [
         "Windows 95 OSR2",
         "Windows NT Workstation 4.0"

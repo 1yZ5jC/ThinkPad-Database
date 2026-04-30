@@ -4,11 +4,11 @@
       "id": "thinkpad-770z",
       "model_name": "ThinkPad 770Z",
       "model_family": "770",
-      "model_generation": "Z series",
+      "model_generation": "Legacy",
       "update_date": "February 1999",
       "model_code": ["9549-81U", "9549-82U", "9549-8AU", "9549-8BU", "9549-83U"],
-      "processor_options": ["Intel Mobile Pentium II 366MHz"],
-      "graphics_options": ["Trident CYBER9397DVD with 4MB or 8MB SGRAM (AGP 1X)"],
+      "processor_options": ["PII_366"],
+      "graphics_options": ["Cyber9397DVD"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 with 64K colors at 85Hz"
@@ -52,6 +52,7 @@
       ],
       "ACadapter": ["56 watt AC Adapter, barrel, 3-prong"],
       "ports": [
+        "CS97 standard docking Port",
         "1 x USB",
         "1 x Serial 9-pin 16550A",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
@@ -86,6 +87,7 @@
         "Personalization",
         "Phillips-head screws on base for battery and UltraBay II bays"
       ],
+      "dock_support": ["83H6735","3547-001","3547-002","3547-003"],
       "system": [
         "Windows 98 (W98 models: Full MPEG-2 playback, DVD movie playback)",
         "Windows NT 4.0 (NT models: Optional MPEG-2 via DEVA; No DVD movie playback)"

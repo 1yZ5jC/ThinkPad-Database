@@ -7,8 +7,8 @@
       "model_generation": "LD series",
       "update_date": "February 1996",
       "model_code": ["9547-U31", "9547-U3A", "9547-U3R"],
-      "processor_options": ["Pentium 90/60 MHz (P54LM)"],
-      "graphics_options": ["Trident CYBER9320 with 1 MB DRAM"],
+      "processor_options": ["P54LM_90"],
+      "graphics_options": ["Cyber9320"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 with 256 colors up to 75 Hz"
@@ -26,7 +26,8 @@
       ],
       "storage": {
         "hdd": "810 MB / 12 ms / EIDE / PIO Mode 4, removable",
-        "optical": "5.25\" CD-ROM, 4x speed, multi-session, XA, play with eject button, EIDE/PIO Mode 3 (ATAPI)"
+        "optical": "5.25\" CD-ROM, 4x speed, multi-session, XA, play with eject button, EIDE/PIO Mode 3 (ATAPI)",
+        "floppy": "3.5\" 1.44 MB, removable"
       },
       "Ethernet": ["None"],
       "WLAN": ["None"],
@@ -51,6 +52,7 @@
       ],
       "ACadapter": ["40 watt Universal adapter"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x Type I/II or 1 x Type III PCMCIA",
@@ -81,6 +83,7 @@
         "Security latch for keyboard and DIMMs",
         "PC Card lock"
       ],
+      "dock_support": ["66G3510", "66G3520", "3545", "3546"],
       "system": [
         "SelectaSystem (DOS 7.0, Windows 3.11, OS/2 Warp 3.0)",
         "Windows 95",

@@ -7,8 +7,8 @@
       "model_generation": "E series",
       "update_date": "October 1996",
       "model_code": ["9546-U9B"],
-      "processor_options": ["Pentium 150/60 MHz (P54CSLM)"],
-      "graphics_options": ["Trident CYBER9385 64-bit SVGA accelerator with 2 MB EDO DRAM"],
+      "processor_options": ["P54LM_120","P54LM_133","P54CSLM_150"],
+      "graphics_options": ["Cyber9320"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 w/ 256 colors or 1024x768 w/ 65,536 colors"
@@ -22,11 +22,13 @@
         "features": "16MB standard"
       },
       "display_options": [
-        "12.1\" TFT XGA color 1024x768, 65,536 simultaneous colors, Black Matrix TFT, 100 to 1 contrast ratio"
+        "12.1\" TFT XGA color 1024x768, 65,536 simultaneous colors, Black Matrix TFT, 100 to 1 contrast ratio",
+        "12.1\" TFT SVGA color 6800 x 600, 65,536 simultaneous colors, Black Matrix TFT - active matrix, 100 to 1 contrast ratio"
       ],
       "storage": {
         "hdd": "2.1 GB / 12 ms / DMA Mode 2 or PIO Mode 4 (removable), EIDE, busmaster, PCI 2.1, supports two internal disks (4.2 GB max)",
-        "optical": "None standard / can upgrade with optional CD-ROM into UltraBay"
+        "optical": "None standard / Thick Model can upgrade with optional CD-ROM into UltraBay",
+        "floppy": "3.5\" 1.44 MB (removable)"
       },
       "Ethernet": ["None"],
       "WLAN": ["None"],
@@ -43,6 +45,7 @@
       ],
       "ACadapter": ["35 watt Slim AC Adapter 2 prong"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x Type I/II or 1 x Type III PCMCIA (CardBus 32-bit PCI)",
@@ -77,6 +80,7 @@
         "Personalization",
         "Security Plate"
       ],
+      "dock_support": ["66G3510", "66G3520", "3545", "3546"],
       "system": [
         "Windows 95"
       ]

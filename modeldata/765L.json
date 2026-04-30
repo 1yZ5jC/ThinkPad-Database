@@ -7,8 +7,8 @@
       "model_generation": "L series",
       "update_date": "June 1997",
       "model_code": ["9547-UNJ"],
-      "processor_options": ["Pentium MMX 166/66 MHz (P55CLM)"],
-      "graphics_options": ["Trident CYBER9385 64-bit SVGA accelerator with 2 MB EDO DRAM"],
+      "processor_options": ["P55CLM_166"],
+      "graphics_options": ["Cyber9385"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 w/ 256 colors or 1024x768 w/ 65,536 colors"
@@ -26,7 +26,8 @@
       ],
       "storage": {
         "hdd": "3.0 GB / 12 ms / DMA Mode 2 or PIO Mode 4, EIDE, busmaster, PCI 2.1, supports two internal disks, SMART",
-        "optical": "None standard (upgradeable to 4x, 6x, or 8x CD-ROM via UltraBay)"
+        "optical": "None standard (upgradeable to 4x, 6x, or 8x CD-ROM via UltraBay)",
+        "floppy": "3.5\" 1.44 MB (removable)"
       },
       "Ethernet": ["None"],
       "WLAN": ["None"],
@@ -51,6 +52,7 @@
       ],
       "ACadapter": ["56 watt AC Adapter 4 pin 3 prong"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE P1284-A, EPP, ECP)",
         "2 x Type I/II or 1 x Type III PCMCIA (CardBus 32-bit PCI)",
@@ -82,6 +84,7 @@
         "PC Card lock",
         "Personalization / Security Plate"
       ],
+      "dock_support": ["66G3510", "66G3520", "3545", "3546"],
       "system": [
         "Windows 95 OSR2 (FAT16, C: 1.99 GB, D: 885 MB)"
       ]

@@ -7,8 +7,8 @@
       "model_generation": "E/ED series",
       "update_date": "April 1998",
       "model_code": ["9548-51U", "9548-52U", "9549-5AU", "9548-53U"],
-      "processor_options": ["Pentium II 266/66 MHz (Deschutes)"],
-      "graphics_options": ["Trident CYBER9397E 64-bit accelerator with 4MB SGRAM (83MHz)"],
+      "processor_options": ["PII_266"],
+      "graphics_options": ["Cyber9397E"],
       "Display": {
         "max_resolution": {
           "external": "1280x1024 w/ 64K colors (85Hz) or 1024x768 w/ 16M colors"
@@ -51,6 +51,7 @@
       ],
       "ACadapter": ["56 watt AC Adapter, barrel, 3-prong"],
       "ports": [
+        "CS97 standard docking Port",
         "1 x USB",
         "1 x Serial (16550A)",
         "1 x Parallel (IEEE 1284-A, EPP, ECP)",
@@ -85,6 +86,7 @@
         "Personalization",
         "Phillips-head screws on base for battery and UltraBay II bays"
       ],
+      "dock_support": ["83H6735","3547-001","3547-002","3547-003"],
       "system": [
         "Windows 95 OSR2.1 (FAT16)",
         "Windows NT 4.0 Workstation (FAT16) with Service Pack 3",

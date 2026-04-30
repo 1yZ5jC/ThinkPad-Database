@@ -7,8 +7,8 @@
       "model_generation": "1st Gen",
       "update_date": "June 1994",
       "model_code": [],
-      "processor_options": ["IntelDX4 75/25 MHz", "Intel DX2 50/25 MHz"],
-      "graphics_options": ["Western Digital WD90C24A or WD90C24A2 with 1 MB DRAM"],
+      "processor_options": ["486DX4_75", "486DX2_50"],
+      "graphics_options": ["WD90C24A"],
       "Display": {
         "max_resolution": {
           "external": "1024x768 256 colors"
@@ -22,8 +22,8 @@
         "features": "4MB standard; up to 20MB with IC cards, up to 36MB with DIMM adapter"
       },
       "display_options": [
-        "9.5\" Dual Scan color VGA 640x480",
-        "10.4\" TFT color VGA 640x480"
+        "9.5\" Dual Scan color VGA 640x480 (755CS)",
+        "10.4\" TFT color VGA 640x480 (755C)"
       ],
       "storage": {
         "hdd": "170MB, 340MB, or 540MB removable",
@@ -52,6 +52,7 @@
       ],
       "ACadapter": ["40W AC adapter"],
       "ports": [
+        "CS93 standard docking Port",
         "1 x Serial 16550A",
         "1 x Parallel EPP",
         "1 x External display",
@@ -61,7 +62,7 @@
       ],
       "camera": ["None"],
       "audio": [
-        "16-bit audio (Crystal CS4248 on 755C/Cs); Internal speaker and microphone"
+        "16-bit audio (Crystal CS4248); Internal speaker and microphone"
       ],
       "keyboard": [
         "Full-size 85-key lift-up keyboard",
@@ -79,6 +80,7 @@
         "Hardware security loop",
         "Kensington lock slot"
       ],
+      "dock_support":["66G3510","66G3520","3545","3546"],
       "system": ["IBM DOS 6.3, Windows 3.1", "Windows 95"]
     }
   ]
