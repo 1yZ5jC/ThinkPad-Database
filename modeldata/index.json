@@ -427,7 +427,7 @@
     },
     {
         "file": "Yoga260.json",
-        "name": "ThinkPad Yoga260",
+        "name": "ThinkPad Yoga 260",
         "nickname": "ThinkPad S1 Gen2",
         "nickfamily": "S",
         "family": "Yoga",
@@ -435,7 +435,9 @@
     },
     {
         "file": "Yoga370.json",
-        "name": "ThinkPad Yoga370",
+        "name": "ThinkPad Yoga 370",
+        "nickname": "ThinkPad S1 Gen3",
+        "nickfamily": "S",
         "family": "Yoga",
         "generation": "xx70"
     },
