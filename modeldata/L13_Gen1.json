@@ -24,7 +24,7 @@
       "Display": {
         "max_resolution": {
           "usb_c_tbt": "4096x2304@60Hz",
-          "hdmi_tbt": "4096x2160@30Hz"
+          "hdmi": "4096x2160@30Hz"
         },
         "multi_display": "Supports up to 3 independent displays (native display and 2 external monitors via HDMI and USB-C)"
       },
@@ -43,8 +43,8 @@
         "ssd_pcie": "One drive, up to 512GB M.2 2242 SSD or 1TB M.2 2280 SSD, optional Intel Optane Memory, PCIe 3.0"
       },
       "WLAN": [
-        "Intel Wireless-AC 9560",
-        "Intel Wi-Fi 6 AX201"
+        "9560",
+        "AX201"
       ],
       "Bluetooth": [
         {
