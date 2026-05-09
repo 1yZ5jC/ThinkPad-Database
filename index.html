@@ -1575,8 +1575,10 @@
                                     interfaceLines.push(`<div><span class="field-name">雷电:</span> <span class="field-value">${res}</span></div>`);
                                 } else if (portName.toLowerCase().includes('vga')) {
                                     interfaceLines.push(`<div><span class="field-name">VGA:</span> <span class="field-value">${res}</span></div>`);
-                                } else if (portName.toLowerCase().includes('s_video')) {
+                                } else if (portName.toLowerCase().includes('svideo')) {
                                     interfaceLines.push(`<div><span class="field-name">S-Video:</span> <span class="field-value">${res}</span></div>`);
+                                } else if (portName.toLowerCase().includes('dvi')) {
+                                    interfaceLines.push(`<div><span class="field-name">DVI:</span> <span class="field-value">${res}</span></div>`);
                                 } else {
                                     interfaceLines.push(`<div><span class="field-name">${portName}:</span> <span class="field-value">${res}</span></div>`);
                                 }
