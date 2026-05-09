@@ -1,7 +1,9 @@
 {
   "id": "Debug",
   "model_name": "Debug",
+  "nickname": "Debug1",
   "model_family": "Debug",
+  "nickfamily": "Lag",
   "model_generation": "Debug",
   "update_date": "Debug",
   "model_code": [
@@ -45,6 +47,9 @@
   ],
   "Display": {
     "max_resolution": {
+      "vga": "Debug",
+      "dvi": "Debug",
+      "s_video": "Debug",
       "mini_dp": "Debug",
       "hdmi": "Debug",
       "usb_c_tbt": "Debug"
@@ -61,6 +66,10 @@
     "ssd_sata": "Debug",
     "ssd_pcie": "Debug",
     "hdd": "Debug",
+    "floppy": "Debug",
+    "optical": "Debug",
+    "optane": "Debug",
+    "emmc": "Debug",
     "sshd": "Debug"
   },
   "SIM_Card": [
