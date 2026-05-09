@@ -13,10 +13,11 @@
   "addon_model_code": [
     "Debug"
   ],
-  "//":"If this model has add-on model, write the add-on model , otherwise don't write anything.",
+  "//":"If this model has add-on model, write the nickname info and addon model code, otherwise don't write anything, including while you meet a model based on another.",
   "processor_options": [
     "3820QM",
-    "3840QM"
+    "3840QM",
+    "rename the CPU name to simpliest form, and create model json files in CPU folder."
   ],
   "graphics_options": [
     "HD3000",
@@ -24,32 +25,36 @@
   ],
   "display_options": [
     "LEN40AE",
-    "LEN40AF"
+    "LEN40AF",
+    "Using LEN Code, and create model json files in Display folder."
   ],
   "dock_support": [
     "40A0",
     "40A1",
     "40A6",
     "40A2",
-    "(Only write Proprietary Docking Port (Also included OneLink, OneLink+ and CS18 Docking Port) here if the model has it, otherwise write None)"
+    "(Only write Proprietary Docking Port (Also included OneLink, OneLink+ and CS18 Docking Port， DON'T write USB/USB-C/Thunderbolt dock here) here if the model has it, otherwise write None, and create model json files in Dock folder.)"
   ],
   "Ethernet": [
     "82579LM",
     "I219LM",
     "I219V",
-    "RTL8111F"
+    "RTL8111F",
+    "rename the Ethernet name to simpliest form, and create model json files in Ethernet folder."
   ],
   "WLAN": [
     "11abgn",
     "11bg",
     "11bgn_ii",
-    "11bgn_iii"
+    "11bgn_iii",
+    "rename the WLAN Card name to simpliest form, and create model json files in WLAN folder."
   ],
   "WWAN": [
     "EM7345",
     "EM7355",
     "EM7455",
-    "F3507g"
+    "F3507g",
+    "rename the WWAN name to simpliest form, and create model json files in WWAN folder."
   ],
   "Display": {
     "max_resolution": {
