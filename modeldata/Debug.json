@@ -17,7 +17,7 @@
   "processor_options": [
     "3820QM",
     "3840QM",
-    "rename the CPU name to simpliest form, and create model json files in CPU folder."
+    "rename the CPU name to simplest form, and create model json files in CPU folder."
   ],
   "graphics_options": [
     "HD3000",
@@ -40,21 +40,21 @@
     "I219LM",
     "I219V",
     "RTL8111F",
-    "rename the Ethernet name to simpliest form, and create model json files in Ethernet folder."
+    "rename the Ethernet name to simplest form, and create model json files in Ethernet folder."
   ],
   "WLAN": [
     "11abgn",
     "11bg",
     "11bgn_ii",
     "11bgn_iii",
-    "rename the WLAN Card name to simpliest form, and create model json files in WLAN folder."
+    "rename the WLAN Card name to simplest form, and create model json files in WLAN folder."
   ],
   "WWAN": [
     "EM7345",
     "EM7355",
     "EM7455",
     "F3507g",
-    "rename the WWAN name to simpliest form, and create model json files in WWAN folder."
+    "rename the WWAN name to simplest form, and create model json files in WWAN folder."
   ],
   "Display": {
     "max_resolution": {
@@ -75,12 +75,12 @@
   },
   "storage": {
     "ssd_sata": "Debug",
-    "ssd_pcie": "Debug",
+    "ssd_pcie": "Debug (Nvme/SATA Express)",
     "hdd": "Debug",
     "floppy": "Debug",
     "optical": "Debug",
-    "optane": "Debug",
-    "emmc": "Debug",
+    "optane": "Debug (M10 or H10)",
+    "emmc": "Debug (eMMC or UFS)",
     "sshd": "Debug"
   },
   "SIM_Card": [
