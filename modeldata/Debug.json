@@ -1,6 +1,7 @@
 {
   "id": "Debug",
   "model_name": "Debug",
+  "addons":"For models with add-on models, write the add-on model name here, and for models based on a base model, write the base model name here. For example, Ps is based on T, W5 is based on T5, Chromebook is based on Windows model, L13 Yoga is based on L13, etc.",
   "nickname": "Debug1",
   "model_family": "Debug",
   "nickfamily": "Lag",
@@ -9,6 +10,10 @@
   "model_code": [
     "Debug"
   ],
+  "addon_model_code": [
+    "Debug"
+  ],
+  "//":"If this model has add-on model, write the add-on model , otherwise don't write anything.",
   "processor_options": [
     "3820QM",
     "3840QM"
@@ -25,7 +30,8 @@
     "40A0",
     "40A1",
     "40A6",
-    "40A2"
+    "40A2",
+    "(Only write Proprietary Docking Port (Also included OneLink, OneLink+ and CS18 Docking Port) here if the model has it, otherwise write None)"
   ],
   "Ethernet": [
     "82579LM",
@@ -50,9 +56,9 @@
       "vga": "Debug",
       "dvi": "Debug",
       "s_video": "Debug",
-      "mini_dp": "Debug",
+      "mini_dp": "Debug (For DP, Mini DP and Thunderbolt 1/2, Write Here)",
       "hdmi": "Debug",
-      "usb_c_tbt": "Debug"
+      "usb_c_tbt": "Debug (For USB-C and Thunderbolt 3, Write Here)"
     },
     "multi_display": "DebugDebugDebugDebugDebugDebug"
   },
