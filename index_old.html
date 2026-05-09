@@ -348,7 +348,10 @@
                         ssd_pcie: 'PCIe SSD',
                         hdd: '2.5" HDD',
                         sshd: 'SSHD',
-                        optical: '光驱'
+                        optical: '光驱',
+                        floppy:'软驱',
+                        optane:'傲腾加速盘',
+                        emmc:'eMMC'
                     };
                     let items = [];
                     for (const [key, value] of Object.entries(model.storage)) {
@@ -1371,7 +1374,9 @@
                         hdd: '2.5" HDD',
                         sshd: 'SSHD',
                         optical: '光驱',
-                        emmc: 'EMMC'
+                        floppy:'软驱',
+                        optane:'傲腾加速盘',
+                        emmc:'eMMC'
                     };
                     const items = [];
                     for (const [key, value] of Object.entries(data.storage)) {
@@ -1494,6 +1499,10 @@
                                     interfaceLines.push(`<div><span class="field-name">USB-C/雷电:</span> <span class="field-value">${res}</span></div>`);
                                 } else if (portName.toLowerCase().includes('thunderbolt')) {
                                     interfaceLines.push(`<div><span class="field-name">雷电:</span> <span class="field-value">${res}</span></div>`);
+                                } else if (portName.toLowerCase().includes('vga')) {
+                                    interfaceLines.push(`<div><span class="field-name">VGA:</span> <span class="field-value">${res}</span></div>`);
+                                } else if (portName.toLowerCase().includes('s_video')) {
+                                    interfaceLines.push(`<div><span class="field-name">S-Video:</span> <span class="field-value">${res}</span></div>`);
                                 } else {
                                     interfaceLines.push(`<div><span class="field-name">${portName}:</span> <span class="field-value">${res}</span></div>`);
                                 }
