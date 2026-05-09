@@ -60,8 +60,8 @@
     "max_resolution": {
       "vga": "Debug",
       "dvi": "Debug",
-      "s_video": "Debug",
-      "mini_dp": "Debug (For DP, Mini DP and Thunderbolt 1/2, Write Here)",
+      "svideo": "Debug",
+      "dp": "Debug (For DP, Mini DP and Thunderbolt 1/2, Write Here)",
       "hdmi": "Debug",
       "usb_c_tbt": "Debug (For USB-C and Thunderbolt 3, Write Here)"
     },
