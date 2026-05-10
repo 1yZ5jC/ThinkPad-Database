@@ -1,7 +1,7 @@
 {
   "id": "Debug",
   "model_name": "Debug",
-  "addons":"For models with add-on models, write the add-on model name here, and for models based on a base model, write the base model name here. For example, Ps is based on T, W5 is based on T5, Chromebook is based on Windows model, L13 Yoga is based on L13, etc.",
+  "addons":"For models with add-on models, write the add-on model name here, like an international model Also named a China Only S. and for models based on a base model, write the base model name here. For example, Ps is based on T, W5 is based on T5, Chromebook is based on Windows model, X1 Extreme/T1g is based on P1,T15/16g is based on P15/16,T15p is based on P15v, etc. Don't write:X/L/11e Yoga based on X/L/11e, Ts Based on X, T/L16 Based on T/L14,",
   "nickname": "Debug1",
   "model_family": "Debug",
   "nickfamily": "Lag",
@@ -33,7 +33,7 @@
     "40A1",
     "40A6",
     "40A2",
-    "(Only write Proprietary Docking Port (Also included OneLink, OneLink+ and CS18 Docking Port， DON'T write USB/USB-C/Thunderbolt dock here) here if the model has it, otherwise write None, and create model json files in Dock folder.)"
+    "Only write Proprietary Docking Port (Also included OneLink, OneLink+ and CS18 Docking Port， DON'T write USB/USB-C/Thunderbolt dock here) here if the model has it, otherwise write None, and create model json files in Dock folder."
   ],
   "Ethernet": [
     "82579LM",
