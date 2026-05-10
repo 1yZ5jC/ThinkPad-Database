@@ -11,7 +11,7 @@
     "Debug"
   ],
   "addon_model_code": [
-    "Debug"
+    "Debug1"
   ],
   "//":"If this model has add-on model, write the nickname info and addon model code, otherwise don't write anything, including while you meet a model based on another.",
   "processor_options": [
