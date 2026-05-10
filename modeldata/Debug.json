@@ -141,6 +141,9 @@
     "weight": "Debug",
     "case_material": "Debug"
   },
+  "color calibration": [
+    "Debug"
+  ],
   "PSREF_link": [
     "Debug"
   ],
