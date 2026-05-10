@@ -436,8 +436,8 @@
                         const ac = Array.isArray(model.ACadapter) ? model.ACadapter.join('、') : model.ACadapter;
                         items.push(`<div><span class="field-name">电源适配器:</span> <span class="field-value">${ac}</span></div>`);
                     }
-                    if (model['color calibration']) {
-                        const cc = Array.isArray(model['color calibration']) ? model['color calibration'].join('、') : model['color calibration'];
+                    if (model.colorcalibration) {
+                        const cc = Array.isArray(model.colorcalibration) ? model.colorcalibration.join('、') : model.colorcalibration;
                         items.push(`<div><span class="field-name">校色仪:</span> <span class="field-value">${cc}</span></div>`);
                     }
                     if (items.length === 0) return 'N/A';
@@ -1540,8 +1540,8 @@
                     <tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr>
                     <tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr>
                     <tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>
-                    ${data['color calibration'] ? `
-                    <tr><th>校色仪</th><td>${Array.isArray(data['color calibration']) ? data['color calibration'].join('、') : data['color calibration']}</td></tr>
+                    ${data.colorcalibration ? `
+                    <tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>
                     ` : ''}
                 `;
 
