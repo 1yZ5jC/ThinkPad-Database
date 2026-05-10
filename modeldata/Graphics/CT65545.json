@@ -1,7 +1,0 @@
-        {
-          "model": "Chips & Technologies CT-65545",
-          "base_freq": "56MHz@3.3V, 68MHz@5V",
-          "VRAM":"512KB Or 1MB FPM DRAM",
-          "Feature":"VGA, 2D acceleration",
-          "iconfamily": "CT"
-        }

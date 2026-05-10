@@ -1,9 +1,0 @@
-﻿        {
-          "model": "Athlon Gold 3150C",
-          "cores_threads": "2 / 4",
-          "base_freq": "2.4 GHz",
-          "turbo_freq": "3.3 GHz",
-          "cache": "4MB",
-          "graphics": "AMD Radeon RX Vega 3",
-          "iconfamily": "Athlon_gold_1-3+"
-        }

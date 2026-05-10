@@ -222,54 +222,6 @@
         "generation": "xx60"
     },
     {
-        "file": "P51.json",
-        "name": "ThinkPad P51",
-        "family": "P",
-        "generation": "xx70"
-    },
-    {
-        "file": "P51s.json",
-        "name": "ThinkPad P51s",
-        "family": "P",
-        "generation": "xx70"
-    },
-    {
-        "file": "P71.json",
-        "name": "ThinkPad P71",
-        "family": "P",
-        "generation": "xx70"
-    },
-    {
-        "file": "T430.json",
-        "name": "ThinkPad T430",
-        "family": "T",
-        "generation": "xx30"
-    },
-    {
-        "file": "T430s.json",
-        "name": "ThinkPad T430s",
-        "family": "T",
-        "generation": "xx30"
-    },
-    {
-        "file": "T431s.json",
-        "name": "ThinkPad T431s",
-        "family": "T",
-        "generation": "xx30"
-    },
-    {
-        "file": "T430u.json",
-        "name": "ThinkPad T430u",
-        "family": "T",
-        "generation": "xx30"
-    },
-    {
-        "file": "T530.json",
-        "name": "ThinkPad T530",
-        "family": "T",
-        "generation": "xx30"
-    },
-    {
         "file": "T460s.json",
         "name": "ThinkPad T460s",
         "family": "T",
@@ -282,118 +234,10 @@
         "generation": "xx60"
     },
     {
-        "file": "T470.json",
-        "name": "ThinkPad T470",
-        "family": "T",
-        "generation": "xx70"
-    },
-    {
-        "file": "T470s.json",
-        "name": "ThinkPad T470s",
-        "family": "T",
-        "generation": "xx70"
-    },
-    {
-        "file": "T470p.json",
-        "name": "ThinkPad T470p",
-        "family": "T",
-        "generation": "xx70"
-    },
-    {
-        "file": "T570.json",
-        "name": "ThinkPad T570",
-        "family": "T",
-        "generation": "xx70"
-    },
-    {
-        "file": "T480.json",
-        "name": "ThinkPad T480",
-        "family": "T",
-        "generation": "xx80"
-    },
-    {
-        "file": "T480s.json",
-        "name": "ThinkPad T480s",
-        "family": "T",
-        "generation": "xx80"
-    },
-    {
-        "file": "T580.json",
-        "name": "ThinkPad T580",
-        "family": "T",
-        "generation": "xx80"
-    },
-    {
-        "file": "T14s_Gen6_Snapdragon.json",
-        "name": "ThinkPad T14s Gen6 Snapdragon",
-        "family": "T",
-        "generation": "Gen6"
-    },
-    {
-        "file": "W530.json",
-        "name": "ThinkPad W530",
-        "family": "W",
-        "generation": "xx30"
-    },
-    {
-        "file": "W540.json",
-        "name": "ThinkPad W540",
-        "family": "W",
-        "generation": "xx40"
-    },
-    {
-        "file": "X1C1.json",
-        "name": "ThinkPad X1 Carbon (1st Gen)",
-        "family": "X1",
-        "generation": "xx30"
-    },
-    {
         "file": "X1C4.json",
         "name": "ThinkPad X1 Carbon (4th Gen)",
         "family": "X1",
         "generation": "xx60"
-    },
-    {
-        "file": "X1C5.json",
-        "name": "ThinkPad X1 Carbon (5th Gen)",
-        "family": "X1",
-        "generation": "xx70"
-    },
-    {
-        "file": "X1C6.json",
-        "name": "ThinkPad X1 Carbon (6th Gen)",
-        "family": "X1",
-        "generation": "xx80"
-    },
-    {
-        "file": "X1Y2.json",
-        "name": "ThinkPad X1 Yoga (2nd Gen)",
-        "family": "X1",
-        "generation": "xx70"
-    },
-    {
-        "file": "X131e.json",
-        "name": "ThinkPad X131e",
-        "family": "X",
-        "generation": "xx30"
-    },
-    {
-        "file": "X140e.json",
-        "name": "ThinkPad X140e",
-        "family": "X",
-        "generation": "xx40"
-    },
-    {
-        "file": "X230.json",
-        "name": "ThinkPad X230",
-        "family": "X",
-        "generation": "xx30"
-    },
-    {
-        "file": "X230t.json",
-        "name": "ThinkPad X230 Tablet",
-        "family": "X",
-        "generation": "xx30"
     },
     {
         "file": "X260.json",
@@ -402,6 +246,7 @@
         "generation": "xx60"
     },
     {
+<<<<<<< HEAD
         "file": "X270.json",
         "name": "ThinkPad X270",
         "family": "X",
@@ -426,12 +271,15 @@
         "generation": "Gen1"
     },
     {
+=======
+>>>>>>> 0a8c208 (Future的首次发行版本，包含了最基础的后端功能，移除了过多的json文件)
         "file": "Yoga260.json",
         "name": "ThinkPad Yoga 260",
         "nickname": "ThinkPad S1 Gen2",
         "nickfamily": "S",
         "family": "Yoga",
         "generation": "xx60"
+<<<<<<< HEAD
     },
     {
         "file": "Yoga370.json",
@@ -740,5 +588,7 @@
         "name": "ThinkPad 8",
         "family": "Tablet",
         "generation": "legacy"
+=======
+>>>>>>> 0a8c208 (Future的首次发行版本，包含了最基础的后端功能，移除了过多的json文件)
     }
 ]

@@ -1176,24 +1176,32 @@
     }
     
     // ---------- CPU 配置 ----------
-    function renderCpuForm() {
-        return `
-            <div class="section">
-                <div class="section-title">CPU 配置文件生成器</div>
-                <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="cpu_model" value="${escapeHtml(cpuConfig.model)}"></div>
-                    <div class="component-form-field"><label>核心/线程数</label><input id="cpu_cores" value="${escapeHtml(cpuConfig.cores_threads)}"></div>
-                    <div class="component-form-field"><label>基础频率</label><input id="cpu_base"  value="${escapeHtml(cpuConfig.base_freq)}"></div>
-                    <div class="component-form-field"><label>加速频率</label><input id="cpu_turbo"value="${escapeHtml(cpuConfig.turbo_freq)}"></div>
-                    <div class="component-form-field"><label>外频</label><input id="cpu_ext" value="${escapeHtml(cpuConfig.ext_freq)}"></div>
-                    <div class="component-form-field"><label>缓存</label><input id="cpu_cache" value="${escapeHtml(cpuConfig.cache)}"></div>
-                    <div class="component-form-field"><label>图形处理器</label><input id="cpu_graphics" value="${escapeHtml(cpuConfig.graphics)}"></div>
-                    <div class="component-form-field"><label>图标系列</label><input id="cpu_iconfamily" value="${escapeHtml(cpuConfig.iconfamily)}"></div>
-                    <div class="component-form-field full-width"><label>ark</label><input id="cpu_ark" value="${escapeHtml(cpuConfig.ark)}"></div>
-                </div>
+function renderCpuForm() {
+    return `
+        <div class="section">
+            <div class="section-title">CPU 配置文件生成器</div>
+            <div class="component-form-grid">
+                <div class="component-form-field full-width"><label>型号（同时也是文件名）</label><input id="cpu_model" value="${escapeHtml(cpuConfig.model)}"></div>
+                <div class="component-form-field"><label>核心/线程数</label><input id="cpu_cores" value="${escapeHtml(cpuConfig.cores_threads)}"></div>
+                <div class="component-form-field"><label>基础频率</label><input id="cpu_base"  value="${escapeHtml(cpuConfig.base_freq)}"></div>
+                <div class="component-form-field"><label>加速频率</label><input id="cpu_turbo"value="${escapeHtml(cpuConfig.turbo_freq)}"></div>
+                <div class="component-form-field"><label>外频</label><input id="cpu_ext" value="${escapeHtml(cpuConfig.ext_freq)}"></div>
+                <div class="component-form-field"><label>缓存</label><input id="cpu_cache" value="${escapeHtml(cpuConfig.cache)}"></div>
+                <div class="component-form-field"><label>图形处理器</label><input id="cpu_graphics" value="${escapeHtml(cpuConfig.graphics)}"></div>
+                <div class="component-form-field"><label>图标系列</label><input id="cpu_iconfamily" value="${escapeHtml(cpuConfig.iconfamily)}"></div>
+                <div class="component-form-field full-width"><label>ark</label><input id="cpu_ark" value="${escapeHtml(cpuConfig.ark)}"></div>
             </div>
-        `;
-    }
+            <hr>
+            <div class="section-title" style="margin-top:12px;">索引元数据（用于更新 CPU.json 索引）</div>
+            <div class="row-2col">
+                <div class="component-form-field"><label>家族 (family)</label><input id="cpu_idx_family" value=""></div>
+                <div class="component-form-field"><label>架构 (Architecture)</label><input id="cpu_idx_arch" value=""></div>
+                <div class="component-form-field"><label>代分类 (generation)</label><input id="cpu_idx_gen" value=""></div>
+            </div>
+            <button id="addToCpuIndexBtn" class="primary" style="margin-top:12px;">将此 CPU 加入索引并导出</button>
+        </div>
+    `;
+}
     function updateCpuPreview() {
         cpuConfig.model = document.getElementById('cpu_model')?.value || "";
         cpuConfig.cores_threads = document.getElementById('cpu_cores')?.value || "";
@@ -1206,36 +1214,102 @@
         cpuConfig.ark = document.getElementById('cpu_ark')?.value || "";
         document.getElementById('jsonPreview').innerText = JSON.stringify(cpuConfig, null, 2);
     }
-    function bindCpuEvents() {
-        const ids = ['cpu_model','cpu_cores','cpu_base','cpu_turbo','cpu_ext','cpu_cache','cpu_graphics','cpu_iconfamily','cpu_ark'];
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            if(el && !el.dataset.eventsBound) {
-                el.addEventListener('input', () => updateCpuPreview());
-                el.dataset.eventsBound = 'true';
+function bindCpuEvents() {
+    const ids = ['cpu_model','cpu_cores','cpu_base','cpu_turbo','cpu_ext','cpu_cache','cpu_graphics','cpu_iconfamily','cpu_ark'];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if(el && !el.dataset.eventsBound) {
+            el.addEventListener('input', () => updateCpuPreview());
+            el.dataset.eventsBound = 'true';
+        }
+    });
+    updateCpuPreview();
+
+    // 添加 CPU 到索引并保存详细文件
+    const addBtn = document.getElementById('addToCpuIndexBtn');
+    if (addBtn && !addBtn.dataset.eventsBound) {
+        addBtn.addEventListener('click', async () => {
+            const model = document.getElementById('cpu_model')?.value.trim();
+            if (!model) {
+                alert('请先填写 CPU 型号！');
+                return;
+            }
+
+            const family = document.getElementById('cpu_idx_family')?.value.trim() || "未分类";
+            const arch = document.getElementById('cpu_idx_arch')?.value.trim() || "未知";
+            const gen = document.getElementById('cpu_idx_gen')?.value.trim() || "未知";
+
+            // 当前表单的详细 CPU 参数（就是你预览的那个 JSON 对象）
+            const cpuDetail = {
+                model: model,
+                cores_threads: document.getElementById('cpu_cores')?.value || "",
+                base_freq: document.getElementById('cpu_base')?.value || "",
+                turbo_freq: document.getElementById('cpu_turbo')?.value || "",
+                ext_freq: document.getElementById('cpu_ext')?.value || "",
+                cache: document.getElementById('cpu_cache')?.value || "",
+                graphics: document.getElementById('cpu_graphics')?.value || "",
+                iconfamily: document.getElementById('cpu_iconfamily')?.value || "",
+                ark: document.getElementById('cpu_ark')?.value || ""
+            };
+
+            const indexEntry = {
+                file: model + '.json',
+                name: model,
+                family: family,
+                Architecture: arch,
+                generation: gen
+            };
+
+            try {
+                const response = await fetch('/api/cpu/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cpuDetail, indexEntry })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    // 可选：重新加载 CPU 索引，刷新机型页面的列表
+                    await loadCpuIndex();       // 重新读取 CPU.json
+                    if (currentMode === 'model') renderForm();  // 如果在机型页面，重新渲染
+                } else {
+                    alert('添加失败: ' + (result.error || '未知错误'));
+                }
+            } catch (err) {
+                alert('网络请求失败，请确认后端是否已启动。');
+                console.error(err);
             }
         });
-        updateCpuPreview();
+        addBtn.dataset.eventsBound = 'true';
     }
-    
+}    
     // ---------- GPU 配置 ----------
-    function renderGpuForm() {
-        return `
-            <div class="section">
-                <div class="section-title">GPU 配置文件生成器</div>
-                <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="gpu_model" value="${escapeHtml(gpuConfig.model)}"></div>
-                    <div class="component-form-field"><label>Shading Units</label><input id="gpu_shading"  value="${escapeHtml(gpuConfig.Shading_Units)}"></div>
-                    <div class="component-form-field"><label>基础频率</label><input id="gpu_base"  value="${escapeHtml(gpuConfig.base_freq)}"></div>
-                    <div class="component-form-field"><label>加速频率</label><input id="gpu_turbo" value="${escapeHtml(gpuConfig.turbo_freq)}"></div>
-                    <div class="component-form-field"><label>VRAM</label><input id="gpu_vram"  value="${escapeHtml(gpuConfig.VRAM)}"></div>
-                    <div class="component-form-field"><label>世代</label><input id="gpu_gen"  value="${escapeHtml(gpuConfig.Generation)}"></div>
-                    <div class="component-form-field"><label>功能</label><input id="gpu_feature" value="${escapeHtml(gpuConfig.Feature)}"></div>
-                    <div class="component-form-field"><label>图标</label><input id="gpu_iconfamily" value="${escapeHtml(gpuConfig.iconfamily)}"></div>
-                </div>
+function renderGpuForm() {
+    return `
+        <div class="section">
+            <div class="section-title">GPU 配置文件生成器</div>
+            <div class="component-form-grid">
+                <div class="component-form-field full-width"><label>型号（同时也是文件名）</label><input id="gpu_model" value="${escapeHtml(gpuConfig.model)}"></div>
+                <div class="component-form-field"><label>Shading Units</label><input id="gpu_shading"  value="${escapeHtml(gpuConfig.Shading_Units)}"></div>
+                <div class="component-form-field"><label>基础频率</label><input id="gpu_base"  value="${escapeHtml(gpuConfig.base_freq)}"></div>
+                <div class="component-form-field"><label>加速频率</label><input id="gpu_turbo" value="${escapeHtml(gpuConfig.turbo_freq)}"></div>
+                <div class="component-form-field"><label>VRAM</label><input id="gpu_vram"  value="${escapeHtml(gpuConfig.VRAM)}"></div>
+                <div class="component-form-field"><label>世代</label><input id="gpu_gen"  value="${escapeHtml(gpuConfig.Generation)}"></div>
+                <div class="component-form-field"><label>功能</label><input id="gpu_feature" value="${escapeHtml(gpuConfig.Feature)}"></div>
+                <div class="component-form-field"><label>图标</label><input id="gpu_iconfamily" value="${escapeHtml(gpuConfig.iconfamily)}"></div>
             </div>
-        `;
-    }
+            <hr>
+            <div class="section-title" style="margin-top:12px;">索引元数据（用于更新 GPU.json 索引）</div>
+            <div class="row-2col">
+                <div class="component-form-field"><label>家族 (family)</label><input id="gpu_idx_family" value=""></div>
+                <div class="component-form-field"><label>架构 (Architecture)</label><input id="gpu_idx_arch" value=""></div>
+                <div class="component-form-field"><label>代分类 (generation)</label><input id="gpu_idx_gen" value=""></div>
+            </div>
+            <button id="addToGpuIndexBtn" class="primary" style="margin-top:12px;">将此 GPU 加入索引并导出</button>
+        </div>
+    `;
+}
     function updateGpuPreview() {
         gpuConfig.model = document.getElementById('gpu_model')?.value || "";
         gpuConfig.Shading_Units = document.getElementById('gpu_shading')?.value || "";
@@ -1257,17 +1331,75 @@
         };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
-    function bindGpuEvents() {
-        const ids = ['gpu_model','gpu_shading','gpu_base','gpu_turbo','gpu_vram','gpu_gen','gpu_feature','gpu_iconfamily'];
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            if(el && !el.dataset.eventsBound) {
-                el.addEventListener('input', () => updateGpuPreview());
-                el.dataset.eventsBound = 'true';
+function bindGpuEvents() {
+    const ids = ['gpu_model','gpu_shading','gpu_base','gpu_turbo','gpu_vram','gpu_gen','gpu_feature','gpu_iconfamily'];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if(el && !el.dataset.eventsBound) {
+            el.addEventListener('input', () => updateGpuPreview());
+            el.dataset.eventsBound = 'true';
+        }
+    });
+    updateGpuPreview();
+
+    // +++ 新增：GPU 索引导出按钮 +++
+    const addBtn = document.getElementById('addToGpuIndexBtn');
+    if (addBtn && !addBtn.dataset.eventsBound) {
+        addBtn.addEventListener('click', async () => {
+            const model = document.getElementById('gpu_model')?.value.trim();
+            if (!model) {
+                alert('请先填写 GPU 型号！');
+                return;
+            }
+
+            const family = document.getElementById('gpu_idx_family')?.value.trim() || "未分类";
+            const arch = document.getElementById('gpu_idx_arch')?.value.trim() || "未知";
+            const gen = document.getElementById('gpu_idx_gen')?.value.trim() || "未知";
+
+            // 当前表单的详细 GPU 参数（就是右侧预览的那个对象的内容）
+            const gpuDetail = {
+                model: model,
+                "Shading Units": document.getElementById('gpu_shading')?.value || "",
+                base_freq: document.getElementById('gpu_base')?.value || "",
+                turbo_freq: document.getElementById('gpu_turbo')?.value || "",
+                VRAM: document.getElementById('gpu_vram')?.value || "",
+                Generation: document.getElementById('gpu_gen')?.value || "",
+                Feature: document.getElementById('gpu_feature')?.value || "",
+                iconfamily: document.getElementById('gpu_iconfamily')?.value || ""
+            };
+
+            const indexEntry = {
+                file: model + '.json',
+                name: model,
+                family: family,
+                Architecture: arch,
+                generation: gen
+            };
+
+            try {
+                const response = await fetch('/api/gpu/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ gpuDetail, indexEntry })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    // 重新加载 GPU 索引，以便在机型配置页中能立刻看到新增的 GPU
+                    await loadGpuIndex();
+                    if (currentMode === 'model') renderForm();
+                } else {
+                    alert('添加失败: ' + (result.error || '未知错误'));
+                }
+            } catch (err) {
+                alert('网络请求失败，请确认后端是否已启动。');
+                console.error(err);
             }
         });
-        updateGpuPreview();
+        addBtn.dataset.eventsBound = 'true';
     }
+}
     
     // ---------- 屏幕配置 ----------
     function renderDisplayForm() {
@@ -1660,7 +1792,7 @@
     // 加载数据（并发优化）
     async function loadCpuIndex() {
         try {
-            const resp = await fetch('/ThinkPad-Database/modeldata/CPU/CPU.json');
+            const resp = await fetch('/modeldata/CPU/CPU.json');
             if (!resp.ok) throw new Error();
             const data = await resp.json();
             cpuFullList = enrichItemsWithId(data).map(item => normalizeItem(item));
@@ -1669,7 +1801,7 @@
     }
     async function loadGpuIndex() {
         try {
-            const resp = await fetch('/ThinkPad-Database/modeldata/Graphics/GPU.json');
+            const resp = await fetch('/modeldata/Graphics/GPU.json');
             if (!resp.ok) throw new Error();
             const data = await resp.json();
             gpuFullList = enrichItemsWithId(data).map(item => normalizeItem(item));
@@ -1684,7 +1816,7 @@
             if (t === 'wlan') cap = 'WLAN';
             else if (t === 'wwan') cap = 'WWAN';
             else cap = t.charAt(0).toUpperCase() + t.slice(1);
-            const url = `/ThinkPad-Database/modeldata/${cap}/${cap}.json`;
+            const url = `/modeldata/${cap}/${cap}.json`;
             return (async () => {
                 try {
                     const resp = await fetch(url);
