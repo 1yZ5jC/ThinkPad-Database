@@ -6,130 +6,174 @@ const app = express();
 // 解析 JSON 请求体
 app.use(express.json());
 
-// 托管当前目录下的所有静态文件（包括 generator.html, modeldata 等）
+// 托管当前目录下的所有静态文件
 app.use(express.static(__dirname));
 
-// API: 添加新 CPU
-app.post('/api/cpu/add', (req, res) => {
-    try {
-        const { cpuDetail, indexEntry } = req.body;
+// ---------- 通用保存函数 ----------
+function safeFileName(name) {
+    return String(name || 'unknown').replace(/[<>:"/\\|?*]/g, '_');
+}
 
-        // 验证必要字段
+function saveComponentItem(res, componentDir, indexFileName, detail, indexEntry) {
+    try {
         if (!indexEntry || !indexEntry.file || !indexEntry.name) {
             return res.status(400).json({ error: '缺少索引信息（file, name）' });
         }
+        const safeFile = safeFileName(indexEntry.file);
+        const dir = path.join(__dirname, 'modeldata', componentDir);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
 
-        const cpuName = indexEntry.name;
-        const safeFileName = indexEntry.file.replace(/[<>:"/\\|?*]/g, '_'); // 安全文件名
+        const detailPath = path.join(dir, safeFile);
+        fs.writeFileSync(detailPath, JSON.stringify(detail, null, 4), 'utf-8');
+        console.log(`✓ 已保存详细文件: ${detailPath}`);
 
-        // ===== 1. 更新 CPU.json（索引文件） =====
-        const cpuIndexPath = path.join(__dirname, 'modeldata', 'CPU', 'CPU.json');
-        let cpuList = [];
-        if (fs.existsSync(cpuIndexPath)) {
+        const indexPath = path.join(dir, indexFileName);
+        let list = [];
+        if (fs.existsSync(indexPath)) {
             try {
-                const raw = fs.readFileSync(cpuIndexPath, 'utf-8');
-                cpuList = JSON.parse(raw);
+                const raw = fs.readFileSync(indexPath, 'utf-8');
+                list = JSON.parse(raw);
             } catch (e) {
-                console.error('CPU.json 解析失败，将创建新文件', e);
+                console.error(`${indexFileName} 解析失败，将创建新文件`, e);
             }
         }
 
-        // 避免重复（按 file 检查）
-        const exists = cpuList.some(item => item.file === indexEntry.file);
+        const exists = list.some(item => item.file === indexEntry.file);
         if (exists) {
-            // 你可以根据需求决定是否覆盖，这里选择返回错误
-            return res.status(409).json({ error: `CPU ${cpuName} 已存在于索引中` });
+            return res.status(409).json({ error: `${indexEntry.name} 已存在于索引中` });
         }
 
-        // 追加新条目
-        cpuList.push({
-            file: indexEntry.file,
-            name: indexEntry.name,
-            family: indexEntry.family || '未分类',
-            Architecture: indexEntry.Architecture || '未知',
-            generation: indexEntry.generation || '未知'
-        });
+        list.push({ ...indexEntry, file: safeFile });
+        fs.writeFileSync(indexPath, JSON.stringify(list, null, 4), 'utf-8');
+        console.log(`✓ 更新索引文件: ${indexPath}`);
 
-        // 写入 CPU.json
-        fs.writeFileSync(cpuIndexPath, JSON.stringify(cpuList, null, 4), 'utf-8');
-        console.log(`✓ 更新索引文件: ${cpuIndexPath}`);
-
-        // ===== 2. 生成详细的 CPU 配置文件（型号.json） =====
-        const cpuDir = path.join(__dirname, 'modeldata', 'CPU');
-        if (!fs.existsSync(cpuDir)) {
-            fs.mkdirSync(cpuDir, { recursive: true });
-        }
-
-        const detailFilePath = path.join(cpuDir, safeFileName);
-        // 写入详细的 CPU 参数（来自 cpuDetail 对象）
-        fs.writeFileSync(detailFilePath, JSON.stringify(cpuDetail, null, 4), 'utf-8');
-        console.log(`✓ 创建详细文件: ${detailFilePath}`);
-
-        res.json({ success: true, message: `CPU ${cpuName} 添加成功，索引及详细文件已更新` });
+        res.json({ success: true, message: `${indexEntry.name} 添加成功` });
     } catch (err) {
-        console.error('添加 CPU 出错:', err);
+        console.error('保存组件出错:', err);
+        res.status(500).json({ error: '服务器内部错误' });
+    }
+}
+
+// ---------- API: 添加新 CPU ----------
+app.post('/api/cpu/add', (req, res) => {
+    const { cpuDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'CPU', 'CPU.json', cpuDetail, indexEntry);
+});
+
+// ---------- API: 添加新 GPU ----------
+app.post('/api/gpu/add', (req, res) => {
+    const { gpuDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'Graphics', 'GPU.json', gpuDetail, indexEntry);
+});
+
+// ---------- API: 添加屏幕 ----------
+app.post('/api/display/add', (req, res) => {
+    const { displayDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'Display', 'Display.json', displayDetail, indexEntry);
+});
+
+// ---------- API: 添加有线网卡 ----------
+app.post('/api/ethernet/add', (req, res) => {
+    const { ethernetDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'Ethernet', 'Ethernet.json', ethernetDetail, indexEntry);
+});
+
+// ---------- API: 添加 WiFi ----------
+app.post('/api/wifi/add', (req, res) => {
+    const { wifiDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'WLAN', 'WLAN.json', wifiDetail, indexEntry);
+});
+
+// ---------- API: 添加 WWAN ----------
+app.post('/api/wwan/add', (req, res) => {
+    const { wwanDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'WWAN', 'WWAN.json', wwanDetail, indexEntry);
+});
+
+// ---------- API: 添加扩展坞 ----------
+app.post('/api/dock/add', (req, res) => {
+    const { dockDetail, indexEntry } = req.body;
+    saveComponentItem(res, 'Dock', 'Dock.json', dockDetail, indexEntry);
+});
+
+// ---------- API: 添加机型配置 ----------
+app.post('/api/model/add', (req, res) => {
+    try {
+        const { modelDetail, indexEntry } = req.body;
+        if (!indexEntry || !indexEntry.file || !indexEntry.name) {
+            return res.status(400).json({ error: '缺少索引信息（file, name）' });
+        }
+        const safeFile = safeFileName(indexEntry.file);
+
+        const detailPath = path.join(__dirname, 'modeldata', safeFile);
+        fs.writeFileSync(detailPath, JSON.stringify(modelDetail, null, 4), 'utf-8');
+        console.log(`✓ 已保存机型文件: ${detailPath}`);
+
+        const indexPath = path.join(__dirname, 'modeldata', 'index.json');
+        let list = [];
+        if (fs.existsSync(indexPath)) {
+            try {
+                const raw = fs.readFileSync(indexPath, 'utf-8');
+                list = JSON.parse(raw);
+            } catch (e) {
+                console.error('index.json 解析失败，将创建新文件', e);
+            }
+        }
+        const exists = list.some(item => item.file === indexEntry.file);
+        if (exists) {
+            return res.status(409).json({ error: `${indexEntry.name} 已存在于索引中` });
+        }
+        list.push({ ...indexEntry, file: safeFile });
+        fs.writeFileSync(indexPath, JSON.stringify(list, null, 4), 'utf-8');
+        console.log(`✓ 更新 index.json`);
+
+        res.json({ success: true, message: `机型 ${indexEntry.name} 添加成功` });
+    } catch (err) {
+        console.error('保存机型出错:', err);
         res.status(500).json({ error: '服务器内部错误' });
     }
 });
 
-// API: 添加新 GPU
-app.post('/api/gpu/add', (req, res) => {
-    try {
-        const { gpuDetail, indexEntry } = req.body;
-
-        // 验证必要字段
-        if (!indexEntry || !indexEntry.file || !indexEntry.name) {
-            return res.status(400).json({ error: '缺少索引信息（file, name）' });
-        }
-
-        const gpuName = indexEntry.name;
-        const safeFileName = indexEntry.file.replace(/[<>:"/\\|?*]/g, '_');
-
-        // ===== 1. 更新 GPU.json（索引文件） =====
-        const gpuIndexPath = path.join(__dirname, 'modeldata', 'Graphics', 'GPU.json');
-        let gpuList = [];
-        if (fs.existsSync(gpuIndexPath)) {
-            try {
-                const raw = fs.readFileSync(gpuIndexPath, 'utf-8');
-                gpuList = JSON.parse(raw);
-            } catch (e) {
-                console.error('GPU.json 解析失败，将创建新文件', e);
-            }
-        }
-
-        // 避免重复
-        const exists = gpuList.some(item => item.file === indexEntry.file);
-        if (exists) {
-            return res.status(409).json({ error: `GPU ${gpuName} 已存在于索引中` });
-        }
-
-        gpuList.push({
-            file: indexEntry.file,
-            name: indexEntry.name,
-            family: indexEntry.family || '未分类',
-            Architecture: indexEntry.Architecture || '未知',
-            generation: indexEntry.generation || '未知'
-        });
-
-        // 确保目录存在
-        const gpuDir = path.dirname(gpuIndexPath);
-        if (!fs.existsSync(gpuDir)) {
-            fs.mkdirSync(gpuDir, { recursive: true });
-        }
-        fs.writeFileSync(gpuIndexPath, JSON.stringify(gpuList, null, 4), 'utf-8');
-        console.log(`✓ 更新 GPU 索引文件: ${gpuIndexPath}`);
-
-        // ===== 2. 生成详细的 GPU 配置文件（型号.json） =====
-        const detailFilePath = path.join(__dirname, 'modeldata', 'Graphics', safeFileName);
-        // 写入详细配置（前端传来的 gpuDetail 对象）
-        fs.writeFileSync(detailFilePath, JSON.stringify(gpuDetail, null, 4), 'utf-8');
-        console.log(`✓ 创建 GPU 详细文件: ${detailFilePath}`);
-
-        res.json({ success: true, message: `GPU ${gpuName} 添加成功，索引及详细文件已更新` });
-    } catch (err) {
-        console.error('添加 GPU 出错:', err);
-        res.status(500).json({ error: '服务器内部错误' });
+// ---------- API: 获取 CPU 图标列表 ----------
+app.get('/api/list/cpu_icons', (req, res) => {
+    const iconsDir = path.join(__dirname, 'modeldata', 'CPU', 'cpu_icon');
+    if (!fs.existsSync(iconsDir)) {
+        return res.json([]);
     }
+    fs.readdir(iconsDir, (err, files) => {
+        if (err) {
+            console.error('读取 cpu_icon 目录失败:', err);
+            return res.status(500).json({ error: '读取图标目录失败' });
+        }
+        const imageExts = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico'];
+        const imageFiles = files.filter(file => {
+            const ext = path.extname(file).toLowerCase();
+            return imageExts.includes(ext);
+        });
+        res.json(imageFiles);
+    });
+});
+
+// ---------- API: 获取 GPU 图标列表 ----------
+app.get('/api/list/gpu_icons', (req, res) => {
+    const iconsDir = path.join(__dirname, 'modeldata', 'Graphics', 'Graphics_icons');
+    if (!fs.existsSync(iconsDir)) {
+        return res.json([]);
+    }
+    fs.readdir(iconsDir, (err, files) => {
+        if (err) {
+            console.error('读取 Graphics_icons 目录失败:', err);
+            return res.status(500).json({ error: '读取图标目录失败' });
+        }
+        const imageExts = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico'];
+        const imageFiles = files.filter(file => {
+            const ext = path.extname(file).toLowerCase();
+            return imageExts.includes(ext);
+        });
+        res.json(imageFiles);
+    });
 });
 
 const PORT = 3000;

@@ -586,6 +586,94 @@
                 align-items: stretch;
             }
         }
+
+        /* ---------- 图标选择弹窗 ---------- */
+        .icon-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(2px);
+        }
+        .icon-modal {
+            background: var(--bg-panel);
+            border-radius: 24px;
+            padding: 24px;
+            max-width: 720px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            position: relative;
+        }
+        .icon-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .icon-modal-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .icon-close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+        .icon-close-btn:hover {
+            background: var(--btn-default-bg);
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+        }
+        .icon-item {
+            background: var(--battery-item-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 14px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .icon-item:hover {
+            border-color: #3b82f6;
+            background: var(--chip-selected-bg);
+            transform: translateY(-2px);
+        }
+        .icon-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .icon-item span {
+            font-size: 0.7rem;
+            text-align: center;
+            word-break: break-all;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .fallback-input-row {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -627,7 +715,6 @@
     // ---------- 全局变量 ----------
     let currentMode = "model";
     
-    // 机型配置模式数据
     let appState = {
         processor_options: [],
         graphics_options: [],
@@ -638,7 +725,6 @@
         WWAN: []
     };
     
-    // CPU 配置
     let cpuConfig = {
         model: "",
         cores_threads: "",
@@ -651,7 +737,6 @@
         ark: ""
     };
     
-    // GPU 配置
     let gpuConfig = {
         model: "",
         Shading_Units: "",
@@ -663,7 +748,6 @@
         iconfamily: ""
     };
     
-    // 屏幕配置 (支持 FRU 对象数组)
     let displayConfig = {
         type: "",
         tech: "",
@@ -675,46 +759,41 @@
         FRUs: []
     };
     
-    // 有线网卡配置
     let ethernetConfig = {
         type: "",
         model_type: ""
     };
     
-    // WiFi 配置
     let wifiConfig = {
         type: "",
         form: "",
         feature: ""
     };
     
-    // WWAN 配置
     let wwanConfig = {
         type: "",
         form: "",
         feature: ""
     };
     
-    // 扩展坞配置
     let dockConfig = {
         model: "",
         ports: [],
         power: ""
     };
     
-    // 索引数据（机型模式用）
+    let cpuIconSelected = cpuConfig.iconfamily;
+    let gpuIconSelected = gpuConfig.iconfamily;
+    
     let cpuFullList = [];
     let gpuFullList = [];
     let optionLists = { display: [], dock: [], ethernet: [], wlan: [], wwan: [] };
     
-    // 机型模式筛选状态
     let cpuFilterState = { family: "all", architecture: "all", generationClass: "all", keyword: "" };
     let gpuFilterState = { family: "all", architecture: "all", generationClass: "all", keyword: "" };
 
-    // 并发控制：根据协议动态调整
     let MAX_CONCURRENT = 6;
 
-    // 检测协议并设置并发数
     function detectProtocolAndSetConcurrency() {
         try {
             const navEntry = performance.getEntriesByType('navigation')[0];
@@ -722,14 +801,9 @@
                 const protocol = navEntry.nextHopProtocol;
                 if (protocol === 'h2' || protocol === 'h3') {
                     MAX_CONCURRENT = 20;
-                    console.log(`[协议检测] ${protocol}，并发数设置为 ${MAX_CONCURRENT}`);
-                } else {
-                    console.log(`[协议检测] ${protocol}，使用保守并发数 ${MAX_CONCURRENT}`);
                 }
             }
-        } catch(e) {
-            console.warn('协议检测失败，使用默认并发数', e);
-        }
+        } catch(e) {}
     }
     if (document.readyState === 'complete') {
         detectProtocolAndSetConcurrency();
@@ -737,7 +811,6 @@
         window.addEventListener('load', detectProtocolAndSetConcurrency);
     }
 
-    // 并发池函数
     async function asyncPool(concurrency, iterable, iteratorFn) {
         const ret = [];
         const executing = new Set();
@@ -754,7 +827,6 @@
         return Promise.all(ret);
     }
 
-    // ---------- 辅助函数 ----------
     function escapeHtml(str) { if(!str) return ""; return String(str).replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])); }
     
     function safeString(value) {
@@ -779,7 +851,6 @@
         };
     }
     
-    // 夜间模式
     function initTheme() {
         const saved = localStorage.getItem('thinkpad_theme');
         if (saved === 'dark') { document.body.classList.add('dark-mode'); updateThemeButtonIcon(true); }
@@ -808,7 +879,6 @@
         });
     }
     
-    // ---------- 机型模式函数 ----------
     function enrichItemsWithId(list) {
         if (!list) return [];
         list.forEach(i => { if(!i.id) i.id = (i.file || "").replace(/\.json$/i, ''); });
@@ -997,32 +1067,10 @@
     }
     
     function renderTextArrayField(id, label, arr) {
-        return `<div class="field-group"><label>${label}</label><textarea id="${id}" rows="3">${escapeHtml(arr.join('\n'))}</textarea></div>`;
+        return `<div class="field-group"><label>${label}</label><textarea id="${id}" rows="3" placeholder="${label}">${escapeHtml(arr.join('\n'))}</textarea></div>`;
     }
     
-    function renderModelModeForm() {
-        return `
-            <div class="section"><div class="section-title">基础标识</div><div class="row-2col">
-                <input id="f_id" placeholder="ID"><input id="f_modelName" placeholder="型号名称">
-                <input id="f_modelFamily" placeholder="产品家族"><input id="f_modelGen" placeholder="世代标记">
-                <input id="f_update" placeholder="更新日期"><input id="f_modelCode" placeholder="型号代码(逗号分隔)">
-            </div></div>
-            <div id="cpuFilterSection"></div>
-            <div id="gpuFilterSection"></div>
-            <div class="section"><div class="section-title">屏幕</div>${renderChipGrid(optionLists.display, appState.display_options, 'display_options')}</div>
-            <div class="section"><div class="section-title">显示输出</div><div class="row-2col"><input id="disp_minidp" placeholder="Mini DP分辨率"><input id="disp_hdmi" placeholder="HDMI分辨率"><input id="disp_usbc" placeholder="USB-C分辨率"><input id="disp_multi" placeholder="多屏描述"></div></div>
-            <div class="section"><div class="section-title">内存</div><div class="row-2col"><input id="mem_max" placeholder="最大容量"><input id="mem_type" placeholder="类型"><input id="mem_slots" placeholder="插槽"><input id="mem_features" placeholder="特性"></div></div>
-            <div class="section"><div class="section-title">存储</div><div class="row-2col"><input id="st_sata" placeholder="SATA SSD"><input id="st_pcie" placeholder="PCIe SSD"><input id="st_hdd" placeholder="HDD"><input id="st_sshd" placeholder="SSHD"><input id="st_emmc" placeholder="eMMC"><input id="st_optical" placeholder="光驱"><input id="st_floppy" placeholder="软盘"><input id="st_optane" placeholder="傲腾"></div></div>
-            <div class="section"><div class="section-title">SIM与蓝牙</div><div class="row-2col"><input id="sim_type" placeholder="SIM卡槽"><input id="bt_type" placeholder="蓝牙类型"><input id="bt_feature" placeholder="蓝牙特性"></div></div>
-            <div class="section"><div class="section-title">电池</div><div id="battery-list-container">${renderBatterySection([])}</div><button id="addBatteryBtn" class="add-btn">+ 添加电池</button></div></div>
-            ${renderTextArrayField('ports_area','接口列表',[])}${renderTextArrayField('ac_adapter','电源适配器',[])}${renderTextArrayField('camera_area','摄像头',[])}${renderTextArrayField('audio_area','音频',[])}${renderTextArrayField('keyboard_area','键盘',[])}${renderTextArrayField('security_area','安全',[])}${renderTextArrayField('system_area','操作系统',[])}
-            <div class="section"><div class="section-title">物理规格</div><div class="row-2col"><input id="phy_dim" placeholder="尺寸"><input id="phy_weight" placeholder="重量"><input id="phy_material" placeholder="材质"></div></div>
-            <div class="section"><div class="section-title">网络连接</div>${renderChipGrid(optionLists.dock, appState.dock_support, 'dock_support')}${renderChipGrid(optionLists.ethernet, appState.Ethernet, 'Ethernet')}${renderChipGrid(optionLists.wlan, appState.WLAN, 'WLAN')}${renderChipGrid(optionLists.wwan, appState.WWAN, 'WWAN')}</div>
-            ${renderTextArrayField('psref_link','PSREF链接',[])}${renderTextArrayField('hmm_link','HMM链接',[])}${renderTextArrayField('user_guide','用户指南',[])}${renderTextArrayField('add_tips','附加提示',[])}${renderTextArrayField('secret_tips','内部提示',[])}
-        `;
-    }
-    
-    function updateJsonPreviewModel() {
+    function buildModelObject() {
         const get = (id) => document.getElementById(id)?.value || "";
         const identity = {
             id: get('f_id'),
@@ -1085,7 +1133,7 @@
                 form: el.querySelector('.battery-form')?.value || ''
             });
         });
-        const output = {
+        return {
             id: identity.id, model_name: identity.model_name, model_family: identity.model_family,
             model_generation: identity.model_generation, update_date: identity.update_date, model_code: identity.model_code,
             processor_options: appState.processor_options, graphics_options: appState.graphics_options,
@@ -1098,7 +1146,60 @@
             PSREF_link: PSREF_link, HMM_link: HMM_link, user_guide_link: user_guide_link,
             add_on_tips: add_on_tips, secret_tips: secret_tips
         };
+    }
+
+    function updateJsonPreviewModel() {
+        const output = buildModelObject();
         document.getElementById('jsonPreview').innerText = JSON.stringify(output, null, 2);
+    }
+
+    function renderModelModeForm() {
+        return `
+            <div class="section"><div class="section-title">基础标识</div><div class="row-2col">
+                <input id="f_id" placeholder="ID"><input id="f_modelName" placeholder="型号名称">
+                <input id="f_modelFamily" placeholder="产品家族"><input id="f_modelGen" placeholder="世代标记">
+                <input id="f_update" placeholder="更新日期"><input id="f_modelCode" placeholder="型号代码(逗号分隔)">
+            </div></div>
+            <div id="cpuFilterSection"></div>
+            <div id="gpuFilterSection"></div>
+            <div class="section"><div class="section-title">屏幕</div>${renderChipGrid(optionLists.display, appState.display_options, 'display_options')}</div>
+            <div class="section"><div class="section-title">显示输出</div><div class="row-2col"><input id="disp_minidp" placeholder="Mini DP分辨率"><input id="disp_hdmi" placeholder="HDMI分辨率"><input id="disp_usbc" placeholder="USB-C分辨率"><input id="disp_multi" placeholder="多屏描述"></div></div>
+            <div class="section"><div class="section-title">内存</div><div class="row-2col"><input id="mem_max" placeholder="最大容量"><input id="mem_type" placeholder="类型"><input id="mem_slots" placeholder="插槽"><input id="mem_features" placeholder="特性"></div></div>
+            <div class="section"><div class="section-title">存储</div><div class="row-2col"><input id="st_sata" placeholder="SATA SSD"><input id="st_pcie" placeholder="PCIe SSD"><input id="st_hdd" placeholder="HDD"><input id="st_sshd" placeholder="SSHD"><input id="st_emmc" placeholder="eMMC"><input id="st_optical" placeholder="光驱"><input id="st_floppy" placeholder="软盘"><input id="st_optane" placeholder="傲腾"></div></div>
+            <div class="section"><div class="section-title">SIM与蓝牙</div><div class="row-2col"><input id="sim_type" placeholder="SIM卡槽"><input id="bt_type" placeholder="蓝牙类型"><input id="bt_feature" placeholder="蓝牙特性"></div></div>
+            <div class="section"><div class="section-title">电池</div><div id="battery-list-container">${renderBatterySection([])}</div><button id="addBatteryBtn" class="add-btn">+ 添加电池</button></div>
+            ${renderTextArrayField('ports_area','接口列表',[])}${renderTextArrayField('ac_adapter','电源适配器',[])}${renderTextArrayField('camera_area','摄像头',[])}${renderTextArrayField('audio_area','音频',[])}${renderTextArrayField('keyboard_area','键盘',[])}${renderTextArrayField('security_area','安全',[])}${renderTextArrayField('system_area','操作系统',[])}
+            <div class="section"><div class="section-title">物理规格</div><div class="row-2col"><input id="phy_dim" placeholder="尺寸"><input id="phy_weight" placeholder="重量"><input id="phy_material" placeholder="材质"></div></div>
+            <div class="section"><div class="section-title">网络连接</div>${renderChipGrid(optionLists.dock, appState.dock_support, 'dock_support')}${renderChipGrid(optionLists.ethernet, appState.Ethernet, 'Ethernet')}${renderChipGrid(optionLists.wlan, appState.WLAN, 'WLAN')}${renderChipGrid(optionLists.wwan, appState.WWAN, 'WWAN')}</div>
+            ${renderTextArrayField('psref_link','PSREF链接',[])}${renderTextArrayField('hmm_link','HMM链接',[])}${renderTextArrayField('user_guide','用户指南',[])}${renderTextArrayField('add_tips','附加提示',[])}${renderTextArrayField('secret_tips','内部提示',[])}
+            <div class="section"><button id="saveModelBtn" class="primary">保存机型配置到服务器</button></div>
+        `;
+    }
+    
+    async function saveModelToServer() {
+        const modelDetail = buildModelObject();
+        const indexEntry = {
+            file: (modelDetail.id || 'unknown') + '.json',
+            name: modelDetail.model_name || '未命名机型',
+            family: modelDetail.model_family || '',
+            generation: modelDetail.model_generation || ''
+        };
+        try {
+            const resp = await fetch('/api/model/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ modelDetail, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
     }
     
     function bindModelMiscEvents() {
@@ -1173,35 +1274,69 @@
             });
             card.dataset.eventsBound = 'true';
         });
+
+        const saveBtn = document.getElementById('saveModelBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveModelToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
     }
     
     // ---------- CPU 配置 ----------
-function renderCpuForm() {
-    return `
-        <div class="section">
-            <div class="section-title">CPU 配置文件生成器</div>
-            <div class="component-form-grid">
-                <div class="component-form-field full-width"><label>型号（同时也是文件名）</label><input id="cpu_model" value="${escapeHtml(cpuConfig.model)}"></div>
-                <div class="component-form-field"><label>核心/线程数</label><input id="cpu_cores" value="${escapeHtml(cpuConfig.cores_threads)}"></div>
-                <div class="component-form-field"><label>基础频率</label><input id="cpu_base"  value="${escapeHtml(cpuConfig.base_freq)}"></div>
-                <div class="component-form-field"><label>加速频率</label><input id="cpu_turbo"value="${escapeHtml(cpuConfig.turbo_freq)}"></div>
-                <div class="component-form-field"><label>外频</label><input id="cpu_ext" value="${escapeHtml(cpuConfig.ext_freq)}"></div>
-                <div class="component-form-field"><label>缓存</label><input id="cpu_cache" value="${escapeHtml(cpuConfig.cache)}"></div>
-                <div class="component-form-field"><label>图形处理器</label><input id="cpu_graphics" value="${escapeHtml(cpuConfig.graphics)}"></div>
-                <div class="component-form-field"><label>图标系列</label><input id="cpu_iconfamily" value="${escapeHtml(cpuConfig.iconfamily)}"></div>
-                <div class="component-form-field full-width"><label>ark</label><input id="cpu_ark" value="${escapeHtml(cpuConfig.ark)}"></div>
+    function renderCpuForm() {
+        return `
+            <div class="section">
+                <div class="section-title">CPU 配置文件生成器</div>
+                <div class="component-form-grid">
+                    <div class="component-form-field full-width">
+                        <input id="cpu_model" placeholder="型号（同时也是文件名）" value="${escapeHtml(cpuConfig.model)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_cores" placeholder="核心/线程数" value="${escapeHtml(cpuConfig.cores_threads)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_base" placeholder="基础频率" value="${escapeHtml(cpuConfig.base_freq)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_turbo" placeholder="加速频率" value="${escapeHtml(cpuConfig.turbo_freq)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_ext" placeholder="外频" value="${escapeHtml(cpuConfig.ext_freq)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_cache" placeholder="缓存" value="${escapeHtml(cpuConfig.cache)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_graphics" placeholder="图形处理器" value="${escapeHtml(cpuConfig.graphics)}">
+                    </div>
+                    <div class="component-form-field">
+                        <button type="button" id="cpu_iconfamily_btn" style="width:100%; padding:10px 14px; border:1px solid var(--border-light); border-radius:12px; background:var(--bg-panel); color:var(--text-primary); cursor:pointer; text-align:left; font-size:0.85rem;">
+                            <span id="cpu_icon_label">${cpuConfig.iconfamily ? cpuConfig.iconfamily : '点击选择图标'}</span>
+                        </button>
+                        <input type="hidden" id="cpu_iconfamily_hidden" value="${escapeHtml(cpuConfig.iconfamily)}">
+                    </div>
+                    <div class="component-form-field full-width">
+                        <input id="cpu_ark" placeholder="ark" value="${escapeHtml(cpuConfig.ark)}">
+                    </div>
+                </div>
+                <hr>
+                <div class="section-title" style="margin-top:12px;">索引元数据（用于更新 CPU.json 索引）</div>
+                <div class="row-2col">
+                    <div class="component-form-field">
+                        <input id="cpu_idx_family" placeholder="家族 (family)" value="">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_idx_arch" placeholder="架构 (Architecture)" value="">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="cpu_idx_gen" placeholder="代分类 (generation)" value="">
+                    </div>
+                </div>
+                <button id="addToCpuIndexBtn" class="primary" style="margin-top:12px;">将此 CPU 加入索引并导出</button>
             </div>
-            <hr>
-            <div class="section-title" style="margin-top:12px;">索引元数据（用于更新 CPU.json 索引）</div>
-            <div class="row-2col">
-                <div class="component-form-field"><label>家族 (family)</label><input id="cpu_idx_family" value=""></div>
-                <div class="component-form-field"><label>架构 (Architecture)</label><input id="cpu_idx_arch" value=""></div>
-                <div class="component-form-field"><label>代分类 (generation)</label><input id="cpu_idx_gen" value=""></div>
-            </div>
-            <button id="addToCpuIndexBtn" class="primary" style="margin-top:12px;">将此 CPU 加入索引并导出</button>
-        </div>
-    `;
-}
+        `;
+    }
+
     function updateCpuPreview() {
         cpuConfig.model = document.getElementById('cpu_model')?.value || "";
         cpuConfig.cores_threads = document.getElementById('cpu_cores')?.value || "";
@@ -1210,129 +1345,315 @@ function renderCpuForm() {
         cpuConfig.ext_freq = document.getElementById('cpu_ext')?.value || "";
         cpuConfig.cache = document.getElementById('cpu_cache')?.value || "";
         cpuConfig.graphics = document.getElementById('cpu_graphics')?.value || "";
-        cpuConfig.iconfamily = document.getElementById('cpu_iconfamily')?.value || "";
+        const hidden = document.getElementById('cpu_iconfamily_hidden');
+        cpuConfig.iconfamily = hidden ? hidden.value : cpuIconSelected;
         cpuConfig.ark = document.getElementById('cpu_ark')?.value || "";
         document.getElementById('jsonPreview').innerText = JSON.stringify(cpuConfig, null, 2);
-    }
-function bindCpuEvents() {
-    const ids = ['cpu_model','cpu_cores','cpu_base','cpu_turbo','cpu_ext','cpu_cache','cpu_graphics','cpu_iconfamily','cpu_ark'];
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if(el && !el.dataset.eventsBound) {
-            el.addEventListener('input', () => updateCpuPreview());
-            el.dataset.eventsBound = 'true';
+        const labelSpan = document.getElementById('cpu_icon_label');
+        if (labelSpan) {
+            const icon = cpuConfig.iconfamily;
+            labelSpan.textContent = icon ? icon : '点击选择图标';
         }
-    });
-    updateCpuPreview();
+    }
 
-    // 添加 CPU 到索引并保存详细文件
-    const addBtn = document.getElementById('addToCpuIndexBtn');
-    if (addBtn && !addBtn.dataset.eventsBound) {
-        addBtn.addEventListener('click', async () => {
-            const model = document.getElementById('cpu_model')?.value.trim();
-            if (!model) {
-                alert('请先填写 CPU 型号！');
-                return;
-            }
+    async function openIconPicker() {
+        const modal = document.createElement('div');
+        modal.className = 'icon-modal-overlay';
+        modal.innerHTML = `
+            <div class="icon-modal">
+                <div class="icon-modal-header">
+                    <span class="icon-modal-title">选择 CPU 图标</span>
+                    <button class="icon-close-btn">&times;</button>
+                </div>
+                <div id="icon-grid-container" style="min-height:120px; text-align:center; padding:20px; color:var(--text-muted);">加载中...</div>
+            </div>
+        `;
+        document.body.appendChild(modal);
 
-            const family = document.getElementById('cpu_idx_family')?.value.trim() || "未分类";
-            const arch = document.getElementById('cpu_idx_arch')?.value.trim() || "未知";
-            const gen = document.getElementById('cpu_idx_gen')?.value.trim() || "未知";
+        const close = () => modal.remove();
+        modal.querySelector('.icon-close-btn').addEventListener('click', close);
+        modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
 
-            // 当前表单的详细 CPU 参数（就是你预览的那个 JSON 对象）
-            const cpuDetail = {
-                model: model,
-                cores_threads: document.getElementById('cpu_cores')?.value || "",
-                base_freq: document.getElementById('cpu_base')?.value || "",
-                turbo_freq: document.getElementById('cpu_turbo')?.value || "",
-                ext_freq: document.getElementById('cpu_ext')?.value || "",
-                cache: document.getElementById('cpu_cache')?.value || "",
-                graphics: document.getElementById('cpu_graphics')?.value || "",
-                iconfamily: document.getElementById('cpu_iconfamily')?.value || "",
-                ark: document.getElementById('cpu_ark')?.value || ""
-            };
+        let icons = [];
+        let fallback = false;
+        try {
+            const resp = await fetch('/api/list/cpu_icons');
+            if (resp.ok) icons = await resp.json();
+            else fallback = true;
+        } catch (e) {
+            console.error('获取图标失败', e);
+            fallback = true;
+        }
 
-            const indexEntry = {
-                file: model + '.json',
-                name: model,
-                family: family,
-                Architecture: arch,
-                generation: gen
-            };
-
-            try {
-                const response = await fetch('/api/cpu/add', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ cpuDetail, indexEntry })
+        const container = document.getElementById('icon-grid-container');
+        if (!fallback && icons.length > 0) {
+            let html = '<div class="icon-grid">';
+            icons.forEach(icon => {
+                html += `
+                    <div class="icon-item" data-icon="${escapeHtml(icon)}">
+                        <img src="/modeldata/CPU/cpu_icon/${icon}" alt="${icon}" loading="lazy" style="width:64px;height:64px;object-fit:contain;">
+                        <span>${escapeHtml(icon)}</span>
+                    </div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+            container.querySelectorAll('.icon-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const icon = item.dataset.icon;
+                    document.getElementById('cpu_iconfamily_hidden').value = icon;
+                    document.getElementById('cpu_icon_label').textContent = icon;
+                    cpuConfig.iconfamily = icon;
+                    cpuIconSelected = icon;
+                    updateCpuPreview();
+                    close();
                 });
+            });
+        } else {
+            container.innerHTML = `
+                <p>无法加载图标列表，请手动输入文件名</p>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <input id="icon-fallback-input" type="text" placeholder="图标文件名" value="${escapeHtml(cpuConfig.iconfamily)}" style="flex:1;">
+                    <button id="icon-fallback-confirm" class="primary">确定</button>
+                </div>`;
+            document.getElementById('icon-fallback-confirm').addEventListener('click', () => {
+                const val = document.getElementById('icon-fallback-input').value.trim();
+                document.getElementById('cpu_iconfamily_hidden').value = val;
+                document.getElementById('cpu_icon_label').textContent = val || '点击选择图标';
+                cpuConfig.iconfamily = val;
+                cpuIconSelected = val;
+                updateCpuPreview();
+                close();
+            });
+        }
+    }
 
-                const result = await response.json();
-                if (response.ok) {
-                    alert(result.message);
-                    // 可选：重新加载 CPU 索引，刷新机型页面的列表
-                    await loadCpuIndex();       // 重新读取 CPU.json
-                    if (currentMode === 'model') renderForm();  // 如果在机型页面，重新渲染
-                } else {
-                    alert('添加失败: ' + (result.error || '未知错误'));
-                }
-            } catch (err) {
-                alert('网络请求失败，请确认后端是否已启动。');
-                console.error(err);
+    async function openGpuIconPicker() {
+    const modal = document.createElement('div');
+    modal.className = 'icon-modal-overlay';
+    modal.innerHTML = `
+        <div class="icon-modal">
+            <div class="icon-modal-header">
+                <span class="icon-modal-title">选择 GPU 图标</span>
+                <button class="icon-close-btn">&times;</button>
+            </div>
+            <div id="icon-grid-container" style="min-height:120px; text-align:center; padding:20px; color:var(--text-muted);">加载中...</div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('.icon-close-btn').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+    let icons = [];
+    let fallback = false;
+    try {
+        const resp = await fetch('/api/list/gpu_icons');
+        if (resp.ok) icons = await resp.json();
+        else fallback = true;
+    } catch (e) {
+        console.error('获取 GPU 图标失败', e);
+        fallback = true;
+    }
+
+    const container = document.getElementById('icon-grid-container');
+    if (!fallback && icons.length > 0) {
+        let html = '<div class="icon-grid">';
+        icons.forEach(icon => {
+            html += `
+                <div class="icon-item" data-icon="${escapeHtml(icon)}">
+                    <img src="/modeldata/Graphics/Graphics_icons/${icon}" alt="${icon}" loading="lazy" style="width:64px;height:64px;object-fit:contain;">
+                    <span>${escapeHtml(icon)}</span>
+                </div>`;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+        container.querySelectorAll('.icon-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const icon = item.dataset.icon;
+                document.getElementById('gpu_iconfamily_hidden').value = icon;
+                document.getElementById('gpu_icon_label').textContent = icon;
+                gpuConfig.iconfamily = icon;
+                gpuIconSelected = icon;
+                updateGpuPreview();
+                close();
+            });
+        });
+    } else {
+        container.innerHTML = `
+            <p>无法加载图标列表，请手动输入文件名</p>
+            <div style="display:flex; gap:8px; margin-top:12px;">
+                <input id="icon-fallback-input" type="text" placeholder="图标文件名" value="${escapeHtml(gpuConfig.iconfamily)}" style="flex:1;">
+                <button id="icon-fallback-confirm" class="primary">确定</button>
+            </div>`;
+        document.getElementById('icon-fallback-confirm').addEventListener('click', () => {
+            const val = document.getElementById('icon-fallback-input').value.trim();
+            document.getElementById('gpu_iconfamily_hidden').value = val;
+            document.getElementById('gpu_icon_label').textContent = val || '点击选择图标';
+            gpuConfig.iconfamily = val;
+            gpuIconSelected = val;
+            updateGpuPreview();
+            close();
+        });
+    }
+}
+
+    function bindCpuEvents() {
+        const ids = ['cpu_model','cpu_cores','cpu_base','cpu_turbo','cpu_ext','cpu_cache','cpu_graphics','cpu_ark'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if(el && !el.dataset.eventsBound) {
+                el.addEventListener('input', () => updateCpuPreview());
+                el.dataset.eventsBound = 'true';
             }
         });
-        addBtn.dataset.eventsBound = 'true';
+
+        const iconBtn = document.getElementById('cpu_iconfamily_btn');
+        if (iconBtn && !iconBtn.dataset.eventsBound) {
+            iconBtn.addEventListener('click', openIconPicker);
+            iconBtn.dataset.eventsBound = 'true';
+        }
+
+        updateCpuPreview();
+
+        const addBtn = document.getElementById('addToCpuIndexBtn');
+        if (addBtn && !addBtn.dataset.eventsBound) {
+            addBtn.addEventListener('click', async () => {
+                const model = document.getElementById('cpu_model')?.value.trim();
+                if (!model) {
+                    alert('请先填写 CPU 型号！');
+                    return;
+                }
+
+                const family = document.getElementById('cpu_idx_family')?.value.trim() || "未分类";
+                const arch = document.getElementById('cpu_idx_arch')?.value.trim() || "未知";
+                const gen = document.getElementById('cpu_idx_gen')?.value.trim() || "未知";
+
+                const cpuDetail = {
+                    model: model,
+                    cores_threads: document.getElementById('cpu_cores')?.value || "",
+                    base_freq: document.getElementById('cpu_base')?.value || "",
+                    turbo_freq: document.getElementById('cpu_turbo')?.value || "",
+                    ext_freq: document.getElementById('cpu_ext')?.value || "",
+                    cache: document.getElementById('cpu_cache')?.value || "",
+                    graphics: document.getElementById('cpu_graphics')?.value || "",
+                    iconfamily: document.getElementById('cpu_iconfamily_hidden')?.value || "",
+                    ark: document.getElementById('cpu_ark')?.value || ""
+                };
+
+                const indexEntry = {
+                    file: model + '.json',
+                    name: model,
+                    family: family,
+                    Architecture: arch,
+                    generation: gen
+                };
+
+                try {
+                    const response = await fetch('/api/cpu/add', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cpuDetail, indexEntry })
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message);
+                        await loadCpuIndex();
+                        if (currentMode === 'model') renderForm();
+                    } else {
+                        alert('添加失败: ' + (result.error || '未知错误'));
+                    }
+                } catch (err) {
+                    alert('网络请求失败，请确认后端是否已启动。');
+                    console.error(err);
+                }
+            });
+            addBtn.dataset.eventsBound = 'true';
+        }
     }
-}    
+
     // ---------- GPU 配置 ----------
 function renderGpuForm() {
     return `
         <div class="section">
             <div class="section-title">GPU 配置文件生成器</div>
             <div class="component-form-grid">
-                <div class="component-form-field full-width"><label>型号（同时也是文件名）</label><input id="gpu_model" value="${escapeHtml(gpuConfig.model)}"></div>
-                <div class="component-form-field"><label>Shading Units</label><input id="gpu_shading"  value="${escapeHtml(gpuConfig.Shading_Units)}"></div>
-                <div class="component-form-field"><label>基础频率</label><input id="gpu_base"  value="${escapeHtml(gpuConfig.base_freq)}"></div>
-                <div class="component-form-field"><label>加速频率</label><input id="gpu_turbo" value="${escapeHtml(gpuConfig.turbo_freq)}"></div>
-                <div class="component-form-field"><label>VRAM</label><input id="gpu_vram"  value="${escapeHtml(gpuConfig.VRAM)}"></div>
-                <div class="component-form-field"><label>世代</label><input id="gpu_gen"  value="${escapeHtml(gpuConfig.Generation)}"></div>
-                <div class="component-form-field"><label>功能</label><input id="gpu_feature" value="${escapeHtml(gpuConfig.Feature)}"></div>
-                <div class="component-form-field"><label>图标</label><input id="gpu_iconfamily" value="${escapeHtml(gpuConfig.iconfamily)}"></div>
+                <div class="component-form-field full-width">
+                    <input id="gpu_model" placeholder="型号（同时也是文件名）" value="${escapeHtml(gpuConfig.model)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_shading" placeholder="Shading Units" value="${escapeHtml(gpuConfig.Shading_Units)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_base" placeholder="基础频率" value="${escapeHtml(gpuConfig.base_freq)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_turbo" placeholder="加速频率" value="${escapeHtml(gpuConfig.turbo_freq)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_vram" placeholder="VRAM" value="${escapeHtml(gpuConfig.VRAM)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_gen" placeholder="世代" value="${escapeHtml(gpuConfig.Generation)}">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_feature" placeholder="功能" value="${escapeHtml(gpuConfig.Feature)}">
+                </div>
+                <div class="component-form-field">
+                    <button type="button" id="gpu_iconfamily_btn" style="width:100%; padding:10px 14px; border:1px solid var(--border-light); border-radius:12px; background:var(--bg-panel); color:var(--text-primary); cursor:pointer; text-align:left; font-size:0.85rem;">
+                        <span id="gpu_icon_label">${gpuConfig.iconfamily ? gpuConfig.iconfamily : '点击选择图标'}</span>
+                    </button>
+                    <input type="hidden" id="gpu_iconfamily_hidden" value="${escapeHtml(gpuConfig.iconfamily)}">
+                </div>
             </div>
             <hr>
             <div class="section-title" style="margin-top:12px;">索引元数据（用于更新 GPU.json 索引）</div>
             <div class="row-2col">
-                <div class="component-form-field"><label>家族 (family)</label><input id="gpu_idx_family" value=""></div>
-                <div class="component-form-field"><label>架构 (Architecture)</label><input id="gpu_idx_arch" value=""></div>
-                <div class="component-form-field"><label>代分类 (generation)</label><input id="gpu_idx_gen" value=""></div>
+                <div class="component-form-field">
+                    <input id="gpu_idx_family" placeholder="家族 (family)" value="">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_idx_arch" placeholder="架构 (Architecture)" value="">
+                </div>
+                <div class="component-form-field">
+                    <input id="gpu_idx_gen" placeholder="代分类 (generation)" value="">
+                </div>
             </div>
             <button id="addToGpuIndexBtn" class="primary" style="margin-top:12px;">将此 GPU 加入索引并导出</button>
         </div>
     `;
 }
-    function updateGpuPreview() {
-        gpuConfig.model = document.getElementById('gpu_model')?.value || "";
-        gpuConfig.Shading_Units = document.getElementById('gpu_shading')?.value || "";
-        gpuConfig.base_freq = document.getElementById('gpu_base')?.value || "";
-        gpuConfig.turbo_freq = document.getElementById('gpu_turbo')?.value || "";
-        gpuConfig.VRAM = document.getElementById('gpu_vram')?.value || "";
-        gpuConfig.Generation = document.getElementById('gpu_gen')?.value || "";
-        gpuConfig.Feature = document.getElementById('gpu_feature')?.value || "";
-        gpuConfig.iconfamily = document.getElementById('gpu_iconfamily')?.value || "";
-        const out = {
-            model: gpuConfig.model,
-            "Shading Units": gpuConfig.Shading_Units,
-            base_freq: gpuConfig.base_freq,
-            turbo_freq: gpuConfig.turbo_freq,
-            VRAM: gpuConfig.VRAM,
-            Generation: gpuConfig.Generation,
-            Feature: gpuConfig.Feature,
-            iconfamily: gpuConfig.iconfamily
-        };
-        document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
+
+function updateGpuPreview() {
+    gpuConfig.model = document.getElementById('gpu_model')?.value || "";
+    gpuConfig.Shading_Units = document.getElementById('gpu_shading')?.value || "";
+    gpuConfig.base_freq = document.getElementById('gpu_base')?.value || "";
+    gpuConfig.turbo_freq = document.getElementById('gpu_turbo')?.value || "";
+    gpuConfig.VRAM = document.getElementById('gpu_vram')?.value || "";
+    gpuConfig.Generation = document.getElementById('gpu_gen')?.value || "";
+    gpuConfig.Feature = document.getElementById('gpu_feature')?.value || "";
+    const hidden = document.getElementById('gpu_iconfamily_hidden');
+    gpuConfig.iconfamily = hidden ? hidden.value : gpuIconSelected;
+    const out = {
+        model: gpuConfig.model,
+        "Shading Units": gpuConfig.Shading_Units,
+        base_freq: gpuConfig.base_freq,
+        turbo_freq: gpuConfig.turbo_freq,
+        VRAM: gpuConfig.VRAM,
+        Generation: gpuConfig.Generation,
+        Feature: gpuConfig.Feature,
+        iconfamily: gpuConfig.iconfamily
+    };
+    document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
+    const labelSpan = document.getElementById('gpu_icon_label');
+    if (labelSpan) {
+        const icon = gpuConfig.iconfamily;
+        labelSpan.textContent = icon ? icon : '点击选择图标';
     }
+}
 function bindGpuEvents() {
-    const ids = ['gpu_model','gpu_shading','gpu_base','gpu_turbo','gpu_vram','gpu_gen','gpu_feature','gpu_iconfamily'];
+    const ids = ['gpu_model','gpu_shading','gpu_base','gpu_turbo','gpu_vram','gpu_gen','gpu_feature'];
     ids.forEach(id => {
         const el = document.getElementById(id);
         if(el && !el.dataset.eventsBound) {
@@ -1340,9 +1661,15 @@ function bindGpuEvents() {
             el.dataset.eventsBound = 'true';
         }
     });
+
+    const iconBtn = document.getElementById('gpu_iconfamily_btn');
+    if (iconBtn && !iconBtn.dataset.eventsBound) {
+        iconBtn.addEventListener('click', openGpuIconPicker);
+        iconBtn.dataset.eventsBound = 'true';
+    }
+
     updateGpuPreview();
 
-    // +++ 新增：GPU 索引导出按钮 +++
     const addBtn = document.getElementById('addToGpuIndexBtn');
     if (addBtn && !addBtn.dataset.eventsBound) {
         addBtn.addEventListener('click', async () => {
@@ -1356,7 +1683,6 @@ function bindGpuEvents() {
             const arch = document.getElementById('gpu_idx_arch')?.value.trim() || "未知";
             const gen = document.getElementById('gpu_idx_gen')?.value.trim() || "未知";
 
-            // 当前表单的详细 GPU 参数（就是右侧预览的那个对象的内容）
             const gpuDetail = {
                 model: model,
                 "Shading Units": document.getElementById('gpu_shading')?.value || "",
@@ -1365,7 +1691,7 @@ function bindGpuEvents() {
                 VRAM: document.getElementById('gpu_vram')?.value || "",
                 Generation: document.getElementById('gpu_gen')?.value || "",
                 Feature: document.getElementById('gpu_feature')?.value || "",
-                iconfamily: document.getElementById('gpu_iconfamily')?.value || ""
+                iconfamily: document.getElementById('gpu_iconfamily_hidden')?.value || ""
             };
 
             const indexEntry = {
@@ -1386,7 +1712,6 @@ function bindGpuEvents() {
                 const result = await response.json();
                 if (response.ok) {
                     alert(result.message);
-                    // 重新加载 GPU 索引，以便在机型配置页中能立刻看到新增的 GPU
                     await loadGpuIndex();
                     if (currentMode === 'model') renderForm();
                 } else {
@@ -1400,7 +1725,6 @@ function bindGpuEvents() {
         addBtn.dataset.eventsBound = 'true';
     }
 }
-    
     // ---------- 屏幕配置 ----------
     function renderDisplayForm() {
         let fruHtml = '';
@@ -1421,21 +1745,36 @@ function bindGpuEvents() {
             <div class="section">
                 <div class="section-title">屏幕配置文件生成器</div>
                 <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="disp_type" value="${escapeHtml(displayConfig.type)}"></div>
-                    <div class="component-form-field"><label>技术</label><input id="disp_tech" value="${escapeHtml(displayConfig.tech)}"></div>
-                    <div class="component-form-field"><label>亮度</label><input id="disp_brightness" value="${escapeHtml(displayConfig.brightness)}"></div>
-                    <div class="component-form-field"><label>对比度</label><input id="disp_contrast" value="${escapeHtml(displayConfig.contrast)}"></div>
-                    <div class="component-form-field"><label>可视角度</label><input id="disp_angle" value="${escapeHtml(displayConfig.viewing_angle)}"></div>
-                    <div class="component-form-field"><label>色彩区域</label><input id="disp_gamut" value="${escapeHtml(displayConfig.color_gamut)}"></div>
-                    <div class="component-form-field"><label>刷新率</label><input id="disp_refresh" value="${escapeHtml(displayConfig.refresh_rate)}"></div>
+                    <div class="component-form-field full-width">
+                        <input id="disp_type" placeholder="型号" value="${escapeHtml(displayConfig.type)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_tech" placeholder="技术" value="${escapeHtml(displayConfig.tech)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_brightness" placeholder="亮度" value="${escapeHtml(displayConfig.brightness)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_contrast" placeholder="对比度" value="${escapeHtml(displayConfig.contrast)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_angle" placeholder="可视角度" value="${escapeHtml(displayConfig.viewing_angle)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_gamut" placeholder="色彩区域" value="${escapeHtml(displayConfig.color_gamut)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="disp_refresh" placeholder="刷新率" value="${escapeHtml(displayConfig.refresh_rate)}">
+                    </div>
                 </div>
                 <div class="section-title" style="margin-top:16px;">FRU 列表 (编号与面板型号)</div>
                 <div id="fru-list-container">${fruHtml || '<div class="empty-battery">暂无 FRU，点击下方添加</div>'}</div>
                 <button type="button" id="addFruBtn" class="add-btn" style="margin-top:8px;">+ 添加 FRU</button>
+                <button id="saveDisplayBtn" class="primary" style="margin-top:12px;">保存屏幕配置到服务器</button>
             </div>
         `;
     }
-    
+
     function updateDisplayPreview() {
         displayConfig.type = document.getElementById('disp_type')?.value || "";
         displayConfig.tech = document.getElementById('disp_tech')?.value || "";
@@ -1468,7 +1807,34 @@ function bindGpuEvents() {
         };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
-    
+
+    async function saveDisplayToServer() {
+        updateDisplayPreview();
+        const indexEntry = {
+            file: (displayConfig.type || 'untitled') + '.json',
+            name: displayConfig.type || '未命名屏幕',
+            tech: displayConfig.tech || ''
+        };
+        try {
+            const resp = await fetch('/api/display/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ displayDetail: displayConfig, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+                await loadOptionList('display');
+                if (currentMode === 'model') renderForm();
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
+    }
+
     function bindDisplayEvents() {
         const basicIds = ['disp_type','disp_tech','disp_brightness','disp_contrast','disp_angle','disp_gamut','disp_refresh'];
         basicIds.forEach(id => {
@@ -1539,28 +1905,67 @@ function bindGpuEvents() {
                 delBtn.dataset.eventsBound = 'true';
             }
         });
+
+        const saveBtn = document.getElementById('saveDisplayBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveDisplayToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
         
         updateDisplayPreview();
     }
-    
+
     // ---------- 有线网卡配置 ----------
     function renderEthernetForm() {
         return `
             <div class="section">
                 <div class="section-title">有线网卡配置文件生成器</div>
                 <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="eth_type" value="${escapeHtml(ethernetConfig.type)}"></div>
-                    <div class="component-form-field"><label>功能</label><input id="eth_model_type" value="${escapeHtml(ethernetConfig.model_type)}"></div>
+                    <div class="component-form-field full-width">
+                        <input id="eth_type" placeholder="型号" value="${escapeHtml(ethernetConfig.type)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="eth_model_type" placeholder="功能" value="${escapeHtml(ethernetConfig.model_type)}">
+                    </div>
                 </div>
+                <button id="saveEthernetBtn" class="primary" style="margin-top:12px;">保存网卡配置到服务器</button>
             </div>
         `;
     }
+
     function updateEthernetPreview() {
         ethernetConfig.type = document.getElementById('eth_type')?.value || "";
         ethernetConfig.model_type = document.getElementById('eth_model_type')?.value || "";
         const out = { type: ethernetConfig.type, "model-type": ethernetConfig.model_type };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
+
+    async function saveEthernetToServer() {
+        updateEthernetPreview();
+        const indexEntry = {
+            file: (ethernetConfig.type || 'untitled') + '.json',
+            name: ethernetConfig.type || '未命名网卡'
+        };
+        try {
+            const resp = await fetch('/api/ethernet/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ethernetDetail: ethernetConfig, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+                await loadOptionList('ethernet');
+                if (currentMode === 'model') renderForm();
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
+    }
+
     function bindEthernetEvents() {
         const ids = ['eth_type','eth_model_type'];
         ids.forEach(id => {
@@ -1570,22 +1975,35 @@ function bindGpuEvents() {
                 el.dataset.eventsBound = 'true';
             }
         });
+        const saveBtn = document.getElementById('saveEthernetBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveEthernetToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
         updateEthernetPreview();
     }
-    
+
     // ---------- WiFi 配置 ----------
     function renderWifiForm() {
         return `
             <div class="section">
                 <div class="section-title">WiFi 配置文件生成器</div>
                 <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="wifi_type" value="${escapeHtml(wifiConfig.type)}"></div>
-                    <div class="component-form-field"><label>接口与形态</label><input id="wifi_form" value="${escapeHtml(wifiConfig.form)}"></div>
-                    <div class="component-form-field full-width"><label>功能</label><input id="wifi_feature" value="${escapeHtml(wifiConfig.feature)}"></div>
+                    <div class="component-form-field full-width">
+                        <input id="wifi_type" placeholder="型号" value="${escapeHtml(wifiConfig.type)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="wifi_form" placeholder="接口与形态" value="${escapeHtml(wifiConfig.form)}">
+                    </div>
+                    <div class="component-form-field full-width">
+                        <input id="wifi_feature" placeholder="功能" value="${escapeHtml(wifiConfig.feature)}">
+                    </div>
                 </div>
+                <button id="saveWifiBtn" class="primary" style="margin-top:12px;">保存 WiFi 配置到服务器</button>
             </div>
         `;
     }
+
     function updateWifiPreview() {
         wifiConfig.type = document.getElementById('wifi_type')?.value || "";
         wifiConfig.form = document.getElementById('wifi_form')?.value || "";
@@ -1593,6 +2011,33 @@ function bindGpuEvents() {
         const out = { type: wifiConfig.type, form: wifiConfig.form, feature: wifiConfig.feature };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
+
+    async function saveWifiToServer() {
+        updateWifiPreview();
+        const indexEntry = {
+            file: (wifiConfig.type || 'untitled') + '.json',
+            name: wifiConfig.type || '未命名 WiFi'
+        };
+        try {
+            const resp = await fetch('/api/wifi/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ wifiDetail: wifiConfig, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+                await loadOptionList('wlan');
+                if (currentMode === 'model') renderForm();
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
+    }
+
     function bindWifiEvents() {
         const ids = ['wifi_type','wifi_form','wifi_feature'];
         ids.forEach(id => {
@@ -1602,22 +2047,35 @@ function bindGpuEvents() {
                 el.dataset.eventsBound = 'true';
             }
         });
+        const saveBtn = document.getElementById('saveWifiBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveWifiToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
         updateWifiPreview();
     }
-    
+
     // ---------- WWAN 配置 ----------
     function renderwwanForm() {
         return `
             <div class="section">
                 <div class="section-title">WWAN 配置文件生成器</div>
                 <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="wwan_type" value="${escapeHtml(wwanConfig.type)}"></div>
-                    <div class="component-form-field"><label>接口与形态</label><input id="wwan_form" value="${escapeHtml(wwanConfig.form)}"></div>
-                    <div class="component-form-field full-width"><label>功能</label><textarea id="wwan_feature" rows="2">${escapeHtml(wwanConfig.feature)}</textarea></div>
+                    <div class="component-form-field full-width">
+                        <input id="wwan_type" placeholder="型号" value="${escapeHtml(wwanConfig.type)}">
+                    </div>
+                    <div class="component-form-field">
+                        <input id="wwan_form" placeholder="接口与形态" value="${escapeHtml(wwanConfig.form)}">
+                    </div>
+                    <div class="component-form-field full-width">
+                        <textarea id="wwan_feature" placeholder="功能" rows="2">${escapeHtml(wwanConfig.feature)}</textarea>
+                    </div>
                 </div>
+                <button id="saveWwanBtn" class="primary" style="margin-top:12px;">保存 WWAN 配置到服务器</button>
             </div>
         `;
     }
+
     function updatewwanPreview() {
         wwanConfig.type = document.getElementById('wwan_type')?.value || "";
         wwanConfig.form = document.getElementById('wwan_form')?.value || "";
@@ -1625,6 +2083,33 @@ function bindGpuEvents() {
         const out = { type: wwanConfig.type, form: wwanConfig.form, feature: wwanConfig.feature };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
+
+    async function saveWwanToServer() {
+        updatewwanPreview();
+        const indexEntry = {
+            file: (wwanConfig.type || 'untitled') + '.json',
+            name: wwanConfig.type || '未命名 WWAN'
+        };
+        try {
+            const resp = await fetch('/api/wwan/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ wwanDetail: wwanConfig, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+                await loadOptionList('wwan');
+                if (currentMode === 'model') renderForm();
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
+    }
+
     function bindwwanEvents() {
         const ids = ['wwan_type','wwan_form','wwan_feature'];
         ids.forEach(id => {
@@ -1634,32 +2119,45 @@ function bindGpuEvents() {
                 el.dataset.eventsBound = 'true';
             }
         });
+        const saveBtn = document.getElementById('saveWwanBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveWwanToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
         updatewwanPreview();
     }
-    
+
     // ---------- 扩展坞配置 ----------
     function renderDockForm() {
         let portsHtml = '';
         if (dockConfig.ports && dockConfig.ports.length) {
             dockConfig.ports.forEach((port, idx) => {
-                portsHtml += `<div class="array-item" data-port-idx="${idx}"><input type="text" class="dock-port" value="${escapeHtml(port)}" placeholder="端口描述"><button class="danger-btn remove-port" data-idx="${idx}" style="margin-left:8px;">删除</button></div>`;
+                portsHtml += `<div class="array-item" data-port-idx="${idx}">
+                    <input type="text" class="dock-port" placeholder="端口描述" value="${escapeHtml(port)}">
+                    <button class="danger-btn remove-port" data-idx="${idx}" style="margin-left:8px;">删除</button>
+                </div>`;
             });
         }
         return `
             <div class="section">
                 <div class="section-title">扩展坞配置文件生成器</div>
                 <div class="component-form-grid">
-                    <div class="component-form-field full-width"><label>型号</label><input id="dock_model" value="${escapeHtml(dockConfig.model)}"></div>
-                    <div class="component-form-field full-width"><label>接口</label>
+                    <div class="component-form-field full-width">
+                        <input id="dock_model" placeholder="型号" value="${escapeHtml(dockConfig.model)}">
+                    </div>
+                    <div class="component-form-field full-width">
                         <div id="dock-ports-container">${portsHtml || '<div class="empty-battery" style="margin:8px 0;">暂无端口，点击下方添加</div>'}</div>
                         <button type="button" id="addDockPortBtn" class="add-btn" style="margin-top:8px;">+ 添加端口</button>
                     </div>
-                    <div class="component-form-field"><label>适配器</label><input id="dock_power" value="${escapeHtml(dockConfig.power)}"></div>
+                    <div class="component-form-field">
+                        <input id="dock_power" placeholder="适配器" value="${escapeHtml(dockConfig.power)}">
+                    </div>
                 </div>
+                <button id="saveDockBtn" class="primary" style="margin-top:12px;">保存扩展坞配置到服务器</button>
             </div>
         `;
     }
-    
+
     function updateDockPreview() {
         dockConfig.model = document.getElementById('dock_model')?.value || "";
         dockConfig.power = document.getElementById('dock_power')?.value || "";
@@ -1671,7 +2169,33 @@ function bindGpuEvents() {
         const out = { model: dockConfig.model, ports: dockConfig.ports, power: dockConfig.power };
         document.getElementById('jsonPreview').innerText = JSON.stringify(out, null, 2);
     }
-    
+
+    async function saveDockToServer() {
+        updateDockPreview();
+        const indexEntry = {
+            file: (dockConfig.model || 'untitled') + '.json',
+            name: dockConfig.model || '未命名的扩展坞'
+        };
+        try {
+            const resp = await fetch('/api/dock/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dockDetail: dockConfig, indexEntry })
+            });
+            const data = await resp.json();
+            if (resp.ok) {
+                alert(data.message);
+                await loadOptionList('dock');
+                if (currentMode === 'model') renderForm();
+            } else {
+                alert('保存失败: ' + (data.error || ''));
+            }
+        } catch (e) {
+            alert('网络请求失败');
+            console.error(e);
+        }
+    }
+
     function bindDockEvents() {
         const modelInput = document.getElementById('dock_model');
         const powerInput = document.getElementById('dock_power');
@@ -1733,10 +2257,16 @@ function bindGpuEvents() {
                 btn.dataset.eventsBound = 'true';
             }
         });
+
+        const saveBtn = document.getElementById('saveDockBtn');
+        if (saveBtn && !saveBtn.dataset.eventsBound) {
+            saveBtn.addEventListener('click', saveDockToServer);
+            saveBtn.dataset.eventsBound = 'true';
+        }
         
         updateDockPreview();
     }
-    
+
     // ---------- 主渲染 ----------
     async function renderForm() {
         const container = document.getElementById('formPanel');
@@ -1776,7 +2306,7 @@ function bindGpuEvents() {
             bindDockEvents();
         }
     }
-    
+
     function initTabs() {
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', async () => {
@@ -1788,8 +2318,7 @@ function bindGpuEvents() {
             });
         });
     }
-    
-    // 加载数据（并发优化）
+
     async function loadCpuIndex() {
         try {
             const resp = await fetch('/modeldata/CPU/CPU.json');
@@ -1799,6 +2328,7 @@ function bindGpuEvents() {
             cpuFilterState = adjustFilterState('cpu', { family:"all", architecture:"all", generationClass:"all", keyword:"" });
         } catch(e) { console.error("加载CPU索引失败",e); cpuFullList = []; }
     }
+
     async function loadGpuIndex() {
         try {
             const resp = await fetch('/modeldata/Graphics/GPU.json');
@@ -1807,6 +2337,31 @@ function bindGpuEvents() {
             gpuFullList = enrichItemsWithId(data).map(item => normalizeItem(item));
             gpuFilterState = adjustFilterState('gpu', { family:"all", architecture:"all", generationClass:"all", keyword:"" });
         } catch(e) { console.error("加载GPU索引失败",e); gpuFullList = []; }
+    }
+
+    async function loadOptionList(type) {
+        const caps = {
+            display: 'Display',
+            ethernet: 'Ethernet',
+            wlan: 'WLAN',
+            wwan: 'WWAN',
+            dock: 'Dock'
+        };
+        const cap = caps[type];
+        if (!cap) return;
+        const url = `/modeldata/${cap}/${cap}.json`;
+        try {
+            const resp = await fetch(url);
+            if (resp.ok) {
+                const data = await resp.json();
+                optionLists[type] = data.map(item => {
+                    const raw = typeof item === 'string' ? item : (item.model || item.name) || "";
+                    return { value: raw.replace(/\.json$/i, ''), label: raw.replace(/\.json$/i, '') };
+                });
+            }
+        } catch(e) {
+            console.error(`重新加载 ${type} 列表失败`, e);
+        }
     }
 
     async function loadOtherOptions() {
@@ -1830,33 +2385,32 @@ function bindGpuEvents() {
                             })
                         };
                     } else {
-                        console.warn(`Failed to load ${cap}.json, status: ${resp.status}`);
                         return { key: t, data: [] };
                     }
                 } catch(e) {
-                    console.error(`Error loading ${t}:`, e);
                     return { key: t, data: [] };
                 }
             })();
         });
 
         const results = await asyncPool(MAX_CONCURRENT, tasks, task => task);
-
         results.forEach(({key, data}) => {
             optionLists[key] = data;
         });
     }
-    
-    // 重置与导出
+
     function resetAll() {
         if(confirm('重置当前模式的所有数据？')) {
             if(currentMode === 'model') location.reload();
             else if(currentMode === 'cpu') {
                 cpuConfig = { model:"", cores_threads:"", base_freq:"", turbo_freq:"", cache:"", graphics:"", iconfamily:"", ark:"" };
+                cpuIconSelected = "";
                 renderForm();
-            } else if(currentMode === 'gpu') {
-                gpuConfig = { model:"", Shading_Units:"", base_freq:"", turbo_freq:"", VRAM:"", Generation:"", Feature:"", iconfamily:"" };
-                renderForm();
+} else if(currentMode === 'gpu') {
+    gpuConfig = { model:"", Shading_Units:"", base_freq:"", turbo_freq:"", VRAM:"", Generation:"", Feature:"", iconfamily:"" };
+    gpuIconSelected = "";
+    renderForm();
+
             } else if(currentMode === 'display') {
                 displayConfig = { type:"", tech:"", brightness:"", contrast:"", viewing_angle:"", color_gamut:"", refresh_rate:"", FRUs:[] };
                 renderForm();
@@ -1875,7 +2429,9 @@ function bindGpuEvents() {
             }
         }
     }
+
     function copyJson() { navigator.clipboard.writeText(document.getElementById('jsonPreview').innerText).then(()=>alert('已复制')).catch(()=>alert('失败')); }
+    
     function exportJson() {
         const content = document.getElementById('jsonPreview').innerText;
         if (!content || content === 'null') { alert('没有可导出的内容'); return; }
@@ -1912,7 +2468,7 @@ function bindGpuEvents() {
         a.click();
         URL.revokeObjectURL(a.href);
     }
-    
+
     window.onload = async () => {
         initTheme(); watchSystemTheme(); initTabs();
         await Promise.all([loadCpuIndex(), loadGpuIndex(), loadOtherOptions()]);
