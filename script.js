@@ -1225,7 +1225,6 @@ function formatPartFullInfo(data, type) {
         if (d.Generation) lines.push(`架构: ${d.Generation}`);
         if (d['Shading Units']) lines.push(`着色单元: ${d['Shading Units']}`);
         if (d.base_freq) lines.push(`基础频率: ${d.base_freq}`);
-        if (d.turbo_freq && d.turbo_freq !== 'null') lines.push(`加速频率: ${d.turbo_freq}`);
     } else if (type === 'ethernet') {
         if (d.type) lines.push(`<b>${d.type}</b>`);
         if (d['model-type']) lines.push(d['model-type']);
@@ -1240,28 +1239,14 @@ function formatPartFullInfo(data, type) {
             if (['model', 'type', 'FRUs', 'frus', 'Frus'].includes(k)) continue;
             if (v && typeof v !== 'object') lines.push(`${k.replace(/_/g, ' ')}: ${v}`);
         }
-    } else if (partType === 'dock') {
-        if (d.model) lines.push(`<div class="part-title">${d.model}</div>`);
-        if (d.ports && Array.isArray(d.ports)) {
-            lines.push(`<div><span class="field-name">端口:</span></div>`);
-            d.ports.forEach(port => {
-                lines.push(`<div style="margin-left: 12px;">• ${port}</div>`);
-            });
-        } else if (d.ports) {
-            lines.push(`<div><span class="field-name">端口:</span> <span class="field-value">${d.ports}</span></div>`);
+    } else if (type === 'dock') {
+        if (d.model) lines.push(`<b>${d.model}</b>`);
+        if (d.ports) {
+            const portsStr = Array.isArray(d.ports) ? d.ports.join(', ') : d.ports;
+            lines.push(`端口: ${portsStr}`);
         }
-         if (d.power) {
-             lines.push(`<div><span class="field-name">供电:</span> <span class="field-value">${d.power}</span></div>`);
-        }
-        for (const [key, value] of Object.entries(d)) {
-            if (['model', 'ports', 'power'].includes(key)) continue;
-            if (value && typeof value !== 'object') {
-                const fieldName = key.replace(/_/g, ' ');
-                lines.push(`<div><span class="field-name">${fieldName}:</span> <span class="field-value">${value}</span></div>`);
-                }
-            }
-        }
-    else {
+        if (d.power) lines.push(`供电: ${d.power}`);
+    } else {
         if (d.model) lines.push(`<b>${d.model}</b>`);
         else if (d.type) lines.push(`<b>${d.type}</b>`);
     }
