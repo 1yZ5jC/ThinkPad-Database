@@ -869,42 +869,6 @@ function renderCompareResultTable(devicesWithParts) {
         }).join('<br>');
     });
 
-    const memSame = renderIfSame('内存', m => formatMemory(m));
-    if (memSame) mergedHtml += memSame;
-    else {
-        mergedHtml += `<div class="compare-row compare-merged">`;
-        mergedHtml += `<div class="compare-merged-label">内存</div>`;
-        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
-        devicesWithParts.forEach(d => {
-            mergedHtml += `<div class="compare-inline-item">${formatMemory(d.model)}</div>`;
-        });
-        mergedHtml += `</div></div>`;
-    }
-
-    const storSame = renderIfSame('储存', m => formatStorage(m));
-    if (storSame) mergedHtml += storSame;
-    else {
-        mergedHtml += `<div class="compare-row compare-merged">`;
-        mergedHtml += `<div class="compare-merged-label">储存</div>`;
-        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
-        devicesWithParts.forEach(d => {
-            mergedHtml += `<div class="compare-inline-item">${formatStorage(d.model)}</div>`;
-        });
-        mergedHtml += `</div></div>`;
-    }
-
-    const battSame = renderIfSame('电池', m => formatBattery(m));
-    if (battSame) mergedHtml += battSame;
-    else {
-        mergedHtml += `<div class="compare-row compare-merged">`;
-        mergedHtml += `<div class="compare-merged-label">电池</div>`;
-        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
-        devicesWithParts.forEach(d => {
-            mergedHtml += `<div class="compare-inline-item">${formatBattery(d.model)}</div>`;
-        });
-        mergedHtml += `</div></div>`;
-    }
-
     const ethSame = renderPartsIfSame('有线网卡', 'ethernet');
     if (ethSame) mergedHtml += ethSame;
     else mergedHtml += buildPartCard('有线网卡', 'ethernet', devicesWithParts, (partsArr, type, model) => {
@@ -948,6 +912,42 @@ function renderCompareResultTable(devicesWithParts) {
             return `<div>${name}</div>`;
         }).join('');
     });
+
+        const memSame = renderIfSame('内存', m => formatMemory(m));
+    if (memSame) mergedHtml += memSame;
+    else {
+        mergedHtml += `<div class="compare-row compare-merged">`;
+        mergedHtml += `<div class="compare-merged-label">内存</div>`;
+        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
+        devicesWithParts.forEach(d => {
+            mergedHtml += `<div class="compare-inline-item">${formatMemory(d.model)}</div>`;
+        });
+        mergedHtml += `</div></div>`;
+    }
+
+    const storSame = renderIfSame('储存', m => formatStorage(m));
+    if (storSame) mergedHtml += storSame;
+    else {
+        mergedHtml += `<div class="compare-row compare-merged">`;
+        mergedHtml += `<div class="compare-merged-label">储存</div>`;
+        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
+        devicesWithParts.forEach(d => {
+            mergedHtml += `<div class="compare-inline-item">${formatStorage(d.model)}</div>`;
+        });
+        mergedHtml += `</div></div>`;
+    }
+
+    const battSame = renderIfSame('电池', m => formatBattery(m));
+    if (battSame) mergedHtml += battSame;
+    else {
+        mergedHtml += `<div class="compare-row compare-merged">`;
+        mergedHtml += `<div class="compare-merged-label">电池</div>`;
+        mergedHtml += `<div class="compare-merged-value compare-inline-items">`;
+        devicesWithParts.forEach(d => {
+            mergedHtml += `<div class="compare-inline-item">${formatBattery(d.model)}</div>`;
+        });
+        mergedHtml += `</div></div>`;
+    }
 
     let diffHtml = `<div class="card"><div class="card-title"><span>接口与其他</span></div><div class="card-body card-body-flow" style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>规格</th>`;
     devicesWithParts.forEach(d => diffHtml += `<th>${d.model.model_name}</th>`);
