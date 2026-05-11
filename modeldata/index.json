@@ -54,5 +54,17 @@
         "nickfamily": "S",
         "family": "Yoga",
         "generation": "xx60"
+    },
+    {
+        "file": "13.json",
+        "name": "ThinkPad 13 (1st Gen, Windows)",
+        "family": "13",
+        "generation": "xx60"
+    },
+    {
+        "file": "13_Chromebook.json",
+        "name": "ThinkPad 13 Chromebook (1st Gen)",
+        "family": "13",
+        "generation": "xx60"
     }
 ]
