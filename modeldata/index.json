@@ -56,6 +56,20 @@
         "generation": "xx60"
     },
     {
+        "file": "Yoga460.json",
+        "name": "ThinkPad Yoga 460",
+        "nickname": "ThinkPad S3",
+        "nickfamily": "S",
+        "family": "Yoga",
+        "generation": "xx60"
+    },
+    {
+        "file": "P40_Yoga.json",
+        "name": "ThinkPad P40 Yoga",
+        "family": "P",
+        "generation": "xx60"
+    },
+    {
         "file": "13.json",
         "name": "ThinkPad 13 (1st Gen, Windows)",
         "family": "13",
