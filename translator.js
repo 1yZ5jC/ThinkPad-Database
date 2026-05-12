@@ -9,7 +9,6 @@
         'LED backlight': 'LED背光',
         'led backlight': 'LED背光',
         'Internal battery': '内置电池',
-        'Internal battery (Optional)': '内置电池（选配）',
         'External battery': '外置电池',
         'Wireless WAN upgradable':'WWAN可由最终用户升级',
         'always-on' :'始终可供电',
@@ -21,7 +20,7 @@
         'Power-on/Hard disk/Supervisor password':'开机/硬盘/管理密码',
         'Starting at':'至少',
         'Discrete TPM 1.2 and Firmware TPM 2.0':'独立TPM1.2和固件集成TPM2.0',
-        'Fingerprint reader (Optional)':'指纹读取器（选装）',
+        'Fingerprint reader':'指纹读取器',
         'Windows 7 Professional 64 preinstalled through downgrade rights in Windows 10 Pro 64':'从Windows 10 专业版（64位）行使降级权降级的Windows 7 专业版（64位）',
         'Slim AC adapter':'方口电源适配器',
         'or':'或',
@@ -31,7 +30,7 @@
         'codec / stereo speakers':'解码器 / 立体声音响',
         'dual array microphone, combo audio/microphone jack':'双阵列麦克风，音频/麦克风二合一接口',
         'resolution, low light sensitive, fixed focus':'分辨率，低光敏感、固定焦距',
-        'Smart card reader (Optional)':'智能卡读卡器（选配）',
+        'Smart card reader':'智能卡读卡器',
         '4-in-1 reader':'四合一读卡器',
         'Power-on password':'开机密码',
         'Hard disk password':'硬盘密码',
@@ -42,7 +41,12 @@
         'Also as':'也被称作',
         'soldered to systemboard':'焊接在主板上',
         'TrackPoint pointing device and Mylar surface touchpad, integrated five buttons, multi-touch':'指点杆和麦拉材质表面触摸板，五合一触摸板，多点触控',
-        'sockets':'插槽'
+        'sockets':'插槽',
+        'Dual-channel capable, non-parity':'双通道兼容，无奇偶校验',
+        'Smart card reader':'智能卡读卡器',
+        'Fingerprint reader':'指纹读取器',
+        'Optional':'选配'
+
 
 
 
