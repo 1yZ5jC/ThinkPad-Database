@@ -1,4 +1,5 @@
         {
           "type": "Intel Ethernet Connection I219-V",
-          "model-type": "Non-vPro"
+          "model-type": "Non-vPro",
+          "speed":"1GbE"
         }
