@@ -78,10 +78,10 @@ const $panelFamilySel = $('#panelFamilySelect');
 const $panelGenerationSel = $('#panelGenerationSelect');
 const $panelResetBtn = $('#panelResetFilterBtn');
 
-// 底部语录栏元素
+// 底部语录栏元素和背景图
+const $globalTrickBar = $('#globalTrickBar');
 const $globalTrickText = $('#globalTrickText');
 const $refreshTrickBtn = $('#refreshTrickBtn');
-// 右下角背景图元素
 const $globalHomeBg = $('#globalHomeBg');
 
 // ========== 全局语录相关 ==========
@@ -114,6 +114,20 @@ function refreshRandomTrick() {
     }
 }
 
+// 控制主页专属元素（背景图 + 语录栏）显隐
+function setHomeOnlyElementsVisible(visible) {
+    if ($globalHomeBg) {
+        if (visible && $globalHomeBg.src && $globalHomeBg.src !== '') {
+            $globalHomeBg.style.display = 'block';
+        } else {
+            $globalHomeBg.style.display = 'none';
+        }
+    }
+    if ($globalTrickBar) {
+        $globalTrickBar.style.display = visible ? 'flex' : 'none';
+    }
+}
+
 // 右下角背景图初始化（随机从 startpage 图库选取）
 function initHomeBackgroundImage() {
     if (!$globalHomeBg) return;
@@ -121,23 +135,12 @@ function initHomeBackgroundImage() {
     const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
     $globalHomeBg.src = bgUrl;
     $globalHomeBg.alt = 'ThinkPad 装饰背景';
-    // 图片加载失败时隐藏，避免裂图
     $globalHomeBg.onerror = () => {
         $globalHomeBg.style.display = 'none';
     };
     $globalHomeBg.onload = () => {
-        if (currentPage === 'detail') $globalHomeBg.style.display = 'block';
+        if (currentPage === 'detail') setHomeOnlyElementsVisible(true);
     };
-}
-
-// 控制背景图的显隐 (仅在主页显示)
-function setHomeBackgroundVisibility(visible) {
-    if (!$globalHomeBg) return;
-    if (visible && $globalHomeBg.src && $globalHomeBg.src !== '') {
-        $globalHomeBg.style.display = 'block';
-    } else {
-        $globalHomeBg.style.display = 'none';
-    }
 }
 
 // ========== 侧边栏 ==========
@@ -227,7 +230,7 @@ window.openSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.
 window.closeSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.remove('show'); };
 if ($settingsBtn) $settingsBtn.addEventListener('click', openSettingsPanel);
 
-// ========== 页面切换（同时控制右下角背景图） ==========
+// ========== 页面切换（控制主页专属元素） ==========
 window.showDetailPage = function () {
     currentPage = 'detail';
     if ($detailPage) $detailPage.classList.remove('hidden');
@@ -235,7 +238,7 @@ window.showDetailPage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
     setActiveSidebarItem('sidebarHome');
-    setHomeBackgroundVisibility(true);
+    setHomeOnlyElementsVisible(true);  // 显示背景图和底部语录栏
     const activeModel = document.querySelector('.nav-item.active')?.dataset?.modelId;
     if (!activeModel && $display) {
         (async () => {
@@ -267,7 +270,7 @@ window.showComparePage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     setActiveSidebarItem(null);
     if ($sidebarCompare) $sidebarCompare.classList.add('compare-active');
-    setHomeBackgroundVisibility(false);
+    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
     closeSearchModal();
     if (comparePending) {
         if ($comparePageResult) $comparePageResult.innerHTML = '';
@@ -283,7 +286,7 @@ window.showFavoritesPage = function () {
     if ($comparePage) $comparePage.classList.remove('active');
     if ($favoritesPage) $favoritesPage.classList.add('active');
     setActiveSidebarItem('sidebarFavorites');
-    setHomeBackgroundVisibility(false);
+    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
     closeSearchModal();
     renderFavoritesPage();
 };
@@ -295,7 +298,7 @@ window.showGeneratorPage = function () {
     document.getElementById('favoritesPage')?.classList.remove('active');
     document.getElementById('generatorPage')?.classList.add('active');
     setActiveSidebarItem('sidebarGenerator');
-    setHomeBackgroundVisibility(false);
+    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
     closeSearchModal();
     if (window.initGenerator) {
         window.initGenerator();
@@ -447,11 +450,11 @@ async function loadIndex() {
                     </div>
                 </div>`;
         }
-        // 加载底部全局语录 和 右下角背景图
+        // 加载底部全局语录
         await loadTricksAndDisplay();
         initHomeBackgroundImage();
-        // 初始默认显示主页，显示背景图
-        setHomeBackgroundVisibility(true);
+        // 初始处于主页，显示背景图和语录栏
+        setHomeOnlyElementsVisible(true);
     } catch (e) { console.error('加载索引失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载数据失败</div>'; }
 }
 
@@ -783,7 +786,7 @@ function renderCompareResultTable(devicesWithParts) {
         else {
             diffHtml += '<tr>';
             diffHtml += `<td><b>${row.label}</b></td>`;
-            devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}</td>`);
+            devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}<td>`);
             diffHtml += '</tr>';
         }
     });
@@ -1062,7 +1065,7 @@ async function renderSpecs(data) {
         const batteryCard = makeCard('电池与续航', renderBatteryItems(bats));
         let touchPenHtml = ''; if (data.touch || data.pen) { const items = []; if (data.touch) items.push(`<div class="info-row"><span class="info-label">触摸</span><span class="info-value">${Array.isArray(data.touch) ? data.touch.join('、') : data.touch}</span></div>`); if (data.pen) items.push(`<div class="info-row"><span class="info-label">笔</span><span class="info-value">${Array.isArray(data.pen) ? data.pen.join('、') : data.pen}</span></div>`); touchPenHtml = makeCard('触摸与笔', items.join('')); }
         const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr><tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
-        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
+        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><tr><th>重量</th><td>${data.physical?.weight || 'N/A'}<tr></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
 
         let html = `
             <div class="page-title" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
