@@ -7,9 +7,9 @@
 传感器的物理测量由 Analog Devices ADXL320 加速度计芯片完成，并由嵌入式控制器进行管理。
 
 # 系统截图
-![APS程序截图-机械硬盘](./images/aps_3.png)
-![APS程序截图-固态硬盘](./images/aps_1.png)
-![APS程序截图-相关信息](./images/aps_2.png)
+![APS程序截图-机械硬盘](./images/APS_3.png)
+![APS程序截图-固态硬盘](./images/APS_1.png)
+![APS程序截图-相关信息](./images/APS_2.png)
 
 # 硬盘支持
 
