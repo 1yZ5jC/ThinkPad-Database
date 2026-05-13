@@ -1,0 +1,23 @@
+        {
+          "type": "FHD (1920x1080)",
+          "tech": "IPS, Anti-glare, LED backlight",
+          "brightness": "250 nits",
+          "contrast": "700:1",
+          "viewing_angle": "160°",
+          "FRUs":[
+            {
+             "00NY442":"B140HAN02.4",
+             "00NY447":"N140HCE-EAA",
+             "00NY448":"N140HCE-EAA",
+             "00NY673":"B140HAN02.4",
+             "00PA892":"LP140WF6-SPB1",
+             "01AV853":"LP140WF6-SPB2",
+             "01EN000":"-",
+             "01EN101":"LP140WF6-SPB4"
+
+            }
+          ],
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz"
+
+        }

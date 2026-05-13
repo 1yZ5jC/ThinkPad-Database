@@ -1,0 +1,109 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-p50s",
+      "model_name": "ThinkPad P50s",
+      "addons": "Based on ThinkPad T560",
+      "model_family": "P",
+      "model_generation": "xx60",
+      "update_date": "November 2016",
+      "processor_options": ["6300U", "6500U", "6600U"],
+      "graphics_options": ["HD520","M500M"],
+      "Display": {
+        "max_resolution": {
+          "mini_dp": "3840x2160@60Hz",
+          "hdmi": "4096x2160@24Hz"
+        },
+        "multi_display": "Supports 3 independent displays"
+      },
+      "memory": {
+        "max_capacity": "32GB max",
+        "type": "1600MHz DDR3L",
+        "slots": "Two DDR3L SO-DIMM sockets",
+        "features": "non-ECC, dual-channel capable"
+      },
+      "display_options": ["LEN40B8","LEN40B5"],
+      "touch": ["Capacitive-type multi-touch, supports 10-finger gesture"],
+      "storage": {
+        "ssd_sata": "M.2 SATA 6.0Gb/s",
+        "ssd_pcie": "M.2 PCIe NVMe, PCIe 3.0 x 2, 16Gb/s",
+        "hdd": "SATA 6.0Gb/s, 2.5\" wide, 7mm high, with Active Protection System"
+      },
+      "Ethernet": ["I219V", "I219LM"],
+      "WLAN": ["8260AC", "BCM4356"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 4.1 wireless"
+        }
+      ],
+      "WWAN": ["EM7455", "ME906S", "WWAN_Upgradeable"],
+      "SIM_Card": [
+        {
+          "type": "Micro-SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery (optional)",
+          "capacity": "44Wh",
+          "form": "3-cell",
+          "tech": "Li-Polymer"
+        },
+        {
+          "type": "External battery",
+          "capacity": "23Wh",
+          "form": "3-cell",
+          "tech": "Li-Ion or Li-Polymer"
+        },
+        {
+          "type": "External battery",
+          "capacity": "48Wh",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        },
+        {
+          "type": "External battery",
+          "capacity": "72Wh",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": ["65W Slim AC adapter or 65W AC adapter"],
+      "ports": [
+        "3 x USB 3.0 (One Always On)",
+        "Mini DisplayPort",
+        "HDMI",
+        "Ethernet (RJ-45)",
+        "Dock connector",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC)",
+        "Smart card reader (Optional)"
+      ],
+      "camera": ["HD 720p resolution, low light sensitive, fixed focus"],
+      "audio": [
+        "HD Audio, Realtek ALC3245 codec / stereo speakers, 1W x 2 / dual array microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, numeric keypad, optional LED backlight",
+        "TrackPoint pointing device and buttonless Mylar surface touchpad, multi-touch"
+      ],
+      "physical": {
+        "dimensions": "380.6mm x 258.2mm x 22.45mm",
+        "weight": "Non-touch model: starting at 4.97 lb (2.25 kg); Multi-touch model: starting at 5.00 lb (2.27 kg)",
+        "case_material": "Display cover: PPS; Bottom: Glass-Fiber Reinforced Plastic"
+      },
+      "security": [
+        "Power-on/Hard disk/Supervisor password",
+        "Discrete TPM 1.2 and Firmware TPM 2.0",
+        "ThinkEngine",
+        "Intel vPro (optional)",
+        "Fingerprint reader (optional)"
+      ],
+      "system": [
+        "Windows 7 Professional 64 (preinstalled through downgrade rights in Windows 10 Pro 64)",
+        "Windows 10 Pro 64"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-p70",
+      "model_name": "ThinkPad P70",
+      "model_family": "P",
+      "model_generation":"xx60",
+      "update_date": "November 2016",
+      "processor_options": ["6700HQ","6820HQ","1505MV5","1575MV5"],
+
+      "graphics_options": ["HD530","HDP530","Iris_Pro_P580","M600M","M3000M","M4000M","M5000M"],
+      "Display": {
+        "max_resolution": {
+          "mini_dp": "3840x2160@60Hz ",
+          "Thunderbolt": "3840x2160@60Hz ",
+          "hdmi": "3840x2160@30Hz "
+        },
+        "multi_display": "Supports 5 independent displays "
+      },
+      "memory": {
+        "max_capacity": "64GB max",
+        "type": "2133MHz DDR4",
+        "slots": "Four DDR4 SO-DIMM sockets",
+        "features": "ECC or non-ECC (ECC function supported only on Xeon processor), dual-channel capable"
+      },
+      "display_options": ["LEN4121","LEN4123"],
+      "touch":["Capacitive-type multi-touch, supports 10-finger gesture"],
+      "pen":["ThinkPad Pen Pro, active pen for multi-touch display"],
+      "storage": {
+        "ssd_sata": "M.2 6.0Gb/s ",
+        "ssd_pcie": "M.2 PCIe NVMe, PCIe 3.0 x 4, 32Gb/s ",
+        "hdd": "SATA 6.0Gb/s, 2.5\" wide, 7mm high ",
+        "optical":"DVD burner, 9.5mm high, fixed, tray-in (Optional)"
+      },
+      "Ethernet":["I219V","I219LM"],
+      "WLAN":["8260AC"],
+      "Bluetooth":[
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature":"Bluetooth 4.1 wireless"
+        }
+    ],
+      "WWAN":["EM7455","No_WWAN"],
+      "SIM_Card":[
+        {
+          "type": "Micro-SIM card slot"
+        }
+    ],
+      "Battary":[
+        {
+          "type": "External battery,8-cell,96Wh",
+          "capacity":"96Wh",
+          "form": "8-cell",
+          "tech":"Li-Ion"
+        }
+    ],
+     "ACadapter":["170W or 230W slim tip AC adapter"],
+      "ports": [
+        "4 x USB 3.0 (One Always On)",
+        "Two USB Type-C / Thunderbolt 3",
+        "Mini DisplayPort",
+        "HDMI",
+        "Ethernet (RJ-45)",
+        "Dock connector",
+        "ExpressCard 34",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC), supports UHS-II SD card",
+        "Smart card reader (Optional)"
+      ],
+      "camera": [
+        "HD 720p resolution, low light sensitive, fixed focus"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3268 codec / stereo speakers, 2W x 2 / dual array microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, optional LED backlight",
+        "3-button TrackPoint pointing device and 3-button crystal silk surface multi-touch touchpad"
+      ],
+      "physical": {
+        "dimensions": "Non-Touch: 416mm x 275.5mm x 22.9-34.2mm ; Touch: 416mm x 275.5mm x 30.6-34.9mm",
+        "weight": "Non-touch model: starting at 7.3 lb (3.3kg); Multi-touch model: starting at 8.1 lb (3.7kg)",
+        "case_material": "Display cover: Glass-Fiber + PPS; Bottom: Magnesium/Aluminum"
+      },
+      "security": [
+        "Power-on/Hard disk/Supervisor password",
+        "Discrete TPM 1.2 and Firmware TPM 2.0",
+        "ThinkEngine",
+        "Fingerprint reader"
+      ],
+      "color calibration":["Pantone color calibrator by X-Rite color calibration sensor"],
+      "system": [
+        "Windows 7 Professional 64",
+        "Windows 7 Professional 64 preinstalled through downgrade rights in Windows 10 Pro 64",
+        "Windows 10 Pro 64"
+      ]
+    }
+  ]
+}

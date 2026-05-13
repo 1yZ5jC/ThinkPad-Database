@@ -1,0 +1,9 @@
+        {
+         "type": "FHD (1920x1080)",
+          "tech": "IPS, Anti-glare, LED backlight",
+          "brightness": "300 nits",
+          "contrast": "700:1",
+          "viewing_angle": "170°",
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz"
+        }

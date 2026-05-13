@@ -1,0 +1,6 @@
+
+        {
+          "type": "Realtek RTL8822CE",
+          "form": "2x2, M.2 card",
+          "feature":"11ac+BT"
+        }
