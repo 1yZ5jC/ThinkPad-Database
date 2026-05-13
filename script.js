@@ -22,6 +22,10 @@ let compareModels = [];
 let comparePending = true;
 let currentModelData = null;
 
+// 全局随机语录缓存
+let globalTricksList = [];
+let currentTrickText = '';
+
 // ========== 协议检测 ==========
 (function () {
     try {
@@ -74,6 +78,68 @@ const $panelFamilySel = $('#panelFamilySelect');
 const $panelGenerationSel = $('#panelGenerationSelect');
 const $panelResetBtn = $('#panelResetFilterBtn');
 
+// 底部语录栏元素
+const $globalTrickText = $('#globalTrickText');
+const $refreshTrickBtn = $('#refreshTrickBtn');
+// 右下角背景图元素
+const $globalHomeBg = $('#globalHomeBg');
+
+// ========== 全局语录相关 ==========
+async function loadTricksAndDisplay() {
+    try {
+        const resp = await fetch('modeldata/tricks.json');
+        if (resp.ok) {
+            const tricks = await resp.json();
+            if (Array.isArray(tricks) && tricks.length > 0) {
+                globalTricksList = tricks;
+                refreshRandomTrick();
+            } else {
+                $globalTrickText.textContent = 'ThinkPad 经典永流传 ✨';
+            }
+        } else {
+            $globalTrickText.textContent = 'ThinkPad 经典永流传 ✨';
+        }
+    } catch (e) {
+        $globalTrickText.textContent = 'ThinkPad 经典永流传 ✨';
+    }
+}
+
+function refreshRandomTrick() {
+    if (globalTricksList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * globalTricksList.length);
+        currentTrickText = globalTricksList[randomIndex];
+        $globalTrickText.textContent = currentTrickText;
+    } else {
+        $globalTrickText.textContent = 'ThinkPad 经典永流传 ✨';
+    }
+}
+
+// 右下角背景图初始化（随机从 startpage 图库选取）
+function initHomeBackgroundImage() {
+    if (!$globalHomeBg) return;
+    const randomIndex = Math.floor(Math.random() * 9) + 1; // 1~9
+    const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
+    $globalHomeBg.src = bgUrl;
+    $globalHomeBg.alt = 'ThinkPad 装饰背景';
+    // 图片加载失败时隐藏，避免裂图
+    $globalHomeBg.onerror = () => {
+        $globalHomeBg.style.display = 'none';
+    };
+    $globalHomeBg.onload = () => {
+        if (currentPage === 'detail') $globalHomeBg.style.display = 'block';
+    };
+}
+
+// 控制背景图的显隐 (仅在主页显示)
+function setHomeBackgroundVisibility(visible) {
+    if (!$globalHomeBg) return;
+    if (visible && $globalHomeBg.src && $globalHomeBg.src !== '') {
+        $globalHomeBg.style.display = 'block';
+    } else {
+        $globalHomeBg.style.display = 'none';
+    }
+}
+
 // ========== 侧边栏 ==========
 function closeSidebar() { document.body.classList.add('sidebar-hidden'); }
 function toggleSidebar() { document.body.classList.toggle('sidebar-hidden'); }
@@ -101,17 +167,12 @@ function handleResponsive() {
 window.addEventListener('resize', handleResponsive);
 handleResponsive();
 
-// ========== 筛选面板（已移除） ==========
-window.toggleFilterPanel = function () {};
-function updateFilterSummary() {}
-
 // ========== 主题 ==========
 function applyTheme(isLight) {
     document.body.classList.toggle('light-mode', isLight);
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
     if ($settingsThemeToggle) $settingsThemeToggle.checked = !isLight;
 
-    // 切换侧边栏标题图片
     const titleImg = document.getElementById('sidebarTitleImg');
     if (titleImg) {
         titleImg.src = isLight ? 'title-light.png' : 'title.png';
@@ -130,7 +191,6 @@ if ($settingsThemeToggle) {
     $settingsThemeToggle.addEventListener('change', (e) => applyTheme(!e.target.checked));
 }
 
-// 主题色
 const savedThemeColor = localStorage.getItem('themeColor') || 'red';
 document.body.classList.add(`theme-${savedThemeColor}`);
 if (themeColorPicker) {
@@ -148,7 +208,6 @@ if (themeColorPicker) {
     });
 }
 
-// 翻译开关
 if ($translateToggle) {
     $translateToggle.checked = window.getTranslationEnabled ? window.getTranslationEnabled() : false;
     $translateToggle.addEventListener('change', (e) => {
@@ -164,12 +223,11 @@ if ($translateToggle) {
     });
 }
 
-// ========== 设置面板 ==========
 window.openSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.add('show'); };
 window.closeSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.remove('show'); };
 if ($settingsBtn) $settingsBtn.addEventListener('click', openSettingsPanel);
 
-// ========== 页面切换 ==========
+// ========== 页面切换（同时控制右下角背景图） ==========
 window.showDetailPage = function () {
     currentPage = 'detail';
     if ($detailPage) $detailPage.classList.remove('hidden');
@@ -177,17 +235,10 @@ window.showDetailPage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
     setActiveSidebarItem('sidebarHome');
+    setHomeBackgroundVisibility(true);
     const activeModel = document.querySelector('.nav-item.active')?.dataset?.modelId;
     if (!activeModel && $display) {
         (async () => {
-            let trickText = '';
-            try {
-                const resp = await fetch('modeldata/tricks.json');
-                const tricks = await resp.json();
-                if (Array.isArray(tricks) && tricks.length > 0) {
-                    trickText = tricks[Math.floor(Math.random() * tricks.length)];
-                }
-            } catch (e) {}
             const randomImg = Math.floor(Math.random() * 9) + 1;
             const startImgUrl = `modeldata/model-images/startpage/${randomImg}.png`;
             $display.innerHTML = `
@@ -203,9 +254,6 @@ window.showDetailPage = function () {
                     <div class="welcome-stats">
                         已收录 <span>${masterModelList.length}</span> 个型号
                     </div>
-                    ${trickText ? `<div class="welcome-trick">${trickText}</div>` : ''}
-                    <img class="welcome-corner-img" src="${startImgUrl}" alt=""
-                         onerror="this.style.display='none'">
                 </div>`;
         })();
     }
@@ -219,6 +267,7 @@ window.showComparePage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     setActiveSidebarItem(null);
     if ($sidebarCompare) $sidebarCompare.classList.add('compare-active');
+    setHomeBackgroundVisibility(false);
     closeSearchModal();
     if (comparePending) {
         if ($comparePageResult) $comparePageResult.innerHTML = '';
@@ -227,18 +276,32 @@ window.showComparePage = function () {
     updateCompareActionBtn();
 };
 if ($sidebarCompare) $sidebarCompare.addEventListener('click', () => { if (currentPage === 'compare') return; showComparePage(); });
-window.openCompareSelectModal = function () { showComparePage(); };
 
-// ========== 收藏页面 ==========
 window.showFavoritesPage = function () {
     currentPage = 'favorites';
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.remove('active');
     if ($favoritesPage) $favoritesPage.classList.add('active');
     setActiveSidebarItem('sidebarFavorites');
+    setHomeBackgroundVisibility(false);
     closeSearchModal();
     renderFavoritesPage();
 };
+
+window.showGeneratorPage = function () {
+    currentPage = 'generator';
+    document.getElementById('detailPage')?.classList.add('hidden');
+    document.getElementById('comparePage')?.classList.remove('active');
+    document.getElementById('favoritesPage')?.classList.remove('active');
+    document.getElementById('generatorPage')?.classList.add('active');
+    setActiveSidebarItem('sidebarGenerator');
+    setHomeBackgroundVisibility(false);
+    closeSearchModal();
+    if (window.initGenerator) {
+        window.initGenerator();
+    }
+};
+
 function renderFavoritesPage() {
     const list = masterModelList.filter(m => favorites.includes(m.model_name));
     if ($favoritesPageSubtitle) $favoritesPageSubtitle.textContent = `已收藏 ${list.length} 个型号`;
@@ -257,7 +320,6 @@ window.selectFavoriteFromPage = async function (name) {
 window.removeFavoriteFromPage = function (name) { toggleFavorite(name); renderFavoritesPage(); const btn = $('#favToggleBtn'); if (btn && btn.dataset.model === name) btn.textContent = '☆ 收藏'; };
 const sidebarFavBtn = $('#sidebarFavorites');
 if (sidebarFavBtn) sidebarFavBtn.addEventListener('click', () => { if (currentPage === 'favorites') return; showFavoritesPage(); });
-window.openFavoritesModal = function () { showFavoritesPage(); };
 
 // ========== 型号选择覆盖面板 ==========
 window.openModelPanel = function () {
@@ -316,7 +378,6 @@ function syncFiltersFromPanel() {
     if ($panelGenerationSel) currentGenValue = $panelGenerationSel.value;
     if ($familySel && $panelFamilySel) $familySel.value = currentFamilyValue;
     if ($genSel && $panelGenerationSel) $genSel.value = currentGenValue;
-    updateFilterSummary();
 }
 if ($modelPanelSearch) $modelPanelSearch.addEventListener('input', e => { renderModelPanelList(e.target.value.toLowerCase()); });
 if ($panelFamilyBtn) $panelFamilyBtn.addEventListener('click', () => { currentFilterType = 'family'; $panelFamilyBtn.classList.add('filter-active'); if ($panelGenBtn) $panelGenBtn.classList.remove('filter-active'); if ($panelFamilySel) $panelFamilySel.style.display = 'block'; if ($panelGenerationSel) $panelGenerationSel.style.display = 'none'; renderModelPanelList($modelPanelSearch ? $modelPanelSearch.value.toLowerCase() : ''); });
@@ -368,22 +429,8 @@ async function loadIndex() {
         updateFavCount();
         updateWelcomeStats();
 
-        // 随机语录
-        let trickText = '';
-        try {
-            const trickResp = await fetch('modeldata/tricks.json');
-            if (trickResp.ok) {
-                const tricks = await trickResp.json();
-                if (Array.isArray(tricks) && tricks.length > 0) {
-                    trickText = tricks[Math.floor(Math.random() * tricks.length)];
-                }
-            }
-        } catch (e) { /* 忽略 */ }
-
-        // 随机右下角图片
-        const randomImg = Math.floor(Math.random() * 9) + 1; // 1~9
+        const randomImg = Math.floor(Math.random() * 9) + 1;
         const startImgUrl = `modeldata/model-images/startpage/${randomImg}.png`;
-
         if ($display) {
             $display.innerHTML = `
                 <div class="welcome-page">
@@ -398,15 +445,16 @@ async function loadIndex() {
                     <div class="welcome-stats">
                         已收录 <span>${masterModelList.length}</span> 个型号
                     </div>
-                    ${trickText ? `<div class="welcome-trick">${trickText}</div>` : ''}
-                    <img class="welcome-corner-img" src="${startImgUrl}" alt=""
-                         onerror="this.style.display='none'">
                 </div>`;
         }
+        // 加载底部全局语录 和 右下角背景图
+        await loadTricksAndDisplay();
+        initHomeBackgroundImage();
+        // 初始默认显示主页，显示背景图
+        setHomeBackgroundVisibility(true);
     } catch (e) { console.error('加载索引失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载数据失败</div>'; }
 }
 
-// ========== 筛选 ==========
 function populateFilters() {
     if ($familySel) {
         const families = [...new Set(masterModelList.map(m => m.model_family).filter(Boolean))].sort();
@@ -441,15 +489,11 @@ if ($genSel) $genSel.addEventListener('change', e => { currentGenValue = e.targe
 const resetBtn = $('#resetFilterBtn');
 if (resetBtn) resetBtn.addEventListener('click', () => { if ($familySel) $familySel.value = ''; if ($genSel) $genSel.value = ''; currentFamilyValue = ''; currentGenValue = ''; selectedModels = []; applyFilter(); });
 
-// ========== 卡片折叠 ==========
 window.toggleCard = function (el) { const card = el.closest('.card'); if (card) card.classList.toggle('folded'); };
-
-// ========== 菜单悬停 ==========
 window.menuTimers = {};
 window.menuEnter = function (menuId) { if (window.menuTimers[menuId]) { clearTimeout(window.menuTimers[menuId]); delete window.menuTimers[menuId]; } const menu = document.getElementById(menuId); if (menu) menu.classList.remove('hidden'); };
 window.menuLeave = function (menuId) { window.menuTimers[menuId] = setTimeout(() => { const menu = document.getElementById(menuId); if (menu) menu.classList.add('hidden'); delete window.menuTimers[menuId]; }, 150); };
 
-// ========== FRU ==========
 window.closeFruModal = function () { const modal = $('#fruModal'); if (modal) modal.classList.remove('show'); };
 function showFruModal(data) {
     if (!$fruModalBody) return;
@@ -470,7 +514,6 @@ function showFruModal(data) {
 window.showFruModalByPart = function (partData) { showFruModal(partData); };
 window.showFruModalByPartId = function (partId) { if (!currentDeviceParts) return; const [type, index] = partId.split('_'); const part = currentDeviceParts[type]?.[parseInt(index)]; if (part) showFruModal(part.data); };
 
-// ========== 搜索 ==========
 window.closeSearchModal = function () { const modal = $('#searchModal'); if (modal) modal.classList.remove('show'); };
 window.openSearchModal = function () { const modal = $('#searchModal'); if (!modal) return; modal.classList.add('show'); if ($searchInput) { $searchInput.focus(); $searchInput.value = ''; } if ($searchResults) $searchResults.innerHTML = ''; };
 if ($searchInput) {
@@ -512,7 +555,6 @@ window.selectFromSearch = async function (name) {
 const searchModalEl = $('#searchModal');
 if (searchModalEl) searchModalEl.addEventListener('click', function (e) { if (e.target === this) closeSearchModal(); });
 
-// ========== 对比页面逻辑 ==========
 window.closeCompareSelectModal = function () { const modal = $('#compareSelectModal'); if (modal) modal.classList.remove('show'); };
 window.toggleSelectModel = function (name, checked) { const model = masterModelList.find(m => m.model_name === name); if (!model) return; if (checked) { if (!selectedModels.some(m => m.model_name === name)) selectedModels.push(model); } else selectedModels = selectedModels.filter(m => m.model_name !== name); };
 window.clearSelectedModels = function () { selectedModels = []; };
@@ -562,7 +604,6 @@ if (runBtn) {
     });
 }
 
-// ========== 辅助渲染函数 ==========
 function makeCard(title, contentHtml, useFlow = false) {
     const bodyClass = useFlow ? 'card-body card-body-flow' : 'card-body';
     return `<div class="card"><div class="card-title" onclick="toggleCard(this)"><span>${title}</span><span class="card-chevron">▼</span></div><div class="${bodyClass}">${contentHtml}</div></div>`;
@@ -597,7 +638,6 @@ function renderStorageItems(storage) {
     }).join('');
 }
 
-// ========== 渲染对比结果表 ==========
 function renderCompareResultTable(devicesWithParts) {
     function formatMemory(model) { if (!model.memory) return 'N/A'; let html = ''; if (model.memory.max_capacity) html += `${model.memory.max_capacity}`; if (model.memory.type) html += ` ${model.memory.type}`; if (model.memory.slots) html += ` (${model.memory.slots}插槽)`; return html.trim() || 'N/A'; }
     function formatStorage(model) { if (!model.storage) return 'N/A'; const labels = { ssd_sata: 'SATA', ssd_pcie: 'PCIe', hdd: 'HDD', sshd: 'SSHD', optical: '光驱', floppy: '软驱', optane: '傲腾', emmc: 'eMMC' }; return Object.entries(model.storage).filter(([, v]) => v && typeof v === 'string' && v.trim() !== '').map(([k, v]) => `<div>${labels[k] || k}: ${v}</div>`).join('') || 'N/A'; }
@@ -764,7 +804,6 @@ function renderCompareResultTable(devicesWithParts) {
     }
 }
 
-// ========== 字段名映射 ==========
 const PART_FIELD_LABELS = {
     'model': '型号', 'type': '类型', 'Architecture': '架构', 'generation': '代数', 'family': '系列',
     'cores_threads': '核心/线程', 'base_freq': '基础频率', 'turbo_freq': '睿频', 'cache': '缓存', 'TDP': 'TDP', 'graphics': '集成显卡', 'socket': '插槽', 'process': '制程',
@@ -805,7 +844,6 @@ window.togglePartDetail = async function (detailId, type, filename) {
     }
 };
 
-// ========== 旧版对比弹窗（保留） ==========
 window.closeCompareModal = function () { const modal = $('#compareModal'); if (modal) modal.classList.remove('show'); };
 const confirmBtn = $('#confirmCompareBtn');
 if (confirmBtn) confirmBtn.addEventListener('click', async () => { if (selectedModels.length === 0) return; for (const m of selectedModels) { if (m._isLight) await loadModelFile(m.filename); } const modal = $('#compareSelectModal'); if (modal) modal.classList.remove('show'); showCompareModalLegacy(); });
@@ -862,7 +900,6 @@ function formatPartFullInfo(data, type) {
     return lines.join('<br>') || 'N/A';
 }
 
-// ========== 零件加载 ==========
 async function loadPartData(type, filename) {
     if (!filename) return null;
     let fullName = filename.endsWith('.json') ? filename : filename + '.json';
@@ -893,7 +930,6 @@ async function loadDeviceParts(device) {
     return parts;
 }
 
-// ========== 收藏 ==========
 function isFavorite(name) { return favorites.includes(name); }
 function toggleFavorite(name) { const idx = favorites.indexOf(name); if (idx >= 0) favorites.splice(idx, 1); else favorites.push(name); localStorage.setItem('tp_favs', JSON.stringify(favorites)); updateFavCount(); const btn = $('#favToggleBtn'); if (btn && btn.dataset.model === name) btn.textContent = isFavorite(name) ? '★ 已收藏' : '☆ 收藏'; }
 function updateFavCount() {
@@ -901,10 +937,8 @@ function updateFavCount() {
     if (currentPage === 'favorites' && $favoritesPageSubtitle) $favoritesPageSubtitle.textContent = `已收藏 ${favorites.length} 个型号`;
 }
 
-// ========== 切换型号 ==========
 window.switchToModel = async function (name) { let model = masterModelList.find(m => m.model_name === name); if (model && model._isLight) { await loadModelFile(model.filename); model = masterModelList.find(m => m.model_name === name); } if (model) renderSpecs(model); };
 
-// ========== 渲染详情 ==========
 function renderPartCard(partsArr, title, type, useFlow = false) {
     if (!partsArr || partsArr.length === 0) return makeCard(title, '<span style="color:var(--text-muted);">无</span>', useFlow);
     const itemsHtml = partsArr.map((part, idx) => {
@@ -1002,34 +1036,25 @@ async function renderSpecs(data) {
         const psref = getUrl(data.PSREF_link), guide = getUrl(data.user_guide_link), hmm = getUrl(data.HMM_link);
         const addonsHtml = data.addons ? `<div style="color:var(--text-muted);font-size:12px;margin-top:-12px;margin-bottom:12px;">${data.addons}</div>` : '';
 
-        // ========== 轮播图片卡片（图片最大 300x300） ==========
         const imageAngles = ['main', 'left', 'right', 'front', 'back', 'top', 'bottom', 'full'];
         const imageFolder = data.filename ? data.filename.replace(/\.json$/i, '') : data.model_name.replace(/\s+/g, '_');
-        const imagesData = imageAngles.map(angle => ({
-            angle,
-            url: `modeldata/model-images/${encodeURIComponent(imageFolder)}/${angle}.avif`
-        }));
+        const imagesData = imageAngles.map(angle => ({ angle, url: `modeldata/model-images/${encodeURIComponent(imageFolder)}/${angle}.avif` }));
 
-const imageCardHtml = `
-<div class="card" id="modelImageCard" style="display:none;">
-    <div class="card-title" onclick="toggleCard(this)">
-        <span>机型外观</span><span class="card-chevron">▼</span>
-    </div>
-    <div class="card-body" style="height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0; position: relative;">
-        <img id="currentModelImage" src="${imagesData[0].url}" alt="${data.model_name}"
-             style="max-width: 300px; max-height: 300px; border-radius: 12px; object-fit: contain; display: none;">
-        <div id="image-nav-buttons" style="margin-top: 12px; display: none; position: absolute; bottom: 8px; left: 0; right: 0;">
-            <button id="prev-image-btn" class="btn btn-sm">◀ 上一张</button>
-            <span id="image-counter" style="margin:0 12px; font-size:13px; color:var(--text-secondary);"></span>
-            <button id="next-image-btn" class="btn btn-sm">下一张 ▶</button>
-        </div>
-    </div>
-</div>`;
-
-        function makeCard(title, contentHtml, useFlow = false) {
-            const bodyClass = useFlow ? 'card-body card-body-flow' : 'card-body';
-            return `<div class="card"><div class="card-title" onclick="toggleCard(this)"><span>${title}</span><span class="card-chevron">▼</span></div><div class="${bodyClass}">${contentHtml}</div></div>`;
-        }
+        const imageCardHtml = `
+        <div class="card" id="modelImageCard" style="display:none;">
+            <div class="card-title" onclick="toggleCard(this)">
+                <span>机型外观</span><span class="card-chevron">▼</span>
+            </div>
+            <div class="card-body" style="height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0; position: relative;">
+                <img id="currentModelImage" src="${imagesData[0].url}" alt="${data.model_name}"
+                     style="max-width: 300px; max-height: 300px; border-radius: 12px; object-fit: contain; display: none;">
+                <div id="image-nav-buttons" style="margin-top: 12px; display: none; position: absolute; bottom: 8px; left: 0; right: 0;">
+                    <button id="prev-image-btn" class="btn btn-sm">◀ 上一张</button>
+                    <span id="image-counter" style="margin:0 12px; font-size:13px; color:var(--text-secondary);"></span>
+                    <button id="next-image-btn" class="btn btn-sm">下一张 ▶</button>
+                </div>
+            </div>
+        </div>`;
 
         const memoryCard = makeCard('内存', `<div class="info-row"><span class="info-label">容量</span><span class="info-value">${data.memory?.max_capacity || 'N/A'}</span></div><div class="info-row"><span class="info-label">类型</span><span class="info-value">${data.memory?.type || 'N/A'}</span></div><div class="info-row"><span class="info-label">插槽</span><span class="info-value">${data.memory?.slots || 'N/A'}</span></div>${data.memory?.features ? `<div class="info-row"><span class="info-label">特性</span><span class="info-value">${data.memory.features}</span></div>` : ''}`);
         const storageCard = makeCard('存储', renderStorageItems(data.storage));
@@ -1068,8 +1093,6 @@ const imageCardHtml = `
 
         if ($display) {
             $display.innerHTML = html;
-
-            // ***** 轮播控制 *****
             const imageCard = document.getElementById('modelImageCard');
             if (imageCard) {
                 const currentImg = document.getElementById('currentModelImage');
@@ -1077,79 +1100,40 @@ const imageCardHtml = `
                 const nextBtn = document.getElementById('next-image-btn');
                 const counterSpan = document.getElementById('image-counter');
                 const navContainer = document.getElementById('image-nav-buttons');
-
-                if (!currentImg || !prevBtn || !nextBtn || !counterSpan || !navContainer) return;
-
-                let validImages = [];
-                let currentIndex = 0;
-
-                let loadPromises = imagesData.map(({angle, url}) => {
-                    return new Promise((resolve) => {
+                if (currentImg && prevBtn && nextBtn && counterSpan && navContainer) {
+                    let validImages = [];
+                    let currentIndex = 0;
+                    let loadPromises = imagesData.map(({angle, url}) => new Promise((resolve) => {
                         const img = new Image();
                         img.onload = () => resolve({angle, url, valid: true});
                         img.onerror = () => resolve({angle, url, valid: false});
                         img.src = url;
-                    });
-                });
-
-                Promise.all(loadPromises).then(results => {
-                    validImages = results.filter(r => r.valid);
-
-                    if (validImages.length === 0) {
-                        imageCard.style.display = 'none';
-                        return;
-                    }
-
-                    imageCard.style.display = '';
-                    navContainer.style.display = '';
-
-                    const mainIndex = validImages.findIndex(img => img.angle === 'main');
-                    if (mainIndex >= 0) currentIndex = mainIndex;
-                    else currentIndex = 0;
-
-                    updateDisplay();
-
-                    prevBtn.addEventListener('click', () => {
-                        currentIndex = (currentIndex - 1 + validImages.length) % validImages.length;
+                    }));
+                    Promise.all(loadPromises).then(results => {
+                        validImages = results.filter(r => r.valid);
+                        if (validImages.length === 0) { imageCard.style.display = 'none'; return; }
+                        imageCard.style.display = ''; navContainer.style.display = '';
+                        const mainIndex = validImages.findIndex(img => img.angle === 'main');
+                        if (mainIndex >= 0) currentIndex = mainIndex; else currentIndex = 0;
+                        function updateDisplay() {
+                            const img = validImages[currentIndex];
+                            if (img) { currentImg.src = img.url; currentImg.alt = `${data.model_name} - ${img.angle}`; currentImg.style.display = 'inline-block'; counterSpan.textContent = `${currentIndex + 1} / ${validImages.length}`; }
+                        }
                         updateDisplay();
+                        prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + validImages.length) % validImages.length; updateDisplay(); });
+                        nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % validImages.length; updateDisplay(); });
                     });
-                    nextBtn.addEventListener('click', () => {
-                        currentIndex = (currentIndex + 1) % validImages.length;
-                        updateDisplay();
-                    });
-                });
-
-                function updateDisplay() {
-                    const img = validImages[currentIndex];
-                    if (img) {
-                        currentImg.src = img.url;
-                        currentImg.alt = `${data.model_name} - ${img.angle}`;
-                        currentImg.style.display = 'inline-block';
-                        counterSpan.textContent = `${currentIndex + 1} / ${validImages.length}`;
-                    }
                 }
             }
         }
     } catch (e) { console.error('渲染失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载规格数据失败</div>'; }
 }
-// 显示 JSON 生成器页面
-window.showGeneratorPage = function () {
-    currentPage = 'generator';
-    document.getElementById('detailPage')?.classList.add('hidden');
-    document.getElementById('comparePage')?.classList.remove('active');
-    document.getElementById('favoritesPage')?.classList.remove('active');
-    document.getElementById('generatorPage')?.classList.add('active');
-    setActiveSidebarItem('sidebarGenerator');
-    closeSearchModal();
-    if (window.initGenerator) {
-        window.initGenerator();
-    }
-};
 
-// 收藏按钮实际函数（确保与 HTML 一致）
-window.showFavoritesPage = window.showFavoritesPage || (() => {
-    // 如果原来没有则定义，但通常已有
-});
+// 刷新底部语录按钮事件
+if ($refreshTrickBtn) {
+    $refreshTrickBtn.addEventListener('click', () => {
+        refreshRandomTrick();
+    });
+}
 
-// ========== 启动 ==========
 loadIndex();

@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ThinkPad Specs</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://rawiic.github.io">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="sidebar-overlay" class="modal-overlay" style="z-index:99;">
@@ -13,11 +13,11 @@
     </div>
 
     <aside>
-<div class="sidebar-header">
-    <span class="dot"></span>
-    <img src="title.png" alt="ThinkPad" class="sidebar-title-img" id="sidebarTitleImg">
-    <span class="sidebar-title-text">Specs</span>
-</div>
+        <div class="sidebar-header">
+            <span class="dot"></span>
+            <img src="title.png" alt="ThinkPad" class="sidebar-title-img" id="sidebarTitleImg">
+            <span class="sidebar-title-text">Specs</span>
+        </div>
         <div class="sidebar-section">
             <div class="sidebar-section-label">导航</div>
             <button class="sidebar-item active" id="sidebarHome" onclick="showHome()">
@@ -182,9 +182,19 @@
                 </div>
             </div>
         </div>
+
+        <!-- 全局浮动背景图 (仅主页右下角显示) -->
+        <img id="globalHomeBg" class="home-bg-image" style="display: none;" alt="ThinkPad 装饰背景" loading="lazy">
+
+        <!-- 全局底部随机语录栏 -->
+        <div id="globalTrickBar" class="global-trick-bar">
+            <span class="trick-icon">💡</span>
+            <span id="globalTrickText" class="trick-text">加载经典语录中...</span>
+            <button id="refreshTrickBtn" class="btn trick-refresh-btn">换一句 ✨</button>
+        </div>
     </main>
 
-    <!-- 模态框保持原样 -->
+    <!-- 模态框结构 -->
     <div id="fruModal" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-header">可能使用的 FRU <button class="modal-close" onclick="closeFruModal()">×</button></div>
