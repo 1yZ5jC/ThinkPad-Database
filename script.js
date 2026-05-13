@@ -114,14 +114,11 @@ function refreshRandomTrick() {
     }
 }
 
-// 控制主页专属元素（背景图 + 语录栏）显隐
+// 控制“主页专属元素”（背景图 + 底部语录栏）的显隐
+// 注意：仅在未选择任何型号的欢迎页（即欢迎页可见时）显示，详情页隐藏
 function setHomeOnlyElementsVisible(visible) {
     if ($globalHomeBg) {
-        if (visible && $globalHomeBg.src && $globalHomeBg.src !== '') {
-            $globalHomeBg.style.display = 'block';
-        } else {
-            $globalHomeBg.style.display = 'none';
-        }
+        $globalHomeBg.style.display = visible ? 'block' : 'none';
     }
     if ($globalTrickBar) {
         $globalTrickBar.style.display = visible ? 'flex' : 'none';
@@ -139,7 +136,10 @@ function initHomeBackgroundImage() {
         $globalHomeBg.style.display = 'none';
     };
     $globalHomeBg.onload = () => {
-        if (currentPage === 'detail') setHomeOnlyElementsVisible(true);
+        // 初始加载完成时，如果是欢迎页且没有活动型号则显示
+        if (currentPage === 'detail' && !document.querySelector('.nav-item.active')?.dataset?.modelId) {
+            setHomeOnlyElementsVisible(true);
+        }
     };
 }
 
@@ -230,7 +230,7 @@ window.openSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.
 window.closeSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.remove('show'); };
 if ($settingsBtn) $settingsBtn.addEventListener('click', openSettingsPanel);
 
-// ========== 页面切换（控制主页专属元素） ==========
+// ========== 页面切换（控制主页专属元素的显示） ==========
 window.showDetailPage = function () {
     currentPage = 'detail';
     if ($detailPage) $detailPage.classList.remove('hidden');
@@ -238,27 +238,14 @@ window.showDetailPage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
     setActiveSidebarItem('sidebarHome');
-    setHomeOnlyElementsVisible(true);  // 显示背景图和底部语录栏
-    const activeModel = document.querySelector('.nav-item.active')?.dataset?.modelId;
-    if (!activeModel && $display) {
-        (async () => {
-            const randomImg = Math.floor(Math.random() * 9) + 1;
-            const startImgUrl = `modeldata/model-images/startpage/${randomImg}.png`;
-            $display.innerHTML = `
-                <div class="welcome-page">
-                    <div class="welcome-icon">💻</div>
-                    <div class="welcome-title">ThinkPad Specs</div>
-                    <div class="welcome-subtitle">ThinkPad 型号规格查询工具</div>
-                    <div class="welcome-actions">
-                        <button class="btn btn-accent" onclick="openModelPanel()">选择型号</button>
-                        <button class="btn" onclick="showComparePage()">型号对比</button>
-                        <button class="btn" onclick="showFavoritesPage()">我的收藏</button>
-                    </div>
-                    <div class="welcome-stats">
-                        已收录 <span>${masterModelList.length}</span> 个型号
-                    </div>
-                </div>`;
-        })();
+
+    // 判断当前是否处于欢迎页（即没有选中任何型号）
+    const activeModelEl = document.querySelector('.nav-item.active');
+    const hasActiveModel = activeModelEl && activeModelEl.dataset?.modelId;
+    if (!hasActiveModel && $display && $display.querySelector('.welcome-page')) {
+        setHomeOnlyElementsVisible(true);
+    } else {
+        setHomeOnlyElementsVisible(false);
     }
 };
 window.showHome = function () { showDetailPage(); };
@@ -270,7 +257,7 @@ window.showComparePage = function () {
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     setActiveSidebarItem(null);
     if ($sidebarCompare) $sidebarCompare.classList.add('compare-active');
-    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
+    setHomeOnlyElementsVisible(false);  // 对比页隐藏
     closeSearchModal();
     if (comparePending) {
         if ($comparePageResult) $comparePageResult.innerHTML = '';
@@ -286,7 +273,7 @@ window.showFavoritesPage = function () {
     if ($comparePage) $comparePage.classList.remove('active');
     if ($favoritesPage) $favoritesPage.classList.add('active');
     setActiveSidebarItem('sidebarFavorites');
-    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
+    setHomeOnlyElementsVisible(false);  // 收藏页隐藏
     closeSearchModal();
     renderFavoritesPage();
 };
@@ -298,7 +285,7 @@ window.showGeneratorPage = function () {
     document.getElementById('favoritesPage')?.classList.remove('active');
     document.getElementById('generatorPage')?.classList.add('active');
     setActiveSidebarItem('sidebarGenerator');
-    setHomeOnlyElementsVisible(false);  // 隐藏背景图和语录栏
+    setHomeOnlyElementsVisible(false);  // 生成器页隐藏
     closeSearchModal();
     if (window.initGenerator) {
         window.initGenerator();
@@ -453,7 +440,7 @@ async function loadIndex() {
         // 加载底部全局语录
         await loadTricksAndDisplay();
         initHomeBackgroundImage();
-        // 初始处于主页，显示背景图和语录栏
+        // 初始显示欢迎页，显示背景和语录
         setHomeOnlyElementsVisible(true);
     } catch (e) { console.error('加载索引失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载数据失败</div>'; }
 }
@@ -786,11 +773,11 @@ function renderCompareResultTable(devicesWithParts) {
         else {
             diffHtml += '<tr>';
             diffHtml += `<td><b>${row.label}</b></td>`;
-            devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}<td>`);
+            devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}</td>`);
             diffHtml += '</tr>';
         }
     });
-    diffHtml += '</tbody></table></div></div>';
+    diffHtml += '</tbody><tr></div></div>';
 
     let headerHtml = `<div class="compare-header"><div class="compare-header-models">`;
     devicesWithParts.forEach(d => { headerHtml += `<div class="compare-header-model">${d.model.model_name}</div>`; });
@@ -1026,6 +1013,10 @@ async function renderSpecs(data) {
     if (!data) return;
     currentModelData = data;
     if (currentPage !== 'detail') showDetailPage();
+    
+    // 进入具体型号详情页后，隐藏背景图和底部语录栏
+    setHomeOnlyElementsVisible(false);
+    
     if (data._isLight) { if ($display) $display.innerHTML = '<div class="loading-text">加载型号数据中...</div>'; await loadModelFile(data.filename); data = masterModelList.find(m => m.model_name === data.model_name) || data; }
     if ($display) $display.innerHTML = '<div class="loading-text">加载规格数据中...</div>';
     try {
@@ -1064,8 +1055,8 @@ async function renderSpecs(data) {
         const bats = data.Battary || data.battery || [];
         const batteryCard = makeCard('电池与续航', renderBatteryItems(bats));
         let touchPenHtml = ''; if (data.touch || data.pen) { const items = []; if (data.touch) items.push(`<div class="info-row"><span class="info-label">触摸</span><span class="info-value">${Array.isArray(data.touch) ? data.touch.join('、') : data.touch}</span></div>`); if (data.pen) items.push(`<div class="info-row"><span class="info-label">笔</span><span class="info-value">${Array.isArray(data.pen) ? data.pen.join('、') : data.pen}</span></div>`); touchPenHtml = makeCard('触摸与笔', items.join('')); }
-        const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr><tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
-        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><tr><th>重量</th><td>${data.physical?.weight || 'N/A'}<tr></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
+        const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td><tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr><tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
+        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td><tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
 
         let html = `
             <div class="page-title" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
