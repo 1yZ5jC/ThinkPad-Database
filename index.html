@@ -33,115 +33,49 @@
             </button>
         </div>
         <div class="sidebar-divider"></div>
-
-        <!-- 选择型号按钮 -->
+        <!-- 选择型号（筛选 + 搜索 + 列表合并） -->
         <div class="sidebar-section nav-section">
-            <button class="sidebar-item" id="openModelPanelBtn" onclick="openModelPanel()">
-                <span class="item-icon">💻</span>
-                <span class="item-label">选择型号</span>
-            </button>
-        </div>
-
-        <!-- 设置按钮 -->
-        <div class="sidebar-section settings-section">
-            <button class="sidebar-item" id="settingsBtn">
-                <span class="item-icon">⚙️</span>
-                <span class="item-label">设置</span>
-            </button>
-        </div>
-
-        <!-- 型号筛选与选择覆盖面板 -->
-        <div id="modelSelectOverlay" class="model-select-overlay">
-            <div class="model-select-header">
-                <button class="model-select-back" onclick="closeModelPanel()">← 返回</button>
+            <div class="sidebar-section-label filter-collapse-header" id="filterCollapseHeader">
                 <span>选择型号</span>
+                <span class="model-count-badge" id="modelCount">0</span>
+                <span class="filter-collapse-summary" id="filterSummary">系列 · 全部</span>
+                <span class="filter-collapse-arrow">▼</span>
             </div>
-            <div class="model-select-search">
-                <input type="text" id="modelPanelSearch" class="filter-select" placeholder="搜索型号...">
-            </div>
-            <div class="model-select-filters">
-                <div class="filter-row">
-                    <button id="panelFilterFamilyBtn" class="sidebar-footer-btn filter-active">按系列</button>
-                    <button id="panelFilterGenBtn" class="sidebar-footer-btn">按代数</button>
+            <div class="filter-collapse-body" id="filterCollapseBody">
+                <div style="padding: 4px 16px;">
+                    <div class="filter-row">
+                        <button id="filterFamilyBtn" class="sidebar-footer-btn filter-active">按系列</button>
+                        <button id="filterGenBtn" class="sidebar-footer-btn">按代数</button>
+                    </div>
+                    <select id="familySelect" class="filter-select"><option value="">全部系列</option></select>
+                    <select id="generationSelect" class="filter-select" style="display:none;"><option value="">全部代数</option></select>
+                    <input type="text" id="sidebarSearchInput" class="filter-select" placeholder="搜索型号..." style="margin-top:6px;">
+                    <button id="resetFilterBtn" class="sidebar-footer-btn" style="width:100%;justify-content:center;margin-top:4px;">重置筛选</button>
                 </div>
-                <select id="panelFamilySelect" class="filter-select"><option value="">全部系列</option></select>
-                <select id="panelGenerationSelect" class="filter-select" style="display:none;"><option value="">全部代数</option></select>
-                <button id="panelResetFilterBtn" class="sidebar-footer-btn" style="width:100%;justify-content:center;margin-top:4px;">重置筛选</button>
             </div>
-            <div id="modelPanelList" class="model-select-list"></div>
+            <div id="modelMenu"></div>
         </div>
-
-        <!-- 设置覆盖面板 -->
-        <div id="settingsOverlay" class="settings-overlay">
-            <div class="settings-header">
-                <button class="settings-back" onclick="closeSettingsPanel()">← 返回</button>
-                <span>设置</span>
-            </div>
-            <div class="settings-body">
-                <!-- 主题切换行 -->
-                <div class="settings-row">
-                    <span class="settings-label">深色模式</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="settingsThemeToggle">
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-                <!-- 增强翻译行 -->
-<div class="settings-row">
-    <span class="settings-label">增强中文翻译</span>
-    <label class="toggle-switch">
-        <input type="checkbox" id="settingsTranslateToggle">
-        <span class="toggle-slider"></span>
-    </label>
-</div>
-                <!-- JSON生成器 -->
-                <a class="settings-link" href="generator.html" target="_blank" rel="noopener">
-                    <span class="settings-link-icon">🛠️</span>
-                    <span>JSON 生成器</span>
-                    <span class="settings-link-arrow">→</span>
-                </a>
-                <!-- 旧版网页 -->
-                <a class="settings-link" href="index_old.html" target="_blank" rel="noopener">
-                    <span class="settings-link-icon">🤔</span>
-                    <span>旧版页面</span>
-                    <span class="settings-link-arrow">→</span>
-                </a>
-                <!-- 主题色选择行 -->
-<div class="settings-row" style="flex-direction: column; align-items: flex-start; gap: 12px;">
-      <span class="settings-label">主题色</span>
-      <div class="theme-color-picker" id="themeColorPicker">
-          <button class="color-swatch active" data-color="red" style="background: #e60012;" title="经典红"></button>
-          <button class="color-swatch" data-color="blue" style="background: #2563eb;" title="深海蓝"></button>
-          <button class="color-swatch" data-color="green" style="background: #16a34a;" title="松石绿"></button>
-          <button class="color-swatch" data-color="purple" style="background: #9333ea;" title="暗夜紫"></button>
-          <button class="color-swatch" data-color="amber" style="background: #d97706;" title="琥珀橙"></button>
-      </div>
-  </div>       
-            </div>
+            <div class="sidebar-footer">
+            <button id="themeToggleSidebar" class="sidebar-footer-btn" title="切换主题">🌙</button>
+            <a class="sidebar-footer-btn" href="generator.html" target="_blank" rel="noopener">🛠️</a>
+            <a class="sidebar-footer-btn" href="index_old.html" target="_blank" rel="noopener">🤔</a>
         </div>
     </aside>
 
     <main>
         <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
 
+        <!-- 型号详情页 -->
         <div id="detailPage" class="detail-page">
             <div id="specDisplay">
-                <div class="welcome-page">
-                    <div class="welcome-icon">💻</div>
-                    <div class="welcome-title">ThinkPad Specs</div>
-                    <div class="welcome-subtitle">ThinkPad 型号规格查询工具</div>
-                    <div class="welcome-actions">
-                        <button class="btn btn-accent" onclick="openModelPanel()">选择型号</button>
-                        <button class="btn" onclick="showComparePage()">型号对比</button>
-                        <button class="btn" onclick="showFavoritesPage()">我的收藏</button>
-                    </div>
-                    <div class="welcome-stats" id="welcomeStats">
-                        已收录 <span id="welcomeModelCount">0</span> 个型号
-                    </div>
+                <div style="text-align:center;padding-top:80px;color:var(--text-muted);">
+                    <div style="font-size:40px;margin-bottom:16px;">💻</div>
+                    <div style="font-size:18px;font-weight:600;">请从左侧选择型号</div>
                 </div>
             </div>
         </div>
 
+        <!-- 对比页 -->
         <div id="comparePage" class="compare-page">
             <div class="page-title">型号对比</div>
             <div class="page-subtitle">选择要对比的型号，最多建议 5 个</div>
@@ -154,6 +88,7 @@
             <div id="comparePageResult" class="compare-result-area"></div>
         </div>
 
+        <!-- 收藏页 -->
         <div id="favoritesPage" class="compare-page">
             <div class="page-title">我的收藏</div>
             <div class="page-subtitle" id="favoritesPageSubtitle">已收藏 0 个型号</div>
@@ -180,7 +115,7 @@
         </div>
     </div>
 
-    <!-- 对比选择模态框 -->
+    <!-- 对比选择模态框（保留向后兼容） -->
     <div id="compareSelectModal" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-header">选择对比型号 <button class="modal-close" onclick="closeCompareSelectModal()">×</button></div>
@@ -195,7 +130,7 @@
         </div>
     </div>
 
-    <!-- 对比结果模态框 -->
+    <!-- 对比结果模态框（保留向后兼容） -->
     <div id="compareModal" class="modal-overlay">
         <div class="modal-box wide">
             <div class="modal-header">型号对比 <button class="modal-close" onclick="closeCompareModal()">×</button></div>
@@ -203,7 +138,6 @@
         </div>
     </div>
 
-    <script src="translator.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
