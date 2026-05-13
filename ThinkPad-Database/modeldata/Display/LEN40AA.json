@@ -1,0 +1,15 @@
+        {
+          "type": "WQHD (2560x1440)",
+          "tech": "IPS, Anti-glare, LED backlight",
+          "brightness": "300 nits",
+          "contrast": "700:1",
+          "viewing_angle": "160°",
+          "color_gamut":"100% sRGB",
+          "refresh_rate":"60 Hz",
+          "FRUs":[
+            {
+             "00HN877":"LP140QH1-SPF1",
+             "00NY406":"-"
+            }
+          ]
+        }

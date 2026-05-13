@@ -1,0 +1,30 @@
+[
+    {
+        "file": "GeForce_930M.json",
+        "name": "Geforce 930M",
+        "family": "NVIDIA GeForce",
+        "Architecture": "Maxwell",
+        "generation": "Geforce 900M"
+    },
+    {
+        "file": "GeForce_940MX.json",
+        "name": "Geforce 940MX",
+        "family": "NVIDIA GeForce",
+        "Architecture": "Maxwell",
+        "generation": "Geforce 900M"
+    },
+    {
+        "file": "HD520.json",
+        "name": "HD 520",
+        "family": "Intel HD Graphics",
+        "Architecture": "Gen 9",
+        "generation": "Skylake"
+    },
+    {
+        "file": "M500M.json",
+        "name": "M500M",
+        "family": "NVIDIA Quadro",
+        "Architecture": "Maxwell",
+        "generation": "Quadro Mx000M"
+    }
+]

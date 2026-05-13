@@ -1,0 +1,10 @@
+﻿        {
+          "model": "i3-6006U",
+          "cores_threads": "2 / 4",
+          "base_freq": "2.0 GHz",
+          "turbo_freq": null,
+          "cache": "3MB",
+          "graphics": "Intel HD 520",
+          "iconfamily":"i3-6~9",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/91157/intel-core-i36006u-processor-3m-cache-2-00-ghz/specifications.html"
+        }

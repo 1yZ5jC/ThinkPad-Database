@@ -1,0 +1,10 @@
+﻿        {
+          "model": "i7-6600U",
+          "cores_threads": "2 / 4",
+          "base_freq": "2.6 GHz",
+          "turbo_freq": "3.4 GHz",
+          "cache": "4MB",
+          "graphics": "Intel HD 520",
+          "iconfamily":"i7-6~9",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/88192/intel-core-i76600u-processor-4m-cache-up-to-3-40-ghz/specifications.html"
+        }
