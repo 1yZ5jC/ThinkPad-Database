@@ -2,6 +2,7 @@
 if (typeof window.translateTech !== 'function') {
     window.translateTech = function (text) { return text; };
 }
+
 // ========== 全局状态 ==========
 let masterModelList = [];
 let currentFilterType = 'family';
@@ -25,6 +26,12 @@ let currentModelData = null;
 // 全局随机语录缓存
 let globalTricksList = [];
 let currentTrickText = '';
+
+// ========== 文章阅览相关 ==========
+let articlesList = [];
+let articlesFilteredList = [];
+let currentFamilyFilter = '';
+let currentSearchKeyword = '';
 
 // ========== 协议检测 ==========
 (function () {
@@ -82,7 +89,19 @@ const $panelResetBtn = $('#panelResetFilterBtn');
 const $globalTrickBar = $('#globalTrickBar');
 const $globalTrickText = $('#globalTrickText');
 const $refreshTrickBtn = $('#refreshTrickBtn');
+const $refreshBgBtn = $('#refreshBgBtn');
 const $globalHomeBg = $('#globalHomeBg');
+
+// ========== 工具函数 ==========
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
 
 // ========== 全局语录相关 ==========
 async function loadTricksAndDisplay() {
@@ -114,8 +133,21 @@ function refreshRandomTrick() {
     }
 }
 
-// 控制“主页专属元素”（背景图 + 底部语录栏）的显隐
-// 注意：仅在未选择任何型号的欢迎页（即欢迎页可见时）显示，详情页隐藏
+// 随机更换主页背景图
+function refreshHomeBackground() {
+    if (!$globalHomeBg) return;
+    const randomIndex = Math.floor(Math.random() * 9) + 1;
+    const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
+    $globalHomeBg.src = bgUrl;
+    $globalHomeBg.onerror = () => {
+        $globalHomeBg.style.display = 'none';
+    };
+    if (currentPage === 'detail' && !document.querySelector('.nav-item.active')?.dataset?.modelId) {
+        $globalHomeBg.style.display = 'block';
+    }
+}
+
+// 控制主页专属元素（背景图 + 底部语录栏）的显隐
 function setHomeOnlyElementsVisible(visible) {
     if ($globalHomeBg) {
         $globalHomeBg.style.display = visible ? 'block' : 'none';
@@ -125,10 +157,10 @@ function setHomeOnlyElementsVisible(visible) {
     }
 }
 
-// 右下角背景图初始化（随机从 startpage 图库选取）
+// 右下角背景图初始化
 function initHomeBackgroundImage() {
     if (!$globalHomeBg) return;
-    const randomIndex = Math.floor(Math.random() * 9) + 1; // 1~9
+    const randomIndex = Math.floor(Math.random() * 9) + 1;
     const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
     $globalHomeBg.src = bgUrl;
     $globalHomeBg.alt = 'ThinkPad 装饰背景';
@@ -136,11 +168,24 @@ function initHomeBackgroundImage() {
         $globalHomeBg.style.display = 'none';
     };
     $globalHomeBg.onload = () => {
-        // 初始加载完成时，如果是欢迎页且没有活动型号则显示
         if (currentPage === 'detail' && !document.querySelector('.nav-item.active')?.dataset?.modelId) {
             setHomeOnlyElementsVisible(true);
         }
     };
+}
+
+// 打开/关闭大图模态框
+function openImageModal(imgUrl) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    if (modal && modalImg) {
+        modalImg.src = imgUrl;
+        modal.classList.add('show');
+    }
+}
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    if (modal) modal.classList.remove('show');
 }
 
 // ========== 侧边栏 ==========
@@ -175,13 +220,11 @@ function applyTheme(isLight) {
     document.body.classList.toggle('light-mode', isLight);
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
     if ($settingsThemeToggle) $settingsThemeToggle.checked = !isLight;
-
     const titleImg = document.getElementById('sidebarTitleImg');
     if (titleImg) {
         titleImg.src = isLight ? 'title-light.png' : 'title.png';
     }
 }
-
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') applyTheme(true);
 else if (savedTheme === 'dark') applyTheme(false);
@@ -189,11 +232,9 @@ else {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(!prefersDark);
 }
-
 if ($settingsThemeToggle) {
     $settingsThemeToggle.addEventListener('change', (e) => applyTheme(!e.target.checked));
 }
-
 const savedThemeColor = localStorage.getItem('themeColor') || 'red';
 document.body.classList.add(`theme-${savedThemeColor}`);
 if (themeColorPicker) {
@@ -210,7 +251,6 @@ if (themeColorPicker) {
         swatch.classList.add('active');
     });
 }
-
 if ($translateToggle) {
     $translateToggle.checked = window.getTranslationEnabled ? window.getTranslationEnabled() : false;
     $translateToggle.addEventListener('change', (e) => {
@@ -225,21 +265,23 @@ if ($translateToggle) {
         }
     });
 }
-
 window.openSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.add('show'); };
 window.closeSettingsPanel = function () { if ($settingsOverlay) $settingsOverlay.classList.remove('show'); };
 if ($settingsBtn) $settingsBtn.addEventListener('click', openSettingsPanel);
 
-// ========== 页面切换（控制主页专属元素的显示） ==========
+// ========== 页面切换 ==========
 window.showDetailPage = function () {
     currentPage = 'detail';
     if ($detailPage) $detailPage.classList.remove('hidden');
     if ($comparePage) $comparePage.classList.remove('active');
     if ($favoritesPage) $favoritesPage.classList.remove('active');
     if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
+    // 隐藏文章页面
+    const articlesListPage = document.getElementById('articlesListPage');
+    const articleDetailPage = document.getElementById('articleDetailPage');
+    if (articlesListPage) articlesListPage.style.display = 'none';
+    if (articleDetailPage) articleDetailPage.style.display = 'none';
     setActiveSidebarItem('sidebarHome');
-
-    // 判断当前是否处于欢迎页（即没有选中任何型号）
     const activeModelEl = document.querySelector('.nav-item.active');
     const hasActiveModel = activeModelEl && activeModelEl.dataset?.modelId;
     if (!hasActiveModel && $display && $display.querySelector('.welcome-page')) {
@@ -255,9 +297,14 @@ window.showComparePage = function () {
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.add('active');
     if ($favoritesPage) $favoritesPage.classList.remove('active');
+    if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
+    const articlesListPage = document.getElementById('articlesListPage');
+    const articleDetailPage = document.getElementById('articleDetailPage');
+    if (articlesListPage) articlesListPage.style.display = 'none';
+    if (articleDetailPage) articleDetailPage.style.display = 'none';
     setActiveSidebarItem(null);
     if ($sidebarCompare) $sidebarCompare.classList.add('compare-active');
-    setHomeOnlyElementsVisible(false);  // 对比页隐藏
+    setHomeOnlyElementsVisible(false);
     closeSearchModal();
     if (comparePending) {
         if ($comparePageResult) $comparePageResult.innerHTML = '';
@@ -272,44 +319,178 @@ window.showFavoritesPage = function () {
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.remove('active');
     if ($favoritesPage) $favoritesPage.classList.add('active');
+    if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
+    const articlesListPage = document.getElementById('articlesListPage');
+    const articleDetailPage = document.getElementById('articleDetailPage');
+    if (articlesListPage) articlesListPage.style.display = 'none';
+    if (articleDetailPage) articleDetailPage.style.display = 'none';
     setActiveSidebarItem('sidebarFavorites');
-    setHomeOnlyElementsVisible(false);  // 收藏页隐藏
+    setHomeOnlyElementsVisible(false);
     closeSearchModal();
     renderFavoritesPage();
 };
 
 window.showGeneratorPage = function () {
     currentPage = 'generator';
-    document.getElementById('detailPage')?.classList.add('hidden');
-    document.getElementById('comparePage')?.classList.remove('active');
-    document.getElementById('favoritesPage')?.classList.remove('active');
-    document.getElementById('generatorPage')?.classList.add('active');
+    if ($detailPage) $detailPage.classList.add('hidden');
+    if ($comparePage) $comparePage.classList.remove('active');
+    if ($favoritesPage) $favoritesPage.classList.remove('active');
+    if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.add('active');
+    const articlesListPage = document.getElementById('articlesListPage');
+    const articleDetailPage = document.getElementById('articleDetailPage');
+    if (articlesListPage) articlesListPage.style.display = 'none';
+    if (articleDetailPage) articleDetailPage.style.display = 'none';
     setActiveSidebarItem('sidebarGenerator');
-    setHomeOnlyElementsVisible(false);  // 生成器页隐藏
+    setHomeOnlyElementsVisible(false);
     closeSearchModal();
     if (window.initGenerator) {
         window.initGenerator();
     }
 };
 
-function renderFavoritesPage() {
-    const list = masterModelList.filter(m => favorites.includes(m.model_name));
-    if ($favoritesPageSubtitle) $favoritesPageSubtitle.textContent = `已收藏 ${list.length} 个型号`;
-    if ($favoritesPageGrid) {
-        let html = list.length === 0 ? '<div class="loading-text" style="grid-column:1/-1;">暂无收藏型号</div>' : list.map(m => `<div class="compare-card" onclick="selectFavoriteFromPage('${m.model_name.replace(/'/g, "\\'")}')"><div class="compare-card-info"><div class="compare-card-name">${m.model_name}</div><div class="compare-card-meta"><span>${m.model_family || '系列未知'}</span><span class="compare-part-arch" style="margin-left:6px;">${m.model_generation || '代数未知'}</span></div></div><button class="favorite-remove" onclick="event.stopPropagation(); removeFavoriteFromPage('${m.model_name.replace(/'/g, "\\'")}')" title="取消收藏">×</button></div>`).join('');
-        html = window.globalTranslateHTML ? window.globalTranslateHTML(html) : html;
-        $favoritesPageGrid.innerHTML = html;
+// ========== 文章阅览 ==========
+async function loadArticlesIndex() {
+    try {
+        const resp = await fetch('modeldata/articles/articles.json');
+        if (!resp.ok) throw new Error('无法加载文章索引');
+        articlesList = await resp.json();
+        initArticlesFilters();
+        applyArticlesFilters();
+    } catch (e) {
+        console.error('加载文章索引失败:', e);
+        const container = document.getElementById('articlesListContainer');
+        if (container) container.innerHTML = '<div class="loading-text">加载文章列表失败</div>';
     }
 }
-window.selectFavoriteFromPage = async function (name) {
-    showDetailPage();
-    let model = masterModelList.find(m => m.model_name === name);
-    if (model && model._isLight) { await loadModelFile(model.filename); model = masterModelList.find(m => m.model_name === name); }
-    if (model) renderSpecs(model);
+
+function initArticlesFilters() {
+    const familySelect = document.getElementById('articlesFamilyFilter');
+    if (!familySelect) return;
+    const families = [...new Set(articlesList.map(a => a.family).filter(Boolean))].sort();
+    familySelect.innerHTML = '<option value="">全部分类</option>';
+    families.forEach(f => {
+        const option = document.createElement('option');
+        option.value = f;
+        option.textContent = f;
+        familySelect.appendChild(option);
+    });
+    familySelect.addEventListener('change', (e) => {
+        currentFamilyFilter = e.target.value;
+        applyArticlesFilters();
+    });
+    const searchInput = document.getElementById('articlesSearchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearchKeyword = e.target.value.trim().toLowerCase();
+            applyArticlesFilters();
+        });
+    }
+    const resetBtn = document.getElementById('articlesResetFilterBtn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            if (familySelect) familySelect.value = '';
+            if (searchInput) searchInput.value = '';
+            currentFamilyFilter = '';
+            currentSearchKeyword = '';
+            applyArticlesFilters();
+        });
+    }
+}
+
+function applyArticlesFilters() {
+    let filtered = [...articlesList];
+    if (currentFamilyFilter) {
+        filtered = filtered.filter(a => a.family === currentFamilyFilter);
+    }
+    if (currentSearchKeyword) {
+        filtered = filtered.filter(a =>
+            (a.title && a.title.toLowerCase().includes(currentSearchKeyword)) ||
+            (a.description && a.description.toLowerCase().includes(currentSearchKeyword))
+        );
+    }
+    articlesFilteredList = filtered;
+    renderArticlesList();
+}
+
+function renderArticlesList() {
+    const container = document.getElementById('articlesListContainer');
+    if (!container) return;
+    if (!articlesFilteredList.length) {
+        container.innerHTML = '<div class="loading-text">没有找到匹配的文章</div>';
+        return;
+    }
+    let html = '';
+    for (const article of articlesFilteredList) {
+        html += `
+            <div class="article-card" onclick="openArticle('${escapeHtml(article.file)}')">
+                <h3>${escapeHtml(article.title)}</h3>
+                <div class="article-family">${escapeHtml(article.family)}</div>
+                <div class="article-desc">${escapeHtml(article.description)}</div>
+            </div>
+        `;
+    }
+    container.innerHTML = html;
+}
+
+async function openArticle(fileId) {
+    const markdownPath = `modeldata/articles/${fileId}/${fileId}.md`;
+    try {
+        const resp = await fetch(markdownPath);
+        if (!resp.ok) throw new Error(`无法加载文章: ${markdownPath}`);
+        const markdownText = await resp.text();
+        const baseDir = `modeldata/articles/${fileId}/`;
+        const processedMarkdown = markdownText.replace(/!\[([^\]]*)\]\((?!https?:\/\/|\/)([^)]+)\)/g, (match, alt, src) => {
+            const newSrc = baseDir + src;
+            return `![${alt}](${newSrc})`;
+        });
+        const htmlContent = marked.parse(processedMarkdown);
+        const articleMeta = articlesList.find(a => a.file === fileId);
+        document.getElementById('articleDetailTitle').innerHTML = articleMeta ? escapeHtml(articleMeta.title) : fileId;
+        document.getElementById('articleDetailMeta').innerHTML = `
+            <span>分类：${escapeHtml(articleMeta?.family || '未分类')}</span>
+            <span style="margin-left: 20px;">描述：${escapeHtml(articleMeta?.description || '')}</span>
+        `;
+        document.getElementById('articleContent').innerHTML = htmlContent;
+        // 为文章内图片添加点击放大
+        const articleImages = document.querySelectorAll('#articleContent img');
+        articleImages.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.onclick = () => openImageModal(img.src);
+        });
+        document.getElementById('articlesListPage').style.display = 'none';
+        document.getElementById('articleDetailPage').style.display = 'block';
+        document.getElementById('detailPage').classList.add('hidden');
+        document.getElementById('comparePage').classList.remove('active');
+        document.getElementById('favoritesPage').classList.remove('active');
+        document.getElementById('generatorPage').classList.remove('active');
+        document.querySelector('main').scrollTop = 0;
+    } catch (e) {
+        console.error('加载文章失败:', e);
+        alert('文章加载失败，请检查路径或网络');
+    }
+}
+
+window.showArticlesPage = function() {
+    document.getElementById('detailPage').classList.add('hidden');
+    document.getElementById('comparePage').classList.remove('active');
+    document.getElementById('favoritesPage').classList.remove('active');
+    document.getElementById('generatorPage').classList.remove('active');
+    document.getElementById('articlesListPage').style.display = 'block';
+    document.getElementById('articleDetailPage').style.display = 'none';
+    setActiveSidebarItem('sidebarArticles');
+    if (typeof setHomeOnlyElementsVisible === 'function') setHomeOnlyElementsVisible(false);
+    const familySelect = document.getElementById('articlesFamilyFilter');
+    const searchInput = document.getElementById('articlesSearchInput');
+    if (familySelect) familySelect.value = '';
+    if (searchInput) searchInput.value = '';
+    currentFamilyFilter = '';
+    currentSearchKeyword = '';
+    if (articlesList.length === 0) {
+        loadArticlesIndex();
+    } else {
+        applyArticlesFilters();
+    }
 };
-window.removeFavoriteFromPage = function (name) { toggleFavorite(name); renderFavoritesPage(); const btn = $('#favToggleBtn'); if (btn && btn.dataset.model === name) btn.textContent = '☆ 收藏'; };
-const sidebarFavBtn = $('#sidebarFavorites');
-if (sidebarFavBtn) sidebarFavBtn.addEventListener('click', () => { if (currentPage === 'favorites') return; showFavoritesPage(); });
 
 // ========== 型号选择覆盖面板 ==========
 window.openModelPanel = function () {
@@ -418,9 +599,7 @@ async function loadIndex() {
         populateFilters();
         updateFavCount();
         updateWelcomeStats();
-
         const randomImg = Math.floor(Math.random() * 9) + 1;
-        const startImgUrl = `modeldata/model-images/startpage/${randomImg}.png`;
         if ($display) {
             $display.innerHTML = `
                 <div class="welcome-page">
@@ -437,10 +616,8 @@ async function loadIndex() {
                     </div>
                 </div>`;
         }
-        // 加载底部全局语录
         await loadTricksAndDisplay();
         initHomeBackgroundImage();
-        // 初始显示欢迎页，显示背景和语录
         setHomeOnlyElementsVisible(true);
     } catch (e) { console.error('加载索引失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载数据失败</div>'; }
 }
@@ -459,12 +636,6 @@ function populateFilters() {
         $genSel.innerHTML = '<option value="">全部代数</option>';
         gens.forEach(g => { const o = document.createElement('option'); o.value = g; o.textContent = g; $genSel.appendChild(o); });
     }
-}
-function getFiltered() {
-    let list = masterModelList;
-    if (currentFilterType === 'family' && currentFamilyValue) list = list.filter(m => m.model_family === currentFamilyValue);
-    else if (currentFilterType === 'generation' && currentGenValue) list = list.filter(m => m.model_generation === currentGenValue);
-    return list;
 }
 function updateWelcomeStats() {
     const el = $('#welcomeModelCount');
@@ -634,7 +805,6 @@ function renderCompareResultTable(devicesWithParts) {
     function formatBattery(model) { const bats = model.Battary || model.battery || []; if (bats.length === 0) return 'N/A'; return bats.map(b => `<div class="compare-part-item">${b.type || '电池'}<br>容量: ${b.capacity || b.cap || '?'} | 规格: ${b.form || '?'} | 技术: ${b.tech || '?'}</div>`).join(''); }
     function checkAllSame(getter) { const values = devicesWithParts.map(d => getter(d.model)); return values.every(v => v === values[0]) ? values[0] : null; }
     function checkPartsAllSame(type) { const signatures = devicesWithParts.map(d => { const parts = d.parts?.[type] || []; return parts.map(p => { const data = p.data?.thinkpad_database?.[0] || p.data; return data.model || p.name; }).sort().join('|'); }); return signatures.every(s => s === signatures[0]) ? signatures[0] : null; }
-
     function renderPartSummary(partsArr, type, model) {
         if (!partsArr || partsArr.length === 0) return '<span style="color:var(--text-muted);">-</span>';
         return partsArr.map((part, idx) => {
@@ -646,13 +816,11 @@ function renderCompareResultTable(devicesWithParts) {
             return `<div class="compare-part-summary" id="${detailId}-summary"><div><span class="compare-part-name">${name}</span>${arch ? `<span class="compare-part-arch">${arch}</span>` : ''}</div><button class="btn btn-sm compare-detail-btn" onclick="togglePartDetail('${detailId}', '${type}', '${filename.replace(/'/g, "\\'")}')">展开详情</button></div><div class="compare-part-detail hidden" id="${detailId}-detail"><div class="loading-text" style="padding:12px;">加载中...</div></div>`;
         }).join('');
     }
-
     function buildPartCard(title, type, devicesWithParts, renderFn) {
         let html = `<div class="card"><div class="card-title"><span>${title}</span></div><div class="card-body compare-card-body">`;
         devicesWithParts.forEach((d, i) => { html += `<div class="compare-model-col">${renderFn(d.parts?.[type], type, d.model)}</div>`; });
         html += '</div></div>'; return html;
     }
-
     function renderPartsIfSame(title, type) {
         const same = checkPartsAllSame(type);
         if (same !== null) {
@@ -669,7 +837,6 @@ function renderCompareResultTable(devicesWithParts) {
         }
         return null;
     }
-
     let mergedHtml = '';
     const cpuMerged = renderPartsIfSame('处理器 (CPU)', 'cpu');
     if (cpuMerged) mergedHtml += cpuMerged; else mergedHtml += buildPartCard('处理器 (CPU)', 'cpu', devicesWithParts, renderPartSummary);
@@ -755,10 +922,9 @@ function renderCompareResultTable(devicesWithParts) {
             html += '</div>'; return html;
         }).join('');
     });
-
     let diffHtml = `<div class="card"><div class="card-title"><span>接口与其他</span></div><div class="card-body card-body-flow" style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>规格</th>`;
     devicesWithParts.forEach(d => diffHtml += `<th>${d.model.model_name}</th>`);
-    diffHtml += '</tr></thead><tbody>';
+    diffHtml += '</table></thead><tbody>';
     const miscRows = [
         { label: '接口', getValue: m => Array.isArray(m.ports) ? m.ports.join('、') : (m.ports || '-') },
         { label: '尺寸', getValue: m => m.physical?.dimensions || '-' },
@@ -777,16 +943,13 @@ function renderCompareResultTable(devicesWithParts) {
             diffHtml += '</tr>';
         }
     });
-    diffHtml += '</tbody><tr></div></div>';
-
+    diffHtml += '</tbody></table></div></div>';
     let headerHtml = `<div class="compare-header"><div class="compare-header-models">`;
     devicesWithParts.forEach(d => { headerHtml += `<div class="compare-header-model">${d.model.model_name}</div>`; });
     headerHtml += '</div></div>';
-
     let finalHtml = headerHtml;
     if (mergedHtml) finalHtml += `<div class="card"><div class="card-title"><span>配置对比</span></div><div class="card-body card-body-flow">${mergedHtml}</div></div>`;
     finalHtml += diffHtml;
-
     finalHtml = window.globalTranslateHTML ? window.globalTranslateHTML(finalHtml) : finalHtml;
     if ($comparePageResult) {
         $comparePageResult.innerHTML = finalHtml;
@@ -812,7 +975,6 @@ async function loadFullPartDetails(type, filename) {
     try { const resp = await fetch(`modeldata/${folder}/${fullName}`); if (!resp.ok) return null; return await resp.json(); }
     catch (e) { console.error(`加载完整零件失败: ${type}/${filename}`, e); return null; }
 }
-
 window.togglePartDetail = async function (detailId, type, filename) {
     const summaryEl = document.getElementById(`${detailId}-summary`);
     const detailEl = document.getElementById(`${detailId}-detail`);
@@ -833,13 +995,11 @@ window.togglePartDetail = async function (detailId, type, filename) {
         } else detailEl.innerHTML = '<span style="color:var(--text-muted);">加载失败</span>';
     }
 };
-
 window.closeCompareModal = function () { const modal = $('#compareModal'); if (modal) modal.classList.remove('show'); };
 const confirmBtn = $('#confirmCompareBtn');
 if (confirmBtn) confirmBtn.addEventListener('click', async () => { if (selectedModels.length === 0) return; for (const m of selectedModels) { if (m._isLight) await loadModelFile(m.filename); } const modal = $('#compareSelectModal'); if (modal) modal.classList.remove('show'); showCompareModalLegacy(); });
 const compareSelectModalEl = $('#compareSelectModal');
 if (compareSelectModalEl) compareSelectModalEl.addEventListener('click', function (e) { if (e.target === this) closeCompareSelectModal(); });
-
 async function showCompareModalLegacy() {
     if (!$compareModalBody) return;
     $compareModalBody.innerHTML = '<div class="loading-text">加载对比数据中...</div>';
@@ -866,7 +1026,7 @@ async function showCompareModalLegacy() {
         ];
         let html = '<table class="compare-table"><thead><tr><th>规格</th>';
         devicesWithParts.forEach(d => html += `<th>${d.model.model_name}</th>`);
-        html += '</tr></thead><tbody>';
+        html += '</table></thead><tbody>';
         rows.forEach(row => { html += '<tr>'; html += `<td><b>${row.label}</b></td>`; devicesWithParts.forEach(d => html += `<td>${row.getValue(d.model, d.parts)}</td>`); html += '</tr>'; });
         html += '</tbody></table>';
         html = window.globalTranslateHTML ? window.globalTranslateHTML(html) : html;
@@ -875,7 +1035,6 @@ async function showCompareModalLegacy() {
 }
 const compareModalEl = $('#compareModal');
 if (compareModalEl) compareModalEl.addEventListener('click', function (e) { if (e.target === this) closeCompareModal(); });
-
 function formatPartFullInfo(data, type) {
     if (!data) return '无信息';
     const d = data.thinkpad_database?.[0] || data;
@@ -889,7 +1048,6 @@ function formatPartFullInfo(data, type) {
     else { if (d.model) lines.push(`<b>${d.model}</b>`); else if (d.type) lines.push(`<b>${d.type}</b>`); }
     return lines.join('<br>') || 'N/A';
 }
-
 async function loadPartData(type, filename) {
     if (!filename) return null;
     let fullName = filename.endsWith('.json') ? filename : filename + '.json';
@@ -903,7 +1061,6 @@ async function loadPartData(type, filename) {
         const data = await resp.json(); if (!partsCache[type]) partsCache[type] = {}; partsCache[type][fullName] = data; return data;
     } catch (e) { console.error(`加载零件失败: ${type}/${filename}`, e); return null; }
 }
-
 async function loadDeviceParts(device) {
     const tasks = [];
     if (device.processor_options?.length) device.processor_options.forEach(f => tasks.push({ type: 'cpu', file: f }));
@@ -919,16 +1076,13 @@ async function loadDeviceParts(device) {
     results.forEach(r => { if (parts[r.type]) parts[r.type].push({ data: r.data, name: r.name, type: r.type }); });
     return parts;
 }
-
 function isFavorite(name) { return favorites.includes(name); }
 function toggleFavorite(name) { const idx = favorites.indexOf(name); if (idx >= 0) favorites.splice(idx, 1); else favorites.push(name); localStorage.setItem('tp_favs', JSON.stringify(favorites)); updateFavCount(); const btn = $('#favToggleBtn'); if (btn && btn.dataset.model === name) btn.textContent = isFavorite(name) ? '★ 已收藏' : '☆ 收藏'; }
 function updateFavCount() {
     if ($favCount) $favCount.textContent = favorites.length;
     if (currentPage === 'favorites' && $favoritesPageSubtitle) $favoritesPageSubtitle.textContent = `已收藏 ${favorites.length} 个型号`;
 }
-
 window.switchToModel = async function (name) { let model = masterModelList.find(m => m.model_name === name); if (model && model._isLight) { await loadModelFile(model.filename); model = masterModelList.find(m => m.model_name === name); } if (model) renderSpecs(model); };
-
 function renderPartCard(partsArr, title, type, useFlow = false) {
     if (!partsArr || partsArr.length === 0) return makeCard(title, '<span style="color:var(--text-muted);">无</span>', useFlow);
     const itemsHtml = partsArr.map((part, idx) => {
@@ -941,7 +1095,6 @@ function renderPartCard(partsArr, title, type, useFlow = false) {
         const menuItems = fruMenuItem + arkMenuItem;
         const menuHtml = menuItems ? `<div class="card-menu-container"><button class="card-menu-btn" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">⋮</button><div id="${menuId}" class="card-menu-dropdown hidden" onmouseenter="menuEnter('${menuId}')" onmouseleave="menuLeave('${menuId}')">${fruMenuItem}${arkMenuItem}</div></div>` : '';
         const infoLines = [];
-
         if (type === 'cpu') {
             if (d.model) infoLines.push(`<div class="part-title-text">${d.model}</div>`);
             if (d.cores_threads) infoLines.push(`<div class="part-field"><span class="field-name">核心/线程</span><span class="field-value">${d.cores_threads}</span></div>`);
@@ -1003,20 +1156,15 @@ function renderPartCard(partsArr, title, type, useFlow = false) {
                 if (v && typeof v !== 'object') infoLines.push(`<div class="part-field"><span class="field-name">${k.replace(/_/g, ' ')}</span><span class="field-value">${v}</span></div>`);
             }
         }
-
         return `<div class="part-row"><div class="part-info-wrap">${infoLines.join('')}</div>${iconHtml}${menuHtml}</div>`;
     }).join('');
     return makeCard(title, itemsHtml, useFlow);
 }
-
 async function renderSpecs(data) {
     if (!data) return;
     currentModelData = data;
     if (currentPage !== 'detail') showDetailPage();
-    
-    // 进入具体型号详情页后，隐藏背景图和底部语录栏
     setHomeOnlyElementsVisible(false);
-    
     if (data._isLight) { if ($display) $display.innerHTML = '<div class="loading-text">加载型号数据中...</div>'; await loadModelFile(data.filename); data = masterModelList.find(m => m.model_name === data.model_name) || data; }
     if ($display) $display.innerHTML = '<div class="loading-text">加载规格数据中...</div>';
     try {
@@ -1029,11 +1177,9 @@ async function renderSpecs(data) {
         const getUrl = u => Array.isArray(u) ? u[0] : u;
         const psref = getUrl(data.PSREF_link), guide = getUrl(data.user_guide_link), hmm = getUrl(data.HMM_link);
         const addonsHtml = data.addons ? `<div style="color:var(--text-muted);font-size:12px;margin-top:-12px;margin-bottom:12px;">${data.addons}</div>` : '';
-
         const imageAngles = ['main', 'left', 'right', 'front', 'back', 'top', 'bottom', 'full'];
         const imageFolder = data.filename ? data.filename.replace(/\.json$/i, '') : data.model_name.replace(/\s+/g, '_');
         const imagesData = imageAngles.map(angle => ({ angle, url: `modeldata/model-images/${encodeURIComponent(imageFolder)}/${angle}.avif` }));
-
         const imageCardHtml = `
         <div class="card" id="modelImageCard" style="display:none;">
             <div class="card-title" onclick="toggleCard(this)">
@@ -1041,7 +1187,7 @@ async function renderSpecs(data) {
             </div>
             <div class="card-body" style="height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0; position: relative;">
                 <img id="currentModelImage" src="${imagesData[0].url}" alt="${data.model_name}"
-                     style="max-width: 300px; max-height: 300px; border-radius: 12px; object-fit: contain; display: none;">
+                     style="max-width: 300px; max-height: 300px; border-radius: 12px; object-fit: contain; display: none; cursor: pointer;">
                 <div id="image-nav-buttons" style="margin-top: 12px; display: none; position: absolute; bottom: 8px; left: 0; right: 0;">
                     <button id="prev-image-btn" class="btn btn-sm">◀ 上一张</button>
                     <span id="image-counter" style="margin:0 12px; font-size:13px; color:var(--text-secondary);"></span>
@@ -1049,15 +1195,13 @@ async function renderSpecs(data) {
                 </div>
             </div>
         </div>`;
-
         const memoryCard = makeCard('内存', `<div class="info-row"><span class="info-label">容量</span><span class="info-value">${data.memory?.max_capacity || 'N/A'}</span></div><div class="info-row"><span class="info-label">类型</span><span class="info-value">${data.memory?.type || 'N/A'}</span></div><div class="info-row"><span class="info-label">插槽</span><span class="info-value">${data.memory?.slots || 'N/A'}</span></div>${data.memory?.features ? `<div class="info-row"><span class="info-label">特性</span><span class="info-value">${data.memory.features}</span></div>` : ''}`);
         const storageCard = makeCard('存储', renderStorageItems(data.storage));
         const bats = data.Battary || data.battery || [];
         const batteryCard = makeCard('电池与续航', renderBatteryItems(bats));
         let touchPenHtml = ''; if (data.touch || data.pen) { const items = []; if (data.touch) items.push(`<div class="info-row"><span class="info-label">触摸</span><span class="info-value">${Array.isArray(data.touch) ? data.touch.join('、') : data.touch}</span></div>`); if (data.pen) items.push(`<div class="info-row"><span class="info-label">笔</span><span class="info-value">${Array.isArray(data.pen) ? data.pen.join('、') : data.pen}</span></div>`); touchPenHtml = makeCard('触摸与笔', items.join('')); }
-        const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td><tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr><tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
-        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td><tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
-
+        const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr><tr><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
+        const otherCard = makeCard('其他', `<table class="spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr><td><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</table>`, true);
         let html = `
             <div class="page-title" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                 <span>${data.model_name || '未知型号'} ${codeHtml}</span>${favBtn}${switchBtn}
@@ -1084,7 +1228,6 @@ async function renderSpecs(data) {
                 ${hmm ? `<a class="btn" href="${hmm}" target="_blank" rel="noopener">硬件维护指南</a>` : ''}
             </div>`;
         html = window.globalTranslateHTML ? window.globalTranslateHTML(html) : html;
-
         if ($display) {
             $display.innerHTML = html;
             const imageCard = document.getElementById('modelImageCard');
@@ -1111,9 +1254,20 @@ async function renderSpecs(data) {
                         if (mainIndex >= 0) currentIndex = mainIndex; else currentIndex = 0;
                         function updateDisplay() {
                             const img = validImages[currentIndex];
-                            if (img) { currentImg.src = img.url; currentImg.alt = `${data.model_name} - ${img.angle}`; currentImg.style.display = 'inline-block'; counterSpan.textContent = `${currentIndex + 1} / ${validImages.length}`; }
+                            if (img) {
+                                currentImg.src = img.url;
+                                currentImg.alt = `${data.model_name} - ${img.angle}`;
+                                currentImg.style.display = 'inline-block';
+                                currentImg.style.cursor = 'pointer';
+                                currentImg.onclick = null;
+                                currentImg.onclick = () => openImageModal(img.url);
+                                counterSpan.textContent = `${currentIndex + 1} / ${validImages.length}`;
+                            }
                         }
                         updateDisplay();
+                        if (validImages.length > 0) {
+                            currentImg.onclick = () => openImageModal(validImages[currentIndex].url);
+                        }
                         prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + validImages.length) % validImages.length; updateDisplay(); });
                         nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % validImages.length; updateDisplay(); });
                     });
@@ -1122,12 +1276,10 @@ async function renderSpecs(data) {
         }
     } catch (e) { console.error('渲染失败:', e); if ($display) $display.innerHTML = '<div class="loading-text">加载规格数据失败</div>'; }
 }
-
-// 刷新底部语录按钮事件
 if ($refreshTrickBtn) {
-    $refreshTrickBtn.addEventListener('click', () => {
-        refreshRandomTrick();
-    });
+    $refreshTrickBtn.addEventListener('click', () => { refreshRandomTrick(); });
 }
-
+if ($refreshBgBtn) {
+    $refreshBgBtn.addEventListener('click', () => { refreshHomeBackground(); });
+}
 loadIndex();

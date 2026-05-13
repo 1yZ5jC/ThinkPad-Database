@@ -33,6 +33,10 @@
                 <span class="item-label">我的收藏</span>
                 <span class="item-badge" id="favCount">0</span>
             </button>
+            <button class="sidebar-item" id="sidebarArticles" onclick="showArticlesPage()">
+                <span class="item-icon">📖</span>
+                <span class="item-label">文章阅览</span>
+            </button>
         </div>
         <div class="sidebar-divider"></div>
 
@@ -183,14 +187,47 @@
             </div>
         </div>
 
+        <!-- 文章列表页 -->
+<!-- 文章列表页 -->
+<div id="articlesListPage" class="articles-page" style="display: none;">
+    <div class="page-title">文章阅览</div>
+    <div class="page-subtitle">ThinkPad 相关技术文章与指南</div>
+    
+    <!-- 筛选栏 -->
+    <div class="articles-filter-bar">
+        <div class="filter-group">
+            <select id="articlesFamilyFilter" class="filter-select">
+                <option value="">全部分类</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <input type="text" id="articlesSearchInput" class="search-input" placeholder="搜索标题或描述..." style="margin-bottom:0;">
+        </div>
+        <button id="articlesResetFilterBtn" class="btn">重置筛选</button>
+    </div>
+    
+    <div id="articlesListContainer" class="articles-grid"></div>
+</div>
+
+        <!-- 文章详情页 -->
+        <div id="articleDetailPage" class="article-detail-page" style="display: none;">
+            <div class="page-title" id="articleDetailTitle"></div>
+            <div class="article-meta" id="articleDetailMeta"></div>
+            <div id="articleContent" class="article-content"></div>
+            <button class="btn" onclick="showArticlesPage()">← 返回列表</button>
+        </div>
+
         <!-- 全局浮动背景图 (仅主页右下角显示) -->
         <img id="globalHomeBg" class="home-bg-image" style="display: none;" alt="ThinkPad 装饰背景" loading="lazy">
 
-        <!-- 全局底部随机语录栏 -->
+        <!-- 全局底部随机语录栏 + 换壁纸按钮 -->
         <div id="globalTrickBar" class="global-trick-bar">
             <span class="trick-icon">💡</span>
             <span id="globalTrickText" class="trick-text">加载经典语录中...</span>
-            <button id="refreshTrickBtn" class="btn trick-refresh-btn">换一句 ✨</button>
+            <div class="trick-buttons">
+                <button id="refreshTrickBtn" class="btn trick-refresh-btn">换一句 ✨</button>
+                <button id="refreshBgBtn" class="btn trick-refresh-btn">换壁纸 🖼️</button>
+            </div>
         </div>
     </main>
 
@@ -230,6 +267,20 @@
         </div>
     </div>
 
+    <!-- 图片大图模态框 -->
+    <div id="imageModal" class="modal-overlay">
+        <div class="modal-box image-modal-box">
+            <div class="modal-header">
+                图片预览
+                <button class="modal-close" onclick="closeImageModal()">×</button>
+            </div>
+            <div class="modal-body image-modal-body">
+                <img id="modalImage" src="" alt="大图预览" style="max-width:100%; max-height:70vh; object-fit:contain;">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="translator.js"></script>
     <script src="script.js"></script>
     <script src="generator.js"></script>
