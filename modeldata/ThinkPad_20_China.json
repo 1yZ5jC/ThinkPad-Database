@@ -1,0 +1,99 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-20th-china",
+      "model_name": "ThinkPad 20th Anniversary Edition (China)",
+      "addons": "Based on ThinkPad X1 Carbon 1st Gen (Touchscreen)",
+      "model_family": "Anniversary Edition",
+      "model_generation": "xx30",
+      "update_date": "April 2013",
+      "processor_options": [
+        "3317U"
+      ],
+      "graphics": {
+        "integrated": "Intel HD Graphics 4000",
+        "discrete": null,
+        "max_resolution": {
+          "mini_dp": "2560x1600@60Hz"
+        },
+        "multi_display": "Supports dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB",
+        "type": "DDR3-1333",
+        "slots": "None (soldered)",
+        "features": "non-parity"
+      },
+      "display_options": ["LEN40A2"],
+      "touch": ["Capacitive-type multi-touch, supports 10-finger gesture"],
+      "storage": {
+        "ssd_pcie": null,
+        "ssd_sata": "240GB SATA 6.0Gb/s, Small Form Factor",
+        "hdd": null,
+        "sshd": null
+      },
+      "Ethernet": [],
+      "WLAN": [
+        "6205S"
+      ],
+      "Bluetooth": [
+        {
+          "type": "BDC",
+          "form": "Broadcom BCM20702 Bluetooth Controller",
+          "feature": "Bluetooth 4.0 wireless"
+        }
+      ],
+      "WWAN": [],
+      "SIM_Card": [],
+      "Battery": [
+        {
+          "type": "Integrated",
+          "capacity": "45.8Wh",
+          "form": "4-cell",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ports": [
+        "1 x USB 3.0",
+        "1 x USB 2.0 (Always On)",
+        "Mini DisplayPort",
+        "Headphone/microphone combo jack",
+        "4-in-1 reader (SD, SDHC, SDXC, MMC)"
+      ],
+      "camera": [
+        "HD 720p camera"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3202 codec, Dolby Home Theater v4, stereo speakers 2W x2, dual array microphone"
+      ],
+      "keyboard": [
+        "6-row, LED backlit, spill-resistant, multimedia Fn keys",
+        "Blue Enter key, blue ThinkVantage button",
+        "20th Anniversary custom TrackPoint cap",
+        "TrackPoint pointing device, glass surface touchpad"
+      ],
+      "physical": {
+        "dimensions": "331mm x 226mm x 10.0-20.8mm",
+        "weight": "1.54kg (with touchscreen)",
+        "case_material": "Carbon Fiber (top), Magnesium/Aluminum (bottom)"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module (TPM 1.2)",
+        "Fingerprint reader"
+      ],
+      "system": [
+        "Windows 8 Professional 64"
+      ],
+      "add_on_tips":[
+        "Model:3448-CA6",
+        "On side C, there is the text '20th anniversery edition' in a script typeface.",
+        "The hinge does not have a limited edition number engraved on it.",
+        "Red 'China Only' on D cover"
+      ]
+    }
+  ]
+}

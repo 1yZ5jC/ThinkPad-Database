@@ -1,0 +1,9 @@
+        {
+          "model": "Snapdragon X Elite X1E78100",
+          "cores_threads": "12 / 12",
+          "base_freq": "3.4 GHz",
+          "cache": "12MB (L2) and 6MB (SLC)",
+          "graphics": "Qualcomm® Adreno™ X1-85 (Adreno 741)",
+          "iconfamily":"XE",
+          "ark":"https://www.qualcomm.com/laptops/products/snapdragon-x-elite"
+        }

@@ -1,0 +1,7 @@
+        {
+          "model": "Western Digital WD90C24A",
+          "base_freq": "65 Mhz (for CRT and TFT Display), 50Mhz (for STN Display)",
+          "VRAM":"1MB FPM DRAM",
+          "Feature":"Hercules, MDA, EGA, CGA, VGA, BitBlt, 2D acceleration",
+          "iconfamily": "WD"
+        }

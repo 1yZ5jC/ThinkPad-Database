@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 7 365",
+          "cores_threads": "4P+4LPE / 8",
+          "base_freq": "2.2 GHz / 1.6 GHz (P/LPE)",
+          "turbo_freq": "4.6 GHz / 3.4 GHz (P/LPE)",
+          "cache": "12MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U7-3",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/245713/intel-core-ultra-7-processor-365-12m-cache-up-to-4-60-ghz/specifications.html"
+        }

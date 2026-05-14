@@ -1,0 +1,114 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-25-anniversary-edition",
+      "model_name": "ThinkPad 25 Anniversary Edition",
+      "addons": "Based on ThinkPad T470",
+      "model_family": "Anniversary Edition",
+      "model_generation": "xx70",
+      "update_date": "October 2017",
+      "processor_options": [
+        "i7-7500U"
+      ],
+      "graphics": {
+        "integrated": "Intel HD Graphics 620",
+        "discrete": "NVIDIA GeForce 940MX (2GB GDDR5)",
+        "max_resolution": {
+          "hdmi": "1920x1080@60Hz",
+          "usb_c_tbt": "3840x2160@60Hz"
+        },
+        "multi_display": "Supports up to 3 independent displays"
+      },
+      "memory": {
+        "max_capacity": "16GB",
+        "type": "DDR4-2400",
+        "slots": "Two DDR4 SO-DIMM sockets",
+        "features": "Dual-channel capable, single-channel config from factory"
+      },
+      "display_options": ["LEN40A9_Touch"],
+      "storage": {
+        "ssd_pcie": "512GB PCIe NVMe SSD (M.2 2280)",
+        "ssd_sata": null,
+        "hdd": null,
+        "sshd": null
+      },
+      "Ethernet": [
+        "I219-V"
+      ],
+      "WLAN": [
+        "8265AC"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 4.2 wireless"
+        }
+      ],
+      "WWAN": [
+        "EM7455"
+      ],
+      "SIM_Card": [
+        {
+          "type": "Micro-SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "24Wh",
+          "form": "3-cell",
+          "tech": "Li-Polymer"
+        },
+        {
+          "type": "External battery",
+          "capacity": "24Wh",
+          "form": "3-cell",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ports": [
+        "3 x USB 3.0 (Type-A, one Always On)",
+        "1 x USB 3.1 Gen 2 Type-C / Thunderbolt 3",
+        "HDMI 1.4b",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC)",
+        "Dock connector",
+        "Headphone/microphone combo jack (3.5mm)",
+        "Kensington Security Slot"
+      ],
+      "camera": [
+        "HD 720p with Windows Hello support (infrared camera)",
+        "Fixed focus"
+      ],
+      "audio": [
+        "HD Audio, stereo speakers 2W x2, dual array microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "7-row classic layout, spill-resistant, LED backlight, blue Enter key",
+        "TrackPoint pointing device with 3 replacement nubs, glass surface multi-touch touchpad"
+      ],
+      "physical": {
+        "dimensions": "336.6mm x 232.5mm x 19.95mm",
+        "weight": "Starting at 1.73 kg",
+        "case_material": "Glass-Fiber Reinforced Plastic (rubberized coating)"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "dTPM 2.0",
+        "Touch style fingerprint reader on palm rest",
+        "Windows Hello facial recognition",
+        "Kensington Security Slot"
+      ],
+      "system": [
+        "Windows 10 Pro 64"
+      ],
+      "add_on_tips":[
+        "On side C, there is the text '25th anniversery edition'.",
+        "The vintage RGB ThinkPad logo is used on sides A and C."
+      ]
+    }
+  ]
+}

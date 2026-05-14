@@ -1,0 +1,8 @@
+        {
+          "model": "Qualcomm® Adreno™ X1-45 (Adreno 726)",
+          "Shading Units": "768",
+          "turbo_freq": "1250Mhz",
+          "VRAM":"-",
+          "Generation": "Adreno 7",
+          "Feature":"DX 12.0 (12_1), OpenGL_ES 3.2, OpenCL 3.0, Vulkan 1.3"
+        }

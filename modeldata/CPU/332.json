@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 5-332",
+          "cores_threads": "2P+4LPE / 6",
+          "base_freq": "2.5 GHz / 1.9 GHz (P/LPE)",
+          "turbo_freq": "4.4 GHz / 3.3 GHz (P/LPE)",
+          "cache": "12MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U5-3",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/245718/intel-core-ultra-5-processor-332-12m-cache-up-to-4-40-ghz/specifications.html"
+        }

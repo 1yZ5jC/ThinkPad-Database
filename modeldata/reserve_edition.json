@@ -1,0 +1,91 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-reserve-edition",
+      "model_name": "ThinkPad Reserve Edition",
+      "addons": "Based on ThinkPad X61s",
+      "model_family": "Anniversary Edition",
+      "model_generation": "x61",
+      "update_date": "November 2007",
+      "model_code": [8478],
+      "processor_options": ["L7500"],
+      "graphics_options": ["GMA X3100"],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@60Hz"
+        },
+        "multi_display": "Supports 2 independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "DDR2-667",
+        "slots": "Two SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [""],
+      "storage": {
+        "hdd": "SATA 3.0Gb/s, 2.5\" wide, 9.5mm high"
+      },
+      "Ethernet": ["82566MM"],
+      "WLAN": ["4965AGN"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated",
+          "feature": "Bluetooth 2.0+EDR"
+        }
+      ],
+      "WWAN": ["MC8775"],
+      "SIM_Card": [],
+      "Battary": [
+        {
+          "type": "External battery, 8-cell",
+          "capacity": "??Wh",
+          "form": "8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": ["65W AC adapter"],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA",
+        "Ethernet (RJ-45)",
+        "Modem (RJ-11)",
+        "CardBus slot (Type 2)",
+        "3.5mm Headphone jack",
+        "3.5mm Microphone jack",
+        "SD Card slot with IO support",
+        "4-pin Firewire 400 (IEEE1394a) port",
+        "Dock connector"
+      ],
+      "camera": [],
+      "audio": [
+        "Analog Devices AD1984 HD Audio / stereo speakers, 1W x 2 / dual array microphone, headphone/line-out jack"
+      ],
+      "keyboard": [
+        "7-row, spill-resistant, full-size, optional LED backlight?",
+        "TrackPoint pointing device with 3 buttons, touchpad not present"
+      ],
+      "physical": {
+        "dimensions": "?? x ?? x ?? mm",
+        "weight": "?? kg",
+        "case_material": "Magnesium alloy, top cover with leather"
+      },
+      "security": [
+        "Power-on/Hard disk/Supervisor password",
+        "TPM 1.2",
+        "Fingerprint reader (integrated)"
+      ],
+      "system": [
+        "Windows Vista Business"
+      ],
+      "PSREF_link": [],
+      "user_guide_link": [],
+      "HMM_link": [],
+      "dock_support": [""],
+      "add_on_tips": [
+        "限量版机型，基于X61s，使用类肤质掌托，掌托标记ThinkPad Reserve Edition，覆盖真皮"
+      ]
+    }
+  ]
+}

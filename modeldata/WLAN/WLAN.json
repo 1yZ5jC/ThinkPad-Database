@@ -2,5 +2,73 @@
     {
         "file": "1.json",
         "name": "1"
+    },
+    {
+        "file": "1000.json",
+        "name": "Intel Centrino Wireless-N 1000"
+    },
+    {
+        "file": "11abgn.json",
+        "name": "Intel Centrino Wireless-N 1000"
+    },
+    {
+        "file": "11bg.json",
+        "name": "ThinkPad b/g Wireless (Powered By Atheros AR5007EG)"
+    },
+    {
+        "file": "11bgn.json",
+        "name": "Placeholder"
+    },
+    {
+        "file": "11bgn_ii.json",
+        "name": "ThinkPad 11b/g/n Wireless LAN Mini-PCI Express Adapter II (Powered by Realtek RTL8192SE / RTL8188CE)"
+    },
+    {
+        "file": "11bgn_iii.json",
+        "name": "ThinkPad 11b/g/n Wireless LAN Mini-PCI Express Adapter III (Powered by Realtek RTL8188CE)"
+    },
+    {
+        "file": "18260AC.json",
+        "name": "Intel Tri-Band Wireless-AC 18260"
+    },
+    {
+        "file": "2230.json",
+        "name": "Intel Centrino Wireless-N 2230"
+    },
+    {
+        "file": "5100.json",
+        "name": "Intel WiFi Link 5100 WLAN controller"
+    },
+    {
+        "file": "5150.json",
+        "name": "Intel WiMAX/WiFi Link 5150 controller"
+    },
+    {
+        "file": "6205S.json",
+        "name": "Intel Centrino Wireless-N 6205S"
+    },
+    {
+        "file": "6235.json",
+        "name": "Intel Centrino Wireless-N 6235"
+    },
+    {
+        "file": "6250.json",
+        "name": "Intel Centrino Advanced-N + WiMAX 6250"
+    },
+    {
+        "file": "8260AC.json",
+        "name": "Intel Dual Band Wireless-AC 8260"
+    },
+    {
+        "file": "BCM4356.json",
+        "name": "Broadcom BCM4356"
+    },
+    {
+        "file": "BE213.json",
+        "name": "Intel® Wi-Fi 7 R2 BE213 "
+    },
+    {
+        "file": "RTL8822CE.json",
+        "name": "Realtek RTL8822CE"
     }
 ]

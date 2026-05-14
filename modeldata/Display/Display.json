@@ -1,16 +1,102 @@
 [
-    "LEN40A0.json",
-    "LEN40A2.json",
-    "LEN40A9.json",
-    "LEN40AA.json",
-    "LEN40AE.json",
-    "LEN40AF.json",
-    "LEN40E0.json",
-    "LEN40E2.json",
-    "LEN40E4.json",
     {
         "file": "1.json",
         "name": "1",
         "tech": "1"
+    },
+    {
+        "file": "LEN4094.json",
+        "name": "FHD (1920x1080)",
+        "tech": "IPS, Anti-glare"
+    },
+    {
+        "file": "LEN40A0.json",
+        "name": "HD (1366x768)",
+        "tech": "Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40A2.json",
+        "name": "HD+ (1600x900)",
+        "tech": "TN, Anti-glare, LED backlight, Max Bright"
+    },
+    {
+        "file": "LEN40A9.json",
+        "name": "FHD (1920x1080)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40AA-Touchable.json",
+        "name": "WQHD (2560x1440)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40AA.json",
+        "name": "WQHD (2560x1440)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40AE.json",
+        "name": "WQHD (2560x1440)",
+        "tech": "IPS, glare, Quantum Dots backlight, Dolby Vision"
+    },
+    {
+        "file": "LEN40AF.json",
+        "name": "WQHD (2560x1440)",
+        "tech": "IPS, glare, LED backlight, Dolby Vision"
+    },
+    {
+        "file": "LEN40E0.json",
+        "name": "HD (1366x768)",
+        "tech": "Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40E2.json",
+        "name": "HD (1366x768)",
+        "tech": "IPS，Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40E4.json",
+        "name": "FHD (1920x1080)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN40F0.json",
+        "name": "WUXGA (1920x1200)",
+        "tech": "IPS, WLED backlight, Touch Screen"
+    },
+    {
+        "file": "LEN4121.json",
+        "name": "FHD (1920x1080)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN4123.json",
+        "name": "4K (3840x2160)",
+        "tech": "IPS, Anti-glare, LED backlight"
+    },
+    {
+        "file": "LEN4140.json",
+        "name": "WQHD (2560x1440)",
+        "tech": "OLED, Glare"
+    },
+    {
+        "file": "LEN4143.json",
+        "name": "UHD (3840x2160)",
+        "tech": "OLED, Anti-reflection,Anti-smudge"
+    },
+    {
+        "file": "LEN4148.json",
+        "name": "2.5K (2560x2024)",
+        "tech": "Folding OLED, Anti-smudge, 16.3\" when open and 12\" when folded, DisplayHDR™ True Black 600, Dolby Vision®"
+    },
+    {
+        "file": "LEN414C.json",
+        "name": "WUXGA (1920x1200)",
+        "tech": "OLED, Anti-glare, HDR500, Dolby Vision, EyeSafe"
+    },
+    {
+        "file": "LEN41F5.json",
+        "name": "2.8K (2880x1920)",
+        "tech": "OLED, Anti-glare, HDR1000 True Black, Dolby Vision, EyeSafe"
     }
 ]

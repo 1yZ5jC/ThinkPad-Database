@@ -1,6 +1,82 @@
 [
-    "40A0.json",
-    "40A1.json",
-    "40A2.json",
-    "40A6.json"
+    {
+        "file": "05K4872.json",
+        "name": "ThinkPad Port Replicator with Advanced EtherJet"
+    },
+    {
+        "file": "10H4021.json",
+        "name": "ThinkPad MultiPort Replicator II"
+    },
+    {
+        "file": "10L2150.json",
+        "name": "ThinkPad UltraBase"
+    },
+    {
+        "file": "11J8997.json",
+        "name": "IBM ThinkPad Enhanced Port Replicator"
+    },
+    {
+        "file": "12J2467.json",
+        "name": "SelectaBase 600"
+    },
+    {
+        "file": "3457-001.json",
+        "name": "ThinkPad SelectaDock I"
+    },
+    {
+        "file": "3457-002.json",
+        "name": "ThinkPad SelectaDock II"
+    },
+    {
+        "file": "3457-003.json",
+        "name": "ThinkPad SelectaDock III"
+    },
+    {
+        "file": "3545.json",
+        "name": "ThinkPad Dock I"
+    },
+    {
+        "file": "3546.json",
+        "name": "ThinkPad Dock II"
+    },
+    {
+        "file": "40A0.json",
+        "name": "ThinkPad Basic Dock"
+    },
+    {
+        "file": "40A1.json",
+        "name": "ThinkPad Pro Dock"
+    },
+    {
+        "file": "40A2.json",
+        "name": "ThinkPad Ultra Dock"
+    },
+    {
+        "file": "40A4.json",
+        "name": "ThinkPad OneLink+ Dock"
+    },
+    {
+        "file": "40A6.json",
+        "name": "ThinkPad Wigig Dock"
+    },
+    {
+        "file": "46H4209.json",
+        "name": "ThinkPad 560 Port Replicator"
+    },
+    {
+        "file": "66G3510.json",
+        "name": "ThinkPad Port Replicator Model 1"
+    },
+    {
+        "file": "66G3520.json",
+        "name": "ThinkPad Port Replicator Model 1"
+    },
+    {
+        "file": "83H6735.json",
+        "name": "SelectaBase 770"
+    },
+    {
+        "file": "84G1316.json",
+        "name": "ThinkPad 380/385 Port Replicator"
+    }
 ]

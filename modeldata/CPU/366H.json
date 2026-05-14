@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 7 366H",
+          "cores_threads": "4P+8E+4LPE / 16",
+          "base_freq": "2.0 GHz / 1.6 GHz  / 1.6 GHz (P/E/LPE)",
+          "turbo_freq": "4.8 GHz / 3.6 GHz / 3.6 GHz (P/E/LPE)",
+          "cache": "18MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U7-3",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/245530/intel-core-ultra-7-processor-366h-18m-cache-up-to-4-80-ghz/specifications.html"
+        }

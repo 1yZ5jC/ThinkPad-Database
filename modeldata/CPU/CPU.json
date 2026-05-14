@@ -1,100 +1,436 @@
 [
     {
-        "file": "1505MV5.json",
-        "name": "Intel Xeon E3-1505M v5",
-        "family": "Intel Xeon E3",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "1535MV5.json",
-        "name": "Intel Xeon E3-1535M v5",
-        "family": "Intel Xeon E3",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "1575MV5.json",
-        "name": "Intel Xeon E3-1575M v5",
-        "family": "Intel Xeon E3",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6006U.json",
-        "name": "Intel Core i3-6006U",
-        "family": "Intel Core i3",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6100U.json",
-        "name": "Intel Core i3-6100U",
-        "family": "Intel Core i3",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6200U.json",
-        "name": "Intel Core i5-6200U",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6300HQ.json",
-        "name": "Intel Core i5-6300HQ",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6300U.json",
-        "name": "Intel Core i5-6300U",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6440HQ.json",
-        "name": "Intel Core i5-6440HQ",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6500U.json",
-        "name": "Intel Core i5-6500U",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6600U.json",
-        "name": "Intel Core i5-6600U",
-        "family": "Intel Core i5",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6700HQ.json",
-        "name": "Intel Core i7-6700HQ",
-        "family": "Intel Core i7",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
-        "file": "6820HQ.json",
-        "name": "Intel Core i7-6820HQ",
-        "family": "Intel Core i7",
-        "Architecture": "Skylake",
-        "generation": "Core 6th"
-    },
-    {
         "file": "1.json",
         "name": "1",
-        "family": "1",
-        "Architecture": "1",
-        "generation": "1"
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "325.json",
+        "name": "Intel Ultra 5-325",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "332.json",
+        "name": "Intel Ultra 5-332",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "335.json",
+        "name": "Intel Ultra 5-335",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "336H.json",
+        "name": "Intel Ultra 5 336H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "338H.json",
+        "name": "Intel Ultra 5 338H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "355.json",
+        "name": "Intel Ultra 7 355",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "356H.json",
+        "name": "Intel Ultra 7 356H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "358H.json",
+        "name": "Intel Ultra X7 358H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "365.json",
+        "name": "Intel Ultra 7 365",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "366H.json",
+        "name": "Intel Ultra 7 366H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "368H.json",
+        "name": "Intel Ultra X7 368H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "386H.json",
+        "name": "Intel Ultra 9 386H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "386SL_25.json",
+        "name": "80386SL_25",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "388H.json",
+        "name": "Intel Ultra X9-388H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486BL2_50.json",
+        "name": "IBM Blue Lightning 80486BL2 50MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486DX2_50.json",
+        "name": "Intel 80486DX2 50MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486DX4_100.json",
+        "name": "Intel 80486DX4 100MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486DX4_75.json",
+        "name": "Intel 80486DX4 75MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486SLC2_50.json",
+        "name": "Intel 80486SLC2 50MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486SLC_25.json",
+        "name": "Intel 80486SLC 25MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486SL_33.json",
+        "name": "Intel 80486SL 33MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "486SX_33.json",
+        "name": "Intel 80486SX 33MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "5x86c_100.json",
+        "name": "IBM 5x86c 100 MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "603e_100.json",
+        "name": "PowerPC 603e 100MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "603e_166.json",
+        "name": "PowerPC 603e 166MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Celeron_366_PII.json",
+        "name": "Celeron 366MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Celeron_400_PII.json",
+        "name": "Celeron 400MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Celeron_450_PIII.json",
+        "name": "Celeron 450MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Celeron_500_PIII.json",
+        "name": "Celeron 500MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cx486DX4_75.json",
+        "name": "Cyrix Cx486DX4 75MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "IBM_486SLC2.json",
+        "name": "IBM 486SLC2 50MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54CSLM_100.json",
+        "name": "Pentium 100MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54CSLM_120.json",
+        "name": "Pentium 120MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54CSLM_133.json",
+        "name": "Pentium 133MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54CSLM_150.json",
+        "name": "Pentium 150MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54LM_75.json",
+        "name": "Pentium 75MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P54LM_90.json",
+        "name": "Pentium 90MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CLM_133.json",
+        "name": "Pentium MMX 133MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CLM_150.json",
+        "name": "Pentium MMX 150MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CLM_166.json",
+        "name": "Pentium MMX 166MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CSLM_200.json",
+        "name": "Pentium MMX 200MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CSLM_233.json",
+        "name": "Pentium MMX 233MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "P55CSLM_266.json",
+        "name": "Pentium MMX 266MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PIII_450.json",
+        "name": "Pentium Ⅲ 450MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PIII_500.json",
+        "name": "Pentium Ⅲ 500MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_233.json",
+        "name": "Pentium Ⅱ 233MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_266.json",
+        "name": "Pentium Ⅱ 266MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_266PE.json",
+        "name": "Pentium Ⅱ 266MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_300.json",
+        "name": "Pentium Ⅱ 300MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_300PE.json",
+        "name": "Pentium Ⅱ 300MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_333.json",
+        "name": "Pentium Ⅱ 333MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_366.json",
+        "name": "Pentium Ⅱ 366MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "PII_400.json",
+        "name": "Pentium Ⅱ 400MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "SC8280XP.json",
+        "name": "Snapdragon 8cx Gen 3 Compute Platform",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T2300.json",
+        "name": "Core Duo T2300",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T2300E.json",
+        "name": "Core Duo T2300E",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T2400.json",
+        "name": "Core Duo T2400",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "X1E78100.json",
+        "name": "Snapdragon X Elite X1E78100",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "X1P42100.json",
+        "name": "Snapdragon X Plus X1P42100",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Z3770.json",
+        "name": "Z3770",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Z3795.json",
+        "name": "Z3795",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
     }
 ]

@@ -1478,6 +1478,72 @@
         if (copyBtn) copyBtn.addEventListener('click', copyJson);
         var exportBtn = document.getElementById('generatorExportBtn');
         if (exportBtn) exportBtn.addEventListener('click', exportJson);
+
+        // ---------- 重建索引按钮 ----------
+        var rebuildBtn = document.getElementById('generatorRebuildBtn');
+        if (!rebuildBtn) {
+            rebuildBtn = document.createElement('button');
+            rebuildBtn.textContent = '重建索引';
+            rebuildBtn.className = 'btn';
+            rebuildBtn.id = 'generatorRebuildBtn';
+            var toolbar = document.querySelector('#generatorPage .compare-toolbar');
+            if (toolbar) toolbar.appendChild(rebuildBtn);
+        }
+        if (rebuildBtn && !rebuildBtn.dataset.eventsBound) {
+            rebuildBtn.addEventListener('click', function() {
+                var mode = currentMode;
+                var typeMap = {
+                    'model': 'model',
+                    'cpu': 'cpu',
+                    'gpu': 'gpu',
+                    'display': 'display',
+                    'ethernet': 'ethernet',
+                    'wifi': 'wifi',
+                    'wwan': 'wwan',
+                    'dock': 'dock'
+                };
+                var apiType = typeMap[mode];
+                if (!apiType) {
+                    alert('当前模式不支持重建索引');
+                    return;
+                }
+                if (!confirm('确定要重建 ' + mode + ' 索引吗？这将扫描所有已存在的 JSON 文件并更新索引。')) return;
+                fetch('/api/rebuild-index/' + apiType, { method: 'POST' })
+                    .then(function(resp) { return resp.json(); })
+                    .then(function(data) {
+                        if (data.success) {
+                            alert(data.message + '，共 ' + data.count + ' 项');
+                            if (mode === 'cpu') {
+                                loadCpuIndex().then(function() {
+                                    if (currentMode === 'cpu') renderForm();
+                                    else if (currentMode === 'model') renderForm();
+                                });
+                            } else if (mode === 'gpu') {
+                                loadGpuIndex().then(function() {
+                                    if (currentMode === 'gpu') renderForm();
+                                    else if (currentMode === 'model') renderForm();
+                                });
+                            } else if (mode === 'display' || mode === 'ethernet' || mode === 'wifi' || mode === 'wwan' || mode === 'dock') {
+                                var type = (mode === 'wifi' ? 'wlan' : mode);
+                                loadOptionList(type).then(function() {
+                                    if (currentMode === 'model') renderForm();
+                                    else if (currentMode === mode) renderForm();
+                                });
+                            } else if (mode === 'model') {
+                                alert('机型索引已重建，请刷新整个页面以使主页生效。');
+                            }
+                        } else {
+                            alert('重建失败: ' + (data.error || '未知错误'));
+                        }
+                    })
+                    .catch(function(err) {
+                        alert('请求失败: ' + err.message);
+                        console.error(err);
+                    });
+            });
+            rebuildBtn.dataset.eventsBound = 'true';
+        }
+
         loadDataAndRender();
     }
 

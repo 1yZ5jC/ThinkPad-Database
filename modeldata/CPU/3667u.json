@@ -1,0 +1,10 @@
+﻿{
+  "model": "i7-3667U",
+  "cores_threads": "2 / 4",
+  "base_freq": "2.0 GHz",
+  "turbo_freq": "3.2 GHz",
+  "cache": "4MB",
+  "graphics": "Intel HD Graphics 4000",
+  "iconfamily": "i7-2~3",
+  "ark": "https://www.intel.cn/content/www/cn/zh/products/sku/64898/intel-core-i73667u-processor-4m-cache-up-to-3-20-ghz/specifications.html"
+}

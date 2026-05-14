@@ -984,10 +984,34 @@ main::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 
     flex-shrink: 0;
 }
 
+/* 型号选择面板列表区域：独立滚动 + 固定选项高度 */
 .model-select-list {
     flex: 1;
     overflow-y: auto;
     padding: 0 16px 16px;
+    min-height: 0;   /* 允许 flex 子项缩小，配合滚动 */
+}
+
+.model-select-list .nav-item {
+    height: 44px;
+    padding: 0 16px;
+    line-height: 10px;
+    margin: 0 0 0px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+    width: 100%;
+}
+.model-select-list .nav-item:hover {
+    background: var(--bg-hover);
+}
+.model-select-list .nav-item.active {
+    background: var(--accent);
+    color: #ffffff;
 }
 
 .settings-overlay {

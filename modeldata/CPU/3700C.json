@@ -1,0 +1,9 @@
+﻿        {
+          "model": "Ryzen 7 3700C",
+          "cores_threads": "4 / 8",
+          "base_freq": "2.3 GHz",
+          "turbo_freq": "4.0 GHz",
+          "cache": "4MB",
+          "graphics": "AMD Radeon RX Vega 10",
+          "iconfamily": "ryzen7_1-3+"
+        }

@@ -1,11 +1,78 @@
 [
-    "EM7455.json",
-    "ME906S.json",
-    "No_WWAN.json",
-    "WWAN_NOT_Upgradeable.json",
-    "WWAN_Upgradeable.json",
     {
         "file": "1.json",
         "name": "1"
+    },
+    {
+        "file": "EM05-G.json",
+        "name": "Quectel EM05-G"
+    },
+    {
+        "file": "EM7345.json",
+        "name": "Sierra Wireless EM7345"
+    },
+    {
+        "file": "EM7355.json",
+        "name": "Sierra Wireless EM7455"
+    },
+    {
+        "file": "EM7455.json",
+        "name": "Sierra Wireless EM7455"
+    },
+    {
+        "file": "F3507g.json",
+        "name": "Ericsson F3507g Mobile Broadband Module (Often branded as AT&T Mobile Broadband with GPS)"
+    },
+    {
+        "file": "Gobi3000.json",
+        "name": "Qualcomm Gobi 3000"
+    },
+    {
+        "file": "Gobi4000.json",
+        "name": "Qualcomm Gobi 4000"
+    },
+    {
+        "file": "L860-GL-16.json",
+        "name": "Fibocom L860-GL-16"
+    },
+    {
+        "file": "MagicBay.json",
+        "name": "Lenovo Magic Bay LTE"
+    },
+    {
+        "file": "MagicBay_LTE2.json",
+        "name": "Lenovo Magic Bay LTE2 (MBLE31)"
+    },
+    {
+        "file": "ME906S.json",
+        "name": "HUAWEI ME906S"
+    },
+    {
+        "file": "No_WWAN.json",
+        "name": "No WWAN"
+    },
+    {
+        "file": "RM520N-GL.json",
+        "name": "Quectel RM520N-GL"
+    },
+    {
+        "file": "T99W175.json",
+        "name": "Foxconn T99W175 mmWave"
+    },
+    {
+        "file": "T99W175_CN.json",
+        "name": "Foxconn T99W175"
+    },
+    {
+        "file": "WWAN_NOT_Upgradeable.json",
+        "name": "Wireless WAN NOT upgradable by end users"
+    },
+    {
+        "file": "WWAN_Upgradeable.json",
+        "name": "Wireless WAN upgradable"
+    },
+    {
+        "file": "WWAN_Upgradeable_MagicBay.json",
+        "name": "Wireless WAN upgradable by MagicBay module"
     }
 ]

@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra X7 368H",
+          "cores_threads": "4P+8E+4LPE / 16",
+          "base_freq": "2.0 GHz / 1.6 GHz  / 1.6 GHz (P/E/LPE)",
+          "turbo_freq": "5.0 GHz / 3.8 GHz / 3.6 GHz (P/E/LPE)",
+          "cache": "18MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"X7-3",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/245523/intel-core-ultra-7-processor-368h-18m-cache-up-to-5-00-ghz/specifications.html"
+        }

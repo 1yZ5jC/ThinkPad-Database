@@ -1,37 +1,324 @@
 [
     {
+        "file": "1.json",
+        "name": "1",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "1"
+    },
+    {
+        "file": "86CM65.json",
+        "name": "S3 Aurora64V+ (86CM65)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Trio"
+    },
+    {
+        "file": "Adreno_8cx_Gen3.json",
+        "name": "Qualcomm® Adreno™ 8cx Gen 3 (Adreno 695)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Adreno 6"
+    },
+    {
+        "file": "Adreno_X1-45.json",
+        "name": "Qualcomm® Adreno™ X1-45 (Adreno 726)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Adreno 7"
+    },
+    {
+        "file": "Adreno_X1-85.json",
+        "name": "Qualcomm® Adreno™ X1-85 (Adreno 741)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Adreno 7"
+    },
+    {
+        "file": "Arc_B370.json",
+        "name": "Intel® Arc™ B370 GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe3-LPG"
+    },
+    {
+        "file": "Arc_B390.json",
+        "name": "Intel® Arc™ B390 GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe3-LPG"
+    },
+    {
+        "file": "CT65545.json",
+        "name": "Chips & Technologies CT-65545",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cyber9320.json",
+        "name": "Trident Cyber9320",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cyber9382.json",
+        "name": "Trident Cyber9382",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cyber9397.json",
+        "name": "Trident Cyber9397",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cyber9397DVD.json",
+        "name": "Trident Cyber9397DVD",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "Cyber9397E.json",
+        "name": "Trident Cyber9397E",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "F65550.json",
+        "name": "Chips & Technologies 65550 HiQV32",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "GeForce_930M.json",
-        "name": "Geforce 930M",
-        "family": "NVIDIA GeForce",
-        "Architecture": "Maxwell",
-        "generation": "Geforce 900M"
+        "name": "NVIDIA GeForce 930M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Maxwell"
+    },
+    {
+        "file": "Geforce_940M.json",
+        "name": "NVIDIA GeForce 940M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Maxwell"
     },
     {
         "file": "GeForce_940MX.json",
-        "name": "Geforce 940MX",
-        "family": "NVIDIA GeForce",
-        "Architecture": "Maxwell",
-        "generation": "Geforce 900M"
+        "name": "NVIDIA GeForce 940MX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Maxwell"
+    },
+    {
+        "file": "GT620M.json",
+        "name": "NVIDIA Geforce GT 620M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Fermi"
+    },
+    {
+        "file": "HD3000.json",
+        "name": "Intel HD 3000",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 6.0"
+    },
+    {
+        "file": "HD4000.json",
+        "name": "Intel HD 4000",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 7.0"
+    },
+    {
+        "file": "HD4600.json",
+        "name": "Intel HD 4600",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 7.5"
     },
     {
         "file": "HD520.json",
-        "name": "HD 520",
-        "family": "Intel HD Graphics",
-        "Architecture": "Gen 9",
-        "generation": "Skylake"
+        "name": "Intel HD 520",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.0"
+    },
+    {
+        "file": "HD530.json",
+        "name": "Intel HD 530",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.0"
+    },
+    {
+        "file": "HD620.json",
+        "name": "Intel HD 620",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.5"
+    },
+    {
+        "file": "HDP530.json",
+        "name": "Intel HD P530",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.0"
+    },
+    {
+        "file": "HD_BTL.json",
+        "name": "Intel HD Graphics (Bay Trail)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 7.0"
+    },
+    {
+        "file": "Iris_Pro_P580.json",
+        "name": "intel® iris™ Pro Graphics P580",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.0"
+    },
+    {
+        "file": "K1000M.json",
+        "name": "NVIDIA Quadro K1000M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Kepler"
+    },
+    {
+        "file": "K1100M.json",
+        "name": "NVIDIA Quadro K1100M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Kepler"
+    },
+    {
+        "file": "K2000M.json",
+        "name": "NVIDIA Quadro K2000M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Kepler"
+    },
+    {
+        "file": "K2100M.json",
+        "name": "NVIDIA Quadro K2100M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Kepler"
     },
     {
         "file": "M500M.json",
-        "name": "M500M",
-        "family": "NVIDIA Quadro",
-        "Architecture": "Maxwell",
-        "generation": "Quadro Mx000M"
+        "name": "NVIDIA Quadro M500M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Maxwell"
     },
     {
-        "file": "1.json",
-        "name": "1",
-        "family": "1",
-        "Architecture": "1",
-        "generation": "1"
+        "file": "NM2093.json",
+        "name": "NeoMagic MagicMedia128ZV",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "NM2160B.json",
+        "name": "NeoMagic MagicMedia128XD",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "NM2160C.json",
+        "name": "NeoMagic MagicMedia128XD",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "NM2200.json",
+        "name": "Neomagic MagicMedia256AV",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "NVS5200M.json",
+        "name": "NVIDIA NVS 5200M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Fermi"
+    },
+    {
+        "file": "NVS5400M.json",
+        "name": "NVIDIA NVS 5400M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Fermi"
+    },
+    {
+        "file": "SM712G.json",
+        "name": "Silicon Motion Lynx EM+ ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "SM712G_4MB.json",
+        "name": "Silicon Motion Lynx EM+ ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "UHD620.json",
+        "name": "Intel UHD 620",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 9.5"
+    },
+    {
+        "file": "UHD_PTL.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe3-LPG"
+    },
+    {
+        "file": "UHD_PTL_WCL_2Xe.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe3-LPG"
+    },
+    {
+        "file": "UHD_WCL_1Xe.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe3-LPG"
+    },
+    {
+        "file": "WD90C24A.json",
+        "name": "Western Digital WD90C24A",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "WD90C26.json",
+        "name": "Western Digital WD90C26",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
     }
 ]

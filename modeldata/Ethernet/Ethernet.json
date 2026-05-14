@@ -1,10 +1,14 @@
 [
-    "82579LM.json",
-    "I219LM.json",
-    "I219V.json",
-    "RTL8111F.json",
     {
         "file": "1.json",
         "name": "1"
+    },
+    {
+        "file": "I219LM.json",
+        "name": "Intel Ethernet Connection I219-LM"
+    },
+    {
+        "file": "I219V.json",
+        "name": "Intel Ethernet Connection I219-V"
     }
 ]
