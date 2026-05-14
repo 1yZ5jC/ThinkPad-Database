@@ -7,5 +7,10 @@
     "LEN40AF.json",
     "LEN40E0.json",
     "LEN40E2.json",
-    "LEN40E4.json"
+    "LEN40E4.json",
+    {
+        "file": "1.json",
+        "name": "1",
+        "tech": "1"
+    }
 ]

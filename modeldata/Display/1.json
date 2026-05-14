@@ -1,0 +1,14 @@
+{
+    "type": "1",
+    "tech": "1",
+    "brightness": "1",
+    "contrast": "1",
+    "viewing_angle": "1",
+    "color_gamut": "1",
+    "refresh_rate": "1",
+    "FRUs": [
+        {
+            "111": "111"
+        }
+    ]
+}

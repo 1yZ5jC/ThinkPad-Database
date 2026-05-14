@@ -89,5 +89,12 @@
         "family": "Intel Core i7",
         "Architecture": "Skylake",
         "generation": "Core 6th"
+    },
+    {
+        "file": "1.json",
+        "name": "1",
+        "family": "1",
+        "Architecture": "1",
+        "generation": "1"
     }
 ]

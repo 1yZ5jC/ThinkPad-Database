@@ -26,5 +26,12 @@
         "family": "NVIDIA Quadro",
         "Architecture": "Maxwell",
         "generation": "Quadro Mx000M"
+    },
+    {
+        "file": "1.json",
+        "name": "1",
+        "family": "1",
+        "Architecture": "1",
+        "generation": "1"
     }
 ]

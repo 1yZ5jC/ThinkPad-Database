@@ -3,5 +3,9 @@
     "ME906S.json",
     "No_WWAN.json",
     "WWAN_NOT_Upgradeable.json",
-    "WWAN_Upgradeable.json"
+    "WWAN_Upgradeable.json",
+    {
+        "file": "1.json",
+        "name": "1"
+    }
 ]

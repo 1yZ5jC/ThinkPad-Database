@@ -1,0 +1,120 @@
+{
+    "id": "1",
+    "model_name": "1",
+    "model_family": "1",
+    "model_generation": "1",
+    "update_date": "1",
+    "model_code": [
+        "1"
+    ],
+    "processor_options": [
+        "1"
+    ],
+    "graphics_options": [
+        "1"
+    ],
+    "display_options": [
+        "1"
+    ],
+    "dock_support": [],
+    "Ethernet": [
+        "1"
+    ],
+    "WLAN": [
+        "1"
+    ],
+    "WWAN": [
+        "1"
+    ],
+    "Display": {
+        "max_resolution": {
+            "mini_dp": "1",
+            "hdmi": "1",
+            "usb_c_tbt": "1"
+        },
+        "multi_display": "1"
+    },
+    "memory": {
+        "max_capacity": "1",
+        "type": "1",
+        "slots": "1",
+        "features": "1"
+    },
+    "storage": {
+        "ssd_sata": "1",
+        "ssd_pcie": "1",
+        "hdd": "1",
+        "sshd": "1",
+        "emmc": "1",
+        "optical": "1",
+        "floppy": "1",
+        "optane": "1"
+    },
+    "SIM_Card": [
+        {
+            "type": "1"
+        }
+    ],
+    "Bluetooth": [
+        {
+            "type": "1",
+            "feature": "1",
+            "form": ""
+        }
+    ],
+    "Battary": [
+        {
+            "type": "1",
+            "capacity": "1",
+            "tech": "1",
+            "form": "1"
+        },
+        {
+            "type": "1",
+            "capacity": "1",
+            "tech": "1",
+            "form": "1"
+        }
+    ],
+    "ACadapter": [
+        "1"
+    ],
+    "ports": [
+        "1"
+    ],
+    "camera": [
+        "1"
+    ],
+    "audio": [
+        "1"
+    ],
+    "keyboard": [
+        "1"
+    ],
+    "security": [
+        "1"
+    ],
+    "system": [
+        "1"
+    ],
+    "physical": {
+        "dimensions": "1",
+        "weight": "1",
+        "case_material": "1"
+    },
+    "PSREF_link": [
+        "1"
+    ],
+    "HMM_link": [
+        "1"
+    ],
+    "user_guide_link": [
+        "1"
+    ],
+    "add_on_tips": [
+        "1"
+    ],
+    "secret_tips": [
+        "1"
+    ]
+}
