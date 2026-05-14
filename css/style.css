@@ -197,10 +197,10 @@ main::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 
 /* 主页右下角固定背景图 */
 .home-bg-image {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     right: 20px;
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 555px;
+    max-height: 555px;
     width: auto;
     height: auto;
     opacity: 0.2;

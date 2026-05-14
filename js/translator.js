@@ -31,8 +31,6 @@
         'resolution, low light sensitive, fixed focus':'分辨率，低光敏感、固定焦距',
         'Smart card reader (Optional)':'智能卡读卡器（选配）',
         '4-in-1 reader':'四合一读卡器'
-
-
         // 可继续扩充任何需要转换的英文术语
     };
 
