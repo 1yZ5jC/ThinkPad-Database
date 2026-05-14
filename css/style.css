@@ -995,14 +995,13 @@ main::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 
 .model-select-list .nav-item {
     height: 44px;
     padding: 0 16px;
-    line-height: 10px;
+    line-height: 0px;
     margin: 0 0 0px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 14px;
+    font-size: 30px;
     cursor: pointer;
-    border-radius: var(--radius-sm);
     transition: background 0.15s;
     width: 100%;
 }
