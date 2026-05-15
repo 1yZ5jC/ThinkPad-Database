@@ -82,7 +82,7 @@
         "Security keyhole",
         "Phillips-head screw on base for memory, optional Allen wrench for disk"
       ],
-      "dock_support": ["12J2467","3547-001","3547-002","3547-003"],
+      "dock_support": ["12J2467","3457-001","3457-002","3457-003"],
       "system": ["Windows 95 OSR2", "Windows 98", "Windows NT 4.0"]
     }
   ]

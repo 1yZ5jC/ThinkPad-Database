@@ -705,10 +705,11 @@
                 if (data.model) lines.push(`<div class="part-title">${data.model}</div>`);
                 if (data.cores_threads) lines.push(`<div><span class="field-name">核心/线程:</span> <span class="field-value">${data.cores_threads}</span></div>`);
                 if (data.base_freq) lines.push(`<div><span class="field-name">基础频率:</span> <span class="field-value">${data.base_freq}</span></div>`);
+                if (data.ext_freq) lines.push(`<div><span class="field-name">外频:</span> <span class="field-value">${data.ext_freq}</span></div>`);
                 if (data.turbo_freq && data.turbo_freq !== 'null') lines.push(`<div><span class="field-name">睿频:</span> <span class="field-value">${data.turbo_freq}</span></div>`);
                 if (data.cache) lines.push(`<div><span class="field-name">缓存:</span> <span class="field-value">${data.cache}</span></div>`);
                 if (data.graphics) lines.push(`<div><span class="field-name">集成显卡:</span> <span class="field-value">${data.graphics}</span></div>`);
-                const excludeFields = ['model','cores_threads','base_freq','turbo_freq','cache','graphics','iconfamily','ark'];
+                const excludeFields = ['model','cores_threads','base_freq','ext_freq','turbo_freq','cache','graphics','iconfamily','ark'];
                 for (const [key, value] of Object.entries(data)) {
                     if (excludeFields.includes(key)) continue;
                     if (value && typeof value !== 'object') {
