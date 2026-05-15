@@ -7,6 +7,31 @@
     <link rel="preconnect" href="https://rawiic.github.io">
     <link rel="stylesheet" href="css\style.css">
 </head>
+<script>
+(function() {
+    var isSupported = true;
+    try {
+        // 1. 检测 Promise 和 fetch（EdgeHTML 18 已支持）
+        if (typeof Promise === 'undefined' || typeof fetch === 'undefined') {
+            isSupported = false;
+        }
+        // 2. 检测箭头函数语法支持（通过 Function 构造器测试）
+        new Function('() => {}');
+        // 3. 检测 Symbol（ES6 基础特性）
+        if (typeof Symbol === 'undefined') {
+            isSupported = false;
+        }
+    } catch(e) {
+        isSupported = false;
+    }
+
+    // 如果特性检测失败，说明浏览器过于陈旧（例如 IE11 或更早版本）
+    // 重定向到升级提示页面（请确保 upgrade.html 存在）
+    if (!isSupported) {
+        window.location.replace('upgrade.html');
+    }
+})();
+</script>
 <body>
     <div id="sidebar-overlay" class="modal-overlay" style="z-index:99;">
         <div id="sidebarOverlayBg" style="position:absolute;inset:0;"></div>

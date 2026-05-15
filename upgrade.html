@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkPad Specs - 浏览器提示</title>
+    <style type="text/css">
+        /* 正常网页样式（仅当JS启用时使用） */
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', '宋体', Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .box {
+            max-width: 650px;
+            margin: 40px auto;
+            background: #ffffff;
+            border: 1px solid #ccc;
+            padding: 25px 20px;
+            text-align: left;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 22px;
+            color: #1e3a8a;
+            margin: 0 0 15px 0;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+            margin: 10px 0;
+        }
+        .info {
+            background: #f9f9f9;
+            border-left: 4px solid #3b82f6;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        .btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+        .recommend {
+            margin-top: 10px;
+        }
+        .recommend a {
+            display: inline-block;
+            background: #eef2ff;
+            padding: 3px 12px;
+            margin: 0 6px 6px 0;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+        .debug {
+            font-size: 11px;
+            color: #666;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        table {
+            width: 90%;
+            margin: 0 auto;
+        }
+        td {
+            text-align: center;
+            padding: 6px;
+        }
+    </style>
+    <script type="text/javascript">
+        // 随机跳转 B 站链接的函数（每次点击时执行）
+        function randomBiliNav() {
+            var links = [
+                'https://www.bilibili.com/video/BV1GJ411x7h7',
+                'https://www.bilibili.com/bangumi/play/ep1231523',
+                'https://www.bilibili.com/video/BV1ewwxesEu4/'
+            ];
+            var idx = Math.floor(Math.random() * links.length);
+            window.open(links[idx], '_blank');
+        }
+    </script>
+</head>
+<body>
+
+<script type="text/javascript">
+// 现代浏览器特性检测（与主站一致）
+var isModern = false;
+try {
+    // 检测 Promise 和 fetch
+    if (typeof Promise !== 'undefined' && typeof fetch !== 'undefined') {
+        // 检测箭头函数（使用 eval 检测语法支持）
+        var canArrow = false;
+        try {
+            eval('() => {}');
+            canArrow = true;
+        } catch(e) {}
+        // 检测 Symbol
+        if (canArrow && typeof Symbol !== 'undefined') {
+            isModern = true;
+        }
+    }
+} catch(e) {
+    isModern = false;
+}
+
+// 辅助函数：转义 HTML
+function escapeHTML(str) {
+    if (typeof str !== 'string') return '';
+    return str.split('&').join('&amp;')
+              .split('<').join('&lt;')
+              .split('>').join('&gt;')
+              .split('"').join('&quot;')
+              .split("'").join('&#39;');
+}
+
+// 获取浏览器名称和版本（简化版，兼容老旧浏览器）
+function getBrowserInfo() {
+    var ua = navigator.userAgent;
+    var browserName = 'Unknown Browser';
+    var browserVersion = '';
+    var canDetect = true;
+
+    if (ua.indexOf('Edg/') !== -1) {
+        var m = ua.match(/Edg\/(\d+[\d.]*)/i);
+        browserName = 'Microsoft Edge (Chromium)';
+        if (m) browserVersion = m[1];
+    } else if (ua.indexOf('Edge/') !== -1) {
+        var m = ua.match(/Edge\/(\d+[\d.]*)/i);
+        browserName = 'Microsoft Edge (EdgeHTML)';
+        if (m) browserVersion = m[1];
+    } else if (ua.indexOf('Firefox/') !== -1) {
+        var m = ua.match(/Firefox\/(\d+[\d.]*)/i);
+        browserName = 'Mozilla Firefox';
+        if (m) browserVersion = m[1];
+    } else if (ua.indexOf('Chrome/') !== -1) {
+        var m = ua.match(/Chrome\/(\d+[\d.]*)/i);
+        browserName = 'Google Chrome';
+        if (m) browserVersion = m[1];
+    } else if (ua.indexOf('Safari/') !== -1 && ua.indexOf('Version/') !== -1) {
+        var m = ua.match(/Version\/(\d+[\d.]*)/i);
+        browserName = 'Apple Safari';
+        if (m) browserVersion = m[1];
+    } else if (ua.indexOf('MSIE ') !== -1 || ua.indexOf('Trident/') !== -1) {
+        browserName = 'Internet Explorer';
+        var m = ua.match(/MSIE\s+(\d+[\d.]*)/i);
+        if (m) browserVersion = m[1];
+        else {
+            var t = ua.match(/Trident\/(\d+[\d.]*)/i);
+            if (t) {
+                var tv = parseFloat(t[1]);
+                if (tv >= 7.0) browserVersion = '11 (compat)';
+                else if (tv >= 6.0) browserVersion = '10 (compat)';
+                else if (tv >= 5.0) browserVersion = '9 (compat)';
+            }
+        }
+    } else {
+        canDetect = false;
+    }
+    return { canDetect: canDetect, ua: ua, browserName: browserName, browserVersion: browserVersion };
+}
+
+// 获取缺失的特性列表
+function getMissingFeatures() {
+    var missing = [];
+    if (typeof Promise === 'undefined') missing.push('Promise');
+    if (typeof fetch === 'undefined') missing.push('fetch');
+    try { eval('() => {}'); } catch(e) { missing.push('箭头函数'); }
+    if (typeof Symbol === 'undefined') missing.push('Symbol');
+    if (missing.length === 0) return '所有特性均支持 ✓';
+    return '缺少：' + missing.join(', ');
+}
+
+if (isModern) {
+    // 现代浏览器误入本页 -> 显示友好提示（点击按钮时随机跳转）
+    document.write('<div class="box">');
+    document.write('<h1>🤔 我觉得您似乎不应该来到这里</h1>');
+    document.write('<p>您的浏览器完全支持本网站所需的所有现代特性。<br>您可能通过以下方式到达这里：</p>');
+    document.write('<div class="info">');
+    document.write('<ul style="margin:0 0 0 20px;">');
+    document.write('<li>直接访问了本提示页面的地址</li>');
+    document.write('<li>正在测试网站的跳转逻辑</li>');
+    document.write('<li>浏览器开启了某些实验性兼容设置</li>');
+    document.write('</ul>');
+    document.write('</div>');
+    document.write('<p>显然您无需升级浏览器，您可以正常使用本网站。</p>');
+    document.write('<a class="btn" href="/">返回 ThinkPad Specs 主页</a>');
+    // 每次点击时随机跳转的按钮（调用 randomBiliNav 函数）
+    document.write('<a class="btn" href="javascript:void(0)" onclick="randomBiliNav()" target="_blank" rel="noopener" style="margin-left: 12px;">或者看点大家喜欢的</a>');
+    document.write('<div class="debug">📋 检测结果：支持 Promise、fetch、箭头函数、Symbol → 现代浏览器 ✓<br>🌐 User Agent: ' + escapeHTML(navigator.userAgent) + '</div>');
+    document.write('</div>');
+} else {
+    // 老旧浏览器 -> 升级建议（保持与原文件风格一致）
+    var info = getBrowserInfo();
+    var missing = getMissingFeatures();
+
+    document.write('<div class="box">');
+    document.write('<h1 style="color:#cc0000;">⚠️ 您的浏览器版本过旧</h1>');
+    document.write('<p>您的浏览器缺少本网站所需的一些现代功能，<br>可能无法正常显示或运行。</p>');
+    document.write('<div class="info"><strong>检测到的问题：</strong><br>' + missing + '</div>');
+    if (info.canDetect) {
+        document.write('<p><strong>浏览器：</strong> ' + escapeHTML(info.browserName) + (info.browserVersion ? ' &nbsp; <strong>版本：</strong> ' + escapeHTML(info.browserVersion) : '') + '</p>');
+        document.write('<p><strong>完整的 User Agent 字符串：</strong></p>');
+        document.write('<pre style="background:#f5f5f5; border:1px solid #ddd; padding:10px; font-size:11px; overflow:auto; max-width:100%; text-align:left; word-wrap:break-word; white-space:pre-wrap;">' + escapeHTML(info.ua) + '</pre>');
+    } else {
+        document.write('<p>无法获取浏览器信息（您的浏览器可能过旧）。</p>');
+    }
+    document.write('<p><strong>建议升级到以下任一现代浏览器：</strong></p>');
+    document.write('<div class="recommend">');
+    document.write('<a href="https://www.google.com/chrome/" target="_blank" rel="noopener">Google Chrome</a>');
+    document.write('<a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener">Mozilla Firefox</a>');
+    document.write('<a href="https://www.microsoft.com/edge" target="_blank" rel="noopener">Microsoft Edge</a>');
+    document.write('<a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Apple Safari</a>');
+    document.write('</div><hr>');
+    document.write('<p><small>如果您已安装现代浏览器但仍然看到此页面，请检查浏览器是否处于兼容模式或尝试清除缓存。</small></p>');
+    document.write('<div class="debug">📋 检测结果：' + missing + '<br>🌐 User Agent: ' + escapeHTML(navigator.userAgent) + '</div>');
+    document.write('</div>');
+}
+</script>
+
+<noscript>
+    <!-- 纯 ASCII 回落页面（与原文件完全一致） -->
+    <center>
+        <pre>
+  _______ _     _       _     _____            _     
+ |__   __| |   (_)     | |   |  __ \          | |    
+    | |  | |__  _ _ __ | | __| |__) | __ _  __| |    
+    | |  | '_ \| | '_ \| |/ /|  ___/ / _` |/ _` |    
+    | |  | | | | | | | |   < | |    | (_| | (_| |    
+    |_|  |_| |_|_|_| |_|_|\_\|_|     \__,_|\__,_|    
+  _____                                            
+ / ____|                                           
+ | (___  _ __   ___  ___ ___                      
+ \___ \| '_ \ / _ \/ __/ __|                      
+ ____) | |_) |  __/ (__\__ \                      
+ |____/| .__/ \___|\___|___/                      
+       | |                                         
+       |_|                                         
+        </pre>
+        <h1><font color="#cc0000" size="5">&#9888; Outdated Browser Detected</font></h1>
+        <p><font size="3"><b>Your browser does not support JavaScript or scripting is disabled.</b><br>
+        This likely means you are using a very old browser. Please upgrade to a modern browser.</font></p>
+        <hr width="75%" size="1" noshade>
+        <p><b>Browser Information:</b> Cannot be displayed (JavaScript required).</p>
+        <hr width="75%" size="1" noshade>
+        <h2><font color="#333333" size="4">Recommended Modern Browsers</font></h2>
+        <table border="0" cellpadding="6" cellspacing="3" width="90%">
+            <tr>
+                <td align="center" width="25%"><b><font size="3">Google Chrome</font></b><br><font size="2"><a href="https://www.google.com/chrome/" target="_blank" rel="noopener">Download</a></font></td>
+                <td align="center" width="25%"><b><font size="3">Mozilla Firefox</font></b><br><font size="2"><a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener">Download</a></font></td>
+                <td align="center" width="25%"><b><font size="3">Microsoft Edge</font></b><br><font size="2"><a href="https://www.microsoft.com/edge" target="_blank" rel="noopener">Download</a></font></td>
+                <td align="center" width="25%"><b><font size="3">Apple Safari</font></b><br><font size="2"><a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Download</a></font></td>
+            </tr>
+        </table>
+        <p><font size="2" color="#888888">If links do not open, type the URL manually.</font></p>
+        <hr width="75%" size="1" noshade>
+        <p><font size="2" color="#999999">Upgrading ensures better speed, compatibility and security.</font></p>
+        <p><font size="1" color="#bbbbbb">&copy; 2026 &middot; ThinkPad Specs</font></p>
+    </center>
+</noscript>
+
+</body>
+</html>
