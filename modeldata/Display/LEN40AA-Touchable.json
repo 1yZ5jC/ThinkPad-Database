@@ -4,5 +4,10 @@
           "brightness": "300 nits",
           "contrast": "700:1",
           "viewing_angle": "160°",
-          "touch": "Optional In-cell touch (10-finger) "
+          "FRUs":[
+            {
+             "01AW134 (P40 Yoga)":"-"
+            }
+          ],
+          "touch": "In-cell touch (10-finger) "
         }

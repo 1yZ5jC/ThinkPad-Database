@@ -22,7 +22,7 @@
         "slots": "One DDR4 SO-DIMM sockets ",
         "features": "4GB or 8GB memory soldered to systemboard, one DDR4 SO-DIMM socket"
       },
-      "display_options": ["LEN40AA","LEN40A9"],
+      "display_options": ["LEN40A9","LEN40AA"],
       "storage": {
         "ssd_sata": "6.0Gb/s ",
         "ssd_pcie": "PCIe NVMe, PCIe 3.0 x 4, 32Gb/s "

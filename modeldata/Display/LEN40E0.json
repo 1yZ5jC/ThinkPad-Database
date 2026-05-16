@@ -3,6 +3,13 @@
           "tech": "Anti-glare, LED backlight",
           "brightness": "200 nits",
           "contrast": "350:1",
+          "FRUs":[
+            {
+             "04X0324（X260）":"-",
+              "04X0325（X260）":"-",
+              "04X0433（X260）":"-"
+            }
+          ],
           "color_gamut":"45% NTSC",
           "refresh_rate":"60 Hz"
         }

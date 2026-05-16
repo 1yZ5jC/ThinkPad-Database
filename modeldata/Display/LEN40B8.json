@@ -1,0 +1,14 @@
+        {
+          "type": "3K (2880x1620)",
+          "tech": " anti-glare, LED backlight, IPS",
+          "brightness": "350 nits",
+          "contrast": "1000:1",
+          "viewing_angle": "160°",
+          "color_gamut":"100% sRGB",
+          "refresh_rate":"60 Hz",
+          "FRUs":[
+            {
+             "04X4064":"-"
+            }
+          ]
+        }

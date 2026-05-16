@@ -22,7 +22,7 @@
         "slots": "Soldered to systemboard, no sockets",
         "features": "4GB, 8GB, or 16GB"
       },
-      "display_options": ["LEN40AA","LEN40A9"],
+      "display_options": ["LEN40A9","LEN40AA"],
       "storage": {
         "ssd_sata": "6.0Gb/s ",
         "ssd_pcie": "PCIe NVMe, PCIe 3.0 x 4, 32Gb/s "

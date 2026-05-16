@@ -22,7 +22,7 @@
         "slots": "Two DDR3L SO-DIMM sockets",
         "features": "non-ECC, dual-channel capable"
       },
-      "display_options": ["LEN40B8","LEN40B5"],
+      "display_options": ["LEN40B5","LEN40B5-Touchable","LEN40B8"],
       "touch": ["Capacitive-type multi-touch, supports 10-finger gesture"],
       "storage": {
         "ssd_sata": "M.2 SATA 6.0Gb/s",

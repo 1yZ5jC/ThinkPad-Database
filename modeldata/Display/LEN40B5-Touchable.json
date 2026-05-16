@@ -1,0 +1,16 @@
+        {
+          "type": "FHD (1920x1080)",
+          "tech": " anti-glare, LED backlight, IPS",
+          "brightness": "250 nits",
+          "contrast": "400/500:1",
+          "viewing_angle": "160°",
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz",
+          "FRUs":[
+            {
+             "00NY534":"-",
+              "00UR897":"-"
+            }
+          ],
+          "touch": "In-cell touch (10-finger) "
+        }
