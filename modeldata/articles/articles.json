@@ -4,5 +4,12 @@
         "family": "ThinkVantage Technologys",
         "title": "主动保护系统（APS）",
         "description": "-"
+    },
+        {
+        "file": "ThinkPad的地区限定机型",
+        "family": "ThinkPad History",
+        "title": "ThinkPad的地区限定机型",
+        "description": "-",
+        "author": "Alan Plex"
     }
 ]
