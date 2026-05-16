@@ -44,7 +44,6 @@ ThinkPad Button 是大多数 ThinkPad 键盘左上角的一个可编程按钮，
 - R60, R60i, R60e, R61, R61i, R61e, R400, R500
 - SL410, SL510
 - L410, L412, L420, L421, L510, L512, L520
-- G50
 - Z60m, Z60t, Z61e, Z61m, Z61p, Z61t
 
 ### “黑色”按钮
