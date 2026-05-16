@@ -22,7 +22,7 @@
         "slots": "Four DDR4 SO-DIMM sockets",
         "features": "ECC or non-ECC (ECC function supported only on Xeon processor), dual-channel capable"
       },
-      "display_options": [],
+      "display_options": ["LEN40B5","LEN40B5-Touchable"],
       "touch": ["Capacitive-type multi-touch, supports 10-finger gesture"],
       "pen": ["ThinkPad Pen Pro, active pen for multi-touch display"],
       "storage": {

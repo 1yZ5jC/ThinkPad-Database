@@ -1,0 +1,19 @@
+        {
+          "type": "FHD (1920x1080)",
+          "tech": "IPS, Anti-glare, LED backlight",
+          "brightness": "250 nits",
+          "contrast": "700:1",
+          "viewing_angle": "160°",
+          "FRUs":[
+            {
+             "01AW134（P40 Yoga）":"-",
+             "01EN006（P40 Yoga）":"-",
+             "01EN117（P40 Yoga）":"-",
+             "01AW136（P40 Yoga）":"-"
+            }
+          ],
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz",
+          "touch": "In-cell touch (10-finger) "
+
+        }

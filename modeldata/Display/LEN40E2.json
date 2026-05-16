@@ -4,6 +4,12 @@
           "brightness": "300 nits",
           "contrast": "700:1",
           "viewing_angle": "170°",
+          "FRUs":[
+            {
+             "00HN856（X260）":"-",
+             "00NY414（X260）":"-"
+            }
+          ],
           "color_gamut":"45% NTSC",
           "refresh_rate":"60 Hz"
         }

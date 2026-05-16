@@ -4,17 +4,15 @@
 (function () {
     const TRANSLATIONS = {
         'Anti-glare': '抗反射处理',
-        'anti-glare': '抗反射处理',
         '6-row, spill-resistant, multimedia Fn keys, optional LED backlight':'带有多媒体Fn键的抗泼溅六行式键盘，选配LED键盘背光',
+        '6-row, spill-resistant, multimedia Fn keys, LED backlit':'带有多媒体Fn键的抗泼溅六行式背光键盘',
         'LED backlight': 'LED背光',
-        'led backlight': 'LED背光',
         'Internal battery (Optional)': '内置电池（选配）',
         'External battery': '外置电池',
         'Wireless WAN upgradable':'可升级WWAN',
         'always-on' :'始终开启',
         'charging port' :'充电接口',
         'security lock slot':'锁孔',
-        'port':'接口',
         'Headphone/Microphone combo':'耳机/麦克风二合一',
         'Glass-Fiber Reinforced Plastic':'玻璃纤维混合塑料',
         'Power-on/Hard disk/Supervisor password':'开机/硬盘/管理密码',
@@ -28,7 +26,9 @@
         'HD Audio':'高清晰度音频',
         'codec / stereo speakers':'解码器 / 立体声音响',
         'dual array microphone, combo audio/microphone jack':'双阵列麦克风，音频/麦克风二合一接口',
-        'resolution, low light sensitive, fixed focus':'分辨率，低光敏感、固定焦距',
+        'resolution':'分辨率',
+        'low light sensitive':'低光敏感',
+        'fixed focus':'固定焦距',
         'Smart card reader (Optional)':'智能卡读卡器（选配）',
         '4-in-1 reader':'四合一读卡器'
         // 可继续扩充任何需要转换的英文术语

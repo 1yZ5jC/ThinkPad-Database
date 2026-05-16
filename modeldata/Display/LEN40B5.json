@@ -1,0 +1,19 @@
+        {
+          "type": "FHD (1920x1080)",
+          "tech": " anti-glare, LED backlight, IPS",
+          "brightness": "250 nits",
+          "contrast": "400/500:1",
+          "viewing_angle": "160°",
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz",
+          "FRUs":[
+            {
+             "01EP138":"-",
+                "00HT921":"LP156WF6-SPK1",
+                "00HT919":"-",
+                "00UR876":"-",
+                "00NY538":"-",
+                "00NY539":"-"
+            }
+          ]
+        }
