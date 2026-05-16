@@ -5,6 +5,6 @@
   "turbo_freq": "-",
   "ext_freq": "100 MHz",
   "cache": "16 + 16 KB L1 + 256 KB Full-Speed L2",
-  "iconfamily": "Pentium_III",
+  "iconfamily": "Pentium_III-M",
   "ark": ""
 }
