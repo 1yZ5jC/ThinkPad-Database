@@ -2,7 +2,7 @@
 
 ThinkPad Button 是大多数 ThinkPad 键盘左上角的一个可编程按钮，旨在快速访问帮助与支持。从技术上讲，它只是一个可配置为启动特定软件的按钮。
 
-最初该按钮为灰色，标有“ThinkPad”；后来 IBM 将其改为蓝色，并命名为 **Access IBM Button**。联想从 IBM 接手 ThinkPad 产品线后，将其重新标记为 **ThinkVantage**。部分后续型号不再印有文字标签，变成了一个没有固定用途的纯黑色按钮。
+最初该按钮为灰色，标有“ThinkPad”；后来 IBM 将其改为蓝色，并命名为 **Access IBM Button**。联想从 IBM 接手 ThinkPad 产品线后，将其重新标记为 **ThinkVantage**。Ivybridge世代的ThinkPad所搭配的六行键盘上该按钮不再印有文字标签，变成了一个没有固定用途的纯黑色按钮。这个修改很可能是很仓促的，因为多家媒体收到的评测机依旧搭配了蓝色按钮版本的六行键盘
 
 对于 SLx00 系列 ThinkPad，此按钮也被称为 **Lenovo Care Button**，尽管它没有通常的文字标签，而是在按钮上方仅配有一个工具箱图标。
 
@@ -53,7 +53,7 @@ ThinkPad Button 是大多数 ThinkPad 键盘左上角的一个可编程按钮，
 - T430, T430i, T430s, T430si, T530, T530i
 - X1 Carbon 1st, X230, X230i, X230 Tablet, X230i Tablet
 - L430, L530
-- 对于ThinkPad 20th Anniversary Edition，这个按钮被漆成了蓝色
+- 对于中国版的ThinkPad 20th Anniversary Edition，这个按钮被漆成了蓝色，但仍然缺少“ThinkVantage”印刷。
 
 ### “Lenovo Care” 按钮
 

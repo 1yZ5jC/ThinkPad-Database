@@ -4,9 +4,9 @@ ThinkLight 是一个 5 伏的小型 LED 灯，集成在部分旧款 ThinkPad 显
 
 该功能实际上已被背光键盘所取代，后者使得 ThinkLight 显得多余。不过，也有一些机型同时配备了 ThinkLight 和背光键盘。
 
-由于 ThinkLight 完全依赖嵌入式控制器（embedded controller）工作，因此通过键盘快捷键控制其在所有系统上均可使用。只需按 `Fn + PageUp` 即可在开和关之间切换。
+由于 ThinkLight 完全依赖嵌入式控制器（embedded controller）工作，因此通过键盘快捷键控制其在所有系统上均可使用。在传统的ThinkPad机型上，只需按 `Fn + PageUp` 即可在开和关之间切换。如此安排的用意据信是为了让用户可以抹黑打开ThinkLight。
 
-从 xx30 系列机型（T430、T530、W530 等）开始，为了更好适配 6 行孤岛式键盘布局，快捷键改为 `Fn + Space`。在带有背光键盘的机型上，共有 4 种状态：关闭、背光暗、背光亮、背光亮 + ThinkLight。不带背光键盘的机型只有 ThinkLight 开和 ThinkLight 关两种状态——对于安装了背光键盘的机型，可以在 UEFI 中禁用背光键盘来达到仅有 ThinkLight 开关的效果。
+从 xx30 系列机型（T430、T530、W530 等）开始，为了更好适配 6 行孤岛式键盘布局，快捷键改为 `Fn + Space`。在带有背光键盘的机型上，共有 4 种状态：关闭、背光暗、背光亮、ThinkLight 亮。不带背光键盘的机型只有 ThinkLight 开和 ThinkLight 关两种状态——对于安装了背光键盘的机型，可以在 UEFI 中禁用背光键盘来达到仅有 ThinkLight 开关的效果。
 
 ## 搭载白光ThinkLight的设备
 i Series 1460, i Series 1480, i Series 1482, i Series 1483, i Series 1492, i Series 1560, i Series 1562, i Series 1592, i Series 1620, i Series 1800
