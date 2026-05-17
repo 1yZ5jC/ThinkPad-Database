@@ -2,7 +2,7 @@
 
 ThinkPad Button 是大多数 ThinkPad 键盘左上角的一个可编程按钮，旨在快速访问帮助与支持。从技术上讲，它只是一个可配置为启动特定软件的按钮。
 
-最初该按钮为灰色，标有“ThinkPad”；后来 IBM 将其改为蓝色，并命名为 **Access IBM Button**。联想从 IBM 接手 ThinkPad 产品线后，将其重新标记为 **ThinkVantage**。Ivybridge世代的ThinkPad所搭配的六行键盘上该按钮不再印有文字标签，变成了一个没有固定用途的纯黑色按钮。这个修改很可能是很仓促的，因为多家媒体收到的评测机依旧搭配了蓝色按钮版本的六行键盘
+最初该按钮为灰色，标有“ThinkPad”；后来 IBM 将其改为蓝色，并命名为 **Access IBM Button**。联想从 IBM 接手 ThinkPad 产品线后，将其重新标记为 **ThinkVantage**。Ivybridge世代的ThinkPad所搭配的六行键盘上该按钮不再印有文字标签，变成了一个没有固定用途的纯黑色按钮。这个修改很可能是很仓促的，因为多家媒体收到的评测机依旧搭配了标记为“ThinkVantage”的蓝色按钮版本的六行键盘
 
 对于 SLx00 系列 ThinkPad，此按钮也被称为 **Lenovo Care Button**，尽管它没有通常的文字标签，而是在按钮上方仅配有一个工具箱图标。
 
