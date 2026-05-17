@@ -7,31 +7,6 @@
     <link rel="preconnect" href="https://rawiic.github.io">
     <link rel="stylesheet" href="css\style.css">
 </head>
-<script>
-(function() {
-    var isSupported = true;
-    try {
-        // 1. 检测 Promise 和 fetch（EdgeHTML 18 已支持）
-        if (typeof Promise === 'undefined' || typeof fetch === 'undefined') {
-            isSupported = false;
-        }
-        // 2. 检测箭头函数语法支持（通过 Function 构造器测试）
-        new Function('() => {}');
-        // 3. 检测 Symbol（ES6 基础特性）
-        if (typeof Symbol === 'undefined') {
-            isSupported = false;
-        }
-    } catch(e) {
-        isSupported = false;
-    }
-
-    // 如果特性检测失败，说明浏览器过于陈旧（例如 IE11 或更早版本）
-    // 重定向到升级提示页面（请确保 upgrade.html 存在）
-    if (!isSupported) {
-        window.location.replace('upgrade.html');
-    }
-})();
-</script>
 <body>
     <div id="sidebar-overlay" class="modal-overlay" style="z-index:99;">
         <div id="sidebarOverlayBg" style="position:absolute;inset:0;"></div>
@@ -58,6 +33,11 @@
                 <span class="item-label">我的收藏</span>
                 <span class="item-badge" id="favCount">0</span>
             </button>
+            <button class="sidebar-item" id="sidebarRecent" onclick="showRecentPage()">
+                <span class="item-icon">🕐</span>
+                <span class="item-label">最近浏览</span>
+                <span class="item-badge" id="recentCount">0</span>
+            </button>
             <button class="sidebar-item" id="sidebarArticles" onclick="showArticlesPage()">
                 <span class="item-icon">📖</span>
                 <span class="item-label">文章阅览</span>
@@ -74,6 +54,10 @@
                 <span class="item-icon">🛠️</span>
                 <span class="item-label">JSON 生成器</span>
             </button>
+        </div>
+
+        <div class="sidebar-section nav-section">
+
         </div>
 
         <div class="sidebar-section settings-section">
@@ -147,15 +131,6 @@
                     <span>旧版页面</span>
                     <span class="settings-link-arrow">→</span>
                 </a>
-                    <a class="settings-link" href="弃用\index.html" target="_blank" rel="noopener">
-                    <span class="settings-link-icon">🤔</span>
-                    <span>弃用版页面</span>
-                    <span class="settings-link-arrow">→</span>
-                </a>
-                </a>
-                    <a class="settings-link">
-                    <span>提示：不保证旧/弃用版可用</span>
-                </a>
             </div>
         </div>
     </aside>
@@ -199,7 +174,27 @@
         <div id="favoritesPage" class="compare-page">
             <div class="page-title">我的收藏</div>
             <div class="page-subtitle" id="favoritesPageSubtitle">已收藏 0 个型号</div>
+            <div class="compare-toolbar">
+                <div class="view-toggle">
+                    <button class="view-toggle-btn active" data-view="grid" title="网格视图">⊞</button>
+                    <button class="view-toggle-btn" data-view="list" title="列表视图">☰</button>
+                </div>
+            </div>
             <div id="favoritesPageGrid" class="favorites-grid"></div>
+        </div>
+
+        <!-- 最近浏览页 -->
+        <div id="recentPage" class="compare-page">
+            <div class="page-title">最近浏览</div>
+            <div class="page-subtitle" id="recentPageSubtitle">最近浏览的型号</div>
+            <div class="compare-toolbar">
+                <div class="view-toggle">
+                    <button class="view-toggle-btn active" data-view="grid" title="网格视图">⊞</button>
+                    <button class="view-toggle-btn" data-view="list" title="列表视图">☰</button>
+                </div>
+                <button class="btn" id="clearRecentBtn">清空记录</button>
+            </div>
+            <div id="recentPageGrid" class="favorites-grid"></div>
         </div>
 
         <!-- JSON 生成器页面 -->
@@ -229,26 +224,22 @@
         </div>
 
         <!-- 文章列表页 -->
-<!-- 文章列表页 -->
-<div id="articlesListPage" class="articles-page" style="display: none;">
-    <div class="page-title">文章阅览</div>
-    <div class="page-subtitle">ThinkPad 相关技术文章与指南</div>
-    
-    <!-- 筛选栏 -->
-    <div class="articles-filter-bar">
-        <div class="filter-group">
-            <select id="articlesFamilyFilter" class="filter-select">
-                <option value="">全部分类</option>
-            </select>
+        <div id="articlesListPage" class="articles-page" style="display: none;">
+            <div class="page-title">文章阅览</div>
+            <div class="page-subtitle">ThinkPad 相关技术文章与指南</div>
+            <div class="articles-filter-bar">
+                <div class="filter-group">
+                    <select id="articlesFamilyFilter" class="filter-select">
+                        <option value="">全部分类</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <input type="text" id="articlesSearchInput" class="search-input" placeholder="搜索标题或描述..." style="margin-bottom:0;">
+                </div>
+                <button id="articlesResetFilterBtn" class="btn">重置筛选</button>
+            </div>
+            <div id="articlesListContainer" class="articles-grid"></div>
         </div>
-        <div class="filter-group">
-            <input type="text" id="articlesSearchInput" class="search-input" placeholder="搜索标题或描述..." style="margin-bottom:0;">
-        </div>
-        <button id="articlesResetFilterBtn" class="btn">重置筛选</button>
-    </div>
-    
-    <div id="articlesListContainer" class="articles-grid"></div>
-</div>
 
         <!-- 文章详情页 -->
         <div id="articleDetailPage" class="article-detail-page" style="display: none;">
@@ -321,7 +312,7 @@
         </div>
     </div>
 
-    <script src="js\marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.0/marked.min.js"></script>
     <script src="js\translator.js"></script>
     <script src="js\script.js"></script>
     <script src="js\generator.js"></script>

@@ -1696,3 +1696,54 @@ body.theme-amber {
     border-radius: 12px;
     object-fit: contain;
 }
+
+/* 视图切换按钮 */
+.view-toggle {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+}
+.view-toggle-btn {
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+.view-toggle-btn:hover {
+    background: var(--bg-active);
+    color: var(--text-primary);
+}
+.view-toggle-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+}
+
+/* 网格视图（默认） */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+/* 列表视图 */
+.favorites-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.favorites-grid.list-view .compare-card {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.favorites-grid.list-view .compare-card .compare-card-info {
+    flex: 1;
+}
+.favorites-grid.list-view .compare-card .compare-card-meta {
+    margin-top: 4px;
+}
