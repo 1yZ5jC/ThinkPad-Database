@@ -41,10 +41,10 @@
         "features": "dual-channel capable, non-parity"
       },
       "display_options": [
-		"14.1\" TFT XGA 1024x768",
-		"14.1\" TFT SXGA+ 1400x1050",
-		"15.0\" TFT XGA 1024x768",
-		"15.0\" TFT SXGA+ 1400x1050",
+		"LEN4020",
+		"LEN4022",
+		"LEN4040",
+		"LEN4043",
 		"15.0\" TFT UXGA 1600x1200",
 		"15.4\" TFT WSXGA+ 1680x1050"
 	  ],
