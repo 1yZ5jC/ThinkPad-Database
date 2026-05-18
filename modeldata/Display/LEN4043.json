@@ -1,0 +1,14 @@
+        {
+          "type": "SXGA+ (1400x1050)",
+          "tech": "TFT-LCD, Anti-glare, TN, Flexview",
+          "brightness": "200 nits",
+          "contrast": "550:1",
+          "FRUs":[
+            {
+                "13N7078":"LP150E05-A2K1",
+                "13N7196":"HV150P01-100"
+            }
+          ],
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz"
+        }

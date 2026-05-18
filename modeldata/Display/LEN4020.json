@@ -1,0 +1,15 @@
+        {
+          "type": "XGA (1024x768)",
+          "tech": "TFT-LCD, Anti-glare, TN",
+          "brightness": "150 nits",
+          "contrast": "300:1",
+          "FRUs":[
+            {
+                "13N7053":"N141XC-L01",
+                "13N7055":"HT14X14-101",
+                "13N7057":"LTD141ECMB"
+            }
+          ],
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz"
+        }
