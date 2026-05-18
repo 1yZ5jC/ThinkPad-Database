@@ -1,6 +1,6 @@
         {
           "type": "SXGA+ (1400x1050)",
-          "tech": "TFT-LCD, Anti-glare, IPS, Flexview",
+          "tech": "TFT-LCD, Anti-glare, IPS",
           "brightness": "200 nits",
           "contrast": "550:1",
           "FRUs":[
