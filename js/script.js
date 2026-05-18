@@ -322,7 +322,7 @@ function refreshRandomTrick() {
 
 function refreshHomeBackground() {
     if (!$globalHomeBg) return;
-    const randomIndex = Math.floor(Math.random() * 9) + 1;
+    const randomIndex = Math.floor(Math.random() * 26) + 1;
     const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
     $globalHomeBg.src = bgUrl;
     $globalHomeBg.onerror = () => {
@@ -344,7 +344,7 @@ function setHomeOnlyElementsVisible(visible) {
 
 function initHomeBackgroundImage() {
     if (!$globalHomeBg) return;
-    const randomIndex = Math.floor(Math.random() * 9) + 1;
+    const randomIndex = Math.floor(Math.random() * 26) + 1;
     const bgUrl = `modeldata/model-images/startpage/${randomIndex}.png`;
     $globalHomeBg.src = bgUrl;
     $globalHomeBg.alt = 'ThinkPad 装饰背景';
