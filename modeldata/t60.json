@@ -1,0 +1,139 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-t60",
+      "model_name": "ThinkPad T60",
+      "model_family": "T",
+      "model_generation": "x60",
+      "update_date": "February 2006",
+	  "model_code": ["1951", "2007", "1952", "2008", "1953", "2623", "6369", "8741", "6370", "8742", "6371", "8744"],
+      "processor_options": [
+        "T1300",
+        "T1400",
+        "T2300",
+        "T2300E",
+        "T2400",
+        "T2500",
+        "T2600",
+		"T2700",
+		"T5500",
+		"T5600",
+		"T7200",
+		"T7400",
+		"T7600"
+      ],
+      "graphics_options": [
+        "GMA950",
+        "X1300_M52",
+        "X1400_M54",
+		"X1400_M64"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Supports dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC2-5300 667MHz DDR2",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "dual-channel capable, non-parity"
+      },
+      "display_options": [
+		"14.1\" TFT XGA 1024x768",
+		"14.1\" TFT SXGA+ 1400x1050",
+		"15.0\" TFT XGA 1024x768",
+		"15.0\" TFT SXGA+ 1400x1050",
+		"15.0\" TFT UXGA 1600x1200",
+		"15.4\" TFT WSXGA+ 1680x1050"
+	  ],
+      "storage": {
+        "ssd_sata": null,
+        "ssd_pcie": null,
+        "hdd": "SATA 1.5Gb/s, 2.5\" wide, 9.5mm high, Active Protection System",
+        "sshd": null,
+        "Optical": "DVD-ROM/CD-RW, DVD Burner, Super Multi-Burner (40Y8623), 9.5mm high, removable from Ultrabay Slim"
+      },
+      "Ethernet": [
+        "Intel 82573L"
+      ],
+      "WLAN": [
+        "3945abg",
+        "11abg"
+      ],
+      "Bluetooth": [
+        {
+          "type": "BDC-2",
+          "form": "Broadcom BCM2045 Bluetooth Controller",
+          "feature": "Bluetooth 2.0"
+        }
+      ],
+      "WWAN": [
+        "MC5720",
+		"MC8755",
+		"MC8765",
+		"MC8775",
+        "WWAN_NOT_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell",
+          "capacity": null,
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        },
+        {
+          "type": "9-cell",
+          "capacity": null,
+          "form": "9-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+		"Infrared (4Mbps)",
+        "1 x Type I or Type II slot",
+		"1 x ExpressCard/34 or ExpressCard/54",
+		"1 x 3.5mm microphone input jack and 3.5mm headphone jack"
+      ],
+      "camera": [
+        "camera on top of screen, 1.3-megapixel, fixed focus (optional)"
+      ],
+      "audio": [
+        "HD Audio, AD1981HD codec, stereo speakers 1W, internal microphone"
+      ],
+      "keyboard": [
+        "89-key, ThinkVantage button, spill-resistant, multimedia Fn keys",
+        "TrackPoint, UltraNav, ThinkLight"
+      ],
+      "physical": {
+        "dimensions": "357.5mm x 255mm x 28.7–34mm (15.4inch widescreen models), 316mm x 255mm x 26.6-31mm (14.1inch models), 329mm x 268mm x 31-36mm (15.0inch models)",
+        "weight": "up to 2.76kg (15.4inch models), up to 2.5kg (14.1inch models), up to 2.8kg (15.0inch models) ",
+        "case_material": "Top: Super-Elastic PolyCarconate (SEPC); Bottom: Carbon-Fiber Reinforced Plastic"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Fingerprint reader (optional)"
+      ],
+      "system": [
+        "Windows Vista Home Basic 32bit",
+        "Windows Vista Business 32bit",
+		"Windows Vista Ultimate 32bit",
+        "Windows XP Professional (Service Pack 2)",
+		"SUSE Linux Enterprise"
+      ]
+    }
+  ]
+}
