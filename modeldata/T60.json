@@ -41,12 +41,12 @@
         "features": "dual-channel capable, non-parity"
       },
       "display_options": [
-		"LEN4020",
-		"LEN4022",
-		"LEN4040",
-		"LEN4043",
-		"LEN4046",
-		"15.4\" TFT WSXGA+ 1680x1050"
+		    "LEN4020",
+		    "LEN4022",
+		    "LEN4040",
+		    "LEN4043",
+		    "LEN4046",
+		    "15.4\" TFT WSXGA+ 1680x1050"
 	  ],
       "storage": {
         "ssd_sata": null,
@@ -56,7 +56,7 @@
         "Optical": "DVD-ROM/CD-RW, DVD Burner, Super Multi-Burner (40Y8623), 9.5mm high, removable from Ultrabay Slim"
       },
       "Ethernet": [
-        "Intel 82573L"
+        "82573L"
       ],
       "WLAN": [
         "3945abg",
