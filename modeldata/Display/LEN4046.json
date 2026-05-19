@@ -1,0 +1,14 @@
+        {
+          "type": "UXGA (1600x1200)",
+          "tech": "TFT-LCD, Anti-glare, IPS, FFS",
+          "brightness": "200 nits",
+          "contrast": "500:1",
+          "FRUs":[
+            {
+                "13N7076":"HV150UX1-100",
+                "13N7194":"HV150UX1-102"
+            }
+          ],
+          "color_gamut":"45% NTSC, 63% sRGB",
+          "refresh_rate":"60 Hz"
+        }

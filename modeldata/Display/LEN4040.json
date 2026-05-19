@@ -1,0 +1,16 @@
+        {
+          "type": "XGA (1024x768)",
+          "tech": "TFT-LCD, Anti-glare, TN",
+          "brightness": "200 nits",
+          "contrast": "250:1",
+          "FRUs":[
+            {
+                "13N7065":"LTN150XG-L02",
+                "13N7067":"LP150X09",
+                "13N7069":"N150X3-L0A",
+                "13N7090":"LP150X09"
+            }
+          ],
+          "color_gamut":"45% NTSC",
+          "refresh_rate":"60 Hz"
+        }
