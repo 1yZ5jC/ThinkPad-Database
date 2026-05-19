@@ -1,0 +1,5 @@
+        {
+          "type": "Intel® 82579LM Gigabit Ethernet Controller",
+          "model-type": "vPro",
+          "speed":"1GbE"
+        }

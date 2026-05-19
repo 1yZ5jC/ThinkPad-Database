@@ -1,0 +1,5 @@
+        {
+          "type": "Intel® 82573L Gigabit Ethernet Controller",
+          "model-type": "none",
+          "speed":"1GbE"
+        }
