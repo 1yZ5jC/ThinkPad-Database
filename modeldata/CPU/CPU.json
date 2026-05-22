@@ -432,5 +432,61 @@
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
+    },
+    {
+        "file": "7100U.json",
+        "name": "7100U",
+        "family": "Core i3",
+        "Architecture": "Kaby Lake",
+        "generation": "6th Core"
+    },
+    {
+        "file": "7200U.json",
+        "name": "7200U",
+        "family": "Core i5",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7500U.json",
+        "name": "7500U",
+        "family": "Core i7",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7600U.json",
+        "name": "7600U",
+        "family": "Core i7",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7300HQ.json",
+        "name": "7300HQ",
+        "family": "Core i5",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7440HQ.json",
+        "name": "7440HQ",
+        "family": "Core i5",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7700HQ.json",
+        "name": "7700HQ",
+        "family": "Core i7",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
+    },
+    {
+        "file": "7820HQ.json",
+        "name": "7820HQ",
+        "family": "Core i7",
+        "Architecture": "Kaby Lake",
+        "generation": "7th Core"
     }
 ]

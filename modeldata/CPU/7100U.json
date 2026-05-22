@@ -1,0 +1,11 @@
+{
+    "model": "i3-7100U",
+    "cores_threads": "2 / 4",
+    "base_freq": "2.4 GHz",
+    "turbo_freq": "N/A",
+    "ext_freq": "",
+    "cache": "3MB",
+    "graphics": "Intel HD 620",
+    "iconfamily": "i3-6~9",
+    "ark": ""
+}

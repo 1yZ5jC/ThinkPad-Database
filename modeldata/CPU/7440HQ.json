@@ -1,0 +1,11 @@
+{
+    "model": "i5-7440HQ",
+    "cores_threads": "4 / 4",
+    "base_freq": "2.8 GHz",
+    "turbo_freq": "3.8 GHz",
+    "ext_freq": "",
+    "cache": "6MB",
+    "graphics": "Intel HD 630",
+    "iconfamily": "i5-6~9",
+    "ark": ""
+}

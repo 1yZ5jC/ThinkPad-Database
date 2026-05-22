@@ -1,0 +1,11 @@
+{
+    "model": "i7-7820HQ",
+    "cores_threads": "4 / 8",
+    "base_freq": "2.9 GHz",
+    "turbo_freq": "3.9 GHz",
+    "ext_freq": "",
+    "cache": "8MB",
+    "graphics": "Intel HD 630",
+    "iconfamily": "i7-6~9",
+    "ark": ""
+}

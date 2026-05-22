@@ -1,0 +1,11 @@
+{
+    "model": "i5-7200U",
+    "cores_threads": "2 / 4",
+    "base_freq": "2.5 GHz",
+    "turbo_freq": "3.1 GHz",
+    "ext_freq": "",
+    "cache": "3MB",
+    "graphics": "Intel HD 620",
+    "iconfamily": "i5-6~9",
+    "ark": ""
+}

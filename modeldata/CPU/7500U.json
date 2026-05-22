@@ -1,0 +1,11 @@
+{
+    "model": "i7-7500U",
+    "cores_threads": "2 / 4",
+    "base_freq": "2.7 GHz",
+    "turbo_freq": "3.5 GHz",
+    "ext_freq": "",
+    "cache": "4MB",
+    "graphics": "Intel HD 620",
+    "iconfamily": "i7-6~9",
+    "ark": ""
+}
