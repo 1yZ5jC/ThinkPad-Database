@@ -1,8 +1,8 @@
         {
-          "model": "Intel HD Graphics (Sandy Bridge)",
+          "model": "Intel HD Graphics (Ivy Bridge)",
           "Shading Units": "24",
-          "base_freq": "350 Mhz",
-          "turbo_freq": "1000 MHz",
+          "base_freq": "350 - 650 MHz",
+          "turbo_freq": "800 - 1100 MHz",
           "VRAM":"-",
           "Generation": "Gen 7.0",
           "Feature":"DX 11.1 (11_0), OpenGL 4.0, OpenCL 1.2, Vulkan 1.0",
