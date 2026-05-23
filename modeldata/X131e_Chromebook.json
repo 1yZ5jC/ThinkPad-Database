@@ -10,7 +10,7 @@
 	      "887",
         "1007U"
       ],
-      "graphics_options": ["HD_Graphics_Ivy"],
+      "graphics_options": ["HD_Graphics_Sdy","HD_Graphics_Ivy"],
       "Display": {
         "max_resolution": {
           "vga": "2048x1536@75Hz",
