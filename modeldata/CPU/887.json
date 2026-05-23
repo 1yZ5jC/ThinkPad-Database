@@ -1,0 +1,8 @@
+{
+  "model": "Celeron 887",
+  "cores_threads": "2 / 2",
+  "base_freq": "1.5 GHz",
+  "cache": "2MB",
+  "graphics": "Intel HD Graphics",
+  "iconfamily": "Celeron-C2~3"
+}
