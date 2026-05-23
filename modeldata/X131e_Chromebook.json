@@ -1,0 +1,92 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x131e-chromebook",
+      "model_name": "ThinkPad X131e Chromebook",
+      "model_family": "X",
+      "model_generation": "xx30",
+      "update_date": "June 2014",
+      "processor_options": [
+	      "887",
+        "1007U"
+      ],
+      "graphics_options": ["HD_Graphics_Ivy"],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz",
+          "hdmi": "2560x1600@60Hz"
+        },
+        "multi_display": "Supports dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max officially, but can be upgraded to 16GB",
+        "type": "PC3-12800 1600MHz DDR3",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "dual-channel capable, non-parity, system automatically clocks down for processors with slower memory controller"
+      },
+      "display_options": [],
+      "storage": {
+        "ssd_sata": "SATA 3.0Gb/s, 2.5\" wide, 7mm or mSATA, upgradable",
+        "ssd_pcie": null,
+        "hdd": "SATA 3.0Gb/s, 2.5\" wide, 7mm, upgradable, Active Protection System",
+        "sshd": null
+      },
+      "Ethernet": ["RTL8111F"],
+      "WLAN": [
+        "AR5B22"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 4.0 wireless"
+        }
+      ],
+      "WWAN": ["WWAN_Upgradeable", "Gobi3000"],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "6-cell",
+          "capacity": "62.4Wh",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "2 x USB 3.0",
+        "1 x USB 2.0 (Always On)",
+        "VGA DB-15",
+        "HDMI",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC)",
+        "Headphone/microphone combo jack"
+      ],
+      "camera": [
+        "HD 720p resolution, wide view angle, low light sensitive, fixed focus"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3202 codec, stereo speakers 2W x2, monaural digital microphone, combo audio/mic jack"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia keys, Like-Chromebook Keyboard",
+        "TrackPoint pointing device, UltraNav touchpad"
+      ],
+      "physical": {
+        "dimensions": "293.4mm x 216mm x 32.3mm",
+        "weight": "Starting at 1.78kg",
+        "case_material": "Acrylonitrile-Butadiene-Styrene (ABS) plastic"
+      },
+      "security": [
+        "Security keyhole",
+        "Trusted Platform Module (TPM 1.2) (Intel models only)"
+      ],
+      "system": [
+        "ChromeOS"
+      ]
+    }
+  ]
+}
