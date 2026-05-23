@@ -1152,6 +1152,12 @@
         "generation": "xx30"
     },
     {
+        "file": "X131e_Chromebook.json",
+        "name": "ThinkPad X131e Chromebook",
+        "family": "X",
+        "generation": "xx30"
+    },
+    {
         "file": "X13s_Gen1.json",
         "name": "ThinkPad X13s Gen 1",
         "family": "X",
