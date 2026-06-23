@@ -702,24 +702,6 @@
         "generation": "Legacy"
     },
     {
-        "file": "L13_2-in-1_Gen5.json",
-        "name": "ThinkPad L13 2-in-1 Gen 5",
-        "family": "L",
-        "generation": "Gen 5"
-    },
-    {
-        "file": "L13_2-in-1_Gen6_AMD.json",
-        "name": "ThinkPad L13 2-in-1 Gen 6 (AMD)",
-        "family": "L",
-        "generation": "Gen 6"
-    },
-    {
-        "file": "L13_2-in-1_Gen6_Intel.json",
-        "name": "ThinkPad L13 2-in-1 Gen 6 (Intel)",
-        "family": "L",
-        "generation": "Gen 6"
-    },
-    {
         "file": "L13_Gen1.json",
         "name": "ThinkPad L13",
         "family": "L",
@@ -780,6 +762,12 @@
         "generation": "Gen 6"
     },
     {
+        "file": "L13_Gen7_Intel.json",
+        "name": "ThinkPad L13 Gen 7 (Intel)",
+        "family": "L",
+        "generation": "Gen 7"
+    },
+    {
         "file": "L13_Yoga_Gen1.json",
         "name": "ThinkPad L13 Yoga",
         "family": "L",
@@ -820,6 +808,30 @@
         "name": "ThinkPad L13 Yoga Gen 4 (Intel)",
         "family": "L",
         "generation": "Gen 4"
+    },
+    {
+        "file": "L13_2-in-1_Gen5.json",
+        "name": "ThinkPad L13 2-in-1 Gen 5",
+        "family": "L",
+        "generation": "Gen 5"
+    },
+    {
+        "file": "L13_2-in-1_Gen6_AMD.json",
+        "name": "ThinkPad L13 2-in-1 Gen 6 (AMD)",
+        "family": "L",
+        "generation": "Gen 6"
+    },
+    {
+        "file": "L13_2-in-1_Gen6_Intel.json",
+        "name": "ThinkPad L13 2-in-1 Gen 6 (Intel)",
+        "family": "L",
+        "generation": "Gen 6"
+    },
+    {
+        "file": "L13_2-in-1_Gen7_Intel.json",
+        "name": "ThinkPad L13 2-in-1 Gen 7 (Intel)",
+        "family": "L",
+        "generation": "Gen 7"
     },
     {
         "file": "L14_Gen_1_AMD.json",
