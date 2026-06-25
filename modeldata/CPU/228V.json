@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 5 228V",
+          "cores_threads": "4P+4LPE / 8",
+          "base_freq": "2.1 GHz / 2.1 GHz (P/LPE)",
+          "turbo_freq": "4.5 GHz / 3.5 GHz (P/LPE)",
+          "cache": "8MB",
+          "graphics": "Intel® Arc 130V",
+          "iconfamily":"U5-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/240955/intel-core-ultra-5-processor-228v-8m-cache-up-to-4-50-ghz/specifications.html"
+        }
