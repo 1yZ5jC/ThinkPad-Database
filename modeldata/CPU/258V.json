@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 7 258V",
+          "cores_threads": "4P+4LPE / 8",
+          "base_freq": "2.2 GHz / 2.2 GHz (P/LPE)",
+          "turbo_freq": "4.8 GHz / 3.7 GHz (P/LPE)",
+          "cache": "12MB",
+          "graphics": "Intel® Arc 140V",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/240957/intel-core-ultra-7-processor-258v-12m-cache-up-to-4-80-ghz/specifications.html"
+        }
