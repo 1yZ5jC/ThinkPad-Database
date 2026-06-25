@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra X9-388H",
+          "model": "Intel Ultra X9 388H",
           "cores_threads": "4P+8E+4LPE / 16",
           "base_freq": "2.1 GHz / 1.6 GHz  / 1.6 GHz (P/E/LPE)",
           "turbo_freq": "5.1 GHz / 3.8 Ghz / 3.7 Ghz (P/E/LPE)",
