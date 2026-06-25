@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 7 265U",
+          "cores_threads": "2P+8E+2LPE / 14",
+          "base_freq": "2.1 GHz / 1.7 GHz / 0.7 GHz (P/E/LPE)",
+          "turbo_freq": "5.3 GHz / 4.2 GHz / 2.4 GHz (P/E/LPE)",
+          "cache": "12MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/241859/intel-core-ultra-7-processor-265u-12m-cache-up-to-5-30-ghz/specifications.html"
+        }

@@ -1,0 +1,10 @@
+        {
+            "model": "Intel Ultra 5 235U",
+            "cores_threads": "2P+8E+2LPE / 14",
+            "base_freq": "2.0 GHz / 1.6 GHz / 0.7 GHz (P/E/LPE)",
+            "turbo_freq": "4.9 GHz / 4.1 GHz / 2.4 GHz (P/E/LPE)",
+            "cache": "12MB",
+            "graphics": "Intel® Graphics",
+            "iconfamily": "U5-1~2",
+            "ark": "https://www.intel.cn/content/www/cn/zh/products/sku/241862/intel-core-ultra-5-processor-235u-12m-cache-up-to-4-90-ghz/specifications.html"
+        }

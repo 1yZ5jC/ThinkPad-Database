@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 9 275HX",
+          "cores_threads": "8P+16E / 24",
+          "base_freq": "2.7 GHz / 2.1 GHz (P/E)",
+          "turbo_freq": "5.4 GHz / 4.6 GHz (P/E)",
+          "cache": "36MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U9-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/242293/intel-core-ultra-9-processor-275hx-36m-cache-up-to-5-40-ghz/specifications.html"
+        }

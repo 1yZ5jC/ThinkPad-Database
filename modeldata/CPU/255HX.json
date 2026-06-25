@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 7 255HX",
+          "cores_threads": "8P+12E / 20",
+          "base_freq": "2.4 GHz / 1.8 GHz (P/E)",
+          "turbo_freq": "5.2 GHz / 4.5 GHz (P/E)",
+          "cache": "30MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/242292/intel-core-ultra-7-processor-255hx-30m-cache-up-to-5-20-ghz/specifications.html"
+        }

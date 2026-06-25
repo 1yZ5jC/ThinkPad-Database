@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Ultra 5 235HX",
+          "cores_threads": "6P+8E / 14",
+          "base_freq": "2.9 GHz / 2.6 GHz (P/E)",
+          "turbo_freq": "5.1 GHz / 4.5 GHz (P/E)",
+          "cache": "24MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U5-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/242296/intel-core-ultra-5-processor-235hx-24m-cache-up-to-5-10-ghz/specifications.html"
+        }
