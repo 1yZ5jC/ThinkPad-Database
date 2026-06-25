@@ -1,5 +1,5 @@
         {
-          "model": "Intel® Arc™ 130V GPU",
+          "model": "Intel® Arc™ 130T GPU",
           "Shading Units": "896 (6Xe)",
           "base_freq": "300 Mhz",
           "turbo_freq": "2.2 Ghz",
