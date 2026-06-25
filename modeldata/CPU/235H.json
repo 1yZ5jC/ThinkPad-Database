@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 5 235H",
+          "model": "Intel Core Ultra 5 235H",
           "cores_threads": "4P+8E+2LPE / 14",
           "base_freq": "2.4 GHz / 1.8 GHz / 0.7 GHz (P/E/LPE)",
           "turbo_freq": "5.0 GHz / 4.4 GHz / 2.5 GHz (P/E/LPE)",

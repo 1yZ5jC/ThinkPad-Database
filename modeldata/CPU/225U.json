@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 5 225U",
+          "model": "Intel Core Ultra 5 225U",
           "cores_threads": "2P+8E+2LPE / 14",
           "base_freq": "1.5 GHz / 1.3 GHz / 0.7 GHz (P/E/LPE)",
           "turbo_freq": "4.8 GHz / 3.8 GHz / 2.4 GHz (P/E/LPE)",

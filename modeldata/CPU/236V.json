@@ -1,10 +1,10 @@
         {
-          "model": "Intel Ultra 5 236V",
+          "model": "Intel Core Ultra 5 236V",
           "cores_threads": "4P+4LPE / 8",
           "base_freq": "2.1 GHz / 2.1 GHz (P/LPE)",
           "turbo_freq": "4.7 GHz / 3.5 GHz (P/LPE)",
           "cache": "8MB",
-          "graphics": "Intel® Arc 130V",
+          "graphics": "Intel® Arc 130V GPU",
           "iconfamily":"U5-1~2",
           "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/240959/intel-core-ultra-5-processor-236v-8m-cache-up-to-4-70-ghz/specifications.html"
         }

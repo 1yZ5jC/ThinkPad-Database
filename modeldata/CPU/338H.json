@@ -1,7 +1,7 @@
         {
-          "model": "Intel Ultra 5 338H",
+          "model": "Intel Core Ultra 5 338H",
           "cores_threads": "4P+4E+4LPE / 12",
-          "base_freq": "1.9 GHz / 1.5 GHz  / 1.5 GHz (P/E/LPE)",
+          "base_freq": "1.9 GHz / 1.5 GHz / 1.5 GHz (P/E/LPE)",
           "turbo_freq": "4.7 GHz / 3.4 Ghz / 3.3 Ghz (P/E/LPE)",
           "cache": "18MB",
           "graphics": "Intel® Arc™ B370 GPU",

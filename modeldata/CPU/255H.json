@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 7 255H",
+          "model": "Intel Core Ultra 7 255H",
           "cores_threads": "6P+8E+2LPE / 16",
           "base_freq": "2.0 GHz / 1.5 GHz / 0.7 GHz (P/E/LPE)",
           "turbo_freq": "5.1 GHz / 4.4 GHz / 2.5 GHz (P/E/LPE)",
