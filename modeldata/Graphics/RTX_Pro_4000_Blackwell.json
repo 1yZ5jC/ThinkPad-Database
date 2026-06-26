@@ -1,0 +1,9 @@
+        {
+          "model": "NVIDIA RTX PRO 4000 Blackwell Mobile",
+          "Shading Units": "7680",
+          "base_freq": "975 Mhz",
+          "turbo_freq": "1702 Mhz",
+          "VRAM":"16GB GDDR7 256 bits",
+          "Generation": "Blackwell",
+          "Feature":"DX 12.2, OpenGL 4.6, OpenCL 3.0, Vulkan 1.4, CUDA 12.0"
+        }

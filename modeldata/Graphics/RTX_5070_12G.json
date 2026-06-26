@@ -1,0 +1,9 @@
+        {
+          "model": "NVIDIA GeForce RTX 5070 Mobile",
+          "Shading Units": "4608",
+          "base_freq": "907 Mhz",
+          "turbo_freq": "1425 Mhz",
+          "VRAM":"12GB GDDR7 128 bits",
+          "Generation": "Blackwell",
+          "Feature":"DX 12.2, OpenGL 4.6, OpenCL 3.0, Vulkan 1.4, CUDA 12.0"
+        }

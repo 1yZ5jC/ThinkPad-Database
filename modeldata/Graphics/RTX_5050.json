@@ -1,0 +1,9 @@
+        {
+          "model": "NVIDIA GeForce RTX 5050 Mobile",
+          "Shading Units": "2560",
+          "base_freq": "1020 Mhz",
+          "turbo_freq": "1500 Mhz",
+          "VRAM":"8GB GDDR7 128 bits",
+          "Generation": "Blackwell",
+          "Feature":"DX 12.2, OpenGL 4.6, OpenCL 3.0, Vulkan 1.4, CUDA 12.0"
+        }

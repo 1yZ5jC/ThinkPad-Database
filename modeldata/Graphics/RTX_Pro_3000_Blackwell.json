@@ -1,0 +1,9 @@
+        {
+          "model": "NVIDIA RTX PRO 3000 Blackwell Mobile",
+          "Shading Units": "5888",
+          "base_freq": "848 Mhz",
+          "turbo_freq": "1605 Mhz",
+          "VRAM":"12GB GDDR7 192 bits",
+          "Generation": "Blackwell",
+          "Feature":"DX 12.2, OpenGL 4.6, OpenCL 3.0, Vulkan 1.4, CUDA 12.0"
+        }
