@@ -972,6 +972,12 @@
         "generation": "xx70"
     },
     {
+        "file": "P16_Gen3.json",
+        "name": "ThinkPad P16 Gen 3",
+        "family": "P",
+        "generation": "Gen 6"
+    },
+    {
         "file": "reserve_edition.json",
         "name": "ThinkPad Reserve Edition",
         "family": "Anniversary Edition",
@@ -1120,6 +1126,12 @@
         "name": "ThinkPad T580",
         "family": "T",
         "generation": "xx80"
+    },
+    {
+        "file": "T16g_Gen3.json",
+        "name": "ThinkPad T16g Gen 3",
+        "family": "T",
+        "generation": "Gen 6"
     },
     {
         "file": "ThinkPad_15.json",
