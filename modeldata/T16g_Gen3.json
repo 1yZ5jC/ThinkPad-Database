@@ -3,6 +3,7 @@
     {
       "id": "thinkpad-t16g-gen-3",
       "model_name": "ThinkPad T16g Gen 3",
+      "addons":"Based on ThinkPad P16 Gen3",
       "model_family": "T",
       "model_generation": "Gen 6",
       "update_date": "May 2026",
