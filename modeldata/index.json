@@ -1260,6 +1260,18 @@
         "generation": "xx80"
     },
     {
+        "file": "X12_Gen1.json",
+        "name": "ThinkPad X12 Detachable Gen 1",
+        "family": "X",
+        "generation": "Gen 1"
+    },
+    {
+        "file": "X12_Gen2.json",
+        "name": "ThinkPad X12 Detachable Gen 2",
+        "family": "X",
+        "generation": "Gen 2"
+    },
+    {
         "file": "Yoga260.json",
         "name": "ThinkPad Yoga 260",
         "family": "Yoga",
