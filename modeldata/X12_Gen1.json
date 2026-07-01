@@ -9,7 +9,7 @@
       "update_date": "May 2021",
         "model_code": ["21LK","21LL"],
       "processor_options": ["1110G4","1130G4","1140G4","1160G4","1180G4"],
-      "graphics_options": ["UHD_TGL_48Xe","Iris_Xe_80Xe","Iris_Xe_96Xe"],
+      "graphics_options": ["UHD_TGL_48EU","Iris_Xe_TGL_80Xe","Iris_Xe_TGL_96Xe"],
       "Display": {
         "max_resolution": {
           "usb_c": "5120x3200@60Hz",
