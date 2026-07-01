@@ -1,0 +1,9 @@
+        {
+          "model": "Snapdragon X2 Plus X2P42100",
+          "cores_threads": "6 / 6",
+          "base_freq": "4.0 GHz",
+          "cache": "22MB (L2) and 6MB (SLC)",
+          "graphics": "Qualcomm® Adreno™ X2-45 (Adreno )",
+          "iconfamily":"X2P",
+          "ark":"https://www.qualcomm.com/laptops/products/snapdragon-x2-plus"
+        }

@@ -1,0 +1,10 @@
+        {
+          "model": "Snapdragon X2 Elite X2E80100",
+          "cores_threads": "12 / 12",
+          "base_freq": "4.4 GHz",
+          "turbo_freq": "4.7 GHz",
+          "cache": "34MB (L2) and 6MB (SLC)",
+          "graphics": "Qualcomm® Adreno™ X2-85 (Adreno )",
+          "iconfamily":"X2E_12Cores",
+          "ark":"https://www.qualcomm.com/laptops/products/snapdragon-x2-elite"
+        }
