@@ -1,33 +1,33 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-x12-detachable-gen-2",
-      "model_name": "ThinkPad X12 Detachable Gen 2",
-      "addons": "It has been called ThinkPad X12 Gen 2 in China",
+      "id": "thinkpad-x12-detachable-gen-1",
+      "model_name": "ThinkPad X12 Detachable Gen 1",
+      "addons": "It has been called ThinkPad X12 Gen 1 in China, and NEC VersaPro タイプVS<VS-9> is based on it",
       "model_family": "X",
-      "model_generation": "Gen 2",
-      "update_date": "May 2024",
+      "model_generation": "Gen 1",
+      "update_date": "May 2021",
         "model_code": ["21LK","21LL"],
-      "processor_options": ["134U", "164U"],
-      "graphics_options": ["UHD_MTL"],
+      "processor_options": ["1110G4","1130G4","1140G4","1160G4","1180G4"],
+      "graphics_options": ["UHD_TGL_48Xe","Iris_Xe_80Xe","Iris_Xe_96Xe"],
       "Display": {
         "max_resolution": {
-          "usb_c": "6144x3456@60Hz",
-          "thunderbolt": "7680x4320@60Hz"
+          "usb_c": "5120x3200@60Hz",
+          "thunderbolt": "5120x3200@60Hz"
         },
-        "multi_display": "Supports up to 3 independent displays (8K reduces simultaneous count)"
+        "multi_display": "Supports up to 3 independent displays"
       },
       "memory": {
-        "max_capacity": "32GB max",
-        "type": "LPDDR5X-6400",
-        "slots": "Memory soldered to systemboard, no slots, dual-channel",
-        "features": "Dual-channel capable"
+        "max_capacity": "16GB max",
+        "type": "LPDDR4X-3733 For 4GB Model, LPDDR4X-4266 For 8GB/16GB Model",
+        "slots": "Memory soldered to systemboard, no slots, Single-Channel For 4GB Model, Dual-Channel For 8GB/16GB Model",
+        "features": "Dual-channel capable, Single-Channel For 4GB Model, Dual-Channel For 8GB/16GB Model"
       },
       "display_options": ["12.3\" WUXGA (1920x1280) IPS 400nits GMF-touch"],
       "touch": ["GMF multi-touch, supports 10-point touch"],
       "pen": ["Lenovo Digital Pen, 4096 levels","Lenovo Precision Pen, 4096 levels","Lenovo Yoga Pen, 4096 levels", "No pen bundled (purchase separately)"],
       "storage": {
-        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 4.0 x4, up to 1TB",
+        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 3.0 x4, up to 1TB",
         "ssd_sata": "Not supported",
         "hdd": "Not supported",
         "optane": "Not supported"
@@ -41,10 +41,10 @@
           "feature": "Bluetooth 5.3 or 5.4"
         }
       ],
-      "WWAN": ["EM160R-GL", "No WWAN"],
+      "WWAN": ["L850-GL", "No WWAN"],
       "SIM_Card": [
         {
-          "type": "KDDI eSIM Program (Japan) (various plans) or no physical SIM card"
+          "type": "Gemalto eSIM card (physical) or no physical SIM card"
         }
       ],
       "Battery": [
@@ -71,7 +71,7 @@
         "HD Audio, Realtek® ALC3306-CG codec / Stereo speakers, 1W x2, Dolby Audio™ / Dual-microphone array, Dolby Voice®"
       ],
       "keyboard": [
-        "ThinkPad® X12 Detachable Gen 2 Folio Keyboard, 6-row, spill-resistant, multimedia Fn keys, 1.35mm travel, Copilot key, LED backlight, Fingerprint reader",
+        "ThinkPad® X12 Detachable Folio Keyboard, 6-row, spill-resistant, multimedia Fn keys, 1.35mm travel, Copilot key, LED backlight, Fingerprint reader",
         "TrackPoint pointing device, double-tap Quick Menu, glass-like Mylar trackpad"
       ],
       "physical": {

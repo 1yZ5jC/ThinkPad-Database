@@ -4,7 +4,7 @@
           "base_freq": "1.1 GHz / 0.7 GHz / 0.4 GHz (P/E/LPE)",
           "turbo_freq": "4.8 GHz / 3.8 GHz / 2.1 GHz (P/E/LPE)",
           "cache": "12MB",
-          "graphics": "Intel® Arc™ graphics",
+          "graphics": "Intel® graphics",
           "iconfamily":"U7-1~2",
           "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/237508/intel-core-ultra-7-processor-164u-12m-cache-up-to-4-80-ghz/specifications.html"
         }

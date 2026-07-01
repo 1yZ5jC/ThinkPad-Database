@@ -1,0 +1,10 @@
+        {
+          "model": "Intel® Graphics",
+          "Shading Units": "256 (32EU)",
+          "base_freq": "350 Mhz",
+          "turbo_freq": "1.35~1.45 Ghz",
+          "VRAM":"-",
+          "Generation": "Xe",
+          "Feature":"DX 12.0 (12_1), OpenGL 4.6, OpenCL 2.1, Vulkan 1.4",
+          "iconfamily":"Intel_Graphics_new"
+        }
