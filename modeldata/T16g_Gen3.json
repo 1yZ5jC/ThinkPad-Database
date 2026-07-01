@@ -9,7 +9,7 @@
       "update_date": "May 2026",
         "model_code": ["21V5","21V6"],
       "processor_options": ["245HX", "255HX", "265HX", "285HX"],
-      "graphics_options": ["Intel_Graphics_ARL_HX_3Xe","Intel_Graphics_ARL_HX_4Xe","RTX_5080","RTX_5090"],
+      "graphics_options": [" UHD_ARL_HX_3Xe"," UHD_ARL_HX_4Xe","RTX_5080","RTX_5090"],
       "Display": {
         "max_resolution": {
           "hdmi": "7680x4320@60Hz/3840x2160@240Hz",

@@ -8,7 +8,7 @@
       "update_date": "May 2026",
         "model_code": ["21RQ","21RR"],
       "processor_options": ["245HX", "255HX", "265HX", "285HX"],
-      "graphics_options": ["Intel_Graphics_ARL_HX_3Xe","Intel_Graphics_ARL_HX_4Xe","RTX_Pro_1000_Blackwell","RTX_Pro_2000_Blackwell","RTX_Pro_3000_Blackwell","RTX_Pro_4000_Blackwell","RTX_Pro_5000_Blackwell"],
+      "graphics_options": [" UHD_ARL_HX_3Xe"," UHD_ARL_HX_4Xe","RTX_Pro_1000_Blackwell","RTX_Pro_2000_Blackwell","RTX_Pro_3000_Blackwell","RTX_Pro_4000_Blackwell","RTX_Pro_5000_Blackwell"],
       "Display": {
         "max_resolution": {
           "hdmi": "7680x4320@60Hz/3840x2160@240Hz",

@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 5 125H",
+          "cores_threads": "4P+8E+2LPE / 18",
+          "base_freq": "1.2 GHz / 0.7 GHz / 0.7 GHz (P/E/LPE)",
+          "turbo_freq": "4.5 GHz / 3.6 GHz / 2.5 GHz (P/E/LPE)",
+          "cache": "18MB",
+          "graphics": "Intel® Arc™ graphics",
+          "iconfamily":"U5-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/236848/intel-core-ultra-5-processor-225u-12m-cache-up-to-4-80-ghz/specifications.html"
+        }
