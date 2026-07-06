@@ -1253,8 +1253,7 @@ function renderCompareResultTable(devicesWithParts) {
     });
     let diffHtml = `<div class="card"><div class="card-title"><span>接口与其他</span></div><div class="card-body card-body-flow" style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>规格</th>`;
     devicesWithParts.forEach(d => diffHtml += `<th>${d.model.model_name}</th>`);
-    diffHtml += '</table></thead><tbody>';
-    const miscRows = [
+diffHtml += '</thead><tbody>';     const miscRows = [
         { label: '接口', getValue: m => Array.isArray(m.ports) ? m.ports.join('、') : (m.ports || '-') },
         { label: '尺寸', getValue: m => m.physical?.dimensions || '-' },
         { label: '重量', getValue: m => m.physical?.weight || '-' },
@@ -1262,16 +1261,17 @@ function renderCompareResultTable(devicesWithParts) {
         { label: '安全特性', getValue: m => Array.isArray(m.security) ? m.security.join('、') : (m.security || '-') },
         { label: '预装系统', getValue: m => Array.isArray(m.system) ? m.system.join('<br>') : (m.system || '-') },
     ];
-    miscRows.forEach(row => {
-        const sameValue = checkAllSame(row.getValue);
-        if (sameValue !== null) diffHtml += `<tr><td><b>${row.label}</b></td><td colspan="${devicesWithParts.length}" style="color:var(--accent);">${sameValue}</td></tr>`;
-        else {
-            diffHtml += '<tr>';
-            diffHtml += `<td><b>${row.label}</b></td>`;
-            devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}</td>`);
-            diffHtml += '<tr>';
-        }
-    });
+miscRows.forEach(row => {
+    const sameValue = checkAllSame(row.getValue);
+    if (sameValue !== null) {
+        diffHtml += `<tr><td><b>${row.label}</b></td><td colspan="${devicesWithParts.length}" style="color:var(--accent);">${sameValue}</td></tr>`;
+    } else {
+        diffHtml += '<tr>';
+        diffHtml += `<td><b>${row.label}</b></td>`;
+        devicesWithParts.forEach(d => diffHtml += `<td>${row.getValue(d.model)}</td>`);
+        diffHtml += '</tr>';   // 修正：闭合行标签
+    }
+});
     diffHtml += '</tbody></table></div></div>';
     let headerHtml = `<div class="compare-header"><div class="compare-header-models">`;
     devicesWithParts.forEach(d => { headerHtml += `<div class="compare-header-model">${d.model.model_name}</div>`; });
@@ -1533,8 +1533,25 @@ async function renderSpecs(data) {
         const batteryCard = makeCard('电池与续航', renderBatteryItems(bats));
         let touchPenHtml = ''; if (data.touch || data.pen) { const items = []; if (data.touch) items.push(`<div class="info-row"><span class="info-label">触摸</span><span class="info-value">${Array.isArray(data.touch) ? data.touch.join('、') : data.touch}</span></div>`); if (data.pen) items.push(`<div class="info-row"><span class="info-label">笔</span><span class="info-value">${Array.isArray(data.pen) ? data.pen.join('、') : data.pen}</span></div>`); touchPenHtml = makeCard('触摸与笔', items.join('')); }
         const portsCard = makeCard('物理接口与多媒体', `<table class="spec-table"><tr><th>接口</th><td>${Array.isArray(data.ports) ? data.ports.join('、') : data.ports || '无'}</td></tr><tr><th>摄像头</th><td>${Array.isArray(data.camera) ? data.camera.join('、') : data.camera || '无'}</td></tr><tr><th>音频</th><td>${Array.isArray(data.audio) ? data.audio.join('<br>') : data.audio || 'N/A'}</td></tr></td><th>键盘和UltraNav</th><td>${Array.isArray(data.keyboard) ? data.keyboard.join('<br>') : data.keyboard || 'N/A'}</td></tr>${data.colorcalibration ? `<tr><th>校色仪</th><td>${Array.isArray(data.colorcalibration) ? data.colorcalibration.join('、') : data.colorcalibration}</td></tr>` : ''}</table>`, true);
-        const otherCard = makeCard('其他', `<table class="spec-table other-spec-table"><tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td><tr><td><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr><tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr><tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr><tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}</tr>`, true);
-        let html = `
+// 原 otherCard 定义部分
+// const otherCard = makeCard('其他', `<table class="spec-table other-spec-table">...</table>`, true);
+
+// 替换为：
+const otherContent = `
+    <div style="display:flex; flex-direction:column; height:100%;">
+        <table class="spec-table other-spec-table">
+            <tr><th>尺寸</th><td>${data.physical?.dimensions || 'N/A'}</td></tr>
+            <tr><th>重量</th><td>${data.physical?.weight || 'N/A'}</td></tr>
+            <tr><th>材质</th><td>${data.physical?.case_material || data.case_material || 'N/A'}</td></tr>
+            <tr><th>安全特性</th><td>${Array.isArray(data.security) ? data.security.join('<br>') : data.security || 'N/A'}</td></tr>
+            <tr><th>预装系统</th><td>${Array.isArray(data.system) ? data.system.join('<br>') : data.system || 'N/A'}</td></tr>
+            ${data.ACadapter ? `<tr><th>电源适配器</th><td>${Array.isArray(data.ACadapter) ? data.ACadapter.join('、') : data.ACadapter}</td></tr>` : ''}
+            ${data.add_on_tips ? `<tr><th>附加信息</th><td>${data.add_on_tips}</td></tr>` : ''}
+            ${secretTipsEnabled && data.secret_tips ? `<tr><th>秘密提示</th><td>${data.secret_tips}</td></tr>` : ''}
+        </table>
+    </div>
+`;
+const otherCard = makeCard('其他', otherContent, true);        let html = `
             <div class="page-title" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                 <span>${data.model_name || '未知型号'} ${codeHtml}</span>${favBtn}${switchBtn}
             </div>
