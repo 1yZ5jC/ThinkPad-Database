@@ -972,6 +972,12 @@
         "generation": "xx70"
     },
     {
+        "file": "P16_Gen3.json",
+        "name": "ThinkPad P16 Gen 3",
+        "family": "P",
+        "generation": "Gen 6"
+    },
+    {
         "file": "reserve_edition.json",
         "name": "ThinkPad Reserve Edition",
         "family": "Anniversary Edition",
@@ -1122,6 +1128,12 @@
         "generation": "xx80"
     },
     {
+        "file": "T16g_Gen3.json",
+        "name": "ThinkPad T16g Gen 3",
+        "family": "T",
+        "generation": "Gen 6"
+    },
+    {
         "file": "ThinkPad_15.json",
         "name": "ThinkPad 15th Anniversary Edition",
         "family": "Anniversary Edition",
@@ -1246,6 +1258,18 @@
         "name": "ThinkPad X280",
         "family": "X",
         "generation": "xx80"
+    },
+    {
+        "file": "X12_Gen1.json",
+        "name": "ThinkPad X12 Detachable Gen 1",
+        "family": "X",
+        "generation": "Gen 1"
+    },
+    {
+        "file": "X12_Gen2.json",
+        "name": "ThinkPad X12 Detachable Gen 2",
+        "family": "X",
+        "generation": "Gen 2"
     },
     {
         "file": "Yoga260.json",

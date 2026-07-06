@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 7 265H",
+          "cores_threads": "6P+8E+2LPE / 16",
+          "base_freq": "2.2 GHz / 1.7 GHz / 0.7 GHz (P/E/LPE)",
+          "turbo_freq": "5.3 GHz / 4.5 GHz / 2.5 GHz (P/E/LPE)",
+          "cache": "24MB",
+          "graphics": "Intel® Arc™ 140T GPU",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/241750/intel-core-ultra-7-processor-265h-24m-cache-up-to-5-30-ghz/specifications.html"
+        }

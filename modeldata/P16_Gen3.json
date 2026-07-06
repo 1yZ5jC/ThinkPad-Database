@@ -1,0 +1,104 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-p16-gen-3",
+      "model_name": "ThinkPad P16 Gen 3",
+      "model_family": "P",
+      "model_generation": "Gen 6",
+      "update_date": "May 2026",
+        "model_code": ["21RQ","21RR"],
+      "processor_options": ["245HX", "255HX", "265HX", "285HX"],
+      "graphics_options": [" UHD_ARL_HX_3Xe"," UHD_ARL_HX_4Xe","RTX_Pro_1000_Blackwell","RTX_Pro_2000_Blackwell","RTX_Pro_3000_Blackwell","RTX_Pro_4000_Blackwell","RTX_Pro_5000_Blackwell"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "7680x4320@60Hz/3840x2160@240Hz",
+          "thunderbolt": "7680x4320@60Hz/3840x2160@240Hz"
+        },
+        "multi_display": "Supports up to 5 independent displays (8K reduces simultaneous count)"
+      },
+      "memory": {
+        "max_capacity": "192GB max Non-ECC and 128G max ECC",
+        "type": "DDR5-5600, 4x 32GB / 4x 48GB configurations run at 4000 MT/s. Other configurations over 2 DIMMs run at 4400 MT/s.",
+        "slots": "Four DDR5 SODIMM slots, dual-channel capable",
+        "features": "Dual-channel capable, ECC on models with ECC DIMMs"
+      },
+      "display_options": ["Placeholder", "Placeholder"],
+      "touch": ["Addon Film Touch", "No Support"],
+      "pen": ["Lenovo® Yoga® Pen", "No pen bundled (garage ready)","No support (non-touch LCD display doesn't support pen input)"],
+      "storage": {
+        "ssd_pcie": "One M.2 2280 SSD / PCIe NVMe, PCIe 5.0 x4, up to 4TB and Two M.2 2280 SSD / PCIe NVMe, PCIe 4.0 x4, up to 4TB, RAID 0/1/5 support",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": [" I226-LM"," I226-LM"],
+      "WLAN": ["BE200"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.4"
+        }
+      ],
+      "WWAN": ["RW350R-GL", "WWAN_Upgradeable","No WWAN"],
+      "SIM_Card": [
+        {
+          "type": "KDDI eSIM Program (Japan) (various plans) or no physical SIM card"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Internal battery",
+          "capacity": "99.9Wh",
+          "form": "Rechargeable Li-ion",
+          "tech": "Li-Ion",
+          "rapid_charge": "Up to 80% in 1hr"
+        }
+      ],
+      "ACadapter": ["180W USB-C GaN PD 3.1", "No power adapter"],
+      "ports": [
+        "1 x USB-A (USB 10 Gbps)",
+        "1 x USB-A (USB 10 Gbps) Always On",
+        "2 x Thunderbolt 5 (with USB PD 3.1 and DP 2.1)",
+        "1 x Thunderbolt 4 (with USB PD 3.1 and DP 2.1)",
+        "1 x HDMI 2.1",
+        "1 x Headphone/mic combo jack",
+        "1 x Ethernet (2.5GbE RJ-45)",
+        "1 x SD Express 8.0 card reader",
+        "1 x Nano-SIM (optional)",
+        "1 x Smart card reader (optional)"
+      ],
+      "camera": [
+        "Front 5.0MP + IR discrete with privacy shutter, Computer Vision Human Presence Detection on Image Signal Processor (ISP), temporal noise reduction",
+        "Front HD 5.0MP with privacy shutter, temporal noise reduction",
+        "No camera (for special bid model)"
+      ],
+      "audio": [
+        "SoundWire®, Cirrus Logic® CS42L43 codec / stereo speakers, 2W x2, Dolby Atmos /  Dual-microphone array, far-field, Dolby Voice® or No microphone for special bid model"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, 1.5mm/1.35mm travel, Copilot key, LED backlight",
+        "TrackPoint pointing device, double-tap Quick Menu, Glass-like Mylar trackpad"
+      ],
+      "physical": {
+        "dimensions": "362.0 x 252.0 x 15.8/20.9 (front/rear) mm, 29.8 mm maximum",
+        "weight": "Starting at 2.54 kg (5.6 lbs)",
+        "case_material": "Aluminium (top), Aluminium (bottom)"
+      },
+      "security": [
+        "Discrete TPM 2.0, FIPS 140-3 certified",
+        "Kensington Nano Security Slot",
+        "Touch fingerprint reader",
+        "IR camera for Windows Hello (optional)",
+        "ThinkShield",
+        "Privacy Guard software"
+      ],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Windows 11 Home Single Language", "Ubuntu Linux","Fedora Linux","Red Hat Enterprise Linux 10 (certified only)", "No preload OS", "Windows 11 IoT Enterprise LTSC"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16_Gen_3/ThinkPad_P16_Gen_3_Spec.pdf"],
+      "user_guide_link": ["https://support.lenovo.com/us/en/documentation/SG10410"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/p16_gen3_t16g_gen3_hmm_en.pdf"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 ﻿{
-  "model": "Core Ultra 7 155U",
-  "cores_threads": "12 / 14",
-  "base_freq": "1.7 GHz",
-  "turbo_freq": "4.8 GHz",
+  "model": "Intel Core Ultra 7 155U",
+  "cores_threads": "2P+8E+2LPE / 14",
+  "base_freq": "1.7 GHz / 1.2 GHz / 0.7 GHz (P/E/LPE)",
+  "turbo_freq": "4.8 GHz / 3.8 GHz / 2.1 GHz (P/E/LPE)",
   "cache": "12MB",
   "graphics": "Intel Graphics",
   "iconfamily": "U7-1~2",

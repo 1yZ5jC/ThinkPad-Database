@@ -1,0 +1,100 @@
+{
+  "thinkpad_database": [
+ {
+      "id": "thinkpad-t14s-gen-7-snapdragon",
+      "model_name": "ThinkPad T14s Gen 7 (Snapdragon)",
+      "model_family": "T",
+      "model_generation": "Gen 7",
+      "model_code": ["22A7","22A8"],
+      "processor_options": ["X2E80100", "X2P42100"],
+      "graphics_options": ["Adreno_X2-85","Adreno_X2-45"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "4K@60Hz",
+          "usb_c": "5K@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "32GB max",
+        "type": "LPDDR5X-9523",
+        "slots": "Memory soldered to systemboard, no slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "14\" WUXGA (1920x1200) IPS 400nits Multi-touch Eyesafe",
+        "14\" WUXGA (1920x1200) IPS 400nits Non-touch Low power Eyesafe"
+      ],
+      "touch": ["In-cell multi-touch, supports 10-point touch", "Non-touch"],
+      "pen": ["No support"],
+      "storage": {
+        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 4.0 x4, up to 1TB",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": ["No onboard Ethernet"],
+      "WLAN": ["NCM825A"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 5.3 (Bluetooth 5.4 hardware ready)"
+        }
+      ],
+      "WWAN": ["T99W696", "No support"],
+      "SIM_Card": [
+        {
+          "type": "KDDI eSIM Program (Japan) or no physical SIM card"
+        }
+      ],
+      "Battery": [
+        {
+          "type": "Internal battery",
+          "capacity": "58Wh",
+          "form": "Rechargeable Li-ion",
+          "tech": "Li-Ion",
+          "rapid_charge": "Up to 80% in 1hr"
+        }
+      ],
+      "ACadapter": ["65W USB-C", "65W USB-C slim", "65W USB-C slim GaN", "No power adapter"],
+      "ports": [
+        "1x USB-A (USB 5Gbps) Always On",
+        "2x USB-C (USB4 40Gbps) with PD 3.0 and DP 1.4a",
+        "1x HDMI 2.1",
+        "1x Headphone/mic combo jack",
+        "1x Nano-SIM card slot (optional)"
+      ],
+      "camera": [
+        "5.0MP + IR discrete, with privacy shutter, fixed focus, vHDR, Computer Vision on Image Signal Processor (ISP), temporal noise reduction"
+      ],
+      "audio": [
+        "Soundwire, Qualcomm® WCD9378C codec / stereo speakers, 2W x2, Dolby Audio / dual microphone array, 360° far-field, Qualcomm® Fluence Voice"
+      ],
+      "keyboard": [
+        "6-row, spill-resistant, multimedia Fn keys, 1.5mm/1.35mm travel, Copilot key, LED backlight",
+        "TrackPoint pointing device, double-tap Quick Menu, glass-like Mylar surface multi-touch 3-button Trackpad"
+      ],
+      "physical": {
+        "dimensions": "313.6 x 219.4 x 10.7/15.85 (front/rear), 18.56 (maximum) mm (12.35 x 8.64 x 0.42/0.62 (front/rear), 0.73 (maximum) inches)",
+        "weight": "Starting at 1.16 kg (2.56 lbs)",
+        "case_material": "CFRP (top), aluminium or magnesium (bottom)"
+      },
+      "security": [
+        "Discrete TPM 2.0 and Microsoft Pluton TPM 2.0",
+        "Kensington Nano Security Slot",
+        "Touch fingerprint reader",
+        "IR camera for Windows Hello",
+        "ThinkShield",
+        "Computer Vision-based Human Presence Detection",
+        "Certificate-based BIOS authentication"
+      ],
+      "system": ["Windows 11 Pro on ARM", "Windows 11 Home on ARM"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_Snapdragon/ThinkPad_T14s_Gen_7_Snapdragon_Spec.pdf"],
+      "user_guide_link": ["https://support.lenovo.com/us/en/documentation/SG10821"],
+      "HMM_link": ["https://support.lenovo.com/us/en/documentation/SG10824"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
+    }
+  ]
+}

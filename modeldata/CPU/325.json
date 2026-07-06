@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 5-325",
+          "model": "Intel Core Ultra 5 325",
           "cores_threads": "4P+4LPE / 8",
           "base_freq": "2.1 GHz / 1.6 GHz (P/LPE)",
           "turbo_freq": "4.5 GHz / 3.4 GHz (P/LPE)",
