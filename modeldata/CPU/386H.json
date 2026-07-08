@@ -1,7 +1,7 @@
         {
-          "model": "Intel Ultra 9 386H",
+          "model": "Intel Core Ultra 9 386H",
           "cores_threads": "4P+8E+4LPE / 16",
-          "base_freq": "2.1 GHz / 1.6 GHz  / 1.6 GHz (P/E/LPE)",
+          "base_freq": "2.1 GHz / 1.6 GHz / 1.6 GHz (P/E/LPE)",
           "turbo_freq": "4.9 GHz / 3.7 GHz / 3.5 GHz (P/E/LPE)",
           "cache": "18MB",
           "graphics": "Intel® Graphics",

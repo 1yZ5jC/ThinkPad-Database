@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 9 285HX",
+          "cores_threads": "8P+16E / 24",
+          "base_freq": "2.8 GHz / 2.1 GHz (P/E)",
+          "turbo_freq": "5.5 GHz / 4.6 GHz (P/E)",
+          "cache": "36MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U9-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/242297/intel-core-ultra-9-processor-285hx-36m-cache-up-to-5-50-ghz/specifications.html"
+        }

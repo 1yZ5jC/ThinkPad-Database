@@ -1,10 +1,10 @@
         {
-          "model": "Intel Ultra 9 288V",
+          "model": "Intel Core Ultra 9 288V",
           "cores_threads": "4P+4LPE / 8",
           "base_freq": "2.2 GHz / 2.2 GHz (P/LPE)",
           "turbo_freq": "5.1 GHz / 3.7 GHz (P/LPE)",
           "cache": "12MB",
-          "graphics": "Intel® Arc 140V",
+          "graphics": "Intel® Arc 140V GPU",
           "iconfamily":"U9-1~2",
           "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/240956/intel-core-ultra-9-processor-288v-12m-cache-up-to-5-10-ghz/specifications.html"
         }

@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 7 355",
+          "model": "Intel Core Ultra 7 355",
           "cores_threads": "4P+4LPE / 8",
           "base_freq": "2.3 GHz / 1.7 GHz (P/LPE)",
           "turbo_freq": "4.7 GHz / 3.5 GHz (P/LPE)",

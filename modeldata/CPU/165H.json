@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 7 165H",
+          "cores_threads": "6P+8E+2LPE / 22",
+          "base_freq": "1.4 GHz / 0.9 GHz / 0.7 GHz (P/E/LPE)",
+          "turbo_freq": "5.0 GHz / 3.8 GHz / 2.5 GHz (P/E/LPE)",
+          "cache": "24MB",
+          "graphics": "Intel® Arc™ graphics",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/236851/intel-core-ultra-7-processor-165h-24m-cache-up-to-5-00-ghz/specifications.html"
+        }

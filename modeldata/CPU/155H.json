@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 7 155H",
+          "cores_threads": "6P+8E+2LPE / 22",
+          "base_freq": "1.4 GHz / 0.9 GHz / 0.7 GHz (P/E/LPE)",
+          "turbo_freq": "4.8 GHz / 3.8 GHz / 2.5 GHz (P/E/LPE)",
+          "cache": "24MB",
+          "graphics": "Intel® Arc™ graphics",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/236847/intel-core-ultra-7-processor-155h-24m-cache-up-to-4-80-ghz/specifications.html"
+        }

@@ -1,0 +1,10 @@
+        {
+          "model": "Intel Core Ultra 7 265HX",
+          "cores_threads": "8P+12E / 20",
+          "base_freq": "2.6 GHz / 2.3 GHz (P/E/LPE)",
+          "turbo_freq": "5.3 GHz / 4.6 GHz (P/E/LPE)",
+          "cache": "30MB",
+          "graphics": "Intel® Graphics",
+          "iconfamily":"U7-1~2",
+          "ark":"https://www.intel.cn/content/www/cn/zh/products/sku/242294/intel-core-ultra-7-processor-265hx-30m-cache-up-to-5-30-ghz/specifications.html"
+        }
