@@ -1,14 +1,13 @@
 {
   "thinkpad_database": [
     {
-      "id": "thinkpad-8",
-      "model_name": "ThinkPad 8",
+      "id": "thinkpad-10-gen1",
+      "model_name": "ThinkPad 10 Gen 1",
       "model_family": "Tablet",
-      "model_code":["20BN","20BQ"],
+      "model_code":["20C1","20C3"],
       "model_generation": "xx40",
       "update_date": "November 2014",
       "processor_options": [
-        "Z3770",
         "Z3795"
       ],
       "graphics_options":["HD_BTL"],
@@ -24,7 +23,9 @@
         "slots": "no sockets",
         "features": "2GB or 4GB soldered to systemboard"
       },
-      "display_options": ["LEN40F0"],
+      "display_options": ["LEN4100"],
+      "touch": ["MultiTouch screen supports ten-finger gesture"],
+      "pen": ["ThinkPad 10 Digitizer Pen, Wacom EMR Pen"],
       "storage": {
         "ssd_sata": null,
         "ssd_pcie": null,
@@ -48,45 +49,53 @@
       "Battary": [
         {
           "type": "Internal battery",
-          "capacity": "20.5Wh",
+          "capacity": "33Wh",
           "form": "2-cell",
           "tech": "Lithium Polymer"
         }
       ],
       "ports": [
-        "1 x micro-USB 3.0",
+        "1 x USB 2.0",
         "1 x micro-HDMI",
         "1 x microSD Card slot",
-        "1 x Headphone/microphone combo jack"
+        "1 x micro SIM Card slot",
+        "1 x Headphone/microphone combo jack",
+        "1 x Living Hinge Docking connector",
+        "1 x Keyboard connector",
+        "1 x Optional Smart Card reader (SCR)"
       ],
       "camera": [
         "Front camera: 2.0-megapixel, fixed focus",
         "Rear camera: 8.0-megapixel, auto focus, flash LED"
       ],
       "audio": [
-        "HD Audio, Realtek ALC5672 codec / stereo speakers, 0.5 watt x 2"
+        "HD Audio, Realtek ALC5672 codec / stereo speakers, 0.5 watt x 2 / 3 digital microphones, combo audio/microphone jack"
       ],
-      "keyboard": [],
+      "keyboard": [
+        "Non-pro: Ultrabook keyboard, mechanical keyboard, pen holder",
+        "Folio: Folio keyboard, thin keyboard, pen loop",
+        "All: Buttonless touchpad below keyboard, multi-touch"
+      ],
       "physical": {
-        "dimensions": "224.3mm x 132.0mm x 8.8mm / 8.83 x 5.20 x 0.35in",
-        "weight": "0.95 lb (0.43kg)",
-        "case_material": "Aluminium top cover, Edge Profile Rubber"
+        "dimensions": "10.09\" x 6.96\" x 0.35\"; 256.5mm x 177.0mm x 8.95mm; 10.09\" x 6.96\" x 0.67\"; 256.5mm x 177.0mm x 16.95mm (with SCR)",
+        "weight": "WiFi only: from 1.32 lb (0.598kg); WiFi + WWAN: from 1.34 lb (0.610kg); WiFi + WWAN + SCR: from 1.46 lb (0.660kg)",
+        "case_material": "Aluminum frame"
       },
       "security": [
         "Power-on password",
         "Hard disk password",
-        "Supervisor password"
+        "Supervisor password",
+        "Trusted Platform Module, TPM 2.0 FW (firmware), Optional Discrete Trusted Platform Module, TCG 1.2-compliant",
+        "Optional Fingerprint reader on the A Cover"
       ],
       "system": [
         "Windows 8.1 32",
-        "Windows 8.1 64 (for Z3795 SKUs only)",
+        "Windows 8.1 64",
         "Windows 8.1 Pro 32",
-        "Windows 8.1 Pro 64(for Z3795 SKUs only)",
-        "Windows 8.1 with Bing 32",
-        "Windows 8.1 with Bing 64(for Z3795 SKUs only)"
+        "Windows 8.1 Pro 64"
       ],
-      "PSREF_link":["https://psrefstuff.lenovo.com/product/ThinkPad%20Tablets/ThinkPad_8"],
-      "add_on_tips":["早期的全贴合屏幕存在漏胶问题导致现在绝大部分机器的背光都是坏的"],
+      "PSREF_link":["https://psrefstuff.lenovo.com/product/ThinkPad%20Tablets/ThinkPad_10"],
+      "add_on_tips":[""],
       "secret_tips":["点击输入文字"]
     }
   ]

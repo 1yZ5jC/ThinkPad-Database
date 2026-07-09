@@ -1,0 +1,5 @@
+        {
+          "type": "Broadcom BCM4324",
+          "form": "2x2, SDIO",
+          "feature":"11ac+BT"
+        }
