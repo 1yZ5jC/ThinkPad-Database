@@ -1,0 +1,13 @@
+        {
+          "type": "Placeholder",
+          "tech": "Anti-glare, LED backlight",
+          "brightness": "0 nits",
+          "contrast": "Unknown",
+          "FRUs":[
+            {
+             "12A3456":"-"
+            }
+          ],
+          "color_gamut":"100% BT.2020",
+          "refresh_rate":"120 Hz"
+        }

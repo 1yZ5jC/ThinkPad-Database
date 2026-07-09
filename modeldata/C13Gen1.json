@@ -88,6 +88,7 @@
       ],
       "PSREF_link":["https://psrefstuff.lenovo.com/product/ThinkPad/ThinkPad_C13_Yoga_Gen_1_Chromebook"],
       "user_guide_link":["https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-yoga-series-chromebook-laptops/thinkpad-c13-yoga-gen-1-chromebook/documentation/doc_userguide"],
+      "HMM_link": ["https://download.lenovo.com/pccbbs/mobiles_pdf/c13_yoga_gen1_chromebook_hmm_en.pdf"],
       "add_on_tips":["预装SSD的机器显然没焊eMMC"]
         }
   ]
