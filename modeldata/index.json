@@ -510,10 +510,34 @@
         "generation": "Legacy"
     },
     {
+        "file": "Tablet_Gen1.json",
+        "name": "ThinkPad Tablet Gen 1",
+        "family": "Tablet",
+        "generation": "xx20"
+    },
+        {
+        "file": "Tablet_Gen2.json",
+        "name": "ThinkPad Tablet Gen 2",
+        "family": "Tablet",
+        "generation": "xx20"
+    },
+    {
         "file": "8.json",
         "name": "ThinkPad 8",
         "family": "Tablet",
         "generation": "xx40"
+    },
+    {
+        "file": "10_Gen1.json",
+        "name": "ThinkPad 10 Gen 1",
+        "family": "Tablet",
+        "generation": "xx40"
+    },
+    {
+        "file": "10_Gen2.json",
+        "name": "ThinkPad 10 Gen 2",
+        "family": "Tablet",
+        "generation": "xx50"
     },
     {
         "file": "820.json",

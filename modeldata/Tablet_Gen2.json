@@ -1,0 +1,92 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-tablet-gen2",
+      "model_name": "ThinkPad Tablet Gen 2",
+      "model_family": "Tablet",
+      "model_generation": "xx20",
+      "update_date": "November 2014",
+      "model_code": ["3679", "3682"],
+      "processor_options": ["Z2760"],
+      "graphics_options": ["SGX545"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "1920x1080@60Hz"
+        },
+        "multi_display": "Supports 2 independent displays"
+      },
+      "memory": {
+        "max_capacity": "2GB",
+        "type": " 800MHz LPDDR2, mobile DDR",
+        "slots": "soldered to systemboard, no sockets",
+        "features": ""
+      },
+      "display_options": ["Tablet2_Display"],
+      "touch": ["MultiTouch screen supports five-finger gesture"],
+      "pen": ["Optional ThinkPad Tablet 2 Digitizer Pen (0A33899), Wacom EMR Pen"],
+      "storage": {
+        "emmc": "32GB / 64GB eMMC"
+      },
+      "WLAN": ["BCM4330"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 4.0"
+        }
+      ],
+      "WWAN": ["EM7700","C5621"],
+      "SIM_Card": [
+        {
+          "type": "Mini-SIM card slot (models with WWAN)"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "30Wh",
+          "form": "2-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": ["10-watt AC Adapter (via micro-USB)"],
+      "ports": [
+        "1 x USB 2.0",
+        "1 x Micro-USB 2.0 (for charging)",
+        "1 x mini-HDMI",
+        "ThinkPad Tablet 2 Dock connector",
+        "MicroSD card slot",
+        "Combo audio/microphone jack"
+      ],
+      "camera": [
+        "Front camera: 2.0-megapixel, fixed focus",
+        "Rear camera: 8.0-megapixel, auto focus, digital zoom, flash LED"
+      ],
+      "audio": [
+        "HD Audio,Realtek ALC5642 codec / stereo speakers, 0.5 watt x 2 / dual array digital microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "ThinkPad Tablet 2 Bluetooth Keyboard with Stand (0B47270), 6-row, landscape stand included, connects system via bluetooth, sealed battery with 30-day battery life, chargeable via micro-USB (one USB to micro-USB cable included)",
+        "Optical TrackPoint pointing device w/ three mouse buttons"
+      ],
+      "physical": {
+        "dimensions": "10.34\" x 6.48\" x 0.39\"; 262.6mm x 164.6mm x 9.8mm",
+        "weight": "WiFi only: from 1.26 lb (0.57kg); WiFi + Digitizer Pen: from 1.30 lb (0.59kg); WiFi + Digitizer Pen + WWAN: from 1.35 lb (0.61kg)",
+        "case_material": "Magnesium frame, PolyCarbonate/Acrylonitrile-Butadiene-Styrene (PC/ABS) cover"
+      },
+      "security": [
+        "Kensington lock slot"
+      ],
+      "system": [
+        "Windows 8 32-bit",
+        "Windows 8 Pro 32-bit",
+        "Windows 8.1 Pro 32-bit"
+      ],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/Think_Tablets/ThinkPad_Tablet_2/ThinkPad_Tablet_2_Spec.PDF"],
+      "user_guide_link": ["https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/tablet2_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/tablet_2_hmm_en_0b48975_03.pdf"],
+      "add_on_tips": ["点击输入文字"],
+      "secret_tips": ["点击输入文字"]
+    }
+  ]
+}

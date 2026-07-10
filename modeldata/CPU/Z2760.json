@@ -1,0 +1,9 @@
+{
+  "model": "Atom Z2760",
+  "cores_threads": "2 / 4",
+  "base_freq": "1.80 GHz",
+  "cache": "1MB",
+  "graphics": "PowerVR SGX545",
+  "iconfamily": "Atom_Haswell",
+  "ark": "https://www.intel.com/content/www/us/en/products/sku/70105/intel-atom-processor-z2760-1m-cache-1-80-ghz/specifications.html"
+}

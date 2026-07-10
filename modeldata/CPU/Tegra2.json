@@ -1,0 +1,9 @@
+        {
+          "model": "Nvidia Tegra 2 T20",
+          "cores_threads": "2 / 2",
+          "base_freq": "1.2 GHz",
+          "cache": "1MB (L2)",
+          "graphics": "NVIDIA GeForce GPU",
+          "iconfamily":"Tegra",
+          "ark":"https://web.archive.org/web/20120626153816/https://www.nvidia.cn/object/tegra-2-cn.html"
+        }
