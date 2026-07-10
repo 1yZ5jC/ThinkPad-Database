@@ -1,0 +1,10 @@
+        {
+          "model": "Intel HD Graphics (HD 405)",
+          "Shading Units": "128",
+          "base_freq": "200 Mhz",
+          "turbo_freq": "600 MHz",
+          "VRAM":"-",
+          "Generation": "Gen 8.0",
+          "Feature":"DX 12.0 (11_1), OpenGL 4.3, OpenCL 3.0, Vulkan 1.0",
+          "iconfamily":"Intel_HD_Graphics"
+        }
