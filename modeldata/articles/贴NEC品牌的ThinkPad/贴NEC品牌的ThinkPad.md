@@ -32,7 +32,7 @@ VersaPro UltraLite タイプVB＜VB-X＞ VK24M/B-X VK23T/B-X VK23L/B-X VK245/B-X
 
 VersaPro UltraLite タイプVB＜VB-Y＞ VK24M/B-Y VK23T/B-Y VK23L/B-Y VK245/B-Y
 
-VersaPro UltraLite タイプVB＜VB-1＞ 	VKM24/B-1 VKT23/B-1 VKL23/B-1 VK524/B-1 VKN24/B-1 VKU23/B-1 VKJ23/B-1 VK824/B-1 VJM24/B-1 VJT23/B-1 VJL23/B-1 VJ524/B-1
+VersaPro UltraLite タイプVB＜VB-1＞ VKM24/B-1 VKT23/B-1 VKL23/B-1 VK524/B-1 VKN24/B-1 VKU23/B-1 VKJ23/B-1 VK824/B-1 VJM24/B-1 VJT23/B-1 VJL23/B-1 VJ524/B-1
 
 X280:
 
@@ -188,7 +188,7 @@ VersaPro タイプVA <VA-1＞ VKL24/AA-1 VKE18/AA-1 VJL24/AA-1 VJE18/AA-1
 
 ThinkPad Yoga 15
 
-![VersaPro タイプVW](./images/VW-R.jpg)
+![VersaPro タイプVW](./images/VW-L.jpg)
 
 VersaPro タイプVW <VW-R＞ VK22T/WP-R VJ22T/WP-R VK21L/WP-R VJ21L/WP-R
 
@@ -218,7 +218,7 @@ VersaPro タイプVT <VT-R＞ VK16X/T1-R VJ16X/T1-R VK164/T1-R VKX6X/T1-R VKX64/
 
 \*Extra: L570 w/ 8th gen Core
 
-NEC在联想更换掉L5系列的模具之后使用原模具更新了KabyLake-R又更新了一年，到2019年，NEC将这些产品线的模具换成自研模具。
+NEC在联想更换掉L5系列的模具之后使用原模具更新了KabyLake-R又水了一年，2019年，NEC将这些产品线的模具换成自研模具。
 
 ![VersaPro タイプVD/VX/VL/VA w/numpad](./images/vd-p.jpg)
 
