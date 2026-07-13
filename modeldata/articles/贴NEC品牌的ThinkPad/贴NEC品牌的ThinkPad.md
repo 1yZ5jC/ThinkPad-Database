@@ -1,6 +1,45 @@
-众所周知，NEC在为日本用户生产ThinkPad的同时，也使用了ThinkPad的模具稍加修改生产自己品牌的电脑。由于NEC套娃上瘾以及信息披露较为闭塞，了解两者之间的映射关系难度较大。这里根据NEC官网信息列出部分相关型号，以便各位考证。本列表显然不是最终列表，如有缺漏还请各位及时指出修正。
+众所周知，NEC在为日本用户生产ThinkPad的同时，也使用了ThinkPad的模具稍加修改生产自己品牌的电脑。这些机器和ThinkPad共享基础硬件和BIOS基础，而在外围品牌（比如BIOS中不会出现“ThinkPad”品牌）、部分硬件和EC上有自己的定制。由于NEC套娃上瘾以及信息披露较为闭塞，了解两者之间的映射关系难度较大。这里根据NEC官网信息列出部分相关型号，以便各位考证。本列表显然不是最终列表，如有缺漏还请各位及时指出修正。
 
-T460s :
+一般来说，NEC的机器没有指点杆（自然没有三键），键盘固定为独特的非背光的日文布局键盘，对于蚌壳非触摸屏笔记本在下部边框一般会有NEC标识，C面会有型号贴纸如果有额外的差异将在机型下面额外补充。
+
+注意到NEC版的部分元器件信息也可以在联想售后的FRU库中查询到，部分信息即来源于此。
+
+
+**ThinkPad Tablet 2**
+
+![VersaPro タイプVT](./images/vtb.jpg)
+
+VersaPro タイプVT <VT-G＞ VK18V/TG-G VJ18V/TG-G VK18V/TG-X
+
+*与原型的差异：采用了白色的外壳。*
+
+**ThinkPad 10 Gen 1**
+
+![VersaPro タイプVT](./images/vt-j.jpg)
+
+VersaPro タイプVT <VT-J＞ VK24V/TA-J VK24W/TA-J VK24X/TA-J VK24Y/TA-J VJ24V/TA-J VJ24X/TA-J
+
+*与原型的差异：采用了白色的外壳。*
+
+**ThinkPad Yoga 15**
+
+![VersaPro タイプVW](./images/VW-L.jpg)
+
+VersaPro タイプVW <VW-R＞ VK22T/WP-R VJ22T/WP-R VK21L/WP-R VJ21L/WP-R
+
+*与原型的差异：采用了白色的AC面。*
+
+**ThinkPad 10 Gen 2**
+
+![VersaPro タイプVT](./images/vt-j.jpg)
+
+VersaPro タイプVT <VT-N＞ VK16X/TA-N VJ16X/TA-N
+
+VersaPro タイプVT <VT-R＞ VK16X/T1-R VJ16X/T1-R VK164/T1-R VKX6X/T1-R VKX64/T1-R
+
+*与原型的差异：采用了白色的外壳。*
+
+**ThinkPad T460s**:
 
 ![VersaPro UltraLite タイプVM](./images/vm-p.jpg)
 
@@ -16,7 +55,9 @@ VersaPro UltraLite タイプVM <VM-X＞ VK24M/M-X VJ24M/M-X VK23T/M-X VJ23T/M-X
 
 VersaPro UltraLite タイプVM <VM-Y＞ VK24M/M-Y VJ24M/M-Y VK23T/M-Y VJ23T/M-Y
 
-X260:
+*与原型的差异：采用了白色的AC面，加入了电源和硬盘读写指示灯，移除了底座对接口，D面对应位置被塑料件堵上。*
+
+**ThinkPad X260**:
 
 ![VersaPro UltraLite タイプVB](./images/vb-p.jpg)
 
@@ -34,77 +75,9 @@ VersaPro UltraLite タイプVB＜VB-Y＞ VK24M/B-Y VK23T/B-Y VK23L/B-Y VK245/B-Y
 
 VersaPro UltraLite タイプVB＜VB-1＞ VKM24/B-1 VKT23/B-1 VKL23/B-1 VK524/B-1 VKN24/B-1 VKU23/B-1 VKJ23/B-1 VK824/B-1 VJM24/B-1 VJT23/B-1 VJL23/B-1 VJ524/B-1
 
-X280:
+*与原型的差异：采用了白色的AC面，加入了电源，电池状态和硬盘读写指示灯，移除了底座对接口，D面对应位置被塑料件堵上。本机有英文键盘，但是布局依旧是日文布局，按键排列清奇*
 
-![VersaPro UltraLite タイプVB](./images/vb-2.jpg)
-
-VersaPro UltraLite タイプVB＜VB-2＞  VKT16/B-2 VKM17/B-2 VKL27/B-2 VKN17/B-2 VKU16/B-2 VKJ27/B-2 VJM17/B-2 VJT16/B-2 VJL27/B-2
-
-VersaPro UltraLite タイプVB＜VB-3＞  VKM17/B-3 VKT16/B-3 VKL27/B-3 VKN17/B-3 VKU16/B-3 VKJ27/B-3 VKM17/B-3 VKL27/B-3 VJM17/B-3 VJT16/B-3 VJL27/B-3
-
-VersaPro UltraLite タイプVB＜VB-4＞  VKM17/B-4 VKT16/B-4 VKL27/B-4 VKN17/B-4 VKU16/B-4 VKJ27/B-4 VKM17/B-4 VKL27/B-4 VJM17/B-4 VJT16/B-4 VJL27/B-4
-
-X390
-
-![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
-
-VersaPro UltraLite タイプVB＜VB-5＞ VKM16/B-5 VKT16/B-5 VKL21/B-5 VKN16/B-5 VKU16/B-5 VKJ21/B-5 VJM16/B-5 VJT16/B-5 VJL21/B-5
-
-VersaPro UltraLite タイプVB＜VB-6＞ VKM16/B-6 VKT16/B-6 VKL21/B-6 VKN16/B-6 VKU16/B-6 VKJ21/B-6 VJM16/B-6 VJT16/B-6 VJL21/B-6
-
-X13 Gen1 Intel
-
-![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
-
-VersaPro UltraLite タイプVB＜VB-7＞ VKM17/B-7 VKT16/B-7 VKN17/B-7 VKU16/B-7 VJM17/B-7 VJT16/B-7
-
-VersaPro UltraLite タイプVB＜VB-9＞ VKM17/B-9 VKT16/B-9 VKN17/B-9 VKU16/B-9 VJM17/B-9 VJT16/B-9
-
-X13 gen2 Intel
-
-![VersaPro UltraLite タイプVB](./images/VB-A.jpg)
-
-VersaPro UltraLite タイプVB＜VB-A＞ VKM44/B-A VKT42/B-A VKN44/B-A VKU42/B-A VJM44/B-A VJT42/B-A
-
-VersaPro UltraLite タイプVB＜VB-B＞ VKM44/B-B VKT42/B-B VKN44/B-B VKU42/B-B VJM44/B-B VJT42/B-B
-
-X13 gen3 Intel
-
-![VersaPro UltraLite タイプVB](./images/VB-c.jpg)
-
-VersaPro UltraLite タイプVB ＜VB-C＞ VKM44/B-C VKT44/B-C VKN44/B-C VKU44/B-C VJM44/B-C VJT44/B-C
-
-VersaPro UltraLite タイプVB ＜VB-D＞ VKM44/B-D VKT44/B-D VKN44/B-D VKU44/B-D VJM44/B-D VJT44/B-D
-
-VersaPro UltraLite タイプVB ＜VB-F＞ VKM44/B-F VKT44/B-F VKN44/B-F VKU44/B-F VJM44/B-F VJT44/B-F
-
-VersaPro UltraLite タイプVB ＜VB-G＞ VKM44/B-G VKT44/B-G VKN44/B-G VKU44/B-G VJM44/B-G VJT44/B-G
-
-T14s Gen6 AMD
-
-![VersaPro タイプVZ](./images/VZ-N.jpg)
-
-VersaPro タイプVZ ＜VZ-N＞ V1950/Z-N V2950/Z-N VK950/ZM-N VJ950/ZM-N
-
-ThinkPad X12 Detachable Gen 1
-
-![VersaPro タイプVS](./images/VS-7.jpg)
-
-VersaPro タイプVS＜VS-9＞ VKT40/S4-9 VKL39/S4-9 VK140/S4-9 VK439/S4-9 VJT40/S4-9 VJL39/S4-9
-
-VersaPro タイプVS＜VS-B＞ VKT40/S4-B VKL39/S4-B VK140/S4-B VK439/S4-B VJT40/S4-B VJL39/S4-B
-
-VersaPro タイプVS＜VS-D＞ VKT40/S4-D VK140/S4-D VJT40/S4-D
-
-VersaPro タイプVS＜VS-F＞ VKT40/S4-F VK140/S4-F VJT40/S4-F
-
-VersaPro タイプVS＜VS-G＞ VKT40/S4-G VK140/S4-G VJT40/S4-G
-
-VersaPro タイプVS＜VS-J＞ VKT40/S4-J VK140/S4-J VJT40/S4-J
-
-
-
-L560
+**ThinkPad L560**
 
 ![VersaPro タイプVD/VX/VL/VA w/numpad](./images/vd-p.jpg)
 
@@ -158,11 +131,9 @@ VersaPro タイプVL <VL-Y＞ VK23X/L-Y VJ23X/L-Y VK23L/L-Y VJ23L/L-Y
 
 VersaPro タイプVA <VA-Y＞ VK23L/AA-Y VJ23L/AA-Y VK16E/AA-Y VJ16E/AA-Y
 
+*与原型的差异：左侧IO为电源口、HDMI接口、RS232串口、VGA接口、USB接口、PCMCIA接口和SD读卡器，右侧IO比原版多了一个USB接口，加入了电源，电池状态和硬盘读写指示灯以及ECO按钮。部分型号搭配89键JIS键盘，其他机型带小键盘*
 
-
-
-
-L570
+**ThinkPad L570**
 
 ![VersaPro タイプVD/VX/VL/VA w/numpad](./images/vd-p.jpg)
 
@@ -184,41 +155,98 @@ VersaPro タイプVL <VL-1＞ VKL24/L-1 VKT16/L-2 VJL24/L-1
 
 VersaPro タイプVA <VA-1＞ VKL24/AA-1 VKE18/AA-1 VJL24/AA-1 VJE18/AA-1
 
+*与原型的差异：左侧IO为电源口、HDMI接口、RS232串口、VGA接口、USB接口、PCMCIA接口和SD读卡器，右侧IO比原版多了一个USB接口，加入了电源，电池状态和硬盘读写指示灯以及ECO按钮。部分型号搭配89键JIS键盘，其他机型带小键盘*
+
+**X280**:
+
+![VersaPro UltraLite タイプVB](./images/vb-2.jpg)
+
+VersaPro UltraLite タイプVB＜VB-2＞  VKT16/B-2 VKM17/B-2 VKL27/B-2 VKN17/B-2 VKU16/B-2 VKJ27/B-2 VJM17/B-2 VJT16/B-2 VJL27/B-2
+
+VersaPro UltraLite タイプVB＜VB-3＞  VKM17/B-3 VKT16/B-3 VKL27/B-3 VKN17/B-3 VKU16/B-3 VKJ27/B-3 VKM17/B-3 VKL27/B-3 VJM17/B-3 VJT16/B-3 VJL27/B-3
+
+VersaPro UltraLite タイプVB＜VB-4＞  VKM17/B-4 VKT16/B-4 VKL27/B-4 VKN17/B-4 VKU16/B-4 VKJ27/B-4 VKM17/B-4 VKL27/B-4 VJM17/B-4 VJT16/B-4 VJL27/B-4
+
+*与原型的差异：使用银色AC面。另外从本代开始套娃机加上了独立PgUp和PgDn.*
+
+X390
+
+![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
+
+VersaPro UltraLite タイプVB＜VB-5＞ VKM16/B-5 VKT16/B-5 VKL21/B-5 VKN16/B-5 VKU16/B-5 VKJ21/B-5 VJM16/B-5 VJT16/B-5 VJL21/B-5
+
+VersaPro UltraLite タイプVB＜VB-6＞ VKM16/B-6 VKT16/B-6 VKL21/B-6 VKN16/B-6 VKU16/B-6 VKJ21/B-6 VJM16/B-6 VJT16/B-6 VJL21/B-6
+
+X13 Gen1 Intel
+
+![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
+
+VersaPro UltraLite タイプVB＜VB-7＞ VKM17/B-7 VKT16/B-7 VKN17/B-7 VKU16/B-7 VJM17/B-7 VJT16/B-7
+
+VersaPro UltraLite タイプVB＜VB-9＞ VKM17/B-9 VKT16/B-9 VKN17/B-9 VKU16/B-9 VJM17/B-9 VJT16/B-9
+
+X12 Detachable Gen 1
+
+![VersaPro タイプVS](./images/VS-7.jpg)
+
+VersaPro タイプVS＜VS-9＞ VKT40/S4-9 VKL39/S4-9 VK140/S4-9 VK439/S4-9 VJT40/S4-9 VJL39/S4-9
+
+VersaPro タイプVS＜VS-B＞ VKT40/S4-B VKL39/S4-B VK140/S4-B VK439/S4-B VJT40/S4-B VJL39/S4-B
+
+VersaPro タイプVS＜VS-D＞ VKT40/S4-D VK140/S4-D VJT40/S4-D
+
+VersaPro タイプVS＜VS-F＞ VKT40/S4-F VK140/S4-F VJT40/S4-F
+
+VersaPro タイプVS＜VS-G＞ VKT40/S4-G VK140/S4-G VJT40/S4-G
+
+VersaPro タイプVS＜VS-J＞ VKT40/S4-J VK140/S4-J VJT40/S4-J
+
+*与原型的差异：使用单独开模的键盘盖。机器"ThinkPad"徽标处印刷有NEC字样。*
+
+X13 gen2 Intel
+
+![VersaPro UltraLite タイプVB](./images/VB-A.jpg)
+
+VersaPro UltraLite タイプVB＜VB-A＞ VKM44/B-A VKT42/B-A VKN44/B-A VKU42/B-A VJM44/B-A VJT42/B-A
+
+VersaPro UltraLite タイプVB＜VB-B＞ VKM44/B-B VKT42/B-B VKN44/B-B VKU42/B-B VJM44/B-B VJT42/B-B
+
+X13 gen3 Intel
+
+![VersaPro UltraLite タイプVB](./images/VB-c.jpg)
+
+VersaPro UltraLite タイプVB ＜VB-C＞ VKM44/B-C VKT44/B-C VKN44/B-C VKU44/B-C VJM44/B-C VJT44/B-C
+
+VersaPro UltraLite タイプVB ＜VB-D＞ VKM44/B-D VKT44/B-D VKN44/B-D VKU44/B-D VJM44/B-D VJT44/B-D
+
+VersaPro UltraLite タイプVB ＜VB-F＞ VKM44/B-F VKT44/B-F VKN44/B-F VKU44/B-F VJM44/B-F VJT44/B-F
+
+VersaPro UltraLite タイプVB ＜VB-G＞ VKM44/B-G VKT44/B-G VKN44/B-G VKU44/B-G VJM44/B-G VJT44/B-G
+
+T14s Gen6 AMD
+
+![VersaPro タイプVZ](./images/VZ-N.jpg)
+
+VersaPro タイプVZ ＜VZ-N＞ V1950/Z-N V2950/Z-N VK950/ZM-N VJ950/ZM-N
+
+*与原型的差异：本代机型再次采用银灰色外观，A面可选NEC LOGO和Lavie LOGO版本，C面键盘为ThinkPad键盘，触摸板为ThinkPad三键触摸板，指点杆帽为黑色，D面首次也变成了银灰色。*
 
 
-ThinkPad Yoga 15
-
-![VersaPro タイプVW](./images/VW-L.jpg)
-
-VersaPro タイプVW <VW-R＞ VK22T/WP-R VJ22T/WP-R VK21L/WP-R VJ21L/WP-R
 
 
 
-ThinkPad Tablet 2
-
-![VersaPro タイプVT](./images/vtb.jpg)
-
-VersaPro タイプVT <VT-G＞ VK18V/TG-G VJ18V/TG-G VK18V/TG-X
-
-ThinkPad 10 Gen 1
-
-![VersaPro タイプVT](./images/vt-j.jpg)
-
-VersaPro タイプVT <VT-J＞ VK24V/TA-J VK24W/TA-J VK24X/TA-J VK24Y/TA-J VJ24V/TA-J VJ24X/TA-J
-
-ThinkPad 10 Gen 2
-
-![VersaPro タイプVT](./images/vt-j.jpg)
-
-VersaPro タイプVT <VT-N＞ VK16X/TA-N VJ16X/TA-N
-
-VersaPro タイプVT <VT-R＞ VK16X/T1-R VJ16X/T1-R VK164/T1-R VKX6X/T1-R VKX64/T1-R
 
 
 
-\*Extra: L570 w/ 8th gen Core
 
-NEC在联想更换掉L5系列的模具之后使用原模具更新了KabyLake-R又水了一年，2019年，NEC将这些产品线的模具换成自研模具。
+
+
+
+
+
+**\*Extra: L570 w/ 8th gen Core**
+
+NEC在联想更换掉L5系列的模具之后使用被联想放弃的旧模具更新了KabyLake-R又水了一年，直到2019年NEC将这些产品线的模具换成自研模具。
 
 ![VersaPro タイプVD/VX/VL/VA w/numpad](./images/vd-p.jpg)
 
@@ -247,4 +275,6 @@ VersaPro タイプVX <VX-4＞ VKL24/X-4 VKE18/X-4 VKH19/X-4 VKM17/X-4 VKT16/X-4 
 VersaPro タイプVL <VL-4＞ VKL24/L-4 VKT16/L-4 VJL24/L-4 VJT16/L-4
 
 VersaPro タイプVA <VA-4＞ VKL24/AA-4 VKE18/AA-4 VJL24/AA-4 VJE18/AA-4
+
+*与原型的差异：左侧IO为电源口、HDMI接口、RS232串口、VGA接口、USB接口、PCMCIA接口和SD读卡器，右侧IO比原版多了一个USB接口，加入了电源，电池状态和硬盘读写指示灯以及ECO按钮。部分型号搭配89键JIS键盘，其他机型带小键盘*
 
