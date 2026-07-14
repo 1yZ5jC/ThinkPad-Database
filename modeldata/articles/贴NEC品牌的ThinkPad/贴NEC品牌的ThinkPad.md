@@ -157,7 +157,7 @@ VersaPro タイプVA <VA-1＞ VKL24/AA-1 VKE18/AA-1 VJL24/AA-1 VJE18/AA-1
 
 *与原型的差异：左侧IO为电源口、HDMI接口、RS232串口、VGA接口、USB接口、PCMCIA接口和SD读卡器，右侧IO比原版多了一个USB接口，加入了电源，电池状态和硬盘读写指示灯以及ECO按钮。部分型号搭配89键JIS键盘，其他机型带小键盘*
 
-**X280**:
+**ThinkPad X280**:
 
 ![VersaPro UltraLite タイプVB](./images/vb-2.jpg)
 
@@ -169,7 +169,7 @@ VersaPro UltraLite タイプVB＜VB-4＞  VKM17/B-4 VKT16/B-4 VKL27/B-4 VKN17/B-
 
 *与原型的差异：使用银色AC面。另外从本代开始套娃机加上了独立PgUp和PgDn.*
 
-X390
+**ThinkPad X390**
 
 ![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
 
@@ -177,7 +177,7 @@ VersaPro UltraLite タイプVB＜VB-5＞ VKM16/B-5 VKT16/B-5 VKL21/B-5 VKN16/B-5
 
 VersaPro UltraLite タイプVB＜VB-6＞ VKM16/B-6 VKT16/B-6 VKL21/B-6 VKN16/B-6 VKU16/B-6 VKJ21/B-6 VJM16/B-6 VJT16/B-6 VJL21/B-6
 
-X13 Gen1 Intel
+**ThinkPad X13 Gen1 Intel**
 
 ![VersaPro UltraLite タイプVB](./images/VB-5.jpg)
 
@@ -185,7 +185,7 @@ VersaPro UltraLite タイプVB＜VB-7＞ VKM17/B-7 VKT16/B-7 VKN17/B-7 VKU16/B-7
 
 VersaPro UltraLite タイプVB＜VB-9＞ VKM17/B-9 VKT16/B-9 VKN17/B-9 VKU16/B-9 VJM17/B-9 VJT16/B-9
 
-X12 Detachable Gen 1
+**ThinkPad X12 Detachable Gen 1**
 
 ![VersaPro タイプVS](./images/VS-7.jpg)
 
@@ -203,7 +203,7 @@ VersaPro タイプVS＜VS-J＞ VKT40/S4-J VK140/S4-J VJT40/S4-J
 
 *与原型的差异：使用单独开模的键盘盖。机器"ThinkPad"徽标处印刷有NEC字样。*
 
-X13 gen2 Intel
+**ThinkPad X13 gen2 Intel**
 
 ![VersaPro UltraLite タイプVB](./images/VB-A.jpg)
 
@@ -211,7 +211,7 @@ VersaPro UltraLite タイプVB＜VB-A＞ VKM44/B-A VKT42/B-A VKN44/B-A VKU42/B-A
 
 VersaPro UltraLite タイプVB＜VB-B＞ VKM44/B-B VKT42/B-B VKN44/B-B VKU42/B-B VJM44/B-B VJT42/B-B
 
-X13 gen3 Intel
+**ThinkPad X13 gen3 Intel**
 
 ![VersaPro UltraLite タイプVB](./images/VB-c.jpg)
 
@@ -223,7 +223,7 @@ VersaPro UltraLite タイプVB ＜VB-F＞ VKM44/B-F VKT44/B-F VKN44/B-F VKU44/B-
 
 VersaPro UltraLite タイプVB ＜VB-G＞ VKM44/B-G VKT44/B-G VKN44/B-G VKU44/B-G VJM44/B-G VJT44/B-G
 
-T14s Gen6 AMD
+**ThinkPad T14s Gen6 AMD**
 
 ![VersaPro タイプVZ](./images/VZ-N.jpg)
 
@@ -231,20 +231,7 @@ VersaPro タイプVZ ＜VZ-N＞ V1950/Z-N V2950/Z-N VK950/ZM-N VJ950/ZM-N
 
 *与原型的差异：本代机型再次采用银灰色外观，A面可选NEC LOGO和Lavie LOGO版本，C面键盘为ThinkPad键盘，触摸板为ThinkPad三键触摸板，指点杆帽为黑色，D面首次也变成了银灰色。*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-**\*Extra: L570 w/ 8th gen Core**
+**\*Extra: ThinkPad L570 w/ 8th gen Core**
 
 NEC在联想更换掉L5系列的模具之后使用被联想放弃的旧模具更新了KabyLake-R又水了一年，直到2019年NEC将这些产品线的模具换成自研模具。
 
