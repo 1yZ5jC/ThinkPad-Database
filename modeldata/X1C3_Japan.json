@@ -1,0 +1,91 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x1-carbon-3rd-gen-japan",
+      "model_name": "ThinkPad X1 carbon 日本限定モデル",
+      "model_code": ["20BTS00B00"],
+      "model_family": "X1",
+      "model_generation": "xx50",
+      "update_date": "April 2015",
+      "processor_options": [
+        "5500U"
+      ],
+      "graphics_options": ["HD5500"],
+      "Display": {
+        "max_resolution": {
+          "mini_dp": "3840x2160@60Hz",
+          "hdmi": " 4096x2304@24Hz"
+        },
+        "multi_display": "Supports Three independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-12800 1600MHz DDR3L ",
+        "slots": "None (soldered)",
+        "features": "non-parity"
+      },
+      "display_options": ["LEN40AA"],
+      "touch": ["Capacitive-type multi-touch, supports 10-finger gesture, 270Nits"],
+      "storage": {
+        "ssd_pcie": "PCIe 2.0 x4, AHCI, NGFF"
+      },
+      "Ethernet":["Gigabit Ethernet via optional Ethernet (RJ-45) adapter (by native Intel Ethernet Connection I219-V (Non-vPro) or I219-LM (vPro))"],
+      "WLAN":["7265AC"],
+      "Bluetooth":[
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature":"Bluetooth 4.0 wireless"
+        }
+    ],
+      "WWAN": ["N5321",
+        "EM7345",
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [],
+      "Battary": [
+        {
+          "type": "Integrated",
+          "capacity": "50Wh",
+          "form": "4-cell",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ports": [
+        "2 x USB 3.0",
+        "Mini DisplayPort",
+        "HDMI",
+        "Lenovo OneLink connector",
+        "Ethernet extension connector",
+        "Headphone/microphone combo jack"
+      ],
+      "camera": [
+        "HD 720p resolution, low light sensitive, fixed focus"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC3202 codec, Dolby Home Theater v4, stereo speakers 2W x2, dual array microphone, combo audio/mic jack"
+      ],
+      "keyboard": [
+        "6-row, LED backlit, spill-resistant, multimedia Fn keys",
+        "TrackPoint pointing device, glass surface touchpad"
+      ],
+      "physical": {
+        "dimensions": "13.03\" x 8.94\" x 0.73\"; 331.0mm x 227.1mm x 18.46mm",
+        "weight": "3.175 lb / 1.44 kg",
+        "case_material": "Display cover: Carbon Fiber; Bottom: Magnesium/Aluminum"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module (TPM 1.2)",
+        "Fingerprint reader (integrated)"
+      ],
+      "system": [
+        "Windows 8.1 Pro 64"
+      ],
+      "add_on_tips": ["Made in Japan by NEC's Yonezawa Factory, The cover of ThinkPad X1 carbon 日本限定モデル features a unique carbon fiber weave texture and a more understated printed Lenovo logo, with."]
+    }
+  ]
+}
