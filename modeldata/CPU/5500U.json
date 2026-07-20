@@ -1,0 +1,10 @@
+{
+  "model": "i7-5500U",
+  "cores_threads": "2 / 4",
+  "base_freq": "2.4 GHz",
+  "turbo_freq": "3.0 GHz",
+  "cache": "4MB",
+  "graphics": "Intel HD Graphics 5500",
+  "iconfamily": "i7-4~5",
+  "ark": "https://www.intel.cn/content/www/cn/zh/products/sku/85214/intel-core-i7-5500u-processor-4m-cache-up-to-3-00-ghz/specifications.html"
+}
