@@ -1230,6 +1230,18 @@
         "generation": "xx30"
     },
     {
+        "file": "X1C3.json",
+        "name": "ThinkPad X1 Carbon (3rd Gen)",
+        "family": "X1",
+        "generation": "xx50"
+    },
+    {
+        "file": "X1C3_Japan.json",
+        "name": "ThinkPad X1 carbon 日本限定モデル",
+        "family": "X1",
+        "generation": "xx50"
+    },
+    {
         "file": "X1C4.json",
         "name": "ThinkPad X1 Carbon (4th Gen)",
         "family": "X1",
