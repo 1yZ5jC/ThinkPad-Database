@@ -203,7 +203,7 @@ VersaPro タイプVS＜VS-J＞ VKT40/S4-J VK140/S4-J VJT40/S4-J
 
 *与原型的差异：使用单独开模的键盘盖。机器"ThinkPad"徽标处印刷有NEC字样。*
 
-**ThinkPad X13 gen2 Intel**
+**ThinkPad X13 Gen2 Intel**
 
 ![VersaPro UltraLite タイプVB](./images/VB-A.jpg)
 
@@ -211,7 +211,7 @@ VersaPro UltraLite タイプVB＜VB-A＞ VKM44/B-A VKT42/B-A VKN44/B-A VKU42/B-A
 
 VersaPro UltraLite タイプVB＜VB-B＞ VKM44/B-B VKT42/B-B VKN44/B-B VKU42/B-B VJM44/B-B VJT42/B-B
 
-**ThinkPad X13 gen3 Intel**
+**ThinkPad X13 Gen3 Intel**
 
 ![VersaPro UltraLite タイプVB](./images/VB-c.jpg)
 
@@ -230,6 +230,14 @@ VersaPro UltraLite タイプVB ＜VB-G＞ VKM44/B-G VKT44/B-G VKN44/B-G VKU44/B-
 VersaPro タイプVZ ＜VZ-N＞ V1950/Z-N V2950/Z-N VK950/ZM-N VJ950/ZM-N
 
 *与原型的差异：本代机型再次采用银灰色外观，A面可选NEC LOGO和Lavie LOGO版本，C面键盘为ThinkPad键盘，触摸板为ThinkPad三键触摸板，指点杆帽为黑色，D面首次也变成了银灰色。*
+
+**ThinkPad X13 Detachable Gen 1**
+
+![LAVIE BT53C](./images/BT53C-T.jpg)
+
+LAVIE BT53C V1HT5H-T V1MT5H-T V1NT5H-T V2HT5H-T V2MT5H-T V2NT5H-T
+
+*与原型的差异：使用单独开模的键盘盖，去掉了指点杆和三键以及指纹识别器但保留了微笑键帽和快捷按键。机器印刷有NEC字样和Lavie徽标。*
 
 **\*Extra: ThinkPad L570 w/ 8th gen Core**
 
