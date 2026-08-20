@@ -23,7 +23,7 @@
         "slots": "Memory soldered to systemboard, no slots, dual-channel",
         "features": "Dual-channel capable"
       },
-      "display_options": ["12.3\" WUXGA (1920x1280) IPS 400nits GMF-touch"],
+      "display_options": ["LEN4190"],
       "touch": ["GMF multi-touch, supports 10-point touch"],
       "pen": ["Lenovo Digital Pen, 4096 levels","Lenovo Precision Pen, 4096 levels","Lenovo Yoga Pen, 4096 levels", "No pen bundled (purchase separately)"],
       "storage": {

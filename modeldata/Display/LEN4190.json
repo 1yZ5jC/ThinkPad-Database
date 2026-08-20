@@ -1,0 +1,15 @@
+        {
+          "type": "FHD+ (1920x1280)",
+          "tech": "IPS, glare, Antireflection, Anti-smudge, LED backlight",
+          "brightness": "400 nits",
+          "contrast": "1500:1",
+          "viewing_angle": "178°",
+          "color_gamut":"100% sRGB",
+          "refresh_rate":"600 Hz",
+          "FRUs":[
+            {
+              "5D10X86206":"N123NCA-GS1"
+             
+            }
+          ]
+        }
