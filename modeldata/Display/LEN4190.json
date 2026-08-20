@@ -5,7 +5,7 @@
           "contrast": "1500:1",
           "viewing_angle": "178°",
           "color_gamut":"100% sRGB",
-          "refresh_rate":"600 Hz",
+          "refresh_rate":"60 Hz",
           "FRUs":[
             {
               "5D10X86206":"N123NCA-GS1"
