@@ -1,0 +1,90 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x13-detachable-gen-1",
+      "model_name": "ThinkPad X13 Detachable Gen 1",
+      "addons": "NEC LAVIE BT53C is based on it",
+      "model_family": "X",
+      "model_generation": "Gen 7",
+      "update_date": "July 2026",
+      "model_code": ["21XM", "22A5"],
+      "processor_options": ["332", "335", "365"],
+      "graphics_options": ["UHD_PTL_WCL_2Xe","UHD_PTL"],
+      "Display": {
+        "max_resolution": {
+          "usb_c_tbt": "7680x4320@60Hz"
+        },
+        "multi_display": "Supports 3 independent displays"
+      },
+      "memory": {
+        "max_capacity": "64GB max",
+        "type": "LPDDR5X 7467MHz",
+        "slots": "Memory soldered to systemboard",
+        "features": "Dual-channel capable"
+      },
+      "display_options": ["LEN4151"],
+      "touch": ["GMF multi-touch, supports 10-point touch"],
+      "pen": ["Lenovo® Slim Pen 2, supports tilt detection, magnetic attachment, on-board garaged, charged in ThinkPad® X13 Detachable Folio Keyboard via pogo pins.", "No pen bundled (purchase separately)"],
+      "storage": {
+        "ssd_pcie": "M.2 2242 SSD / PCIe NVMe, PCIe 4.0 x 4, Up to 64Gb/s"
+      },
+      "WLAN": ["BE211"],
+      "WWAN": ["T99W696", "No WWAN"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 6.0"
+        }
+      ],
+      "SIM_Card": [
+        {
+          "type": "Nano-SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "45Wh",
+          "form": "4-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": ["65W USB-C AC adapter"],
+      "ports": [
+        "2 x USB 3.1 Type-C Gen 2 / Thunderbolt 4",
+        "1x Pogo pin connector (8-point)",
+        "Combo audio/microphone jack"
+      ],
+      "camera": [
+        "Front 5.0MP + IR discrete, with privacy shutter, vHDR, fixed focus; Rear 8.0MP, autofocus"
+      ],
+      "audio": [
+        "SoundWire®, Cirrus Logic® CS42L45 codec / stereo speakers, 2W x 2 / dual array microphone, Dolby Atmos®"
+      ],
+      "keyboard": [
+        "ThinkPad® X13 Detachable Folio Keyboard, 6-row, spill-resistant, multimedia Fn keys, Copilot key, LED backlight",
+        "TrackPoint pointing device, double-tap Quick Menu, Galss-Like Mylar surface multi-touch touchpad"
+      ],
+      "physical": {
+        "dimensions": "Tablet 290 x 210 x 9.3 mm (11.42 x 8.27 x 0.37 inches), Tablet with folio keyboard 290 x 215 x 15.2 mm (11.42 x 8.46 x 0.60 inches)",
+        "weight": "Tablet Around 0.89 kg (1.96 lbs), Tablet with folio keyboard Around 1.25 kg (2.76 lbs)",
+        "case_material": "Magnesium-aluminium"
+      },
+      "security": [
+        "Power-on/Hard disk/Supervisor password",
+        "Discrete TPM 2.0",
+        "Fingerprint reader On Power Bottom",
+        "Kensington lock slot",
+        "ThinkShutter camera privacy"
+      ],
+      "system": [
+        "Windows 11 Home China 64"
+      ],
+      "user_guide_link": ["https://support.lenovo.com/us/en/documentation/sg10955"],
+      "HMM_link": ["https://support.lenovo.com/us/en/documentation/SG10957"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+        {
+          "type": "Broadcom BCM4329",
+          "form": "1x2, Mini PCIe card, SDIO+UART",
+          "feature":"11bgn+BT 3.0+FM radio"
+        }

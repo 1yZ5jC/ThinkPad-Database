@@ -1,0 +1,10 @@
+{
+  "model": "i7-5600U",
+  "cores_threads": "2 / 4",
+  "base_freq": "2.6 GHz",
+  "turbo_freq": "3.2 GHz",
+  "cache": "4MB",
+  "graphics": "Intel HD Graphics 5500",
+  "iconfamily": "i7-4~5",
+  "ark": "https://www.intel.cn/content/www/cn/zh/products/sku/85215/intel-core-i7-5600u-processor-4m-cache-up-to-3-20-ghz/specifications.html"
+}

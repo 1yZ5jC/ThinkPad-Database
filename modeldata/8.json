@@ -34,7 +34,7 @@
       },
       "Ethernet": [],
       "WLAN": [
-        "ThinkPad 11 a/b/g/n"
+        "BCM4324"
       ],
       "Bluetooth": [
         {
@@ -70,7 +70,7 @@
       "physical": {
         "dimensions": "224.3mm x 132.0mm x 8.8mm / 8.83 x 5.20 x 0.35in",
         "weight": "0.95 lb (0.43kg)",
-        "case_material": "ALuminium top cover, Edge Profile Rubber"
+        "case_material": "Aluminium top cover, Edge Profile Rubber"
       },
       "security": [
         "Power-on password",
@@ -84,7 +84,10 @@
         "Windows 8.1 Pro 64(for Z3795 SKUs only)",
         "Windows 8.1 with Bing 32",
         "Windows 8.1 with Bing 64(for Z3795 SKUs only)"
-      ]
+      ],
+      "PSREF_link":["https://psrefstuff.lenovo.com/product/ThinkPad%20Tablets/ThinkPad_8"],
+      "add_on_tips":["早期的全贴合屏幕存在漏胶问题导致现在绝大部分机器的背光都是坏的"],
+      "secret_tips":["点击输入文字"]
     }
   ]
 }

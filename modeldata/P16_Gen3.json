@@ -35,7 +35,7 @@
         "hdd": "Not supported",
         "optane": "Not supported"
       },
-      "Ethernet": [" I226-LM"," I226-LM"],
+      "Ethernet": [" I226-LM"," I226-V"],
       "WLAN": ["BE200"],
       "Bluetooth": [
         {

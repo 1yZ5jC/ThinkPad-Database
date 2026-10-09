@@ -510,10 +510,34 @@
         "generation": "Legacy"
     },
     {
+        "file": "Tablet_Gen1.json",
+        "name": "ThinkPad Tablet Gen 1",
+        "family": "Tablet",
+        "generation": "xx20"
+    },
+        {
+        "file": "Tablet_Gen2.json",
+        "name": "ThinkPad Tablet Gen 2",
+        "family": "Tablet",
+        "generation": "xx20"
+    },
+    {
         "file": "8.json",
         "name": "ThinkPad 8",
         "family": "Tablet",
         "generation": "xx40"
+    },
+    {
+        "file": "10_Gen1.json",
+        "name": "ThinkPad 10 Gen 1",
+        "family": "Tablet",
+        "generation": "xx40"
+    },
+    {
+        "file": "10_Gen2.json",
+        "name": "ThinkPad 10 Gen 2",
+        "family": "Tablet",
+        "generation": "xx50"
     },
     {
         "file": "820.json",
@@ -1296,16 +1320,16 @@
         "generation": "xx30"
     },
     {
-        "file": "X13s_Gen1.json",
-        "name": "ThinkPad X13s Gen 1",
-        "family": "X",
-        "generation": "Gen 1"
-    },
-    {
         "file": "X140e.json",
         "name": "ThinkPad X140e",
         "family": "X",
         "generation": "xx40"
+    },
+    {
+        "file": "X13s_Gen1.json",
+        "name": "ThinkPad X13s Gen 1",
+        "family": "X",
+        "generation": "Gen 1"
     },
     {
         "file": "X14_Gen1.json",
@@ -1318,6 +1342,18 @@
         "name": "ThinkPad X1 Carbon (1st Gen)",
         "family": "X1",
         "generation": "xx30"
+    },
+    {
+        "file": "X1C3.json",
+        "name": "ThinkPad X1 Carbon (3rd Gen)",
+        "family": "X1",
+        "generation": "xx50"
+    },
+    {
+        "file": "X1C3_Japan.json",
+        "name": "ThinkPad X1 carbon 日本限定モデル",
+        "family": "X1",
+        "generation": "xx50"
     },
     {
         "file": "X1C4.json",
@@ -1384,6 +1420,12 @@
         "name": "ThinkPad X12 Detachable Gen 2",
         "family": "X",
         "generation": "Gen 2"
+    },
+    {
+        "file": "X13D_Gen1.json",
+        "name": "ThinkPad X13 Detachable Gen 1",
+        "family": "X",
+        "generation": "Gen 7"
     },
     {
         "file": "Yoga260.json",

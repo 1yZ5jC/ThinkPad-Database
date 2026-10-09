@@ -76,9 +76,6 @@
         "case_material": "Polycarbonate, glass-fiber reinforced plastic"
       },
       "security": [
-        "Power-on password",
-        "Hard disk password",
-        "Supervisor password",
         "Kensington Security Slot",
         "Trusted Platform Module (TPM 1.2)",
         "MIL-STD-810G tested"

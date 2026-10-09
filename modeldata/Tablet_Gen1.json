@@ -1,0 +1,90 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-tablet-gen1",
+      "model_name": "ThinkPad Tablet Gen 1",
+      "model_family": "Tablet",
+      "model_generation": "xx20",
+      "update_date": "November 2011",
+      "model_code": ["1838", "1839"],
+      "processor_options": ["Tegra2"],
+      "graphics_options": ["Tegra2"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "1920x1080@60Hz"
+        },
+        "multi_display": "Supports 2 independent displays"
+      },
+      "memory": {
+        "max_capacity": "1GB",
+        "type": " 600MHz LPDDR2, mobile DDR",
+        "slots": "soldered to systemboard, no sockets",
+        "features": ""
+      },
+      "display_options": ["Tablet1_Display"],
+      "touch": ["MultiTouch screen supports six-finger gesture"],
+      "pen": ["ThinkPad Tablet Pen (0A33887), Ntrig (Later known as Microsoft MPP) Pen"],
+      "storage": {
+        "emmc": "16GB / 32GB / 64GB eMMC"
+      },
+      "WLAN": ["AW-NH931"],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": ["Gobi3000"],
+      "SIM_Card": [
+        {
+          "type": "Mini-SIM card slot (models with WWAN)"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "24Wh",
+          "form": "2-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": ["10-watt AC Adapter (via micro-USB)"],
+      "ports": [
+        "1 x USB 2.0",
+        "1 x Micro-USB 2.0 (for charging and data transfer)",
+        "1 x mini-HDMI",
+        "ThinkPad Tablet Dock connector",
+        "3-in-1 reader (MMC, SD, SDHC)",
+        "Combo audio/microphone jack"
+      ],
+      "camera": [
+        "Front camera: 2.0-megapixel, fixed focus",
+        "Rear camera: 5.0-megapixel, auto focus, digital zoom"
+      ],
+      "audio": [
+        "HD Audio, Wolfson WM8903 codec / monaural speaker, 0.5 watt x 1 / analog monaural microphone, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "ThinkPad Tablet Keyboard Folio Case, connects with system via USB 2.0, 6 row, leather cover, magnetic 3-position landscape stand",
+        "Optical TrackPoint pointing device w/ two mouse buttons"
+      ],
+      "physical": {
+        "dimensions": "10.25\" x 7.15\" x 0.57\"; 260.4mm x 181.7mm x 14.5mm",
+        "weight": "WiFi model: from 1.64 lb (0.74kg); 3G model: from 1.67 lb (0.76kg)",
+        "case_material": "PolyCarbonate/Acrylonitrile-Butadiene-Styrene (PC/ABS) plastic"
+      },
+      "security": [
+        "Kensington lock slot"
+      ],
+      "system": [
+        "Android 3.1 (HoneyComb) to 4.0.3 (Ice Cream Sandwich) with Lenovo customizations"
+      ],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/withdrawnbook/ltwbook_2013.pdf"],
+      "user_guide_link": ["https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/tp_tablet_android_4_ug_en.pdf"],
+      "HMM_link": ["https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/tp_tablet_hmm_en_0a96158_04.pdf"],
+      "add_on_tips": ["点击输入文字"],
+      "secret_tips": ["点击输入文字"]
+    }
+  ]
+}

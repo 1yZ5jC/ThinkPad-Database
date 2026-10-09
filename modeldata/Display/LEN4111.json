@@ -1,0 +1,15 @@
+        {
+          "type": "WUXGA (1920x1200)",
+          "tech": "IPS, Paper Looking, LED backlight",
+          "brightness": "400 nits",
+          "contrast": "800:1",
+          "viewing_angle": "170°",
+          "color_gamut":"50% NTSC",
+          "refresh_rate":"60 Hz",
+          "FRUs":[
+            {
+              "00JT748":"B101UAN01.C"
+             
+            }
+          ]
+        }

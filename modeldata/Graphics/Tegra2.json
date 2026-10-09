@@ -1,0 +1,10 @@
+        {
+          "model": "NVIDIA Geforce GPU",
+          "Shading Units": "4",
+          "base_freq": "300 Mhz",
+          "turbo_freq": "400 Mhz",
+          "VRAM":"256 MB DDR2 32Bit",
+          "Generation": "VLIW Vec4",
+          "iconfamily": "Geforce_old",
+          "Feature":"DX 9.0c, OpenGL ES 2.0"
+        }

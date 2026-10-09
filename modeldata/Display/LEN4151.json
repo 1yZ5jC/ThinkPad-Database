@@ -1,0 +1,16 @@
+        {
+          "type": "2.8K (2880x1920)",
+          "tech": "IPS, Anti-glare, Antireflection, Anti-smudge, LED backlight",
+          "brightness": "500 nits",
+          "contrast": "1500:1",
+          "viewing_angle": "178°",
+          "color_gamut":"100% sRGB",
+          "refresh_rate":"120 Hz",
+          "FRUs":[
+            {
+              "5M11V91208":"Unknown (With NFC)",
+              "5M11V91203":"Unknown (Without NFC)"
+             
+            }
+          ]
+        }

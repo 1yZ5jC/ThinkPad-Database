@@ -1,0 +1,103 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-10-gen2",
+      "model_name": "ThinkPad 10 Gen 2",
+      "model_family": "Tablet",
+      "model_code":["20E3","20E4"],
+      "model_generation": "xx50",
+      "update_date": "November 2015",
+      "processor_options": [
+        "Z8700",
+        "Z8750"
+      ],
+      "graphics_options":["HD405"],
+      "Display": {
+        "max_resolution": {
+          "mini-HDMI": "1920x1080@60Hz"
+        },
+        "multi_display": "Supports dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "LPDDR3 1067MHz",
+        "slots": "no sockets",
+        "features": "2GB or 4GB soldered to systemboard"
+      },
+      "display_options": ["LEN4110","LEN4111"],
+      "touch": ["MultiTouch screen supports ten-finger gesture"],
+      "pen": ["ThinkPad Pen Pro,Wacom AES Pen"],
+      "storage": {
+        "ssd_sata": null,
+        "ssd_pcie": null,
+        "hdd": null,
+        "sshd": null,
+        "emmc": "64GB or 128GB eMMC flash memory on board"
+      },
+      "Ethernet": [],
+      "WLAN": [
+        "BCM4356"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Integrated in Wi-Fi + Bluetooth combo chip",
+          "feature": "Bluetooth 4.0 wireless"
+        }
+      ],
+      "WWAN": ["EM7345","N5321"],
+      "SIM_Card": [],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "33Wh",
+          "form": "2-cell",
+          "tech": "Lithium Polymer"
+        }
+      ],
+      "ports": [
+        "1 x USB 3.0",
+        "1 x micro-HDMI",
+        "1 x microSD Card slot",
+        "1 x micro SIM Card slot",
+        "1 x Headphone/microphone combo jack",
+        "1 x Living Hinge Docking connector",
+        "1 x Keyboard connector",
+        "1 x Optional Smart Card reader (SCR)"
+      ],
+      "camera": [
+        "Front camera: 2.0-megapixel, fixed focus",
+        "Rear camera: 8.0-megapixel, auto focus, flash LED"
+      ],
+      "audio": [
+        "HD Audio, Realtek ALC5672 codec / stereo speakers, 1 watt x 2 / 3 digital microphones, combo audio/microphone jack"
+      ],
+      "keyboard": [
+        "Non-pro: Ultrabook keyboard, mechanical keyboard, pen holder",
+        "Folio: Folio keyboard, thin keyboard, pen loop",
+        "All: Buttonless touchpad below keyboard, multi-touch"
+      ],
+      "physical": {
+        "dimensions": "10.09\" x 6.96\" x 0.36\"; 256.5mm x 177.0mm x 9.10mm 10.09\" x 6.96\" x 0.67\"; 256.5mm x 177.0mm x 17.10mm (with SCR)",
+        "weight": "WiFi only: from 1.32 lb (0.597kg); WiFi + WWAN: from 1.36 lb (0.618kg); WiFi + WWAN + SCR: from 1.43 lb (0.648kg)",
+        "case_material": "Polyamide and Glass Fiber Reinforced"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Trusted Platform Module, TPM 2.0 FW (firmware), Optional Discrete Trusted Platform Module, TCG 1.2-compliant",
+        "Optional Fingerprint reader on the A Cover",
+        "Optional Near Field Communication (NFC) module"
+      ],
+      "system": [
+        "Windows 10 Home 64",
+        "Windows 10 Home Single Language 64",
+        "Windows 10 Pro 64"
+      ],
+      "PSREF_link":["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_10_2nd_Gen/ThinkPad_10_2nd_Gen_Spec.pdf"],
+      "add_on_tips":[""],
+      "secret_tips":["点击输入文字"]
+    }
+  ]
+}

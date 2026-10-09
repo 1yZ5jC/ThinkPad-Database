@@ -1,0 +1,9 @@
+        {
+          "model": "Intel(R) Graphics Media Accelerator (PowerVR SGX545)",
+          "Shading Units": "4",
+          "base_freq": "533 Mhz",
+          "VRAM":"-",
+          "Generation": "PowerVR SGX5",
+          "iconfamily": "PowerVR",
+          "Feature":"DirectX 9_3/10.1, OpenGL 3.2"
+        }

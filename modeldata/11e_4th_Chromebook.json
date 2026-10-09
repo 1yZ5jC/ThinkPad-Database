@@ -76,9 +76,6 @@
         "case_material": "Display cover: PC+40%GF+TPU; Bottom: PC/ABS plastic"
       },
       "security": [
-        "Power-on password",
-        "Hard disk password",
-        "Supervisor password",
         "Security keyhole",
         "Discrete TPM 2.0"
       ],

@@ -82,9 +82,6 @@
         "case_material": "Display cover: PolyCarbonate/Glass-Fiber Reinforced Plastic; Bottom: PC/ABS plastic"
       },
       "security": [
-        "Power-on password",
-        "Hard disk password",
-        "Supervisor password",
         "Security keyhole",
         "Trusted Platform Module (TPM 1.2)"
       ],
