@@ -1,0 +1,97 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "R",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b"
+      ],
+      "Bluetooth": [
+        {
+          "type": "None"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-r40",
+      "model_name": "ThinkPad R40",
+      "update_date": "March 2003",
+      "processor_options": [
+        "PM_1.3GHz",
+        "PM_1.4GHz",
+        "PM_1.5GHz",
+        "P4M_2.4GHz"
+      ],
+      "graphics_options": [
+        "Radeon_7500"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "1600x1200@85Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "1GB / 2GB max",
+        "type": "PC2100 266MHz DDR1, non-parity",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "Std memory in one socket"
+      },
+      "display_options": [
+        "14.1\" / 15.0\" XGA (1024x768) TFT, 150 nits",
+        "15.0\" SXGA+ (1400x1050) TFT (Some models)"
+      ],
+      "storage": {
+        "hdd": "20-40GB, 4200rpm",
+        "optical": "DVD-ROM / Combo, removable from Ultrabay 2000"
+      },
+      "Battary": [
+        {
+          "type": "8-cell battery",
+          "capacity": "Not specified",
+          "form": "8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "USB",
+        "VGA",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "Parallel",
+        "PC Card slot"
+      ],
+      "physical": {
+        "dimensions": "14.1\" models: 313mm x 254mm x 38.9mm",
+        "weight": "6.0-6.7 lb (2.7-3.0kg)",
+        "case_material": "ABS plastic"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password"
+      ],
+      "system": [
+        "Windows XP Home",
+        "Windows XP Professional",
+        "Windows 2000"
+      ]
+    }
+  ]
+}
+

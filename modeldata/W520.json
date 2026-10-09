@@ -1,0 +1,111 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-w520",
+      "model_name": "ThinkPad W520",
+      "model_family": "W",
+      "model_generation": "xx20",
+      "update_date": "March 2011",
+      "processor_options": [
+        "2620M",
+        "2630QM",
+        "2720QM",
+        "2760QM",
+        "2920XM",
+        "2960XM"
+      ],
+      "graphics_options": [
+        "HD3000",
+        "Quadro_1000M",
+        "Quadro_2000M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays (NVIDIA Optimus)"
+      },
+      "memory": {
+        "max_capacity": "Dual-core model: 16GB max; Quad-core model: 32GB max",
+        "type": "PC3-10600 1333MHz DDR3, non-parity",
+        "slots": "Dual-core: two / Quad-core: four 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "15.6\" HD+ (1600x900) anti-glare, LED backlight, 220 nits, 500:1, 60% Gamut",
+        "15.6\" FHD (1920x1080) 95% Gamut (Some models)"
+      ],
+      "storage": {
+        "hdd": "SATA, Active Protection System, RAID support",
+        "ssd_sata": "SATA SSD (Some models)",
+        "optical": "DVD burner, Ultrabay Slim, removable"
+      },
+      "WLAN": [
+        "6300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless, LED indicator",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "9-cell battery",
+          "capacity": "94Wh",
+          "form": "9-cell",
+          "tech": "Li-Ion; supports optional Slice battery (57Y4545) as 2nd battery"
+        }
+      ],
+      "ACadapter": [
+        "135-watt AC adapter",
+        "170-watt AC adapter"
+      ],
+      "ports": [
+        "2 x USB 3.0",
+        "1 x powered USB 2.0",
+        "1 x USB 2.0/eSATA combo",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "ExpressCard/34 slot",
+        "5-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "6-cell: from 2.45kg (5.40 lb); 9-cell: from 2.61kg (5.75 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

@@ -5,6 +5,31 @@
         "tech": "1"
     },
     {
+        "file": "LEN4020.json",
+        "name": "XGA (1024x768)",
+        "tech": "TFT-LCD, Anti-glare, TN"
+    },
+    {
+        "file": "LEN4022.json",
+        "name": "SXGA+ (1400x1050)",
+        "tech": "TFT-LCD, Anti-glare, TN"
+    },
+    {
+        "file": "LEN4040.json",
+        "name": "XGA (1024x768)",
+        "tech": "TFT-LCD, Anti-glare, TN"
+    },
+    {
+        "file": "LEN4043.json",
+        "name": "SXGA+ (1400x1050)",
+        "tech": "TFT-LCD, Anti-glare, IPS"
+    },
+    {
+        "file": "LEN4046.json",
+        "name": "UXGA (1600x1200)",
+        "tech": "TFT-LCD, Anti-glare, IPS, FFS"
+    },
+    {
         "file": "LEN4094.json",
         "name": "FHD (1920x1080)",
         "tech": "IPS, Anti-glare"
@@ -18,6 +43,11 @@
         "file": "LEN40A2.json",
         "name": "HD+ (1600x900)",
         "tech": "TN, Anti-glare, LED backlight, Max Bright"
+    },
+    {
+        "file": "LEN40A9-Touchable.json",
+        "name": "FHD (1920x1080)",
+        "tech": "IPS, Anti-glare, LED backlight"
     },
     {
         "file": "LEN40A9.json",
@@ -43,6 +73,21 @@
         "file": "LEN40AF.json",
         "name": "WQHD (2560x1440)",
         "tech": "IPS, glare, LED backlight, Dolby Vision"
+    },
+    {
+        "file": "LEN40B5-Touchable.json",
+        "name": "FHD (1920x1080)",
+        "tech": " anti-glare, LED backlight, IPS"
+    },
+    {
+        "file": "LEN40B5.json",
+        "name": "FHD (1920x1080)",
+        "tech": " anti-glare, LED backlight, IPS"
+    },
+    {
+        "file": "LEN40B8.json",
+        "name": "3K (2880x1620)",
+        "tech": " anti-glare, LED backlight, IPS"
     },
     {
         "file": "LEN40E0.json",

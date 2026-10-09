@@ -1,0 +1,96 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "X",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b",
+        "11abg"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth (Some models)",
+          "feature": "Bluetooth 1.1"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-x40",
+      "model_name": "ThinkPad X40",
+      "update_date": "May 2004",
+      "processor_options": [
+        "PM_LV_1.2GHz",
+        "PM_LV_1.3GHz"
+      ],
+      "graphics_options": [
+        "855GME_Integrated"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "1.28-1.53GB max",
+        "type": "PC2700 333MHz DDR1 (limited to 400MHz)",
+        "slots": "Soldered base memory + one SO-DIMM socket",
+        "features": ""
+      },
+      "display_options": [
+        "12.1\" XGA (1024x768) TFT, 150 nits"
+      ],
+      "storage": {
+        "hdd": "20-40GB, 1.8\" platter, Active Protection System",
+        "optical": "None (USB-based or X4 UltraBase)"
+      },
+      "Battary": [
+        {
+          "type": "4-cell / 8-cell battery",
+          "capacity": "Not specified",
+          "form": "4-cell / 8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "2 x USB 2.0",
+        "VGA",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "CompactFlash slot"
+      ],
+      "physical": {
+        "dimensions": "264mm x 211mm x 26.6mm",
+        "weight": "4-cell: 1.23kg; 8-cell: 1.44kg",
+        "case_material": "Titanium Composite cover"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Embedded Security Subsystem (TPM)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows 2000"
+      ]
+    }
+  ]
+}
+

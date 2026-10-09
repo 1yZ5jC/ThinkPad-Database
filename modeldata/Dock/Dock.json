@@ -4,6 +4,10 @@
         "name": "ThinkPad Port Replicator with Advanced EtherJet"
     },
     {
+        "file": "0A33932.json",
+        "name": "ThinkPad Ultrabase Series 3"
+    },
+    {
         "file": "10H4021.json",
         "name": "ThinkPad MultiPort Replicator II"
     },
@@ -18,6 +22,18 @@
     {
         "file": "12J2467.json",
         "name": "SelectaBase 600"
+    },
+    {
+        "file": "2503.json",
+        "name": "ThinkPad Advanced Dock"
+    },
+    {
+        "file": "2504.json",
+        "name": "ThinkPad Advanced Mini-Dock"
+    },
+    {
+        "file": "2505.json",
+        "name": "ThinkPad Essential Port Replicator"
     },
     {
         "file": "3457-001.json",
@@ -58,6 +74,26 @@
     {
         "file": "40A6.json",
         "name": "ThinkPad Wigig Dock"
+    },
+    {
+        "file": "433615W.json",
+        "name": "ThinkPad Port Replicator Series 3 with USB 3.0"
+    },
+    {
+        "file": "433710U.json",
+        "name": "ThinkPad Mini Dock Series 3 - 90W"
+    },
+    {
+        "file": "433715U.json",
+        "name": "ThinkPad Mini Dock Series 3 with USB 3.0 - 90W"
+    },
+    {
+        "file": "433815U.json",
+        "name": "ThinkPad Mini Dock Plus Series 3 with USB 3.0 - 90W"
+    },
+    {
+        "file": "433835U.json",
+        "name": "ThinkPad Mini Dock Plus Series 3 with USB 3.0 - 170W"
     },
     {
         "file": "46H4209.json",

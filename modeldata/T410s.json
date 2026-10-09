@@ -1,0 +1,103 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-t410s",
+      "model_name": "ThinkPad T410s",
+      "model_family": "T",
+      "model_generation": "xx10",
+      "update_date": "February 2010",
+      "processor_options": [
+        "520M",
+        "620M"
+      ],
+      "graphics_options": [
+        "HD Graphics"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Not specified",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "14.1\" WXGA+ (1440x900) anti-glare, LED backlight, 300 nits, 300:1"
+      ],
+      "storage": {
+        "ssd_sata": "80GB / 128GB SSD (Some models)",
+        "hdd": "250GB-320GB SATA",
+        "optical": "DVD burner, Ultrabay Slim, removable"
+      },
+      "WLAN": [
+        "11bgn",
+        "6200"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion; supports 2nd battery in Ultrabay Slim"
+        }
+      ],
+      "ACadapter": [
+        "90-watt AC adapter"
+      ],
+      "ports": [
+        "2 x USB 2.0 (one powered)",
+        "1 x USB 2.0/eSATA combo",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "ExpressCard/34 slot"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "6-cell: from 1.79kg (3.94 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

@@ -1,5 +1,18 @@
 # ThinkPad Database
 
+## 本地启动
+
+确保已安装 Node.js，然后在项目目录执行：
+
+```bash
+npm install
+npm start
+```
+
+浏览器打开 http://localhost:3000 。Windows 用户也可以双击 `startnodejs.bat` 启动。
+
+体验新版交互预览：打开 http://localhost:3000/index_preview.html 。预览版使用独立的 HTML、CSS 和 JS 文件，不会覆盖现有页面。
+
 本项目是一个简单的数据收集项目，目前收集了部分ThinkPad的关键配置和参数信息，这样用户可以不用每次查资料都去联想的PSREF翻阅故纸堆。
 
 本项目也提供了一些PSREF中没有的机器的信息，比如周年纪念机和PRC Only的机型。

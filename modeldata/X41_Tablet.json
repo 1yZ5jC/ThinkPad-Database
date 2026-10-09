@@ -1,0 +1,103 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "X",
+      "model_generation": "Legacy",
+      "WLAN": [
+        "11b",
+        "11abg",
+        "11abg_ii"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth (Some models)",
+          "feature": "Bluetooth 1.2"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-x41-tablet",
+      "model_name": "ThinkPad X41 Tablet",
+      "update_date": "June 2005",
+      "processor_options": [
+        "PM_753",
+        "PM_758"
+      ],
+      "graphics_options": [
+        "915GM_Integrated"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "1.28-1.53GB max",
+        "type": "PC2-4200 533MHz DDR2 (limited to 400MHz)",
+        "slots": "Soldered base memory + one SO-DIMM socket",
+        "features": "Convertible tablet"
+      },
+      "display_options": [
+        "12.1\" XGA (1024x768) TFT, pen + touch options"
+      ],
+      "touch": [
+        "MultiTouch screen (Some models)"
+      ],
+      "pen": [
+        "ThinkPad Pen (digitizer)"
+      ],
+      "storage": {
+        "hdd": "40-60GB, 1.8\" platter, Active Protection System"
+      },
+      "Battary": [
+        {
+          "type": "4-cell / 8-cell battery",
+          "capacity": "Not specified",
+          "form": "4-cell / 8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "2 x USB 2.0",
+        "VGA",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "CompactFlash slot",
+        "SD reader"
+      ],
+      "physical": {
+        "dimensions": "274mm x 266mm x 27-29mm",
+        "weight": "约1.6-1.9kg",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Embedded Security Subsystem (TPM 1.2)",
+        "Fingerprint reader (Some models)"
+      ],
+      "system": [
+        "Windows XP Tablet PC Edition 2005"
+      ]
+    }
+  ]
+}
+

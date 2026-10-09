@@ -1,0 +1,94 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "T",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b"
+      ],
+      "Bluetooth": [
+        {
+          "type": "None"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-t41p",
+      "model_name": "ThinkPad T41p",
+      "update_date": "October 2003",
+      "processor_options": [
+        "PM_1.7GHz",
+        "PM_1.8GHz"
+      ],
+      "graphics_options": [
+        "FireGL_2"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@100Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "2GB max",
+        "type": "PC2700 333MHz DDR1, non-parity",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "Workstation graphics model"
+      },
+      "display_options": [
+        "14.1\" SXGA+ (1400x1050) TFT, 150 nits"
+      ],
+      "storage": {
+        "hdd": "40-60GB, 7200rpm",
+        "optical": "DVD-ROM / Combo / Multi-Burner, Ultrabay Slim"
+      },
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "2 x USB 2.0",
+        "VGA",
+        "Parallel",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "PC Card slot"
+      ],
+      "physical": {
+        "dimensions": "311mm x 255mm x 26.6-31.4mm",
+        "weight": "约2.3-2.5kg",
+        "case_material": "Titanium Composite cover"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Embedded Security Subsystem (TPM 1.2)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows 2000"
+      ]
+    }
+  ]
+}
+

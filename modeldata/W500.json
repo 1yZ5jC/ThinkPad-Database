@@ -1,0 +1,105 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-w500",
+      "model_name": "ThinkPad W500",
+      "model_family": "W",
+      "model_generation": "xx00",
+      "update_date": "August 2008",
+      "processor_options": [
+        "T9400",
+        "T9600"
+      ],
+      "graphics_options": [
+        "GMA4500MHD",
+        "FX2700M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2048x1536@75Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays (switchable graphics)"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "15.4\" WUXGA (1920x1200) anti-glare, LED backlight, 200 nits, 500:1",
+        "15.4\" WSXGA+ (1680x1050) anti-glare, 175 nits, 500:1"
+      ],
+      "storage": {
+        "hdd": "SATA, Active Protection System, supports 2nd disk",
+        "optical": "DVD burner, Ultrabay Slim, removable"
+      },
+      "WLAN": [
+        "5100"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "9-cell battery",
+          "capacity": "Not specified",
+          "form": "9-cell",
+          "tech": "Li-Ion; supports 2nd battery in Ultrabay Slim"
+        }
+      ],
+      "ACadapter": [
+        "90-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA DB-15",
+        "DisplayPort",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "IEEE 1394 FireWire 400",
+        "ExpressCard slot",
+        "7-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "9-cell: from 2.8kg (6.2 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,99 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "R",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b"
+      ],
+      "Bluetooth": [
+        {
+          "type": "None"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-r40e",
+      "model_name": "ThinkPad R40e",
+      "update_date": "March 2003",
+      "processor_options": [
+        "Celeron_1.7GHz",
+        "Celeron_1.8GHz",
+        "P4M_1.8GHz",
+        "P4M_2.2GHz"
+      ],
+      "graphics_options": [
+        "Radeon_IGP_330M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "1600x1200@85Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "1GB max",
+        "type": "PC2100 266MHz DDR1, non-parity",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "Std memory in one socket"
+      },
+      "display_options": [
+        "13.3\" / 14.1\" XGA (1024x768) TFT, 150 nits"
+      ],
+      "storage": {
+        "hdd": "20/30/40GB, 4200rpm, removable and upgradable",
+        "optical": "CD-ROM / Combo (fixed)"
+      },
+      "Ethernet": [
+        "Not specified"
+      ],
+      "Battary": [
+        {
+          "type": "8-cell battery",
+          "capacity": "Not specified",
+          "form": "8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "USB",
+        "Parallel",
+        "Serial",
+        "VGA",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "PC Card slot"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "6.0-6.7 lb (2.7-3.0kg)",
+        "case_material": "ABS plastic"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password"
+      ],
+      "system": [
+        "Windows XP Home",
+        "Windows XP Professional"
+      ]
+    }
+  ]
+}
+

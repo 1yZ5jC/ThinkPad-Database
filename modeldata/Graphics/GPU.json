@@ -35,6 +35,34 @@
         "generation": "Adreno 7"
     },
     {
+        "file": "Arc_130T.json",
+        "name": "Intel® Arc™ 130T GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG+"
+    },
+    {
+        "file": "Arc_130V.json",
+        "name": "Intel® Arc™ 130V GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe2-LPG"
+    },
+    {
+        "file": "Arc_140T.json",
+        "name": "Intel® Arc™ 140T GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG+"
+    },
+    {
+        "file": "Arc_140V.json",
+        "name": "Intel® Arc™ 140V GPU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe2-LPG"
+    },
+    {
         "file": "Arc_B370.json",
         "name": "Intel® Arc™ B370 GPU",
         "family": "未分类",
@@ -47,6 +75,20 @@
         "family": "未分类",
         "Architecture": "未知",
         "generation": "Xe3-LPG"
+    },
+    {
+        "file": "Arc_MTL_7Xe.json",
+        "name": "Intel® Arc™ graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
+    },
+    {
+        "file": "Arc_MTL_8Xe.json",
+        "name": "Intel® Arc™ graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
     },
     {
         "file": "CT65545.json",
@@ -119,11 +161,25 @@
         "generation": "Maxwell"
     },
     {
+        "file": "GMA950.json",
+        "name": "Intel Graphics Media Accelerator 950",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Generation 3.5"
+    },
+    {
         "file": "GT620M.json",
         "name": "NVIDIA Geforce GT 620M",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "Fermi"
+    },
+    {
+        "file": "HD Graphics.json",
+        "name": "Intel HD Graphics (Sandy Bridge)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 6"
     },
     {
         "file": "HD3000.json",
@@ -168,6 +224,41 @@
         "generation": "Gen 9.5"
     },
     {
+        "file": "HD6310.json",
+        "name": "AMD Radeon HD 6310",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "TeraScale 2"
+    },
+    {
+        "file": "HD7310.json",
+        "name": "AMD Radeon HD 7310",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "TeraScale 2"
+    },
+    {
+        "file": "HD7340.json",
+        "name": "AMD Radeon HD 7340",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "TeraScale 2"
+    },
+    {
+        "file": "HD8240.json",
+        "name": "AMD Radeon HD 8240",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "GCN 2"
+    },
+    {
+        "file": "HD8330.json",
+        "name": "AMD Radeon HD 8330",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "GCN 2"
+    },
+    {
         "file": "HDP530.json",
         "name": "Intel HD P530",
         "family": "未分类",
@@ -182,11 +273,39 @@
         "generation": "Gen 7.0"
     },
     {
+        "file": "HD_Graphics_Ivy.json",
+        "name": "Intel HD Graphics (Ivy Bridge)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 7.0"
+    },
+    {
+        "file": "HD_Graphics_Sdy.json",
+        "name": "Intel HD Graphics (Sandy Bridge)",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Gen 6.0"
+    },
+    {
         "file": "Iris_Pro_P580.json",
         "name": "intel® iris™ Pro Graphics P580",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "Gen 9.0"
+    },
+    {
+        "file": "Iris_Xe_TGL_80EU.json",
+        "name": "Intel® Iris® Xe Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe"
+    },
+    {
+        "file": "Iris_Xe_TGL_96EU.json",
+        "name": "Intel® Iris® Xe Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe"
     },
     {
         "file": "K1000M.json",
@@ -266,6 +385,90 @@
         "generation": "Fermi"
     },
     {
+        "file": "RTX_5050.json",
+        "name": "NVIDIA GeForce RTX 5050 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_5060.json",
+        "name": "NVIDIA GeForce RTX 5060 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_5070_12G.json",
+        "name": "NVIDIA GeForce RTX 5070 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_5070_8G.json",
+        "name": "NVIDIA GeForce RTX 5070 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_5080.json",
+        "name": "NVIDIA GeForce RTX 5080 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_5090.json",
+        "name": "NVIDIA GeForce RTX 5090 Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_1000_Blackwell.json",
+        "name": "NVIDIA RTX PRO 1000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_2000_Blackwell.json",
+        "name": "NVIDIA RTX PRO 2000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_3000_Blackwell.json",
+        "name": "NVIDIA RTX PRO 3000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_4000_Blackwell.json",
+        "name": "NVIDIA RTX PRO 4000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_5000_Blackwell.json",
+        "name": "NVIDIA RTX PRO 5000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
+        "file": "RTX_Pro_500_Blackwell.json",
+        "name": "NVIDIA RTX PRO 5000 Blackwell Mobile",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Blackwell"
+    },
+    {
         "file": "SM712G.json",
         "name": "Silicon Motion Lynx EM+ ",
         "family": "未分类",
@@ -287,6 +490,34 @@
         "generation": "Gen 9.5"
     },
     {
+        "file": "UHD_ARL_HX_3Xe.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
+    },
+    {
+        "file": "UHD_ARL_HX_4Xe.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
+    },
+    {
+        "file": "UHD_ARL_U.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
+    },
+    {
+        "file": "UHD_MTL.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe-LPG"
+    },
+    {
         "file": "UHD_PTL.json",
         "name": "Intel® Graphics",
         "family": "未分类",
@@ -299,6 +530,27 @@
         "family": "未分类",
         "Architecture": "未知",
         "generation": "Xe3-LPG"
+    },
+    {
+        "file": "UHD_TGL_32EU.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe"
+    },
+    {
+        "file": "UHD_TGL_48EU.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe"
+    },
+    {
+        "file": "UHD_TGR_16EU.json",
+        "name": "Intel® Graphics",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "Xe"
     },
     {
         "file": "UHD_WCL_1Xe.json",
@@ -320,5 +572,26 @@
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
+    },
+    {
+        "file": "X1300_M52.json",
+        "name": "ATI Mobility Radeon X1300",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "M52"
+    },
+    {
+        "file": "X1400_M54.json",
+        "name": "ATI Mobility Radeon X1400",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "M54"
+    },
+    {
+        "file": "X1400_M64.json",
+        "name": "ATI Mobility Radeon X1400",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "M64"
     }
 ]

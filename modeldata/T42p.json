@@ -1,0 +1,96 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "T",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b"
+      ],
+      "Bluetooth": [
+        {
+          "type": "None"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-t42p",
+      "model_name": "ThinkPad T42p",
+      "update_date": "May 2004",
+      "processor_options": [
+        "PM_735",
+        "PM_745"
+      ],
+      "graphics_options": [
+        "FireGL_T2"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@100Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "2GB max",
+        "type": "PC2700 333MHz DDR1, non-parity",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "Workstation graphics model"
+      },
+      "display_options": [
+        "14.1\" SXGA+ (1400x1050) TFT, 150 nits",
+        "15.0\" SXGA+ (1400x1050) TFT, 200 nits (15\" model)"
+      ],
+      "storage": {
+        "hdd": "40-80GB, 7200rpm",
+        "optical": "DVD-ROM / Combo / Multi-Burner, Ultrabay Slim"
+      },
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "2 x USB 2.0",
+        "VGA",
+        "Parallel",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "PC Card slot"
+      ],
+      "physical": {
+        "dimensions": "311mm x 255mm x 26.6mm",
+        "weight": "约2.3-2.7kg",
+        "case_material": "Titanium Composite cover"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Embedded Security Subsystem (TPM 1.2)",
+        "Fingerprint reader (Some models)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows 2000"
+      ]
+    }
+  ]
+}
+

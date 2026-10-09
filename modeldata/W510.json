@@ -1,0 +1,105 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-w510",
+      "model_name": "ThinkPad W510",
+      "model_family": "W",
+      "model_generation": "xx10",
+      "update_date": "January 2010",
+      "processor_options": [
+        "720QM",
+        "820QM",
+        "920XM"
+      ],
+      "graphics_options": [
+        "FX880M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "16GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Not specified",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "15.6\" HD+ (1600x900) anti-glare, LED backlight, 220 nits, 500:1, 60% Gamut",
+        "15.6\" FHD (1920x1080) multi-touch, 45 nit? (per config)"
+      ],
+      "storage": {
+        "hdd": "SATA, Active Protection System, RAID support",
+        "optical": "DVD burner, Ultrabay Slim, removable"
+      },
+      "WLAN": [
+        "6300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "9-cell battery",
+          "capacity": "Not specified",
+          "form": "9-cell",
+          "tech": "Li-Ion; supports optional Slice battery (57Y4545) as 2nd battery"
+        }
+      ],
+      "ACadapter": [
+        "135-watt AC adapter"
+      ],
+      "ports": [
+        "2 x USB 3.0",
+        "1 x powered USB 2.0",
+        "1 x USB 2.0/eSATA combo",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "IEEE 1394 FireWire",
+        "ExpressCard/34 slot",
+        "5-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "6-cell: from 2.57kg (5.66 lb); 9-cell: from 2.72kg (6.01 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

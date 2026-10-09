@@ -93,7 +93,7 @@
         "Certificate-based BIOS authentication"
       ],
       "system": ["Windows 11 Pro", "Windows 11 Home"],
-      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_Snapdragon/ThinkPad_T14s_Gen_7_Snapdragon_Spec.pdf"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_AMD/ThinkPad_T14s_Gen_7_AMD_Spec.pdf"],
       "user_guide_link": ["https://support.lenovo.com/us/en/documentation/SG10821"],
       "HMM_link": ["https://support.lenovo.com/us/en/documentation/SG10824"],
       "add_on_tips": [""],

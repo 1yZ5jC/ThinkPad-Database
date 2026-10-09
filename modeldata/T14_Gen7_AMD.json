@@ -1,0 +1,77 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-t14-gen-7-amd",
+      "model_name": "ThinkPad T14 Gen 7 (AMD)",
+      "model_family": "T",
+      "model_generation": "Gen 7",
+      "update_date": "April 2026",
+      "model_code": ["21WV", "21WW", "22AL", "22AM"],
+      "processor_options": ["215", "230", "250", "AI5_PRO_440", "AI7_PRO_450"],
+      "graphics_options": ["Radeon_740M", "Radeon_760M", "Radeon_780M", "Radeon_840M", "Radeon_860M"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "4K@60Hz",
+          "thunderbolt": "5K@60Hz (Hawk Point) or 8K@30Hz (Gorgon Point)"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "64GB DDR5-5600 (Hawk Point) / 96GB DDR5-5600 (Gorgon Point)",
+        "type": "DDR5-5600",
+        "slots": "Two DDR5 SO-DIMM slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "14\" WUXGA (1920x1200) IPS 400nits non-touch, 45% NTSC, 60Hz",
+        "14\" WUXGA (1920x1200) IPS 500nits on-cell touch, 100% sRGB, 60Hz, Privacy Guard",
+        "14\" WUXGA (1920x1200) IPS 500nits in-cell touch, 100% sRGB, 60Hz, low power",
+        "14\" 2.8K (2880x1800) OLED 500nits touch, 100% DCI-P3, 120Hz VRR"
+      ],
+      "touch": ["In-cell multi-touch", "On-cell multi-touch", "Non-touch"],
+      "pen": ["No support"],
+      "storage": {
+        "ssd_pcie": "One M.2 2280 PCIe NVMe SSD, PCIe 4.0 x4, up to 2TB",
+        "ssd_sata": "Not supported",
+        "hdd": "Not supported",
+        "optane": "Not supported"
+      },
+      "Ethernet": ["RTL8111EPV"],
+      "WLAN": ["MT7925"],
+      "Bluetooth": [{
+        "type": "Integrated",
+        "form": "Integrated in Wi-Fi + Bluetooth combo adapter",
+        "feature": "Bluetooth 5.4"
+      }],
+      "WWAN": ["WWAN_Upgradeable", "WWAN_Upgradeable_5G", "X12_LTE", "X61_5G", "No_WWAN"],
+      "SIM_Card": [{"type": "KDDI eSIM program or no physical SIM card; nano-SIM on WWAN models"}],
+      "Battery": [
+        {"type": "Internal battery", "capacity": "60Wh or 75Wh", "form": "Rechargeable Li-ion", "tech": "Li-Ion", "rapid_charge": "Up to 80% in 1hr"}
+      ],
+      "ACadapter": ["65W USB-C", "100W USB-C", "No power adapter"],
+      "ports": [
+        "1 x USB-A (USB 5Gbps), Always On",
+        "1 x USB-A (USB 5Gbps)",
+        "2 x Thunderbolt 4 with USB PD and DisplayPort",
+        "1 x HDMI 2.1, up to 4K/60Hz",
+        "1 x Headphone/microphone combo jack",
+        "1 x Ethernet (RJ-45)",
+        "Nano-SIM card slot (optional)",
+        "Smart card reader (optional)"
+      ],
+      "camera": ["5MP + IR with privacy shutter", "5MP with privacy shutter"],
+      "audio": ["HD Audio, stereo speakers 2W x2, Dolby Atmos, dual microphone array"],
+      "keyboard": ["6-row spill-resistant keyboard, Copilot key, optional LED backlight", "TrackPoint and glass-like Mylar multi-touch trackpad"],
+      "physical": {
+        "dimensions": "313.6 x 221.7 x 11.3/15.88 mm, 21.95 mm maximum",
+        "weight": "Starting at 1.28 kg with 60Wh WLAN battery",
+        "case_material": "PC + 20% carbon fiber top/bottom; WWAN bottom PC + 40% glass fiber"
+      },
+      "security": ["Discrete TPM 2.0", "Kensington Nano Security Slot", "Optional fingerprint reader", "Optional IR camera", "Certificate-based BIOS authentication", "FIDO authentication"],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Windows 11 Home Single Language", "Fedora Linux", "Ubuntu Linux", "Linux", "No preload operating system"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_7_AMD/ThinkPad_T14_Gen_7_AMD_Spec.pdf"],
+      "add_on_tips": [""],
+      "secret_tips": [""]
+    }
+  ]
+}

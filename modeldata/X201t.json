@@ -1,0 +1,109 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x201-tablet",
+      "model_name": "ThinkPad X201 Tablet",
+      "model_family": "X",
+      "model_generation": "xx10",
+      "update_date": "March 2010",
+      "processor_options": [
+        "520UM",
+        "620LM",
+        "640LM"
+      ],
+      "graphics_options": [
+        "HD Graphics"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Dual independent displays (with UltraBase)"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-8500 1066MHz DDR3",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "12.1\" WXGA (1280x800) wide-view LED, anti-glare, pen + multi-touch options"
+      ],
+      "touch": [
+        "MultiTouch screen (Some models)"
+      ],
+      "pen": [
+        "ThinkPad Pen (digitizer)"
+      ],
+      "storage": {
+        "ssd_sata": "80GB / 128GB / 160GB SSD",
+        "hdd": "250GB-320GB SATA (Some models)"
+      },
+      "WLAN": [
+        "6200",
+        "6300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "Gobi2000",
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "4-cell / 8-cell battery",
+          "capacity": "Not specified",
+          "form": "4/8-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA DB-15",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "ExpressCard/34 slot",
+        "5-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "290mm x 238mm x 29.5-33.5mm (approx.)",
+        "weight": "Not specified",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

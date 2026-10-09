@@ -87,7 +87,7 @@ const $translateToggle = $('#settingsTranslateToggle');
 const themeColorPicker = $('#themeColorPicker');
 
 // 型号选择面板
-const $modelPanel = $('#modelSelectOverlay');
+const $modelPanel = $('#modelSelectPage');
 const $modelPanelSearch = $('#modelPanelSearch');
 const $modelPanelList = $('#modelPanelList');
 const $panelFamilyBtn = $('#panelFilterFamilyBtn');
@@ -229,6 +229,7 @@ window.selectRecentModel = async function(name) {
 };
 
 window.showRecentPage = function() {
+    hideModelSelectPage();
     currentPage = 'recent';
     
     // 隐藏所有其他页面
@@ -454,6 +455,7 @@ if ($settingsBtn) $settingsBtn.addEventListener('click', openSettingsPanel);
 
 // ========== 页面切换 ==========
 window.showDetailPage = function () {
+    hideModelSelectPage();
     currentPage = 'detail';
     
     if ($detailPage) $detailPage.classList.remove('hidden');
@@ -462,8 +464,7 @@ window.showDetailPage = function () {
     if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
     if (document.getElementById('recentPage')) document.getElementById('recentPage').style.display = 'none';
     
-    const modelPanel = document.getElementById('modelSelectOverlay');
-    if (modelPanel) modelPanel.classList.remove('show');
+    hideModelSelectPage();
     const settingsPanel = document.getElementById('settingsOverlay');
     if (settingsPanel) settingsPanel.classList.remove('show');
     
@@ -500,6 +501,7 @@ window.showDetailPage = function () {
 window.showHome = function () { showDetailPage(); };
 
 window.showComparePage = function () {
+    hideModelSelectPage();
     currentPage = 'compare';
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.add('active');
@@ -527,6 +529,7 @@ window.showComparePage = function () {
 if ($sidebarCompare) $sidebarCompare.addEventListener('click', () => { if (currentPage === 'compare') return; showComparePage(); });
 
 window.showFavoritesPage = function () {
+    hideModelSelectPage();
     currentPage = 'favorites';
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.remove('active');
@@ -547,6 +550,7 @@ window.showFavoritesPage = function () {
 };
 
 window.showGeneratorPage = function () {
+    hideModelSelectPage();
     currentPage = 'generator';
     if ($detailPage) $detailPage.classList.add('hidden');
     if ($comparePage) $comparePage.classList.remove('active');
@@ -694,6 +698,7 @@ async function openArticle(fileId) {
 }
 
 window.showArticlesPage = function() {
+    hideModelSelectPage();
     currentPage = 'articles';
     
     // 隐藏所有其他页面容器
@@ -725,15 +730,29 @@ window.showArticlesPage = function() {
 };
 
 // ========== 型号选择覆盖面板 ==========
-window.openModelPanel = function () {
+function hideModelSelectPage() { if ($modelPanel) $modelPanel.classList.remove('active'); }
+window.showModelSelectPage = function () {
     if (!$modelPanel) return;
-    populatePanelFilters(); syncPanelFilters();
-    $modelPanel.classList.add('show');
+    currentPage = 'modelSelect';
+    if ($detailPage) $detailPage.classList.add('hidden');
+    if ($comparePage) $comparePage.classList.remove('active');
+    if ($favoritesPage) $favoritesPage.classList.remove('active');
+    if (document.getElementById('generatorPage')) document.getElementById('generatorPage').classList.remove('active');
+    if (document.getElementById('recentPage')) document.getElementById('recentPage').style.display = 'none';
+    if (document.getElementById('articlesListPage')) document.getElementById('articlesListPage').style.display = 'none';
+    if (document.getElementById('articleDetailPage')) document.getElementById('articleDetailPage').style.display = 'none';
+    $modelPanel.classList.add('active');
+    setActiveSidebarItem('openModelPanelBtn');
+    if (typeof setHomeOnlyElementsVisible === 'function') setHomeOnlyElementsVisible(false);
+    if ($modelPanel._filtersDirty !== false) { populatePanelFilters(); $modelPanel._filtersDirty = false; }
+    syncPanelFilters();
     $modelPanelSearch.value = '';
     renderModelPanelList('');
     $modelPanelSearch.focus();
 };
-window.closeModelPanel = function () { if ($modelPanel) $modelPanel.classList.remove('show'); };
+window.openModelPanel = function () { window.showModelSelectPage(); };
+window.closeModelPanel = function () { window.showDetailPage(); };
+function markPanelFiltersDirty() { if ($modelPanel) $modelPanel._filtersDirty = true; }
 function populatePanelFilters() {
     if (!$panelFamilySel || !$panelGenerationSel) return;
     const filteredList = getFilteredModelList();
@@ -748,30 +767,47 @@ function populatePanelFilters() {
     gens.forEach(g => { const o = document.createElement('option'); o.value = g; o.textContent = g; $panelGenerationSel.appendChild(o); });
 }
 function syncPanelFilters() {
-    if ($panelFamilyBtn && $panelGenBtn) { $panelFamilyBtn.classList.toggle('filter-active', currentFilterType === 'family'); $panelGenBtn.classList.toggle('filter-active', currentFilterType === 'generation'); }
-    if ($panelFamilySel) $panelFamilySel.style.display = currentFilterType === 'family' ? 'block' : 'none';
-    if ($panelGenerationSel) $panelGenerationSel.style.display = currentFilterType === 'generation' ? 'block' : 'none';
     if ($panelFamilySel) $panelFamilySel.value = currentFamilyValue;
     if ($panelGenerationSel) $panelGenerationSel.value = currentGenValue;
 }
 function getPanelFiltered() {
     let list = getFilteredModelList();
-    if (currentFilterType === 'family' && currentFamilyValue) {
-        list = list.filter(m => m.model_family === currentFamilyValue);
-    } else if (currentFilterType === 'generation' && currentGenValue) {
-        list = list.filter(m => m.model_generation === currentGenValue);
-    }
+    if (currentFamilyValue) list = list.filter(m => m.model_family === currentFamilyValue);
+    if (currentGenValue) list = list.filter(m => m.model_generation === currentGenValue);
     return list;
 }
+let _panelRenderKey = '';
 function renderModelPanelList(query) {
     if (!$modelPanelList) return;
+    const key = (hideLegacyModels ? 'H' : 'S') + '|' + currentFilterType + '|' + currentFamilyValue + '|' + currentGenValue + '|' + query;
+    if (key === _panelRenderKey && $modelPanelList.childElementCount > 0) return;
+    _panelRenderKey = key;
     const baseList = getPanelFiltered();
     const filtered = query ? baseList.filter(m => m.model_name.toLowerCase().includes(query)) : baseList;
+    $modelPanelList.innerHTML = '';
     if (filtered.length === 0) {
         $modelPanelList.innerHTML = '<div class="loading-text">未找到匹配的型号</div>';
         return;
     }
-    $modelPanelList.innerHTML = filtered.map(m => `<div class="nav-item" onclick="selectModelFromPanel('${m.model_name.replace(/'/g, "\\'")}')">${m.model_name}</div>`).join('');
+    const frag = document.createDocumentFragment();
+    for (const m of filtered) {
+        const card = document.createElement('div');
+        card.className = 'compare-card';
+        card.dataset.name = m.model_name;
+        const info = document.createElement('div');
+        info.className = 'compare-card-info';
+        const name = document.createElement('div');
+        name.className = 'compare-card-name';
+        name.textContent = m.model_name;
+        const meta = document.createElement('div');
+        meta.className = 'compare-card-meta';
+        meta.textContent = [m.model_family, m.model_generation].filter(Boolean).join(' · ');
+        info.appendChild(name);
+        info.appendChild(meta);
+        card.appendChild(info);
+        frag.appendChild(card);
+    }
+    $modelPanelList.appendChild(frag);
 }
 window.selectModelFromPanel = async function (name) {
     closeModelPanel();
@@ -786,7 +822,19 @@ function syncFiltersFromPanel() {
     if ($familySel && $panelFamilySel) $familySel.value = currentFamilyValue;
     if ($genSel && $panelGenerationSel) $genSel.value = currentGenValue;
 }
-if ($modelPanelSearch) $modelPanelSearch.addEventListener('input', e => { renderModelPanelList(e.target.value.toLowerCase()); });
+if ($modelPanelSearch) {
+    let _panelSearchTimer = null;
+    $modelPanelSearch.addEventListener('input', e => {
+        const q = e.target.value.toLowerCase();
+        clearTimeout(_panelSearchTimer);
+        _panelSearchTimer = setTimeout(() => renderModelPanelList(q), 100);
+    });
+}
+// 型号面板列表事件委托：点击列表项即选中
+if ($modelPanelList) $modelPanelList.addEventListener('click', e => {
+    const card = e.target.closest('.compare-card');
+    if (card && card.dataset.name) window.selectModelFromPanel(card.dataset.name);
+});
 if ($panelFamilyBtn) $panelFamilyBtn.addEventListener('click', () => { currentFilterType = 'family'; $panelFamilyBtn.classList.add('filter-active'); if ($panelGenBtn) $panelGenBtn.classList.remove('filter-active'); if ($panelFamilySel) $panelFamilySel.style.display = 'block'; if ($panelGenerationSel) $panelGenerationSel.style.display = 'none'; renderModelPanelList($modelPanelSearch ? $modelPanelSearch.value.toLowerCase() : ''); });
 if ($panelGenBtn) $panelGenBtn.addEventListener('click', () => { currentFilterType = 'generation'; $panelGenBtn.classList.add('filter-active'); if ($panelFamilyBtn) $panelFamilyBtn.classList.remove('filter-active'); if ($panelGenerationSel) $panelGenerationSel.style.display = 'block'; if ($panelFamilySel) $panelFamilySel.style.display = 'none'; renderModelPanelList($modelPanelSearch ? $modelPanelSearch.value.toLowerCase() : ''); });
 if ($panelFamilySel) $panelFamilySel.addEventListener('change', e => { currentFamilyValue = e.target.value; renderModelPanelList($modelPanelSearch ? $modelPanelSearch.value.toLowerCase() : ''); });
@@ -817,6 +865,7 @@ async function loadModelFile(filename) {
         });
         loadedFiles.add(filename);
         populateFilters();
+        markPanelFiltersDirty();
     } catch (e) { console.error('加载型号文件失败:', e); }
 }
 
@@ -866,6 +915,7 @@ async function loadIndex() {
             hideLegacyToggle.addEventListener('change', (e) => {
                 hideLegacyModels = e.target.checked;
                 localStorage.setItem('tp_hide_legacy', hideLegacyModels);
+                markPanelFiltersDirty();
                 refreshAllModelLists();
             });
         }

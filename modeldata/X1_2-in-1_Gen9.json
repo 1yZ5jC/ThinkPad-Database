@@ -1,0 +1,17 @@
+{
+  "thinkpad_database": [{
+    "id":"thinkpad-x1-2-in-1-gen-9","model_name":"ThinkPad X1 2-in-1 Gen 9","model_family":"X1 2-in-1","model_generation":"Gen 9","update_date":"February 2026","model_code":["21KE","21KF"],
+    "processor_options":["125U","135U","155U","165U"],"graphics_options":["Intel_Graphics_Series3"],
+    "Display":{"max_resolution":{"hdmi":"4K@60Hz","thunderbolt":"8K@60Hz"},"multi_display":"Supports up to 4 independent displays"},
+    "memory":{"max_capacity":"64GB LPDDR5X-6400","type":"LPDDR5X-6400","slots":"Soldered memory, no slots","features":"8-channel"},
+    "display_options":["14\" WUXGA (1920x1200) IPS 400nits multi-touch, 100% sRGB, low power","14\" WUXGA (1920x1200) IPS 400nits multi-touch, 100% sRGB, anti-reflection","14\" WUXGA (1920x1200) IPS 500nits multi-touch, 100% sRGB Privacy Guard","14\" 2.8K (2880x1800) OLED 400nits multi-touch, 100% DCI-P3, 120Hz"],
+    "touch":["OGS/on-cell multi-touch, 10-point touch"],"pen":["Lenovo Slim Pen"],
+    "storage":{"ssd_pcie":"One M.2 2280 PCIe NVMe SSD, PCIe 4.0 x4, up to 2TB","ssd_sata":"Not supported","hdd":"Not supported","optane":"Not supported"},
+    "Ethernet":["No onboard Ethernet; optional USB-C Ethernet adapter"],"WLAN":["AX211"],"Bluetooth":[{"type":"Integrated","form":"Integrated in Wi-Fi + Bluetooth combo adapter","feature":"Bluetooth 5.3"}],"WWAN":["No_WWAN"],"SIM_Card":[{"type":"Nano-SIM slot on selected WWAN models; no physical SIM card inbox"}],
+    "Battery":[{"type":"Internal battery","capacity":"57Wh","form":"Rechargeable Li-ion","tech":"Li-Ion","rapid_charge":"Up to 80% in 1hr"}],"ACadapter":["65W USB-C","No power adapter"],
+    "ports":["1x USB-A (USB 5Gbps)","1x USB-A (USB 5Gbps), Always On","2x Thunderbolt 4 / USB4 40Gbps with USB PD 3.0 and DisplayPort 2.1","1x HDMI 2.1","1x Headphone/microphone combo jack","Nano-SIM slot (optional)","Kensington Nano Security Slot"],
+    "camera":["FHD 1080p + IR discrete with privacy shutter","UHD 8MP + IR discrete with privacy shutter, MIPI and Computer Vision"],"audio":["HD Audio, Realtek ALC3306 codec, stereo speakers 2W x2, Dolby Atmos, dual microphone array"],"keyboard":["6-row spill-resistant keyboard with multimedia Fn keys and LED backlight","TrackPoint and glass surface multi-touch Trackpad"],
+    "physical":{"dimensions":"312.8 x 217.65 x 15.49 mm","weight":"Starting at 1.35 kg","case_material":"Aluminium top and aluminium bottom"},"security":["Discrete TPM 2.0, TCG and FIPS certified","Kensington Nano Security Slot","Integrated fingerprint reader","Optional IR camera","ThinkShield security"],"system":["Windows 11 Pro","Windows 11 Home","Windows 11 Home Single Language","Windows 11 DG Windows 10 Pro 64","Ubuntu Linux","Linux","No preload operating system"],
+    "PSREF_link":["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_2_in_1_Gen_9/ThinkPad_X1_2_in_1_Gen_9_Spec.pdf"],"add_on_tips":["Lenovo Slim Pen included on selected models"],"secret_tips":[""]
+  }]
+}

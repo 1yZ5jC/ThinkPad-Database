@@ -1,0 +1,103 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-r500",
+      "model_name": "ThinkPad R500",
+      "model_family": "R",
+      "model_generation": "xx00",
+      "update_date": "July 2008",
+      "processor_options": [
+        "T6570",
+        "T6670"
+      ],
+      "graphics_options": [
+        "GMA4500MHD"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2048x1536@75Hz (DisplayPort, single-link DVI-D via cable 45J7915)",
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "15.4\" WXGA (1280x800) anti-glare, CCFL backlight, 200 nits, 300:1"
+      ],
+      "storage": {
+        "hdd": "SATA 1.5Gb/s, 2.5\" wide, 9.5mm high, removable, upgradable, supports 2nd disk, Shock Mounted Hard Drive, Active Protection System",
+        "optical": "DVD burner, SATA 1.5Gb/s, 12.7mm Ultrabay Enhanced, removable; Ultrabay Slim-compatible"
+      },
+      "WLAN": [
+        "5100",
+        "11bgn"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion; supports 2nd battery in Ultrabay Enhanced"
+        }
+      ],
+      "ACadapter": [
+        "Not specified"
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA DB-15",
+        "DisplayPort",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "7-in-1 reader (MMC, MS, MS Pro, SD, SDHC, XD, XD Type H)"
+      ],
+      "physical": {
+        "dimensions": "358.6mm x 260mm x 36-39mm",
+        "weight": "6-cell: from 2.93kg (6.4 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "本机网卡为Broadcom BCM5787M。"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

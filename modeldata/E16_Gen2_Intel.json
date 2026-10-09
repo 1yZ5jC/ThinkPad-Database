@@ -1,0 +1,17 @@
+{
+  "thinkpad_database": [{
+    "id":"thinkpad-e16-gen-2-intel","model_name":"ThinkPad E16 Gen 2 (Intel)","model_family":"E","model_generation":"Gen 2","update_date":"February 2026","model_code":["21MA","21MB"],
+    "processor_options":["125H","125U","135U","155H","155U","165U"],"graphics_options":["Intel_Arc_Graphics","Intel_Graphics_Series3"],
+    "Display":{"max_resolution":{"hdmi":"4K@60Hz","usb_c":"5K@60Hz"},"multi_display":"Supports up to 4 independent displays"},
+    "memory":{"max_capacity":"64GB DDR5-5600","type":"DDR5-5600","slots":"Two DDR5 SO-DIMM slots","features":"Dual-channel capable"},
+    "display_options":["16\" WUXGA (1920x1200) IPS 300nits non-touch, 45% NTSC, 60Hz","16\" WUXGA (1920x1200) IPS 300nits multi-touch, 45% NTSC, 60Hz","16\" WUXGA (1920x1200) IPS 400nits non-touch, 100% sRGB, 60Hz","16\" WQXGA (2560x1600) IPS 400nits non-touch, 100% sRGB, 60Hz"],
+    "touch":["On-cell multi-touch","Non-touch"],"pen":["No support"],
+    "storage":{"ssd_pcie":"Up to two M.2 SSDs: M.2 2242 PCIe 4.0 x4 up to 1TB and M.2 2280 PCIe 4.0 x4 up to 1TB","ssd_sata":"Not supported","hdd":"Not supported","optane":"Not supported"},
+    "Ethernet":["RTL8111H-CG"],"WLAN":["WiFi6","RTL8852BE","AX201","WiFi6E","RTL8852CE","AX211"],"Bluetooth":[{"type":"Integrated","form":"Integrated in Wi-Fi + Bluetooth combo adapter","feature":"Bluetooth 5.2 or 5.3"}],"WWAN":["No_WWAN"],
+    "SIM_Card":[{"type":"No physical SIM card included"}],"Battery":[{"type":"Internal battery","capacity":"47Wh or 57Wh","form":"Rechargeable Li-ion","tech":"Li-Ion","rapid_charge":"Up to 50% in 30min or 80% in 1hr"}],"ACadapter":["65W USB-C"],
+    "ports":["1x USB-A (USB 5Gbps)","1x USB-A (USB 10Gbps), Always On","1x USB-C (USB 5Gbps) with USB PD 3.1 and DisplayPort","1x USB-C (USB4 40Gbps) with USB PD 3.1 and DisplayPort","1x HDMI","1x Headphone/microphone combo jack","1x Ethernet (RJ-45)"],
+    "camera":["FHD 1080p + IR hybrid with privacy shutter","FHD 1080p with privacy shutter","HD 720p with privacy shutter"],"audio":["HD Audio, Senary SN6141 codec, stereo speakers 2W x2, Dolby Atmos, audio by HARMAN"],"keyboard":["6-row spill-resistant keyboard with numeric keypad and Copilot key, optional LED backlight","TrackPoint and Mylar multi-touch 3-button Trackpad"],
+    "physical":{"dimensions":"356.1 x 247.7 x 19.85/20.20 mm","weight":"Starting at 1.78 kg","case_material":"Aluminium top with aluminium or PC-ABS bottom"},"security":["Discrete TPM 2.0","Kensington Nano Security Slot","Optional fingerprint reader","Optional IR camera","ThinkShield security"],"system":["Windows 11 Pro","Windows 11 Home","Windows 11 Home Single Language","Ubuntu Linux","No preload operating system"],
+    "PSREF_link":["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_2_Intel/ThinkPad_E16_Gen_2_Intel_Spec.pdf"],"add_on_tips":[""],"secret_tips":[""]
+  }]
+}

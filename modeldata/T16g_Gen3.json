@@ -23,7 +23,11 @@
         "slots": "Four DDR5 SODIMM slots, dual-channel capable",
         "features": "Dual-channel capable, ECC on models with ECC DIMMs"
       },
-      "display_options": ["Placeholder", "Placeholder"],
+      "display_options": [
+        "16\" WUXGA (1920x1200) IPS 500nits Non-touch, 100% sRGB, 60Hz, anti-glare, low power, Eyesafe 2.0",
+        "16\" 3.2K (3200x2000) Tandem OLED 600nits SDR / 1500nits HDR, add-on film touch, 100% DCI-P3, 40-120Hz VRR",
+        "16\" WQUXGA (3840x2400) IPS 800nits Non-touch, 100% DCI-P3, 60Hz, anti-glare, DisplayHDR 400"
+      ],
       "touch": ["Addon Film Touch", "No Support"],
       "pen": ["Lenovo® Yoga® Pen", "No pen bundled (garage ready)","No support (non-touch LCD display doesn't support pen input)"],
       "storage": {

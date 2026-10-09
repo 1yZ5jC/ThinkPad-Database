@@ -8,6 +8,10 @@
         "name": "Intel Centrino Wireless-N 1000"
     },
     {
+        "file": "11abg.json",
+        "name": "ThinkPad b/g Wireless (Powered By Atheros AR5006EX)"
+    },
+    {
         "file": "11abgn.json",
         "name": "Intel Centrino Wireless-N 1000"
     },
@@ -32,8 +36,16 @@
         "name": "Intel Tri-Band Wireless-AC 18260"
     },
     {
+        "file": "2200.json",
+        "name": "Intel Centrino Wireless-N 2200"
+    },
+    {
         "file": "2230.json",
         "name": "Intel Centrino Wireless-N 2230"
+    },
+    {
+        "file": "3945abg.json",
+        "name": "Intel PRO/Wireless 3945ABG"
     },
     {
         "file": "5100.json",
@@ -42,6 +54,10 @@
     {
         "file": "5150.json",
         "name": "Intel WiMAX/WiFi Link 5150 controller"
+    },
+    {
+        "file": "6205.json",
+        "name": "Intel Centrino Advanced-N 6205"
     },
     {
         "file": "6205S.json",
@@ -56,8 +72,32 @@
         "name": "Intel Centrino Advanced-N + WiMAX 6250"
     },
     {
+        "file": "7260.json",
+        "name": "Intel Wireless-N 7260 / Dual Band Wireless-N 7260"
+    },
+    {
         "file": "8260AC.json",
         "name": "Intel Dual Band Wireless-AC 8260"
+    },
+    {
+        "file": "AR5B22.json",
+        "name": "Qualcomm Atheros AR5BWB222 Wireless Network Adapter"
+    },
+    {
+        "file": "AX200.json",
+        "name": "Intel Wi-Fi 6 AX200"
+    },
+    {
+        "file": "AX201.json",
+        "name": "Intel Wi-Fi 6 AX201"
+    },
+    {
+        "file": "AX210.json",
+        "name": "Intel Wi-Fi 6E AX210"
+    },
+    {
+        "file": "AX211.json",
+        "name": "Intel Wi-Fi 6E AX211"
     },
     {
         "file": "BCM4356.json",
@@ -66,6 +106,22 @@
     {
         "file": "BE213.json",
         "name": "Intel® Wi-Fi 7 R2 BE213 "
+    },
+    {
+        "file": "NCM825A.json",
+        "name": "Qualcomm FastConnect 7800 Wi-Fi 7 Dual Band Simultaneous (DBS) Network Adapter"
+    },
+    {
+        "file": "NFA725.json",
+        "name": "Qualcomm Wi-Fi 6E NFA725"
+    },
+    {
+        "file": "NFA725A.json",
+        "name": "Qualcomm Wi-Fi 6E NFA725A"
+    },
+    {
+        "file": "NFA765.json",
+        "name": "Qualcomm Wi-Fi 6E QCNFA765"
     },
     {
         "file": "RTL8822CE.json",

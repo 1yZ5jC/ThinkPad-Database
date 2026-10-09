@@ -1,0 +1,98 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x1",
+      "model_name": "ThinkPad X1",
+      "model_family": "X",
+      "model_generation": "X1",
+      "update_date": "August 2011",
+      "processor_options": [
+        "2620M",
+        "2640M"
+      ],
+      "graphics_options": [
+        "HD3000"
+      ],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "2560x1600@60Hz (Mini DisplayPort)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-10600 1333MHz DDR3L, non-parity",
+        "slots": "4GB soldered + one 204-pin SO-DIMM socket",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "13.3\" HD+ (1366x768) Corning Gorilla Glass, LED backlight, 350 nits, 300:1"
+      ],
+      "storage": {
+        "ssd_sata": "SATA 6.0Gb/s SSD (160GB)"
+      },
+      "WLAN": [
+        "6300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless, LED indicator",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "Not specified",
+          "form": "4-cell",
+          "tech": "Li-Polymer RapidCharge, 1000 cycle; supports optional 6-cell slice battery (0A36279)"
+        }
+      ],
+      "ACadapter": [
+        "90-watt AC Adapter (RapidCharge)"
+      ],
+      "ports": [
+        "1 x USB 3.0",
+        "1 x USB 2.0",
+        "1 x powered USB 2.0/eSATA combo",
+        "Mini DisplayPort",
+        "Headphone/microphone combo jack"
+      ],
+      "physical": {
+        "dimensions": "337mm x 226.8mm x 16.5-21.5mm (approx.)",
+        "weight": "Integrated battery: from 1.69kg (3.73 lb); with slice: from 2.05kg (4.52 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

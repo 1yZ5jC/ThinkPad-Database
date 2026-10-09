@@ -1,0 +1,112 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-w700",
+      "model_name": "ThinkPad W700",
+      "model_family": "W",
+      "model_generation": "xx00",
+      "update_date": "January 2009",
+      "processor_options": [
+        "P8700",
+        "T9400",
+        "T9600",
+        "T9900",
+        "Q9000",
+        "X9100"
+      ],
+      "graphics_options": [
+        "FX2700M",
+        "FX3700M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort, dual-link DVI-D)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Not specified",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "17.0\" WXGA+ (1440x900) anti-glare, CCFL backlight, 200 nits, 400:1, 45% Gamut",
+        "17.0\" WUXGA (1920x1200) 400 nits, 500:1, 72% Gamut"
+      ],
+      "storage": {
+        "hdd": "SATA, RAID 0/1 support, Active Protection System",
+        "optical": "DVD burner / Blu-ray (Some models), Ultrabay Slim"
+      },
+      "WLAN": [
+        "5300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "9-cell battery",
+          "capacity": "Not specified",
+          "form": "9-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": [
+        "170-watt AC adapter",
+        "230-watt AC adapter"
+      ],
+      "ports": [
+        "5 x USB 2.0",
+        "VGA DB-15",
+        "Dual-link DVI-D",
+        "DisplayPort",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "IEEE 1394 FireWire",
+        "ExpressCard/34 slot",
+        "CompactFlash reader",
+        "SD reader"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "9-cell: from 3.8kg (8.4 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

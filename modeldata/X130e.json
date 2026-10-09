@@ -1,0 +1,100 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x130e",
+      "model_name": "ThinkPad X130e",
+      "model_family": "X",
+      "model_generation": "xx30",
+      "update_date": "February 2012",
+      "processor_options": [
+        "867",
+        "2367M"
+      ],
+      "graphics_options": [
+        "HD3000"
+      ],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "1920x1080 (HDMI)",
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-10600 1333MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "11.6\" HD (1366x768) anti-glare, LED backlight, 200 nits, 300:1"
+      ],
+      "storage": {
+        "hdd": "320GB-500GB SATA",
+        "ssd_sata": "SSD (Some models)"
+      },
+      "WLAN": [
+        "11bgn"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "Gobi3000",
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "63Wh (approx.)",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0 (one powered)",
+        "VGA DB-15",
+        "HDMI",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "282mm x 209mm x 15.6-29.5mm (approx.)",
+        "weight": "6-cell: from 1.78kg (3.93 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

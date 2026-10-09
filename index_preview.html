@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ThinkPad Specs</title>
+    <link rel="preconnect" href="https://rawiic.github.io">
+    <link rel="stylesheet" href="css/style_preview.css">
+    
+    <!-- 浏览器兼容性检测（不支持 ES6+ 则跳转到升级页面） -->
+<script>
+(function() {
+    var isSupported = true;
+    try {
+        // 1. 检测 Promise 和 fetch（EdgeHTML 18 已支持）
+        if (typeof Promise === 'undefined' || typeof fetch === 'undefined') {
+            isSupported = false;
+        }
+        // 2. 检测箭头函数语法支持（通过 Function 构造器测试）
+        new Function('() => {}');
+        // 3. 检测 Symbol（ES6 基础特性）
+        if (typeof Symbol === 'undefined') {
+            isSupported = false;
+        }
+    } catch(e) {
+        isSupported = false;
+    }
+
+    // 如果特性检测失败，说明浏览器过于陈旧（例如 IE11 或更早版本）
+    // 重定向到升级提示页面（请确保 upgrade.html 存在）
+    if (!isSupported) {
+        window.location.replace('upgrade.html');
+    }
+})();
+</script>
+</head>
+<body>
+    <div id="sidebar-overlay" class="modal-overlay" style="z-index:99;">
+        <div id="sidebarOverlayBg" style="position:absolute;inset:0;"></div>
+    </div>
+
+    <aside>
+        <div class="sidebar-header">
+            <span class="dot"></span>
+            <img src="title.png" alt="ThinkPad" class="sidebar-title-img" id="sidebarTitleImg">
+            <span class="sidebar-title-text">Specs</span>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">导航</div>
+            <button class="sidebar-item active" id="sidebarHome" onclick="showHome()">
+                <span class="item-icon">🏠</span>
+                <span class="item-label">主页</span>
+            </button>
+            <button class="sidebar-item" id="sidebarCompare" onclick="showComparePage()">
+                <span class="item-icon">📊</span>
+                <span class="item-label">型号对比</span>
+            </button>
+            <button class="sidebar-item" id="sidebarFavorites" onclick="showFavoritesPage()">
+                <span class="item-icon">★</span>
+                <span class="item-label">我的收藏</span>
+                <span class="item-badge" id="favCount">0</span>
+            </button>
+            <button class="sidebar-item" id="sidebarRecent" onclick="showRecentPage()">
+                <span class="item-icon">🕐</span>
+                <span class="item-label">最近浏览</span>
+                <span class="item-badge" id="recentCount">0</span>
+            </button>
+                        <button class="sidebar-item" id="sidebarArticles" onclick="showArticlesPage()">
+                <span class="item-icon">📖</span>
+                <span class="item-label">文章阅览</span>
+            </button>
+        </div>
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-section nav-section">
+            <button class="sidebar-item" id="openModelPanelBtn" onclick="openModelPanel()">
+                <span class="item-icon">💻</span>
+                <span class="item-label">选择型号</span>
+            </button>
+            <button class="sidebar-item" id="sidebarGenerator" onclick="showGeneratorPage()">
+                <span class="item-icon">🛠️</span>
+                <span class="item-label">JSON 生成器</span>
+            </button>
+        </div>
+
+        <div class="sidebar-section nav-section">
+        </div>
+
+        <div class="sidebar-section settings-section">
+            <button class="sidebar-item" id="settingsBtn">
+                <span class="item-icon">⚙️</span>
+                <span class="item-label">设置</span>
+            </button>
+        </div>
+
+        <!-- 型号选择覆盖面板 -->
+        <div id="modelSelectOverlay" class="model-select-overlay">
+            <div class="model-select-header">
+                <button class="model-select-back" onclick="closeModelPanel()">← 返回</button>
+                <span>选择型号</span>
+            </div>
+            <div class="model-select-search">
+                <input type="text" id="modelPanelSearch" class="filter-select" placeholder="搜索型号...">
+            </div>
+            <div class="model-select-filters">
+                <div class="filter-row">
+                    <button id="panelFilterFamilyBtn" class="sidebar-footer-btn filter-active">按系列</button>
+                    <button id="panelFilterGenBtn" class="sidebar-footer-btn">按代数</button>
+                </div>
+                <select id="panelFamilySelect" class="filter-select"><option value="">全部系列</option></select>
+                <select id="panelGenerationSelect" class="filter-select" style="display:none;"><option value="">全部代数</option></select>
+                <button id="panelResetFilterBtn" class="sidebar-footer-btn" style="width:100%;justify-content:center;margin-top:4px;">重置筛选</button>
+            </div>
+            <div id="modelPanelList" class="model-select-list"></div>
+        </div>
+
+        <!-- 设置覆盖面板 -->
+        <div id="settingsOverlay" class="settings-overlay">
+            <div class="settings-header">
+                <button class="settings-back" onclick="closeSettingsPanel()">← 返回</button>
+                <span>设置</span>
+            </div>
+            <div class="settings-body">
+                <div class="settings-row">
+                    <span class="settings-label">深色模式</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="settingsThemeToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-row" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+                    <span class="settings-label">主题色</span>
+                    <div class="theme-color-picker" id="themeColorPicker">
+                        <button class="color-swatch active" data-color="red" style="background: #e60012;" title="经典红"></button>
+                        <button class="color-swatch" data-color="blue" style="background: #2563eb;" title="深海蓝"></button>
+                        <button class="color-swatch" data-color="green" style="background: #16a34a;" title="松石绿"></button>
+                        <button class="color-swatch" data-color="purple" style="background: #9333ea;" title="暗夜紫"></button>
+                        <button class="color-swatch" data-color="amber" style="background: #d97706;" title="琥珀橙"></button>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label">增强中文翻译</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="settingsTranslateToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label">不浏览旧机型</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="settingsHideLegacyToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <a class="settings-link" href="index_old.html" target="_blank" rel="noopener">
+                    <span class="settings-link-icon">🤔</span>
+                    <span>旧版页面</span>
+                    <span class="settings-link-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
+
+        <!-- 主页 -->
+        <div id="detailPage" class="detail-page">
+            <div id="specDisplay">
+                <div class="welcome-page">
+                    <div class="welcome-icon">💻</div>
+                    <div class="welcome-title">ThinkPad Specs</div>
+                    <div class="welcome-subtitle">ThinkPad 型号规格查询工具</div>
+                    <div class="preview-quick-search">
+                        <input id="homeQuickSearch" class="search-input" type="search" autocomplete="off" placeholder="搜索型号、系列或代数，例如 T480、X1 Carbon">
+                        <div id="homeQuickSearchResults" class="preview-quick-search-results" aria-live="polite"></div>
+                    </div>
+                    <div class="welcome-actions">
+                        <button class="btn btn-accent" onclick="openModelPanel()">选择型号</button>
+                        <button class="btn" onclick="showComparePage()">型号对比</button>
+                        <button class="btn" onclick="showFavoritesPage()">我的收藏</button>
+                    </div>
+                    <div class="welcome-stats" id="welcomeStats">
+                        已收录 <span id="welcomeModelCount">0</span> 个型号
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 对比页 -->
+        <div id="comparePage" class="compare-page">
+            <div class="page-title">型号对比</div>
+            <div class="page-subtitle">选择要对比的型号，最多建议 5 个</div>
+            <div class="compare-toolbar">
+                <input type="text" id="comparePageSearch" class="search-input" placeholder="搜索型号...">
+                <button class="btn" id="clearComparePageBtn">清空选择</button>
+                <button class="btn btn-accent" id="runCompareBtn">开始对比</button>
+            </div>
+            <div id="comparePageGrid" class="compare-grid"></div>
+            <div id="comparePageResult" class="compare-result-area"></div>
+        </div>
+
+        <!-- 收藏页 -->
+        <div id="favoritesPage" class="compare-page">
+            <div class="page-title">我的收藏</div>
+            <div class="page-subtitle" id="favoritesPageSubtitle">已收藏 0 个型号</div>
+            <div class="compare-toolbar">
+                <div class="view-toggle">
+                    <button class="view-toggle-btn active" data-view="grid" title="网格视图">⊞</button>
+                    <button class="view-toggle-btn" data-view="list" title="列表视图">☰</button>
+                </div>
+            </div>
+            <div id="favoritesPageGrid" class="favorites-grid"></div>
+        </div>
+
+        <!-- 最近浏览页 -->
+        <div id="recentPage" class="compare-page">
+            <div class="page-title">最近浏览</div>
+            <div class="page-subtitle" id="recentPageSubtitle">最近浏览的型号</div>
+            <div class="compare-toolbar">
+                <div class="view-toggle">
+                    <button class="view-toggle-btn active" data-view="grid" title="网格视图">⊞</button>
+                    <button class="view-toggle-btn" data-view="list" title="列表视图">☰</button>
+                </div>
+                <button class="btn" id="clearRecentBtn">清空记录</button>
+            </div>
+            <div id="recentPageGrid" class="favorites-grid"></div>
+        </div>
+
+        <!-- JSON 生成器页面 -->
+        <div id="generatorPage" class="compare-page">
+            <div class="page-title">JSON 生成器</div>
+            <div class="compare-toolbar">
+                <div class="generator-tab-bar" id="generatorTabBarMain">
+                    <button class="generator-tab-btn active" data-mode="model">机型配置</button>
+                    <button class="generator-tab-btn" data-mode="cpu">CPU</button>
+                    <button class="generator-tab-btn" data-mode="gpu">GPU</button>
+                    <button class="generator-tab-btn" data-mode="display">屏幕</button>
+                    <button class="generator-tab-btn" data-mode="ethernet">有线网卡</button>
+                    <button class="generator-tab-btn" data-mode="wifi">WiFi</button>
+                    <button class="generator-tab-btn" data-mode="wwan">WWAN</button>
+                    <button class="generator-tab-btn" data-mode="dock">扩展坞</button>
+                </div>
+                <button id="generatorResetBtn" class="btn">重置</button>
+                <button id="generatorCopyBtn" class="btn">复制 JSON</button>
+                <button id="generatorExportBtn" class="btn btn-accent">导出 JSON</button>
+            </div>
+            <div class="generator-two-columns">
+                <div class="generator-form-panel" id="generatorFormPanelMain"></div>
+                <div class="generator-preview-panel">
+                    <div class="generator-json-box" id="generatorJsonPreviewMain"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文章列表页 -->
+        <div id="articlesListPage" class="articles-page" style="display: none;">
+            <div class="page-title">文章阅览</div>
+            <div class="page-subtitle">ThinkPad 相关技术文章与指南</div>
+            <div class="articles-filter-bar">
+                <div class="filter-group">
+                    <select id="articlesFamilyFilter" class="filter-select">
+                        <option value="">全部分类</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <input type="text" id="articlesSearchInput" class="search-input" placeholder="搜索标题或描述..." style="margin-bottom:0;">
+                </div>
+                <button id="articlesResetFilterBtn" class="btn">重置筛选</button>
+            </div>
+            <div id="articlesListContainer" class="articles-grid"></div>
+        </div>
+
+        <!-- 文章详情页 -->
+        <div id="articleDetailPage" class="article-detail-page" style="display: none;">
+            <div class="page-title" id="articleDetailTitle"></div>
+            <div class="article-meta" id="articleDetailMeta"></div>
+            <div id="articleContent" class="article-content"></div>
+            <button class="btn" onclick="showArticlesPage()">← 返回列表</button>
+        </div>
+
+        <!-- 全局浮动背景图 (仅主页右下角显示) -->
+        <img id="globalHomeBg" class="home-bg-image" style="display: none;" alt="ThinkPad 装饰背景" loading="lazy">
+
+        <!-- 全局底部随机语录栏 + 换壁纸按钮 -->
+        <div id="globalTrickBar" class="global-trick-bar">
+            <span class="trick-icon">💡</span>
+            <span id="globalTrickText" class="trick-text">加载经典语录中...</span>
+            <div class="trick-buttons">
+                <button id="refreshTrickBtn" class="btn trick-refresh-btn">换一句 ✨</button>
+                <button id="refreshBgBtn" class="btn trick-refresh-btn">换壁纸 🖼️</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 模态框结构 -->
+    <div id="fruModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">可能使用的 FRU <button class="modal-close" onclick="closeFruModal()">×</button></div>
+            <div class="modal-body" id="fruModalBody">加载中...</div>
+        </div>
+    </div>
+    <div id="searchModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">搜索型号 <button class="modal-close" onclick="closeSearchModal()">×</button></div>
+            <div class="modal-body">
+                <input type="text" id="searchModalInput" class="search-input" placeholder="输入型号名称..." autocomplete="off">
+                <div id="searchModalResults"></div>
+            </div>
+        </div>
+    </div>
+    <div id="compareSelectModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">选择对比型号 <button class="modal-close" onclick="closeCompareSelectModal()">×</button></div>
+            <div class="modal-body">
+                <input type="text" id="compareSearchInput" class="search-input" placeholder="搜索型号..." autocomplete="off">
+                <div id="compareSelectList" style="max-height:300px;overflow-y:auto;"></div>
+                <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+                    <button class="btn" onclick="clearSelectedModels()">清空选择</button>
+                    <button class="btn btn-accent" id="confirmCompareBtn">确认对比</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="compareModal" class="modal-overlay">
+        <div class="modal-box wide">
+            <div class="modal-header">型号对比 <button class="modal-close" onclick="closeCompareModal()">×</button></div>
+            <div class="modal-body" id="compareModalBody"></div>
+        </div>
+    </div>
+
+    <!-- 图片大图模态框 -->
+    <div id="imageModal" class="modal-overlay">
+        <div class="modal-box image-modal-box">
+            <div class="modal-header">
+                图片预览
+                <button class="modal-close" onclick="closeImageModal()">×</button>
+            </div>
+            <div class="modal-body image-modal-body">
+                <img id="modalImage" src="" alt="大图预览" style="max-width:100%; max-height:70vh; object-fit:contain;">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.0/marked.min.js"></script>
+    <script src="js/translator_preview.js"></script>
+    <script src="js/script_preview.js"></script>
+    <script src="js/generator_preview.js"></script>
+</body>
+</html>

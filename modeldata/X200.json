@@ -1,0 +1,105 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x200",
+      "model_name": "ThinkPad X200",
+      "model_family": "X",
+      "model_generation": "xx00",
+      "update_date": "August 2008",
+      "processor_options": [
+        "P8400",
+        "P8600",
+        "P8700",
+        "SL9400"
+      ],
+      "graphics_options": [
+        "GMA4500MHD"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Dual independent displays (with UltraBase)"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "12.1\" WXGA (1280x800) anti-glare, CCFL/LED backlight, 200 nits, 250:1"
+      ],
+      "storage": {
+        "ssd_sata": "80GB / 128GB SSD (Some models)",
+        "hdd": "160GB-320GB SATA, Active Protection System"
+      },
+      "WLAN": [
+        "5100",
+        "5300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless (Some models)",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "4-cell / 6-cell / 9-cell battery",
+          "capacity": "Not specified",
+          "form": "4/6/9-cell",
+          "tech": "Li-Ion; supports 2nd battery in X200 UltraBase"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA DB-15",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "ExpressCard/34 slot",
+        "5-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "295mm x 210mm x 21-29mm (without UltraBase)",
+        "weight": "4-cell: from 1.34kg (2.95 lb); 6-cell: from 1.5kg (3.31 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "本机可配X200 UltraBase扩展底座（含Ultrabay Slim位、USB、以太网等）。"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

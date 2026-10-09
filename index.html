@@ -93,27 +93,6 @@
             </button>
         </div>
 
-        <!-- 型号选择覆盖面板 -->
-        <div id="modelSelectOverlay" class="model-select-overlay">
-            <div class="model-select-header">
-                <button class="model-select-back" onclick="closeModelPanel()">← 返回</button>
-                <span>选择型号</span>
-            </div>
-            <div class="model-select-search">
-                <input type="text" id="modelPanelSearch" class="filter-select" placeholder="搜索型号...">
-            </div>
-            <div class="model-select-filters">
-                <div class="filter-row">
-                    <button id="panelFilterFamilyBtn" class="sidebar-footer-btn filter-active">按系列</button>
-                    <button id="panelFilterGenBtn" class="sidebar-footer-btn">按代数</button>
-                </div>
-                <select id="panelFamilySelect" class="filter-select"><option value="">全部系列</option></select>
-                <select id="panelGenerationSelect" class="filter-select" style="display:none;"><option value="">全部代数</option></select>
-                <button id="panelResetFilterBtn" class="sidebar-footer-btn" style="width:100%;justify-content:center;margin-top:4px;">重置筛选</button>
-            </div>
-            <div id="modelPanelList" class="model-select-list"></div>
-        </div>
-
         <!-- 设置覆盖面板 -->
         <div id="settingsOverlay" class="settings-overlay">
             <div class="settings-header">
@@ -165,7 +144,20 @@
         <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
 
         <!-- 主页 -->
-        <div id="detailPage" class="detail-page">
+        <!-- 选择型号页 -->
+    <div id="modelSelectPage" class="model-select-page">
+        <div class="page-title">选择型号</div>
+        <div class="page-subtitle">搜索或按系列 / 代数筛选型号</div>
+        <div class="compare-toolbar model-select-toolbar">
+            <input type="text" id="modelPanelSearch" class="search-input" placeholder="搜索型号...">
+            <select id="panelFamilySelect" class="filter-select"><option value="">全部系列</option></select>
+            <select id="panelGenerationSelect" class="filter-select"><option value="">全部代数</option></select>
+            <button id="panelResetFilterBtn" class="btn">重置筛选</button>
+        </div>
+        <div id="modelPanelList" class="compare-grid"></div>
+    </div>
+
+    <div id="detailPage" class="detail-page">
             <div id="specDisplay">
                 <div class="welcome-page">
                     <div class="welcome-icon">💻</div>

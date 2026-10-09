@@ -1,0 +1,39 @@
+{
+  "thinkpad_database": [{
+    "id": "thinkpad-p14s-gen-7-intel",
+    "model_name": "ThinkPad P14s Gen 7 (Intel)",
+    "model_family": "P",
+    "model_generation": "Gen 7",
+    "update_date": "March 2026",
+    "model_code": ["21XJ", "21XK"],
+    "processor_options": ["336H", "356H", "366H", "386H", "388H"],
+    "graphics_options": ["Intel_Graphics_Series3", "RTX_Pro_500_Blackwell", "RTX_Pro_1000_Blackwell"],
+    "Display": {"max_resolution": {"hdmi": "4K@60Hz", "thunderbolt": "8K@60Hz"}, "multi_display": "Supports up to 4 independent displays"},
+    "memory": {"max_capacity": "96GB", "type": "LPDDR5X-8533, up to 7467 MT/s", "slots": "One LPCAMM2 connector, dual-channel", "features": "16GB/32GB/64GB/96GB modules"},
+    "display_options": [
+      "14.5\" WUXGA (1920x1200) IPS 400nits non-touch, 45% NTSC, 60Hz",
+      "14.5\" WUXGA (1920x1200) IPS 400nits multi-touch, 45% NTSC, 60Hz",
+      "14.5\" 3K (3072x1920) IPS 500nits non-touch, 100% DCI-P3, 30-120Hz VRR"
+    ],
+    "touch": ["Out-cell multi-touch", "Non-touch"],
+    "pen": ["No support"],
+    "storage": {"ssd_pcie": "One M.2 2280 PCIe NVMe SSD, PCIe 5.0 x4, up to 2TB", "hdd": "Not supported", "optane": "Not supported"},
+    "Ethernet": ["I219V", "I219LM"],
+    "WLAN": ["BE211"],
+    "Bluetooth": [{"type": "Integrated", "form": "Integrated in Wi-Fi + Bluetooth combo adapter", "feature": "Bluetooth 5.4, Bluetooth 6.0 hardware ready"}],
+    "WWAN": ["WWAN_Upgradeable_5G", "X61_5G", "No_WWAN"],
+    "SIM_Card": [{"type": "No physical SIM card inbox; nano-SIM on WWAN models"}],
+    "Battery": [{"type": "Internal battery", "capacity": "60Wh or 75Wh", "form": "Rechargeable Li-ion", "tech": "Li-Ion", "rapid_charge": "Up to 80% in 1hr"}],
+    "ACadapter": ["100W USB-C", "No power adapter"],
+    "ports": ["2 x USB-A (USB 5Gbps, one Always On)", "2 x Thunderbolt 4 with USB PD 3.1 and DisplayPort 2.1", "1 x HDMI 2.1", "1 x Headphone jack", "1 x Ethernet (GbE RJ-45)", "Kensington Nano Security Slot", "Nano-SIM slot (optional)", "Smart card reader (optional)"],
+    "camera": ["5MP + IR with privacy shutter, HDR and Human Presence Detection", "5MP with privacy shutter"],
+    "audio": ["SoundWire, Realtek ALC722-CG codec, stereo speakers 2W x2, Dolby Atmos, dual microphone array, Dolby Voice"],
+    "keyboard": ["6-row spill-resistant keyboard, Copilot key, optional LED backlight", "TrackPoint and glass-like Mylar multi-touch trackpad"],
+    "physical": {"dimensions": "325.2 x 226.3 x 11.7/16.22 mm, 22.2 mm maximum", "weight": "Starting at 1.63 kg", "case_material": "Aluminium top and bottom"},
+    "security": ["Discrete TPM 2.0", "Kensington Nano Security Slot", "Optional fingerprint reader", "Optional IR camera", "NVMe, power-on and supervisor passwords", "Self-healing BIOS"],
+    "system": ["Windows 11 Pro", "Windows 11 Home", "Ubuntu Linux LTS", "Red Hat Enterprise Linux 10.2", "No preload operating system"],
+    "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_7_Intel/ThinkPad_P14s_Gen_7_Intel_Spec.pdf"],
+    "add_on_tips": [""],
+    "secret_tips": [""]
+  }]
+}

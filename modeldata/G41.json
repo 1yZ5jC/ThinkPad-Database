@@ -1,0 +1,101 @@
+{
+  "thinkpad_database": [
+    {
+      "model_family": "G",
+      "model_generation": "x40",
+      "WLAN": [
+        "11b"
+      ],
+      "Bluetooth": [
+        {
+          "type": "None"
+        }
+      ],
+      "WWAN": [
+        "No_WWAN"
+      ],
+      "SIM_Card": [
+        {
+          "type": "None"
+        }
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ],
+      "id": "thinkpad-g41",
+      "model_name": "ThinkPad G41",
+      "update_date": "November 2004",
+      "processor_options": [
+        "CeleronD_320",
+        "CeleronD_325",
+        "CeleronD_330",
+        "P4_532",
+        "P4_538",
+        "P4_548"
+      ],
+      "graphics_options": [
+        "852GM_Integrated",
+        "Radeon_9000_IGP"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@85Hz"
+        },
+        "multi_display": "External monitor only"
+      },
+      "memory": {
+        "max_capacity": "2GB max",
+        "type": "PC2700 333MHz DDR1, non-parity",
+        "slots": "Two 200-pin SO-DIMM sockets",
+        "features": "Desktop-class processor (value line)"
+      },
+      "display_options": [
+        "14.1\" XGA (1024x768) TFT, 150 nits",
+        "15.0\" XGA (1024x768) TFT, 150 nits",
+        "15.0\" SXGA+ (1400x1050) TFT, 150 nits"
+      ],
+      "storage": {
+        "hdd": "30-60GB, 4200/5400rpm",
+        "optical": "Floppy / CD-ROM / DVD-ROM / DVD-ROM+CD-RW, fixed"
+      },
+      "Battary": [
+        {
+          "type": "Lithium Ion",
+          "capacity": "Not specified",
+          "form": "Li-Ion",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ports": [
+        "4 x USB 2.0",
+        "VGA",
+        "Parallel",
+        "S-Video out",
+        "Modem (RJ-11)",
+        "Ethernet (RJ-45)",
+        "PC Card slot"
+      ],
+      "physical": {
+        "dimensions": "329mm x 282.5mm x 37.1-50.9mm",
+        "weight": "约3.5-4.2kg",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password"
+      ],
+      "system": [
+        "Windows XP Home",
+        "Windows XP Professional"
+      ]
+    }
+  ]
+}
+

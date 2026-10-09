@@ -1,0 +1,102 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-t400s",
+      "model_name": "ThinkPad T400s",
+      "model_family": "T",
+      "model_generation": "xx00",
+      "update_date": "June 2009",
+      "processor_options": [
+        "SP9400",
+        "SP9600"
+      ],
+      "graphics_options": [
+        "GMA4500MHD"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2048x1536@75Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Not specified",
+        "features": "Not specified"
+      },
+      "display_options": [
+        "14.1\" WXGA+ (1440x900) anti-glare, LED backlight, 300 nits, 300:1"
+      ],
+      "storage": {
+        "ssd_sata": "80GB / 120GB / 128GB SSD, SATA",
+        "optical": "DVD±RW via optional Ultrabay Slim bay device"
+      },
+      "WLAN": [
+        "5100"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless, LED indicator (Some models)",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "44Wh (approx.)",
+          "form": "6-cell",
+          "tech": "Li-Ion; supports 2nd battery in Ultrabay Slim"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "2 x USB 2.0",
+        "1 x eSATA/USB combo",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "ExpressCard slot"
+      ],
+      "physical": {
+        "dimensions": "Not specified",
+        "weight": "6-cell: from 1.77kg (3.9 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows XP Professional",
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

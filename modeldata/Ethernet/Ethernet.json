@@ -4,11 +4,27 @@
         "name": "1"
     },
     {
+        "file": "82573L.json",
+        "name": "Intel® 82573L Gigabit Ethernet Controller"
+    },
+    {
+        "file": "82579LM.json",
+        "name": "Intel® 82579LM Gigabit Ethernet Controller"
+    },
+    {
+        "file": "I217LM.json",
+        "name": "Intel Ethernet Connection I217-LM"
+    },
+    {
         "file": "I219LM.json",
         "name": "Intel Ethernet Connection I219-LM"
     },
     {
         "file": "I219V.json",
         "name": "Intel Ethernet Connection I219-V"
+    },
+    {
+        "file": "RTL8111F.json",
+        "name": "RTL8111F"
     }
 ]

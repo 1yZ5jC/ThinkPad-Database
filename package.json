@@ -4,6 +4,8 @@
   "description": "本项目是一个简单的数据收集项目，目前收集了部分ThinkPad的关键配置和参数信息，这样用户可以不用每次查资料都去联想的PSREF翻阅故纸堆。",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

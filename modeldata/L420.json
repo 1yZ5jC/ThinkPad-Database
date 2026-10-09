@@ -1,0 +1,104 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-l420",
+      "model_name": "ThinkPad L420",
+      "model_family": "L",
+      "model_generation": "xx20",
+      "update_date": "February 2011",
+      "processor_options": [
+        "2310M",
+        "2350M",
+        "2410M",
+        "2430M",
+        "2520M"
+      ],
+      "graphics_options": [
+        "HD3000"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort, single-link DVI-D via cable 45J7915)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "8GB max",
+        "type": "PC3-10600 1333MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "14.0\" HD (1366x768) anti-glare, LED backlight, 220 nits, 500:1"
+      ],
+      "storage": {
+        "ssd_sata": "SATA 3.0Gb/s, 2.5\" wide, 7mm high (Some models)",
+        "hdd": "SATA 3.0Gb/s, 2.5\" wide, 7mm or 9.5mm high",
+        "optical": "DVD burner, 12.7mm high, fixed, not removable, tray-in"
+      },
+      "WLAN": [
+        "1000"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless, LED indicator",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion (4/6/9-cell configurations)"
+        }
+      ],
+      "ACadapter": [
+        "90-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0 (one powered)",
+        "1 x USB 2.0/eSATA combo",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader (MMC, SD, SDHC, SDXC)"
+      ],
+      "physical": {
+        "dimensions": "344mm x 233mm x 32-36mm",
+        "weight": "4-cell: from 2.24kg (4.94 lb); 6-cell: from 2.33kg (5.14 lb); 9-cell: from 2.48kg (5.47 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (Optional)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

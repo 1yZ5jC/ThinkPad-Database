@@ -7,64 +7,638 @@
         "generation": "未知"
     },
     {
+        "file": "1007U.json",
+        "name": "Celeron 1007U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "10110U.json",
+        "name": "i3-10110U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "10210U.json",
+        "name": "i5-10210U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "10310U.json",
+        "name": "i5-10310U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "10510U.json",
+        "name": "i7-10510U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "10610U.json",
+        "name": "i7-10610U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1115G4.json",
+        "name": "i3-1115G4",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1135G7.json",
+        "name": "i5-1135G7",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1145G7.json",
+        "name": "i5-1145G7",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1165G7.json",
+        "name": "i7-1165G7",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1185G7.json",
+        "name": "i7-1185G7",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1215U.json",
+        "name": "i3-1215U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1235U.json",
+        "name": "i5-1235U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1240P.json",
+        "name": "i5-1240P",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1245U.json",
+        "name": "i5-1245U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1250P.json",
+        "name": "i5-1250P",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1255U.json",
+        "name": "i7-1255U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "125H.json",
+        "name": "Intel Core Ultra 5 125H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "125U.json",
+        "name": "Intel Core Ultra 5 125U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1260P.json",
+        "name": "i7-1260P",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1265U.json",
+        "name": "i7-1265U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1335U.json",
+        "name": "i5-1335U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1345U.json",
+        "name": "i5-1345U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "134U.json",
+        "name": "Intel Core Ultra 5 134U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1355U.json",
+        "name": "i7-1355U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "135H.json",
+        "name": "Intel Core Ultra 5 135H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "135U.json",
+        "name": "Intel Core Ultra 5 135U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1365U.json",
+        "name": "i7-1365U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1505MV5.json",
+        "name": "E3-1505M v5",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1535MV5.json",
+        "name": "E3-1535M v5",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "155H.json",
+        "name": "Intel Core Ultra 7 155H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "155U.json",
+        "name": "Intel Core Ultra 7 155U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "1575MV5.json",
+        "name": "i7-6700HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "164U.json",
+        "name": "Intel Core Ultra 7 164U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "165H.json",
+        "name": "Intel Core Ultra 7 165H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "165U.json",
+        "name": "Intel Core Ultra 7 165U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "185H.json",
+        "name": "Intel Core Ultra 9 185H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "225H.json",
+        "name": "Intel Ultra 5 225H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "225U.json",
+        "name": "Intel Core Ultra 5 225U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "226V.json",
+        "name": "Intel Core Ultra 5 226V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "228V.json",
+        "name": "Intel Core Ultra 5 228V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "2348M.json",
+        "name": "Intel Core i3-2348M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "235H.json",
+        "name": "Intel Core Ultra 5 235H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "235HX.json",
+        "name": "Intel Core Ultra 5 235HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "235U.json",
+        "name": "Intel Core Ultra 5 235U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "2367M.json",
+        "name": "Intel Core i3-2367M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "236V.json",
+        "name": "Intel Core Ultra 5 236V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "2370M.json",
+        "name": "i3-2370M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "238V.json",
+        "name": "Intel Core Ultra 5 238V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "245HX.json",
+        "name": "Intel Core Ultra 5 245HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "2520M.json",
+        "name": "i5-2520M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "255H.json",
+        "name": "Intel Core Ultra 7 255H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "255HX.json",
+        "name": "Intel Core Ultra 7 255HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "255U.json",
+        "name": "Intel Core Ultra 7 255U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "256V.json",
+        "name": "Intel Core Ultra 7 256V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "258V.json",
+        "name": "Intel Core Ultra 7 258V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "265H.json",
+        "name": "Intel Core Ultra 7 265H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "265HX.json",
+        "name": "Intel Core Ultra 7 265HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "265U.json",
+        "name": "Intel Core Ultra 7 265U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "266V.json",
+        "name": "Intel Core Ultra 7 266V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "268V.json",
+        "name": "Intel Core Ultra 7 268V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "275HX.json",
+        "name": "Intel Core Ultra 9 275HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "285H.json",
+        "name": "Intel Core Ultra 9 285H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "285HX.json",
+        "name": "Intel Core Ultra 9 285HX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "288V.json",
+        "name": "Intel Core Ultra 9 288V",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3110M.json",
+        "name": "Intel Core i3-3110M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3150C.json",
+        "name": "Athlon Gold 3150C",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3210M.json",
+        "name": "i5-3210M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3230M.json",
+        "name": "i5-3230M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "325.json",
-        "name": "Intel Ultra 5-325",
+        "name": "Intel Core Ultra 5 325",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3250C.json",
+        "name": "Ryzen 3 3250C",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3317U.json",
+        "name": "i5-3317U",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "332.json",
-        "name": "Intel Ultra 5-332",
+        "name": "Intel Core Ultra 5 332",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3320M.json",
+        "name": "i5-3320M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3337u.json",
+        "name": "i5-3337U",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "335.json",
-        "name": "Intel Ultra 5-335",
+        "name": "Intel Core Ultra 5 335",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3360M.json",
+        "name": "i5-3360M",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "336H.json",
-        "name": "Intel Ultra 5 336H",
+        "name": "Intel Core Ultra 5 336H",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "338H.json",
-        "name": "Intel Ultra 5 338H",
+        "name": "Intel Core Ultra 5 338H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3427u.json",
+        "name": "i5-3427U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3437U.json",
+        "name": "i7-3437U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3500C.json",
+        "name": "Ryzen 5 3500C",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3517u.json",
+        "name": "i7-3517U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3520M.json",
+        "name": "i7-3520M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3537u.json",
+        "name": "i7-3537U",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "355.json",
-        "name": "Intel Ultra 7 355",
+        "name": "Intel Core Ultra 7 355",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "356H.json",
-        "name": "Intel Ultra 7 356H",
+        "name": "Intel Core Ultra 7 356H",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "358H.json",
-        "name": "Intel Ultra X7 358H",
+        "name": "Intel Core Ultra X7 358H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3630QM.json",
+        "name": "i7-3630QM",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
     },
     {
         "file": "365.json",
-        "name": "Intel Ultra 7 365",
+        "name": "Intel Core Ultra 7 365",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3667u.json",
+        "name": "i7-3667U",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -77,6 +651,13 @@
         "generation": "未知"
     },
     {
+        "file": "3687u.json",
+        "name": "i7-3687U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "368H.json",
         "name": "Intel Ultra X7 368H",
         "family": "未分类",
@@ -84,8 +665,43 @@
         "generation": "未知"
     },
     {
+        "file": "3700C.json",
+        "name": "Ryzen 7 3700C",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3720QM.json",
+        "name": "i7-3720QM",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3740QM.json",
+        "name": "i7-3740QM",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3820QM.json",
+        "name": "i7-3820QM",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3840QM.json",
+        "name": "i7-3840QM",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "386H.json",
-        "name": "Intel Ultra 9 386H",
+        "name": "Intel Core Ultra 9 386H",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -99,7 +715,77 @@
     },
     {
         "file": "388H.json",
-        "name": "Intel Ultra X9-388H",
+        "name": "Intel Ultra X9 388H",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3920XM.json",
+        "name": "Intel Core i7-3920XM Extreme Edition",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "3940XM.json",
+        "name": "Intel Core i7-3940XM Extreme Edition",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4200M.json",
+        "name": "i5-4200M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4210M.json",
+        "name": "i5-4210M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4330M.json",
+        "name": "i5-4330M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4600M.json",
+        "name": "i5-4600M",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4700MQ.json",
+        "name": "i7-4700MQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4710MQ.json",
+        "name": "i7-4710MQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4800MQ.json",
+        "name": "i7-4800MQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4810MQ.json",
+        "name": "i7-4810MQ",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -161,8 +847,36 @@
         "generation": "未知"
     },
     {
+        "file": "4900MQ.json",
+        "name": "i7-4900MQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4910MQ.json",
+        "name": "i7-4910MQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "4930MX.json",
+        "name": "i7-4930MX",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "5x86c_100.json",
         "name": "IBM 5x86c 100 MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6006U.json",
+        "name": "i3-6006U",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -177,6 +891,188 @@
     {
         "file": "603e_166.json",
         "name": "PowerPC 603e 166MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6100U.json",
+        "name": "i3-6100U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6200U.json",
+        "name": "i5-6200U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6300HQ.json",
+        "name": "i5-6300HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6300U.json",
+        "name": "i5-6300U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6405U.json",
+        "name": "Pentium Gold 6405U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6440HQ.json",
+        "name": "i5-6440HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6500U.json",
+        "name": "i7-6500U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6600U.json",
+        "name": "i7-6600U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6700HQ.json",
+        "name": "i7-6700HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "6820HQ.json",
+        "name": "i7-6820HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7100U.json",
+        "name": "i3-7100U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7200U.json",
+        "name": "i5-7200U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7300HQ.json",
+        "name": "i5-7300HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7300U.json",
+        "name": "i5-7300U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7440HQ.json",
+        "name": "i5-7440HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7500U.json",
+        "name": "i7-7500U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7600U.json",
+        "name": "i7-7600U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7700HQ.json",
+        "name": "i7-7700HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "7820HQ.json",
+        "name": "i7-7820HQ",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "8250U.json",
+        "name": "i5-8250U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "8350U.json",
+        "name": "i5-8350U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "8550U.json",
+        "name": "i7-8550U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "8650U.json",
+        "name": "i7-8650U",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "877.json",
+        "name": "Intel Celeron 877",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "887.json",
+        "name": "Celeron 887",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "A4-5000.json",
+        "name": "AMD A4-5000 APU",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -212,6 +1108,34 @@
     {
         "file": "Cx486DX4_75.json",
         "name": "Cyrix Cx486DX4 75MHz",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "E-300.json",
+        "name": "AMD E-300 APU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "E1-1200.json",
+        "name": "AMD E1-1200 APU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "E1-2500.json",
+        "name": "AMD E1-2500 APU",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "E2-1800.json",
+        "name": "AMD E2-1800 APU",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -385,6 +1309,20 @@
         "generation": "未知"
     },
     {
+        "file": "T1300.json",
+        "name": "Core Solo T1300",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T1400.json",
+        "name": "Core Solo T1400",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "T2300.json",
         "name": "Core Duo T2300",
         "family": "未分类",
@@ -406,6 +1344,69 @@
         "generation": "未知"
     },
     {
+        "file": "T2500.json",
+        "name": "Core Duo T2500",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T2600.json",
+        "name": "Core Duo T2600",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T2700.json",
+        "name": "Core Duo T2700",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T5500.json",
+        "name": "Core 2 Duo T5500",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T5600.json",
+        "name": "Core 2 Duo T5600",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T7200.json",
+        "name": "Core 2 Duo T7200",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T7300.json",
+        "name": "Core 2 Duo T7300",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T7400.json",
+        "name": "Core 2 Duo T7400",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "T7600.json",
+        "name": "Core 2 Duo T7600",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
         "file": "X1E78100.json",
         "name": "Snapdragon X Elite X1E78100",
         "family": "未分类",
@@ -415,6 +1416,20 @@
     {
         "file": "X1P42100.json",
         "name": "Snapdragon X Plus X1P42100",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "X2E80100.json",
+        "name": "Snapdragon X2 Elite X2E80100",
+        "family": "未分类",
+        "Architecture": "未知",
+        "generation": "未知"
+    },
+    {
+        "file": "X2P42100.json",
+        "name": "Snapdragon X2 Plus X2P42100",
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
@@ -432,61 +1447,5 @@
         "family": "未分类",
         "Architecture": "未知",
         "generation": "未知"
-    },
-    {
-        "file": "7100U.json",
-        "name": "7100U",
-        "family": "Core i3",
-        "Architecture": "Kaby Lake",
-        "generation": "6th Core"
-    },
-    {
-        "file": "7200U.json",
-        "name": "7200U",
-        "family": "Core i5",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7500U.json",
-        "name": "7500U",
-        "family": "Core i7",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7600U.json",
-        "name": "7600U",
-        "family": "Core i7",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7300HQ.json",
-        "name": "7300HQ",
-        "family": "Core i5",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7440HQ.json",
-        "name": "7440HQ",
-        "family": "Core i5",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7700HQ.json",
-        "name": "7700HQ",
-        "family": "Core i7",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
-    },
-    {
-        "file": "7820HQ.json",
-        "name": "7820HQ",
-        "family": "Core i7",
-        "Architecture": "Kaby Lake",
-        "generation": "7th Core"
     }
 ]

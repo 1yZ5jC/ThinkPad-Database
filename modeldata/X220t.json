@@ -1,0 +1,107 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x220t",
+      "model_name": "ThinkPad X220 Tablet",
+      "model_family": "X",
+      "model_generation": "xx20",
+      "update_date": "April 2011",
+      "processor_options": [
+        "2520M",
+        "2620M",
+        "2640M"
+      ],
+      "graphics_options": [
+        "HD3000"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2560x1600@60Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays (with UltraBase)"
+      },
+      "memory": {
+        "max_capacity": "8GB max (16GB actual)",
+        "type": "PC3-10600 1333MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "12.5\" HD (1366x768) LED backlight, 300 nits, 500:1, IPS, pen + multi-touch"
+      ],
+      "touch": [
+        "MultiTouch screen (Some models)"
+      ],
+      "pen": [
+        "ThinkPad Pen (digitizer)"
+      ],
+      "storage": {
+        "ssd_sata": "SATA SSD (Some models)",
+        "hdd": "320GB-500GB SATA"
+      },
+      "WLAN": [
+        "6205",
+        "6300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless, LED indicator",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "3-cell / 6-cell battery",
+          "capacity": "Not specified",
+          "form": "3/6-cell",
+          "tech": "Li-Ion; supports optional external battery (0A36280)"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0 (one powered)",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "ExpressCard/54 slot"
+      ],
+      "physical": {
+        "dimensions": "305mm x 228.7mm x 27-31.3mm (without UltraBase)",
+        "weight": "3-cell: from 1.66kg (3.67 lb); 6-cell: from 1.8kg (3.97 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

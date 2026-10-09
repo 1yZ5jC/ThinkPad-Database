@@ -1,0 +1,100 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x120e",
+      "model_name": "ThinkPad X120e",
+      "model_family": "X",
+      "model_generation": "xx10",
+      "update_date": "March 2011",
+      "processor_options": [
+        "E-240",
+        "E-350"
+      ],
+      "graphics_options": [
+        "HD6310M"
+      ],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "1920x1080 (HDMI)",
+          "vga": "2048x1536@75Hz"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC3-10600 1333MHz DDR3, non-parity",
+        "slots": "Not specified",
+        "features": "System clocks down for 1066MHz memory controller"
+      },
+      "display_options": [
+        "11.6\" HD (1366x768) anti-glare, LED backlight, 200 nits, 300:1"
+      ],
+      "storage": {
+        "hdd": "250GB-320GB SATA",
+        "ssd_sata": "SSD (Some models)"
+      },
+      "WLAN": [
+        "11bgn"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 3.0 wireless (Some models)",
+          "feature": "Bluetooth 3.0"
+        }
+      ],
+      "WWAN": [
+        "Gobi2000",
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion (3/6-cell)"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0 (one powered)",
+        "VGA DB-15",
+        "HDMI",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "282mm x 210mm x 15.6-29.5mm (6-cell)",
+        "weight": "3-cell: from 1.33kg (2.93 lb); 6-cell: from 1.5kg (3.31 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant"
+      ],
+      "system": [
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

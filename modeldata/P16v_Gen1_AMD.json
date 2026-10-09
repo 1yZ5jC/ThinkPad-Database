@@ -1,0 +1,67 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-p16v-gen-1-amd",
+      "model_name": "ThinkPad P16v Gen 1 (AMD)",
+      "model_family": "P",
+      "model_generation": "Gen 1",
+      "update_date": "September 2025",
+      "model_code": ["21FE", "21FF"],
+      "processor_options": ["7640HS", "7840HS", "7840HS_PRO", "7940HS_PRO"],
+      "graphics_options": ["Radeon_760M", "Radeon_780M", "RTX_2000_Ada", "RTX_A1000_Ada", "RTX_A500_Ada"],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "7680x4320@60Hz",
+          "usb4": "5120x3200@60Hz"
+        },
+        "multi_display": "Supports up to 4 independent displays"
+      },
+      "memory": {
+        "max_capacity": "64GB",
+        "type": "DDR5-5600 non-ECC",
+        "slots": "Two DDR5 SODIMM slots",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "16\" WUXGA (1920x1200) IPS 300nits non-touch, 45% NTSC, anti-glare",
+        "16\" WUXGA (1920x1200) IPS 300nits non-touch, 100% sRGB, anti-glare",
+        "16\" WUXGA (1920x1200) IPS 300nits multi-touch, 45% NTSC, anti-glare",
+        "16\" WQUXGA (3840x2400) IPS 800nits non-touch, 100% DCI-P3, anti-glare, DisplayHDR 400"
+      ],
+      "touch": ["On-cell multi-touch on selected FHD display", "Non-touch"],
+      "pen": ["No support"],
+      "storage": {
+        "ssd_pcie": "Two M.2 2280 PCIe 4.0 x4 NVMe SSD slots, up to 2TB each",
+        "hdd": "Not supported"
+      },
+      "Ethernet": ["No onboard Ethernet"],
+      "WLAN": ["NFA725A"],
+      "Bluetooth": [{"type":"Integrated","form":"2x2 M.2 Wi-Fi + Bluetooth combo adapter","feature":"Bluetooth 5.3"}],
+      "WWAN": ["L860-GL-16", "WWAN_Upgradeable", "No_WWAN"],
+      "SIM_Card": [{"type":"No physical SIM card inbox"}],
+      "Battery": [{"type":"Internal battery","capacity":"90Wh","form":"Rechargeable Li-ion","tech":"Li-Ion","rapid_charge":"Up to 80% in 1hr"}],
+      "ACadapter": ["135W slim tip AC adapter", "170W slim tip AC adapter"],
+      "ports": [
+        "2 x USB 3.2 Gen 1 (one Always On)",
+        "2 x USB4 40Gbps (Power Delivery 3.0 and DisplayPort 1.4)",
+        "1 x HDMI 2.1 (up to 8K/60Hz)",
+        "1 x Headphone/microphone combo jack",
+        "1 x SD Express 7.0 card reader",
+        "1 x Kensington Nano Security Slot",
+        "1 x Nano-SIM card slot (optional)",
+        "1 x Smart card reader (optional)"
+      ],
+      "camera": ["5.0MP + IR with privacy shutter", "FHD 1080p with privacy shutter", "No camera"],
+      "audio": ["HD Audio, Realtek ALC3287 codec", "Stereo speakers, 2W x2, Dolby Audio", "Dual-microphone array, far-field, Dolby Voice"],
+      "keyboard": ["6-row, spill-resistant keyboard with numeric keypad and LED backlight", "3-button TrackPoint and Mylar multi-touch touchpad"],
+      "physical": {"dimensions":"365 x 262 x 24.66 mm","weight":"Starting at 2.2 kg","case_material":"PC-ABS top and bottom"},
+      "security": ["Discrete TPM 2.0 and Microsoft Pluton TPM 2.0", "Kensington Nano Security Slot", "Touch-style fingerprint reader", "Self-healing BIOS", "Optional IR camera for Windows Hello"],
+      "system": ["Windows 11 Pro", "Windows 11 Home", "Windows 11 Home Single Language", "Windows 10 Pro 64", "Ubuntu Linux LTS", "Red Hat Enterprise Linux 9.2", "No preload operating system"],
+      "PSREF_link": ["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_1_AMD/ThinkPad_P16v_Gen_1_AMD_Spec.pdf"],
+      "user_guide_link": [],
+      "HMM_link": [],
+      "add_on_tips": [""],
+      "secret_tips": [""]
+    }
+  ]
+}

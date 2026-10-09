@@ -1,0 +1,97 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x100e",
+      "model_name": "ThinkPad X100e",
+      "model_family": "X",
+      "model_generation": "xx00",
+      "update_date": "January 2010",
+      "processor_options": [
+        "MV-40"
+      ],
+      "graphics_options": [
+        "Radeon_HD2200"
+      ],
+      "Display": {
+        "max_resolution": {
+          "vga": "2048x1536@75Hz",
+          "hdmi": "Not available"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC2-5300 667MHz DDR2, non-parity",
+        "slots": "Not specified",
+        "features": "Not specified"
+      },
+      "display_options": [
+        "11.6\" HD (1366x768) anti-glare, LED backlight, 200 nits, 300:1"
+      ],
+      "storage": {
+        "hdd": "160GB-320GB SATA"
+      },
+      "WLAN": [
+        "11bgn"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless (Some models)",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "6-cell battery",
+          "capacity": "Not specified",
+          "form": "6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0 (one powered)",
+        "VGA DB-15",
+        "Ethernet (RJ-45)",
+        "4-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "282mm x 209mm x 16-30mm",
+        "weight": "6-cell: from 1.5kg (3.3 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant"
+      ],
+      "system": [
+        "Windows 7",
+        "Windows XP"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,110 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-tablet",
+      "model_name": "ThinkPad Tablet",
+      "model_family": "Tablet",
+      "model_generation": "Legacy",
+      "update_date": "August 2011",
+      "model_code": [
+        "1838",
+        "1839"
+      ],
+      "processor_options": [
+        "Tegra_2_T20"
+      ],
+      "graphics_options": [
+        "ULP_GeForce"
+      ],
+      "Display": {
+        "max_resolution": {
+          "hdmi": "1080p via mini-HDMI, HDCP"
+        },
+        "multi_display": "N/A"
+      },
+      "memory": {
+        "max_capacity": "1GB (soldered)",
+        "type": "600MHz LPDDR2, mobile DDR",
+        "slots": "Soldered to systemboard, no sockets",
+        "features": "N/A"
+      },
+      "display_options": [
+        "10.1\" WXGA (1280x800) Corning Gorilla Glass, LED backlight, 400 nits, 500:1, IPS, pen + 6-finger touch"
+      ],
+      "touch": [
+        "MultiTouch screen"
+      ],
+      "pen": [
+        "ThinkPad Tablet Pen 0A33887 (Some models)"
+      ],
+      "storage": {
+        "ssd_sata": "16GB / 32GB / 64GB eMMC"
+      },
+      "WLAN": [
+        "11bgn"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Azurewave AW-NH931 combo chip",
+          "feature": "Bluetooth 2.1+EDR (BT 3.0)"
+        }
+      ],
+      "WWAN": [
+        "Gobi3000"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot (3G models)"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "Internal battery",
+          "capacity": "Not specified",
+          "form": "Built-in",
+          "tech": "Li-Polymer"
+        }
+      ],
+      "ACadapter": [
+        "ThinkPad Tablet AC Charger 0A36248"
+      ],
+      "ports": [
+        "1 x USB 2.0",
+        "1 x micro-USB 2.0 (power)",
+        "1 x mini-HDMI",
+        "headphone/microphone combo jack",
+        "ThinkPad Tablet Dock connector"
+      ],
+      "camera": [
+        "Front 2.0MP fixed focus; Rear 5.0MP auto focus",
+        "720p video capture"
+      ],
+      "audio": [
+        "HD Audio, Wolfson WM8903 codec / monaural speaker 0.5W x 1"
+      ],
+      "physical": {
+        "dimensions": "260.4mm x 181.7mm x 14.5mm",
+        "weight": "WiFi: from 0.74kg; 3G: from 0.76kg",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Reset switch",
+        "User password"
+      ],
+      "system": [
+        "Android"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+

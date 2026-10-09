@@ -1,0 +1,102 @@
+{
+  "thinkpad_database": [
+    {
+      "id": "thinkpad-x301",
+      "model_name": "ThinkPad X301",
+      "model_family": "X",
+      "model_generation": "xx00",
+      "update_date": "August 2008",
+      "processor_options": [
+        "SU9400",
+        "SU9600"
+      ],
+      "graphics_options": [
+        "GMA4500MHD"
+      ],
+      "Display": {
+        "max_resolution": {
+          "dp": "2048x1536@75Hz (DisplayPort)"
+        },
+        "multi_display": "Dual independent displays"
+      },
+      "memory": {
+        "max_capacity": "4GB max",
+        "type": "PC3-8500 1066MHz DDR3, non-parity",
+        "slots": "Two 204-pin SO-DIMM sockets",
+        "features": "Dual-channel capable"
+      },
+      "display_options": [
+        "13.3\" WXGA+ (1440x900) anti-glare, LED backlight, 250 nits, 300:1"
+      ],
+      "storage": {
+        "ssd_sata": "64GB / 80GB / 128GB SSD",
+        "optical": "DVD burner, Ultrabay Slim, removable"
+      },
+      "WLAN": [
+        "5100",
+        "5300"
+      ],
+      "Bluetooth": [
+        {
+          "type": "Integrated",
+          "form": "Bluetooth 2.1 wireless",
+          "feature": "Bluetooth 2.1"
+        }
+      ],
+      "WWAN": [
+        "WWAN_Upgradeable"
+      ],
+      "SIM_Card": [
+        {
+          "type": "SIM card slot"
+        }
+      ],
+      "Battary": [
+        {
+          "type": "3-cell / 6-cell battery",
+          "capacity": "Not specified",
+          "form": "3/6-cell",
+          "tech": "Li-Ion"
+        }
+      ],
+      "ACadapter": [
+        "65-watt AC adapter"
+      ],
+      "ports": [
+        "3 x USB 2.0",
+        "VGA DB-15",
+        "DisplayPort",
+        "Ethernet (RJ-45)",
+        "ExpressCard/34 slot",
+        "7-in-1 reader"
+      ],
+      "physical": {
+        "dimensions": "318mm x 231mm x 22-29mm (approx.)",
+        "weight": "3-cell: from 1.42kg (3.13 lb); 6-cell: from 1.68kg (3.7 lb)",
+        "case_material": "Not specified"
+      },
+      "security": [
+        "Power-on password",
+        "Hard disk password",
+        "Supervisor password",
+        "Security keyhole",
+        "Trusted Platform Module, TCG 1.2-compliant",
+        "Fingerprint reader (swipe sensor)"
+      ],
+      "system": [
+        "Windows Vista",
+        "Windows 7"
+      ],
+      "PSREF_link": [
+        "http://www.lenovo.com/psref/psrefs_withdrawn.html"
+      ],
+      "add_on_tips": [
+        "点击输入文字"
+      ],
+      "secret_tips": [
+        "点击输入文字"
+      ]
+    }
+  ]
+}
+
