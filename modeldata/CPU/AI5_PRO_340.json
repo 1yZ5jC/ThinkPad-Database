@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen AI 5 PRO 340","cores_threads":"6C/12T","base_freq":"2.0 GHz","turbo_freq":"4.8 GHz","cache":"6MB L2 / 16MB L3","graphics":"AMD Radeon 840M"}
+{
+    "model":"AMD Ryzen AI 5 PRO 340",
+    "cores_threads":"6C/12T",
+    "base_freq":"2.0 GHz",
+    "turbo_freq":"4.8 GHz",
+    "cache":"6MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 840M"
+}

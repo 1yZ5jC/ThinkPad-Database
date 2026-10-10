@@ -1,1 +1,5 @@
-{"model":"Qualcomm Wi-Fi 7 NCM825","standard":"802.11be 2x2","bluetooth":"Bluetooth 5.3, Bluetooth 5.4 hardware ready"}
+{
+    "model":"Qualcomm Wi-Fi 7 NCM825",
+    "standard":"802.11be 2x2",
+    "bluetooth":"Bluetooth 5.3, Bluetooth 5.4 hardware ready"
+}

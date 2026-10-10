@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen 5 PRO 230","cores_threads":"6C/12T","base_freq":"3.5 GHz","turbo_freq":"4.9 GHz","cache":"6MB L2 / 16MB L3","graphics":"AMD Radeon 760M"}
+{
+    "model":"AMD Ryzen 5 PRO 230",
+    "cores_threads":"6C/12T",
+    "base_freq":"3.5 GHz",
+    "turbo_freq":"4.9 GHz",
+    "cache":"6MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 760M"
+}

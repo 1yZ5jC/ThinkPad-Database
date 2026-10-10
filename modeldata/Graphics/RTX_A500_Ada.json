@@ -1,1 +1,10 @@
-{"model":"NVIDIA RTX A500 Laptop GPU","Shading Units":"2048 CUDA cores","base_freq":"-","turbo_freq":"-","VRAM":"4GB GDDR6","Generation":"Ada Lovelace","Feature":"DirectX 12 Ultimate, Vulkan, CUDA, NVIDIA RTX professional features","iconfamily":"rtx"}
+{
+    "model":"NVIDIA RTX A500 Laptop GPU",
+    "Shading Units":"2048 CUDA cores",
+    "base_freq":"-",
+    "turbo_freq":"-",
+    "VRAM":"4GB GDDR6",
+    "Generation":"Ada Lovelace",
+    "Feature":"DirectX 12 Ultimate, Vulkan, CUDA, NVIDIA RTX professional features",
+    "iconfamily":"rtx"
+}

@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen 7 PRO 8840U","cores_threads":"8C/16T","base_freq":"3.3 GHz","turbo_freq":"5.1 GHz","cache":"8MB L2 / 16MB L3","graphics":"AMD Radeon 780M"}
+{
+    "model":"AMD Ryzen 7 PRO 8840U",
+    "cores_threads":"8C/16T",
+    "base_freq":"3.3 GHz",
+    "turbo_freq":"5.1 GHz",
+    "cache":"8MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 780M"
+}

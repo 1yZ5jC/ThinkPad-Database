@@ -1,1 +1,6 @@
-{"model":"AMD Radeon 740M","VRAM":"Shared","Generation":"RDNA 3","Feature":"DirectX 12"}
+{
+    "model":"AMD Radeon 740M",
+    "VRAM":"Shared",
+    "Generation":"RDNA 3",
+    "Feature":"DirectX 12"
+}

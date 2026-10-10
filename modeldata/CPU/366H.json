@@ -1,5 +1,5 @@
         {
-          "model": "Intel Ultra 7 366H",
+          "model": "Intel Core Ultra 7 366H",
           "cores_threads": "4P+8E+4LPE / 16",
           "base_freq": "2.0 GHz / 1.6 GHz  / 1.6 GHz (P/E/LPE)",
           "turbo_freq": "4.8 GHz / 3.6 GHz / 3.6 GHz (P/E/LPE)",
