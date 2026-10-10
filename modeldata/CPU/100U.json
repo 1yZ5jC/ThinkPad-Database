@@ -1,1 +1,8 @@
-{"model":"Intel Core 3 100U","cores_threads":"2P+4E/8T","base_freq":"1.2/0.9 GHz","turbo_freq":"4.7/3.3 GHz","cache":"10MB","graphics":"Intel Graphics"}
+{
+    "model":"Intel Core 3 100U",
+    "cores_threads":"2P+4E/8T",
+    "base_freq":"1.2/0.9 GHz",
+    "turbo_freq":"4.7/3.3 GHz",
+    "cache":"10MB",
+    "graphics":"Intel Graphics"
+}

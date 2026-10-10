@@ -1,1 +1,10 @@
-{"model":"Ryzen 5 PRO 8640HS","cores_threads":"6 / 12","base_freq":"3.5 GHz","turbo_freq":"4.9 GHz","cache":"6MB L2 / 16MB L3","graphics":"AMD Radeon 760M","iconfamily":"r5-7000","ark":"https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-pro-8640hs.html"}
+{
+    "model":"Ryzen 5 PRO 8640HS",
+    "cores_threads":"6 / 12",
+    "base_freq":"3.5 GHz",
+    "turbo_freq":"4.9 GHz",
+    "cache":"6MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 760M",
+    "iconfamily":"r5-7000",
+    "ark":"https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-pro-8640hs.html"
+}

@@ -1,1 +1,10 @@
-{"model":"NVIDIA RTX A1000 Laptop GPU","Shading Units":"2560 CUDA cores","base_freq":"-","turbo_freq":"-","VRAM":"6GB GDDR6","Generation":"Ada Lovelace","Feature":"DirectX 12 Ultimate, Vulkan, CUDA, NVIDIA RTX professional features","iconfamily":"rtx"}
+{
+    "model":"NVIDIA RTX A1000 Laptop GPU",
+    "Shading Units":"2560 CUDA cores",
+    "base_freq":"-",
+    "turbo_freq":"-",
+    "VRAM":"6GB GDDR6",
+    "Generation":"Ada Lovelace",
+    "Feature":"DirectX 12 Ultimate, Vulkan, CUDA, NVIDIA RTX professional features",
+    "iconfamily":"rtx"
+}

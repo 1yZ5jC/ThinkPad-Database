@@ -1,1 +1,5 @@
-{"type":"Snapdragon X61 5G Modem-RF System","form":"M.2 card with embedded eSIM","feature":"Sub-6 GHz 5G"}
+        {
+          "type": "Foxconn T99W696",
+          "form": "M.2 card",
+          "feature":"Qualcomm X61 5G NR/LTE/WCDMA/GNSS, Sub-6 GHz"
+        }

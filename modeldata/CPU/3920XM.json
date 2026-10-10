@@ -1,1 +1,8 @@
-{"model":"Intel Core i7-3920XM Extreme Edition","cores_threads":"4 / 8","base_freq":"2.90 GHz","turbo_freq":"3.80 GHz","cache":"8MB","graphics":"Intel HD Graphics 4000"}
+{
+    "model":"Intel Core i7-3920XM Extreme Edition",
+    "cores_threads":"4 / 8",
+    "base_freq":"2.90 GHz",
+    "turbo_freq":"3.80 GHz",
+    "cache":"8MB",
+    "graphics":"Intel HD Graphics 4000"
+}

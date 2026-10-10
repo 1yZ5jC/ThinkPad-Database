@@ -1,1 +1,9 @@
-{"model":"Intel Core i3-2348M","cores_threads":"2 / 4","base_freq":"2.30 GHz","turbo_freq":"-","cache":"3MB","graphics":"Intel HD Graphics 3000"}
+{
+    "model":"Intel Core i3-2348M",
+    "cores_threads":"2 / 4",
+    "base_freq":"2.30 GHz",
+    "turbo_freq":"-",
+    "cache":"3MB",
+    "iconfamily": "i3-2~3",
+    "graphics":"Intel HD Graphics 3000"
+}

@@ -1,1 +1,8 @@
-{"model":"Intel Core 7 250U","cores_threads":"2P+8E/12T","base_freq":"1.4/0.9 GHz","turbo_freq":"5.2/4.2 GHz","cache":"12MB","graphics":"Intel Graphics"}
+{
+    "model":"Intel Core 7 250U",
+    "cores_threads":"2P+8E/12T",
+    "base_freq":"1.4/0.9 GHz",
+    "turbo_freq":"5.2/4.2 GHz",
+    "cache":"12MB",
+    "graphics":"Intel Graphics"
+}

@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen 5 216","cores_threads":"6C/12T","base_freq":"2.9 GHz","turbo_freq":"4.7 GHz","cache":"6MB L2 / 16MB L3","graphics":"AMD Radeon 740M"}
+{
+    "model":"AMD Ryzen 5 216",
+    "cores_threads":"6C/12T",
+    "base_freq":"2.9 GHz",
+    "turbo_freq":"4.7 GHz",
+    "cache":"6MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 740M"
+}

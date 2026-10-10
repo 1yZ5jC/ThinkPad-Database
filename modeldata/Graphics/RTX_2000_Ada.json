@@ -1,1 +1,9 @@
-{"model":"NVIDIA RTX 2000 Ada Generation Laptop GPU","Shading Units":"3072 CUDA cores","base_freq":"-","turbo_freq":"-","VRAM":"8GB GDDR6","Generation":"Ada Lovelace","Feature":"DirectX 12 Ultimate, Vulkan, CUDA, NVIDIA RTX professional features","iconfamily":"rtx"}
+{
+    "model": "NVIDIA RTX PRO 2000 Blackwell Mobile",
+    "shading Units": "3328",
+    "base_freq": "952 Mhz",
+    "turbo freq": "1657Mhz", 
+    "VRAM":"8GB GDDR7 128 bits", 
+    "Generation": "Blackwell", 
+    "Feature":"DX 12.2, OpenGL 4.6, OpenCL 3.0, Vulkan 1.4, CUDA 12.0"
+}

@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen AI 7 445","cores_threads":"6C/12T","base_freq":"2.0 GHz","turbo_freq":"4.6 GHz","cache":"6MB L2 / 8MB L3","graphics":"AMD Radeon 840M"}
+{
+    "model":"AMD Ryzen AI 7 445",
+    "cores_threads":"6C/12T",
+    "base_freq":"2.0 GHz",
+    "turbo_freq":"4.6 GHz",
+    "cache":"6MB L2 / 8MB L3",
+    "graphics":"AMD Radeon 840M"
+}

@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen AI 7 450","cores_threads":"8C/16T","base_freq":"2.0 GHz","turbo_freq":"5.1 GHz","cache":"8MB L2 / 16MB L3","graphics":"AMD Radeon 860M"}
+{
+    "model":"AMD Ryzen AI 7 450",
+    "cores_threads":"8C/16T",
+    "base_freq":"2.0 GHz",
+    "turbo_freq":"5.1 GHz",
+    "cache":"8MB L2 / 16MB L3",
+    "graphics":"AMD Radeon 860M"
+}

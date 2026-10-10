@@ -1,1 +1,6 @@
-{"model":"AMD Radeon 840M","VRAM":"Shared","Generation":"RDNA 3.5","Feature":"DirectX 12"}
+{
+    "model":"AMD Radeon 840M",
+    "VRAM":"Shared",
+    "Generation":"RDNA 3.5",
+    "Feature":"DirectX 12"
+}

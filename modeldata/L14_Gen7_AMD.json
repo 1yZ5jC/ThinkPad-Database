@@ -1,1 +1,80 @@
-{"thinkpad_database":[{"id":"thinkpad-l14-gen-7-amd","model_name":"ThinkPad L14 Gen 7 (AMD)","model_family":"L","model_generation":"Gen 7","update_date":"May 2026","model_code":["21X6","21X7"],"processor_options":["215","230","250","AI5_PRO_440","AI7_PRO_450"],"graphics_options":["Radeon_740M","Radeon_760M","Radeon_780M","Radeon_840M","Radeon_860M"],"Display":{"max_resolution":{"hdmi":"4K@60Hz","thunderbolt":"8K@30Hz"},"multi_display":"Supports up to 4 independent displays"},"memory":{"max_capacity":"64GB DDR5-5600 or 96GB DDR5-5600","type":"DDR5-5600","slots":"Two DDR5 SO-DIMM slots","features":"Dual-channel capable"},"display_options":["14\" WUXGA (1920x1200) IPS 400nits non-touch, 45% NTSC, 60Hz","14\" WUXGA (1920x1200) IPS 400nits multi-touch, 45% NTSC, 60Hz","14\" WUXGA (1920x1200) IPS 500nits non-touch, 100% sRGB, 60Hz"],"touch":["On-cell multi-touch","Non-touch"],"pen":["No support"],"storage":{"ssd_pcie":"One M.2 2280 PCIe NVMe SSD, PCIe 4.0 x4, up to 2TB","hdd":"Not supported","optane":"Not supported"},"Ethernet":["RTL8111EPV"],"WLAN":["MT7925"],"Bluetooth":[{"type":"Integrated","form":"M.2 Wi-Fi + Bluetooth combo adapter","feature":"Bluetooth 5.4"}],"WWAN":["WWAN_Upgradeable_5G","X61_5G","No_WWAN"],"SIM_Card":[{"type":"KDDI eSIM program or no physical SIM card; nano-SIM on WWAN models"}],"Battery":[{"type":"Internal battery","capacity":"57Wh","form":"Rechargeable Li-ion","tech":"Li-Ion","rapid_charge":"Up to 80% in 1hr"}],"ACadapter":["65W USB-C","No power adapter"],"ports":["1 x USB-A (USB 5Gbps), Always On","1 x USB-A (USB 5Gbps)","2 x Thunderbolt 4 with PD and DisplayPort 2.1","1 x HDMI 2.1","1 x Headphone/microphone combo jack","1 x Ethernet (RJ-45)","Nano-SIM slot (optional)","Smart card reader (optional)"],"camera":["5MP + IR with privacy shutter","HD 720p with privacy shutter"],"audio":["HD Audio, Realtek ALC3287 codec, stereo speakers 2W x2, Dolby Atmos, dual microphone array"],"keyboard":["6-row spill-resistant keyboard, Copilot key, optional LED backlight","TrackPoint and Mylar multi-touch trackpad"],"physical":{"dimensions":"313.7 x 226 x 11.32/17.01 mm, 21.7 mm maximum","weight":"Starting at 1.389 kg","case_material":"Aluminium top, PC-ABS bottom or PC-ABS top/bottom"},"security":["Discrete TPM 2.0","Kensington Nano Security Slot","Optional fingerprint reader","Optional IR camera","NVMe, power-on and supervisor passwords"],"system":["Windows 11 Pro","Windows 11 Home","Ubuntu Linux","Fedora Linux","No preload operating system"],"PSREF_link":["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_7_AMD/ThinkPad_L14_Gen_7_AMD_Spec.pdf"],"add_on_tips":[""],"secret_tips":[""]}]}
+{
+    "thinkpad_database":[
+        {
+            "id":"thinkpad-l14-gen-7-amd",
+            "model_name":"ThinkPad L14 Gen 7 (AMD)",
+            "model_family":"L",
+            "model_generation":"Gen 7",
+            "update_date":"May 2026",
+            "model_code":["21X6","21X7"],
+            "processor_options":["215","230","250","AI5_PRO_440","AI7_PRO_450"],
+            "graphics_options":["Radeon_740M","Radeon_760M","Radeon_780M","Radeon_840M","Radeon_860M"],
+            "Display":{
+                "max_resolution":
+                {
+                    "hdmi":"4K@60Hz",
+                    "thunderbolt":"8K@30Hz"
+                },
+                "multi_display":"Supports up to 4 independent displays"
+            },
+            "memory":{
+                "max_capacity":"64GB DDR5-5600 or 96GB DDR5-5600",
+                "type":"DDR5-5600",
+                "slots":"Two DDR5 SO-DIMM slots",
+                "features":"Dual-channel capable"
+            },
+            "display_options":["14\" WUXGA (1920x1200) IPS 400nits non-touch, 45% NTSC, 60Hz","14\" WUXGA (1920x1200) IPS 400nits multi-touch, 45% NTSC, 60Hz","14\" WUXGA (1920x1200) IPS 500nits non-touch, 100% sRGB, 60Hz"],
+            "touch":["On-cell multi-touch","Non-touch"],
+            "pen":["No support"],
+            "storage":{
+                "ssd_pcie":"One M.2 2280 PCIe NVMe SSD, PCIe 4.0 x4, up to 2TB",
+                "hdd":"Not supported",
+                "optane":"Not supported"
+            },
+            "Ethernet":["RTL8111EPV"],
+            "WLAN":["MT7925"],
+            "Bluetooth":[
+                {
+                    "type":"Integrated",
+                    "form":"M.2 Wi-Fi + Bluetooth combo adapter",
+                    "feature":"Bluetooth 5.4"
+                }
+            ],
+            "WWAN":["WWAN_Upgradeable_5G","X61_5G","No_WWAN"],
+            "SIM_Card":[{"type":"KDDI eSIM program or no physical SIM card; nano-SIM on WWAN models"}],
+            "Battery":[
+                {
+                    "type":"Internal battery",
+                    "capacity":"57Wh",
+                    "form":"Rechargeable Li-ion",
+                    "tech":"Li-Ion",
+                    "rapid_charge":"Up to 80% in 1hr"
+                }
+            ],
+            "ACadapter":["65W USB-C","No power adapter"],
+            "ports":[
+                "1 x USB-A (USB 5Gbps), Always On",
+                "1 x USB-A (USB 5Gbps)",
+                "2 x Thunderbolt 4 with PD and DisplayPort 2.1",
+                "1 x HDMI 2.1",
+                "1 x Headphone/microphone combo jack",
+                "1 x Ethernet (RJ-45)",
+                "Nano-SIM slot (optional)",
+                "Smart card reader (optional)"
+            ],
+            "camera":["5MP + IR with privacy shutter","HD 720p with privacy shutter"],
+            "audio":["HD Audio, Realtek ALC3287 codec, stereo speakers 2W x2, Dolby Atmos, dual microphone array"],
+            "keyboard":["6-row spill-resistant keyboard, Copilot key, optional LED backlight","TrackPoint and Mylar multi-touch trackpad"],
+            "physical":{
+                "dimensions":"313.7 x 226 x 11.32/17.01 mm, 21.7 mm maximum",
+                "weight":"Starting at 1.389 kg",
+                "case_material":"Aluminium top, PC-ABS bottom or PC-ABS top/bottom"
+            },
+            "security":["Discrete TPM 2.0","Kensington Nano Security Slot","Optional fingerprint reader","Optional IR camera","NVMe, power-on and supervisor passwords"],
+            "system":["Windows 11 Pro","Windows 11 Home","Ubuntu Linux","Fedora Linux","No preload operating system"],
+            "PSREF_link":["https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_7_AMD/ThinkPad_L14_Gen_7_AMD_Spec.pdf"],
+            "add_on_tips":[""],
+            "secret_tips":[""]
+        }
+    ]
+}

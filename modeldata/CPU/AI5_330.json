@@ -1,1 +1,8 @@
-{"model":"AMD Ryzen AI 5 330","cores_threads":"4C/8T","base_freq":"2.0 GHz","turbo_freq":"4.5 GHz","cache":"4MB L2 / 8MB L3","graphics":"AMD Radeon 820M"}
+{
+    "model":"AMD Ryzen AI 5 330",
+    "cores_threads":"4C/8T",
+    "base_freq":"2.0 GHz",
+    "turbo_freq":"4.5 GHz",
+    "cache":"4MB L2 / 8MB L3",
+    "graphics":"AMD Radeon 820M"
+}
